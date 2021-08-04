@@ -45,6 +45,10 @@ $fields = Wo_GetWelcomeFileds();
 					<label for="email"><?php echo $wo['lang']['email_address']?></label>
 					<input id="email" name="email" type="email" />
 				</div>
+				<div class="wow_form_fields">
+						<label for="phone_num_ex"><?php echo $wo['lang']['phone_num_ex']?></label>
+						<input id="phone_num_ex" name="phone_num" type="text" />
+					</div>
 				<?php if($wo['config']['sms_or_email'] == 'sms') {?>
 					<div class="wow_form_fields">
 						<label for="phone_num_ex"><?php echo $wo['lang']['phone_num_ex']?></label>
