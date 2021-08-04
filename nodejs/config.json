@@ -1,0 +1,8 @@
+{
+    "sql_db_host": "localhost",
+    "sql_db_user": "root",
+    "sql_db_pass": "",
+    "sql_db_name": "wonder",
+    "site_url": "http://localhost:8080/wonder",
+    "purchase_code": "3b5241aa-3029-4be9-89e9-357372e5f21f"
+}
