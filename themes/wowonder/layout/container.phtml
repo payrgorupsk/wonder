@@ -718,7 +718,7 @@
     
    </head>
    
-   <body style="background-color:#808080 !important;" <?php if ($wo['config']['chatSystem'] == 0) { ?> chat-off="true" <?php } ?>>
+   <body <?php if ($wo['config']['chatSystem'] == 0) { ?> chat-off="true" <?php } ?>>
       <input type="hidden" id="get_no_posts_name" value="<?php echo($wo['lang']['no_more_posts']); ?>">
     <?php $loadPage = Wo_LoadPage('thirdparty/theme-changer'); echo (!empty($loadPage)) ? $loadPage : '';?>
     <div id="focus-overlay"></div>
