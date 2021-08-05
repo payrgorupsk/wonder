@@ -3,13 +3,27 @@
 		background-color: #bbb;
 		opacity: 0.4;
 	}
+	.login{
+		background-color: #678fdb;
+		color: white;
+		
+	}
+	.login .title{		
+		color: white;		
+	}
+	input{
+		background-color: white !important;
+	}
+	select{
+		background-color: white !important;
+	}
 </style>
 <?php echo Wo_LoadPage('welcome/welcome-header-register');?>
 <div class="wrapper">
 	<div class="typing-element"></div>
 	<div class="login fadeInUp animated animated_5">
 		<div class="col-md-6 div-login" style="margin-left: 0; height:100%;">
-			<form id="login" class="fadeInUp animated animated_9" method="post" style="margin-top:50%;">
+			<form id="login" class="fadeInUp animated animated_9" method="post">
 				<p class="title"><?php echo $wo['lang']['login']?></p>
 				<div class="errors"></div>
 				<div class="wow_form_fields">
@@ -21,7 +35,7 @@
 					<input id="password" name="password" type="password" autocomplete="off">
 				</div>
 				<div class="forgot_password">
-					<a href="<?php echo Wo_SeoLink('index.php?link1=forgot-password');?>"><?php echo $wo['lang']['forget_password']?></a>
+					<a style="color: #deb7b7 !important;" href="<?php echo Wo_SeoLink('index.php?link1=forgot-password');?>"><?php echo $wo['lang']['forget_password']?></a>
 				</div>
 				<div class="login_signup_combo">
 					<div class="login__">
@@ -118,7 +132,7 @@
 				<div class="terms">
 					<input type="checkbox" name="accept_terms" id="accept_terms" onchange="activateButton(this)">
 					<label for="accept_terms"> 
-						<?php echo $wo['lang']['terms_agreement'] ?> <a href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'] ?></a> & <a href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'] ?></a>
+						<?php echo $wo['lang']['terms_agreement'] ?> <a style="color: #deb7b7;" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'] ?></a> & <a style="color: #deb7b7;" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'] ?></a>
 					</label>
 					<div class="clear"></div>
 				</div>
@@ -371,7 +385,8 @@ function activateButton(element) {
 
 <script>
 	$('.div-register').mouseover(function(){
-	  $(".div-register").css("background-color", "#fff");
+	  $(".div-register").css("background-color", "#678fdb");
+	  $(".div-register").css("color", "white");
 	  $(".div-register").css("opacity", "1");
 	  $(".div-register").css("transition", "1s");
 	  $(".login").css("background-color", "#bbb");
@@ -381,7 +396,8 @@ function activateButton(element) {
 	});
 
 	$('.div-login').mouseover(function(){
-	  $(".login").css("background-color", "#fff");
+	  $(".login").css("background-color", "#678fdb");
+	  $(".login").css("color", "white");
 	  $(".div-login").css("opacity", "1");
 	  $(".login").css("transition", "1s");
 	  $(".div-login").css("transition", "1s");
