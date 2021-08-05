@@ -65,6 +65,9 @@ if ($f == 'register') {
                 }
             }
         }
+        if (Wo_PhoneExists($_POST['phone_num']) === true) {
+            $errors = $error_icon . $wo['lang']['phone_already_used'];
+        }
         if (Wo_EmailExists($_POST['email']) === true) {
             $errors = $error_icon . $wo['lang']['email_exists'];
         }
