@@ -25,7 +25,7 @@ if ($f == 'register') {
         }
     }
     $fields = Wo_GetWelcomeFileds();
-    if (empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['confirm_password']) || empty($_POST['gender'])) {
+    if (empty($_POST['email']) || empty($_POST['phone_num'])|| empty($_POST['username']) || empty($_POST['password']) || empty($_POST['confirm_password']) || empty($_POST['gender'])) {
         $errors = $error_icon . $wo['lang']['please_check_details'];
     } else {
         $is_exist = Wo_IsNameExist($_POST['username'], 0);
@@ -64,6 +64,9 @@ if ($f == 'register') {
                     $errors = $error_icon . $wo['lang']['phone_already_used'];
                 }
             }
+        }
+        if (Wo_PhoneExists($_POST['phone_num']) === true) {
+            $errors = $error_icon . $wo['lang']['phone_already_used'];
         }
         if (Wo_EmailExists($_POST['email']) === true) {
             $errors = $error_icon . $wo['lang']['email_exists'];
