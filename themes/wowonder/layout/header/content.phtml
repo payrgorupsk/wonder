@@ -1,18 +1,144 @@
-<div class="navbar navbar-default navbar-fixed-top">
-	<nav class="header-fixed1000">
-		<div class="container-fluid">
-			<div class="wow_hdr_innr_left">
-				<a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
-					<img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
-				</a>
-				<?php if ($wo['loggedin'] == true) { ?>
-					<ul class="nav navbar-nav">
-						<li>
-							<a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zm-6-2h5V9.157l-6-5.454-6 5.454V19h5v-6h2v6z" fill="currentColor"/></svg>
-							</a>
-						</li>
-						<?php if ($wo['config']['user_ads'] == 1 || Wo_CanBlog() == true || $wo['config']['events'] == 1 || $wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) {  ?>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+}
+
+.main_menu{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.main_menu:hover {
+  color: #199ce8;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  color:  black;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+@media screen and (min-width: 991px) {
+  .burger_menu{display: none;}
+}
+
+
+@media screen and (max-width: 990px) {
+  .burger_menu{display: block;}
+}
+</style>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+</script>
+
+<div id="mySidenav" class="sidenav">
+  <a class="main_menu pull-right" style="font-size:30px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <br><br>
+
+  <a class="main_menu" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#047cac" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg> <?php echo $wo['lang']['news_feed'];?>
+  </a>
+  <?php if ($wo['page'] == 'home') { ?>
+    <?php if ($wo['config']['order_posts_by'] == 0) { ?>
+        <!-- <div class="dropdown order_by">
+          <svg class="dropdown-toggle" data-toggle="dropdown" role="button" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7,10L12,15L17,10H7Z" opacity="0.7"/></svg>
+          <ul class="dropdown-menu dropdown-menu-right" role="button">
+            <li class="order_all <?php echo ($wo['user']['order_posts_by'] == 0) ? 'active' : ''; ?>"><a href="javascript:void(0);" onclick="Wo_StorePosts(0);"><?php echo $wo['lang']['all'] ?></a></li>
+            <li class="order_people <?php echo ($wo['user']['order_posts_by'] == 1) ? 'active' : ''; ?>"><a href="javascript:void(0);" onclick="Wo_StorePosts(1);"><?php echo $wo['lang']['people_i_follow'] ?></a></li>
+          </ul>
+        </div> -->
+      <?php } ?>
+    <?php } ?>
+
+    <a class="main_menu" href="<?php echo $wo['user']['url']; ?>" data-ajax="?link1=timeline&u=<?php echo $wo['user']['username'];?>">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#047cac" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg> <?php echo $wo['lang']['my_profile'];?>
+    </a>
+
+    <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=saved-posts');?>" data-ajax="?link1=saved-posts">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#673ab7" d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"></svg> Chat
+      </a>
+      <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></svg> People You May Know
+        </a>
+        <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f35d4d" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></svg> <?php echo $wo['lang']['blog'] ?>
+        </a>
+        <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8bc34a" d="M22,16V4A2,2 0 0,0 20,2H8A2,2 0 0,0 6,4V16A2,2 0 0,0 8,18H20A2,2 0 0,0 22,16M11,12L13.03,14.71L16,11L20,16H8M2,6V20A2,2 0 0,0 4,22H18V20H4V6" /></svg> <?php echo $wo['lang']['albums'];?>
+        </a>
+        <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M18,9H16V7H18M18,13H16V11H18M18,17H16V15H18M8,9H6V7H8M8,13H6V11H8M8,17H6V15H8M18,3V5H16V3H8V5H6V3H4V21H6V19H8V21H16V19H18V21H20V3H18Z"></svg> Videos
+          </a>
+
+          <hr>
+
+<div style="padding: 10px;">
+          <a style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
+          <a style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
+          <a style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
+          <a style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
+
+</div>
+          <p>
+            <b><?php 
+            $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+            echo $copy = str_replace('{date}', date('Y'), $copy);
+          ?></b>
+
+          All Rights Reserved
+        </p>
+
+      </div>
+
+      <div class="navbar navbar-default navbar-fixed-top">
+       <nav class="header-fixed1000">
+        <div class="container-fluid">
+         <div class="wow_hdr_innr_left">
+          <span class="burger_menu" style="font-size:30px;cursor:pointer; color: white" onclick="openNav()">&#9776; </span> &emsp;
+          <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+           <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
+         </a>
+         <?php if ($wo['loggedin'] == true) { ?>
+           <ul class="nav navbar-nav">
+            <li>
+             <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zm-6-2h5V9.157l-6-5.454-6 5.454V19h5v-6h2v6z" fill="currentColor"/></svg>
+            </a>
+          </li>
+<!-- 						<?php if ($wo['config']['user_ads'] == 1 || Wo_CanBlog() == true || $wo['config']['events'] == 1 || $wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) {  ?>
 							<li class="dropdown head_name_links">
 								<a href="#" class="dropdown-toggle sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" fill="currentColor"/></svg>
@@ -46,15 +172,15 @@
 									<?php } ?>
 								</ul>
 							</li>
-						<?php } ?>
-					</ul>
-				<?php } ?>
-			</div>
+              <?php } ?> -->
+            </ul>
+          <?php } ?>
+        </div>
         <ul class="nav navbar-nav">
           <li class="dropdown search-container">
             <form class="navbar-form navbar-left col-lg-12 form-group" data-toggle="dropdown" role="button" id="navbar-searchbox" role="search">
               <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
               </div>
             </form>
@@ -75,12 +201,12 @@
                 <span class="search-advanced-container">
                   <a href="<?php echo Wo_SeoLink('index.php?link1=search');?>" class="search-advanced-link" data-ajax="?link1=search">
                     <div class="feather-svg-parent">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-					</div>
-					<span style="vertical-align: middle;display: table-cell;padding-left: 10px;">
-						<?php echo $wo['lang']['advanced_search']; ?> 
-						<span id="wo_repeat_search"></span>
-					</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <span style="vertical-align: middle;display: table-cell;padding-left: 10px;">
+                      <?php echo $wo['lang']['advanced_search']; ?> 
+                      <span id="wo_repeat_search"></span>
+                    </span>
                   </a>
                 </span>
               </li>
@@ -89,9 +215,9 @@
         </ul>
         <?php
         if ($wo['loggedin'] == true) {
-        echo Wo_LoadPage('header/loggedin-header');
+          echo Wo_LoadPage('header/loggedin-header');
         } else {
-        echo Wo_LoadPage('header/main-header');
+          echo Wo_LoadPage('header/main-header');
         }
         ?>
       </div>
@@ -101,53 +227,53 @@
 <div class="barloading"></div>
 <script type="text/javascript">
 
-jQuery(document).ready(function($) {
-  $(".search-input").keydown(function(event) {
-    if (event.keyCode == 13 && event.shiftKey == 0) {
-      event.preventDefault();
-      window.location = '<?php echo Wo_SeoLink('index.php?link1=search?query=');?>' + $(this).val();
-    }
+  jQuery(document).ready(function($) {
+    $(".search-input").keydown(function(event) {
+      if (event.keyCode == 13 && event.shiftKey == 0) {
+        event.preventDefault();
+        window.location = '<?php echo Wo_SeoLink('index.php?link1=search?query=');?>' + $(this).val();
+      }
+    });
   });
-});
-var Searchcontainer = $('.search-container');
-var SearchBox = $('.search-container .search-input');
-var SearchResult = $('.search-dropdown-result');
+  var Searchcontainer = $('.search-container');
+  var SearchBox = $('.search-container .search-input');
+  var SearchResult = $('.search-dropdown-result');
 
-function Wo_ChangeHomeButtonIcon() {
+  function Wo_ChangeHomeButtonIcon() {
 
-  $('.navbar-home #home-button').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
-}
-  
-function Wo_DetectSearchType(query) {
-  var Hash = smokeTheHash(query);
-  if (Hash) {
-    $('.search-advanced-container').hide(200);
-    Wo_SearchhashResult(query);
-  } else {
-    $('.search-advanced-container').fadeIn(200);
-    Wo_SearchResult(query);
+    $('.navbar-home #home-button').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
   }
-}
+  
+  function Wo_DetectSearchType(query) {
+    var Hash = smokeTheHash(query);
+    if (Hash) {
+      $('.search-advanced-container').hide(200);
+      Wo_SearchhashResult(query);
+    } else {
+      $('.search-advanced-container').fadeIn(200);
+      Wo_SearchResult(query);
+    }
+  }
 
-function Wo_ClearSearches() {
-  $('.clear-searches').html('<i class="fa fa-spinner fa-spin"></i>');
-   $.get(Wo_Ajax_Requests_File(), {f: 'clearChat'}, function(data) {
-        if (data.status == 200) {
-           location.reload();
-        }
-   });
-}
-
-function Wo_GetRecentSearchs() {
-  $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'recent'}, function(data) {
+  function Wo_ClearSearches() {
+    $('.clear-searches').html('<i class="fa fa-spinner fa-spin"></i>');
+    $.get(Wo_Ajax_Requests_File(), {f: 'clearChat'}, function(data) {
       if (data.status == 200) {
-          if (data.html.length > 0) {
-            SearchResult.html('<div class="recent"><div class="gray recent-searches <?php echo Wo_RightToLeft("pull-left");?>"> <?php echo $wo["lang"]["recent_searches"]?></div><div onclick="Wo_ClearSearches();" class="gray recent-searches clear-searches pointer <?php echo Wo_RightToLeft("pull-right");?>" style="color: #F44336;"><svg style="vertical-align: middle;margin-top: -3px;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><?php echo $wo["lang"]["clear"]?></div><div class="clear"></div></div>' + data.html);
-          }
+       location.reload();
+     }
+   });
+  }
+
+  function Wo_GetRecentSearchs() {
+    $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'recent'}, function(data) {
+      if (data.status == 200) {
+        if (data.html.length > 0) {
+          SearchResult.html('<div class="recent"><div class="gray recent-searches <?php echo Wo_RightToLeft("pull-left");?>"> <?php echo $wo["lang"]["recent_searches"]?></div><div onclick="Wo_ClearSearches();" class="gray recent-searches clear-searches pointer <?php echo Wo_RightToLeft("pull-right");?>" style="color: #F44336;"><svg style="vertical-align: middle;margin-top: -3px;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><?php echo $wo["lang"]["clear"]?></div><div class="clear"></div></div>' + data.html);
         }
-  });
-}
-function Wo_SearchResult(query) {
+      }
+    });
+  }
+  function Wo_SearchResult(query) {
     if (SearchBox.val() != '') {
       Wo_progressIconLoader(Searchcontainer.find('.navbar-form'));
       Searchcontainer.addClass('open');
@@ -169,10 +295,10 @@ function Wo_SearchResult(query) {
     } else {
       Searchcontainer.removeClass('open');
     }
-}
+  }
 
 
-function Wo_SearchhashResult(query) {
+  function Wo_SearchhashResult(query) {
     var Searchcontainer = $('.search-container');
     var SearchBox = $('.search-container .search-input');
     var SearchResult = $('.search-dropdown-result');
@@ -198,14 +324,14 @@ function Wo_SearchhashResult(query) {
     } else {
       Searchcontainer.removeClass('open');
     }
-}
-
-function smokeTheHash(str) {
-  var n = str.search("#");
-  if(n != "-1"){
-    return true;
-  } else {
-    return false;
   }
-}
+
+  function smokeTheHash(str) {
+    var n = str.search("#");
+    if(n != "-1"){
+      return true;
+    } else {
+      return false;
+    }
+  }
 </script>
