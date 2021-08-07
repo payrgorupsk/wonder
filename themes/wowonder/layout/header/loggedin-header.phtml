@@ -98,8 +98,10 @@ if ($followers_alert == 0) {
 				</li>
 			<?php } ?>
 			<?php 
-			if ($wo['config']['pro'] == 1) {
-			if (Wo_IsUserPro() === false) { ?>
+			// if ($wo['config']['pro'] == 1) {
+			// if (Wo_IsUserPro() === false) { 
+
+				?>
 			<li><hr></li>
 				<li>
 					<a href="<?php echo Wo_SeoLink('index.php?wallet'); ?>" data-ajax="?link1=wallet">Wallet</a>
@@ -109,7 +111,9 @@ if ($followers_alert == 0) {
 					<a href="<?php echo Wo_SeoLink('index.php?advertise'); ?>" data-ajax="?link1=wallet">Free Earn</a>
 				</li>
 
-			<?php } } ?>
+			<?php 
+		// } } 
+		?>
 			<!-- <li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=search');?>" data-ajax="?link1=search">Free Earn</a>
 			</li> -->
