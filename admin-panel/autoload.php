@@ -106,6 +106,7 @@ $pages = array(
     'node',
     'manage_emails',
     'ffmpeg',
+    'manage-banner-ads',
 );
 $mod_pages = array('dashboard', 'post-settings', 'manage-stickers', 'manage-gifts', 'manage-users', 'online-users', 'manage-stories', 'manage-pages', 'manage-groups', 'manage-posts', 'manage-articles', 'manage-events', 'manage-forum-threads', 'manage-forum-messages', 'manage-movies', 'manage-games', 'add-new-game', 'manage-user-ads', 'manage-reports', 'manage-third-psites', 'edit-movie','bank-receipts','job-categories','manage-jobs');
 
@@ -954,6 +955,9 @@ if (!empty($_COOKIE['mode']) && $_COOKIE['mode'] == 'night') {
                         </a>
                         <ul class="ml-menu">
                             <?php if ($is_admin == true) { ?>
+                                <li>
+                                <a <?php echo ($page == 'manage-banner-ads') ? 'class="active"' : ''; ?> href="<?php echo Wo_LoadAdminLinkSettings('manage-banner-ads'); ?>" data-ajax="?path=manage-banner-ads">Manage Banner Ads</a>
+                            </li> 
                             <li>
                                 <a <?php echo ($page == 'payment-settings') ? 'class="active"' : ''; ?> href="<?php echo Wo_LoadAdminLinkSettings('payment-settings'); ?>" data-ajax="?path=payment-settings">Payment Configuration</a>
                             </li>
@@ -973,9 +977,13 @@ if (!empty($_COOKIE['mode']) && $_COOKIE['mode'] == 'night') {
                         <a <?php echo ($page == 'bank-receipts') ? 'class="active"' : ''; ?> href="<?php echo Wo_LoadAdminLinkSettings('bank-receipts'); ?>" data-ajax="?path=bank-receipts">
                             <span>Manage Bank Receipts</span>
                         </a>
-                    </li>
+                    </li>   
+                                    
                         </ul>
                     </li>
+                    <!-- added by rojoni -->
+                    
+                    <!-- added by rojoni -->
                     <?php if ($is_admin == true) { ?>
                         <li <?php echo ($page == 'pro-settings' || $page == 'pro-memebers' || $page == 'pro-payments' || $page == 'pro-features' || $page == 'pro-refund') ? 'class="open"' : ''; ?>>
                             <a href="#">

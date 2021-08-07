@@ -221,6 +221,9 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'albums':
                     include('sources/my_albums.php');
+                break;
+                case 'url-ads':
+                    include('sources/url_ads.php');
                     break;
                 case 'album':
                     include('sources/album.php');
@@ -761,6 +764,10 @@ else{
         case 'albums':
             include('sources/my_albums.php');
             break;
+            case 'url-ads':
+                include('sources/url_ads.php');
+                break;
+            
         case 'album':
             include('sources/album.php');
             break;

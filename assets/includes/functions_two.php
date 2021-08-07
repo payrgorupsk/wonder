@@ -10,7 +10,7 @@
 // +------------------------------------------------------------------------+
 /* Script Main Functions (File 2) */
 // functions_tww.php
-require_once('app_start.php'); 
+require_once('app_start.php');
 use Twilio\Rest\Client;
 if (!empty($wo['config']['adult_images_file'])) {
     putenv('GOOGLE_APPLICATION_CREDENTIALS='.$wo['config']['adult_images_file']);
@@ -1072,6 +1072,38 @@ function Wo_GetAd($type, $admin = true) {
     return false;
         
 }
+// added by rojoni
+function Wo_GetAdPoint($type, $admin = true) {
+    global $sqlConnect;
+    $type      = Wo_Secure($type);
+    $query_one = "SELECT `points` FROM " . T_ADS . " WHERE `type` = '{$type}'";
+    if ($admin === false) {
+        $query_one .= " AND `active` = '1'";
+    }
+    $sql_query_one = mysqli_query($sqlConnect, $query_one);
+    if (mysqli_num_rows($sql_query_one)) {
+        $fetched_data  = mysqli_fetch_assoc($sql_query_one);
+        return $fetched_data['points'];
+    }
+    return false;
+        
+}
+function Wo_GetAdTimer($type, $admin = true) {
+    global $sqlConnect;
+    $type      = Wo_Secure($type);
+    $query_one = "SELECT `timer` FROM " . T_ADS . " WHERE `type` = '{$type}'";
+    if ($admin === false) {
+        $query_one .= " AND `active` = '1'";
+    }
+    $sql_query_one = mysqli_query($sqlConnect, $query_one);
+    if (mysqli_num_rows($sql_query_one)) {
+        $fetched_data  = mysqli_fetch_assoc($sql_query_one);
+        return $fetched_data['timer'];
+    }
+    return false;
+        
+}
+// added by rojoni
 function Wo_IsAdActive($type) {
     global $sqlConnect;
     $query_one     = "SELECT COUNT(`id`) AS `count` FROM " . T_ADS . " WHERE `type` = '{$type}' AND `active` = '1' ";
