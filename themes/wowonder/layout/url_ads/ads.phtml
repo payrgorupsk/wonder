@@ -6,7 +6,7 @@
 	<div class="avew"><a href="<?php echo $wo['ad']['chart-url']; ?>"><?php echo $wo['ad']['views']; ?></a></div>
 	<div class="asts" data-ad-status="<?php echo $wo['ad']['id']; ?>">
 		<span class="toggle-user-ad-status pointer" id="<?php echo $wo['ad']['id']; ?>" data-status="<?php echo $wo['ad']['status']; ?>">
-			<?php if ($wo['ad']['status'] == 1): ?>
+        <?php if ($wo['ad']['status'] == 1): ?>
 				<span class="wow_ad_sts_actv"><?php echo $wo['lang']['active']; ?></span>
 			<?php else: ?>
 				<span class="wow_ad_sts_noactv"><?php echo $wo['lang']['not_active']; ?></span>
@@ -33,53 +33,37 @@
 	</div>
 </li> -->
 
-<?php if(Wo_GetAd('banner_one', true)!=''){?>
 <li>
-    <div class="row bg-danger" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_one', true);?></div>
-        <div class="col-md-4 text-center" ><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_one', true);?> Seconds</h4></div></div>      
-		<div class="col-md-4 text-center" ><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_one', true);?> </h4></div></div>
-    </div> 
-	  
-</li>
-<?php }?> 
-<?php if(Wo_GetAd('banner_two', true)!=''){?>
-<li class="bg-success">
-    <div class="row bg-success" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_two', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_two', true);?> Seconds</h4></div></div>      
-		<div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_two', true);?></h4></div></div>
+    <div class="row">
+        <div><?php echo Wo_GetAd('banner_one', true);?></div><div><?php echo Wo_GetAdTimer('banner_one', true);?></div>
     </div>
     
 </li>
-<?php }?>
-<?php if(Wo_GetAd('banner_three', true)!=''){?>
 <li>
-    <div class="row bg-info" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_three', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_three', true);?> Seconds</h4></div></div>        
-		<div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_three', true);?></h4></div></div>
+    <div class="row">
+        <div class="col-md-6"><?php echo Wo_GetAd('banner_two', true);?></div>
+        <div class="col-md-6"><?php echo Wo_GetAdTimer('banner_two', true);?></div>
     </div>
     
 </li>
-<?php } ?>
-<?php if(Wo_GetAd('banner_four', true)!=''){?>
 <li>
-    <div class="row bg-warning" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_four', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_four', true);?> Seconds</h4></div></div>       
-		 <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_four', true);?></h4></div></div>
+    <div class="row">
+        <div class="col-md-6"><?php echo Wo_GetAd('banner_three', true);?></div>
+        <div class="col-md-6"><?php echo Wo_GetAdTimer('banner_three', true);?></div>
     </div>
     
 </li>
-<?php }?>
-<?php if(Wo_GetAd('banner_five', true)!=''){?>
 <li>
-    <div class="row bg-secondery" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_five', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_five', true);?> Seconds</h4></div></div>       
-		 <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_five', true);?></h4></div></div>
+    <div class="row">
+        <div class="col-md-6"><?php echo Wo_GetAd('banner_four', true);?></div>
+        <div class="col-md-6"><?php echo Wo_GetAdTimer('banner_four', true);?></div>
     </div>
     
 </li>
-<?php }?>
+<li>
+    <div class="row">
+        <div class="col-md-6"><?php echo Wo_GetAd('banner_five', true);?></div>
+        <div class="col-md-6"><?php echo Wo_GetAdTimer('banner_five', true);?></div>
+    </div>
+    
+</li>
