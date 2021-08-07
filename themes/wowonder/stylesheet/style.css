@@ -525,7 +525,7 @@ header .barloading{
 .sidebar-ad iframe,.sidebar-ad img,.sidebar-ad script{width:100%;max-width:100%}
 .publisher-box:focus{box-shadow:0 1px 10px 0 rgba(0,0,0,.1)}
 .publisher-box .post-avatar{width:35px;height:35px;border-radius:50%;position:absolute;left:10px;top:10px;z-index:9}
-.publisher-box textarea.postText{padding:16px 55px;line-height:1.628571;height:55px;color: inherit !important;}
+.publisher-box textarea.postText{padding:16px 55px;line-height:1.628571;height:100px;color: inherit !important;}
 .publisher-box .add-emoticons{position:absolute;top:10px;right:10px;margin:0}
 .publisher-box .add-emoticons .dropdown-toggle{display:block;text-align:center;border-radius:50%;height:35px;width:35px;background:#fff;line-height:35px;box-shadow:none}
 .publisher-box .add-emoticons .dropdown-toggle svg.feather{fill:#5b5b5b;margin-top:-1px;width:22px;height:22px}
