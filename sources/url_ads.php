@@ -13,7 +13,6 @@ $wo['keywords']    = $wo['config']['siteKeywords'];
 $wo['page']        = 'ads';
 $wo['ap']          = 'ads';
 $wo['title']       = $wo['lang']['manage_ads'];
-// $wo['ads']         = Wo_GetMyAds();
 $wo['ads']         = Wo_GetMyAds();
-$wo['content']     = Wo_LoadPage('ads/content');
+$wo['content']     = Wo_LoadPage('url_ads/content');
  ?>
