@@ -10,7 +10,7 @@ body {
   z-index: 99999;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: #000;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 20px;
@@ -20,7 +20,7 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: #fff;
   display: block;
   transition: 0.3s;
 }
@@ -68,6 +68,13 @@ body {
   <a class="main_menu pull-right" style="font-size:30px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <br><br>
 
+  <form class="navbar-form navbar-left col-lg-12 form-group" data-toggle="dropdown" role="button" id="" role="search">
+    <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
+    </div>
+  </form>
+
   <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
     <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="25px"> <?php echo $wo['lang']['news_feed'];?>
   </a>
@@ -89,55 +96,55 @@ body {
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=messages');?>" data-ajax="?link1=messages">
       <img src="<?=$wo['config']['site_url']?>/icons/chat.png" width="25px"> Chat
-      </a>
-      <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
-        <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
-        </a>
-        <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
-          <img src="<?=$wo['config']['site_url']?>/icons/blog.png" width="25px"> <?php echo $wo['lang']['blog'] ?>
-        </a>
-        <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
-          <img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
-        </a>
-        <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>">
-          <img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
-          </a>
+    </a>
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
+      <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
+    </a>
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
+      <img src="<?=$wo['config']['site_url']?>/icons/blog.png" width="25px"> <?php echo $wo['lang']['blog'] ?>
+    </a>
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
+      <img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
+    </a>
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>">
+      <img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
+    </a>
 
-          <hr>
+    <hr>
 
-<div style="padding: 10px;">
-          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
-          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
-          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
-          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
+    <div style="padding: 10px;">
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
+
+    </div>
+    <p style="color: white;">
+      <b><?php 
+      $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+      echo $copy = str_replace('{date}', date('Y'), $copy);
+    ?></b>
+
+    All Rights Reserved
+  </p>
 
 </div>
-          <p>
-            <b><?php 
-            $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
-            echo $copy = str_replace('{date}', date('Y'), $copy);
-          ?></b>
 
-          All Rights Reserved
-        </p>
-
-      </div>
-
-      <div class="navbar navbar-default navbar-fixed-top">
-       <nav class="header-fixed1000">
-        <div class="container-fluid">
-         <div class="wow_hdr_innr_left">
-          <span class="burger_menu" style="font-size:30px;cursor:pointer; color: white" onclick="openNav()">&#9776; </span> &emsp;
-          <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
-           <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
-         </a>
-         <?php if ($wo['loggedin'] == true) { ?>
-           <ul class="nav navbar-nav">
-            <li>
-             <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
-              <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="25px">
-            </a>
-          </li>
+<div class="navbar navbar-default navbar-fixed-top">
+ <nav class="header-fixed1000">
+  <div class="container-fluid">
+   <div class="wow_hdr_innr_left">
+    <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">&#9776; </span> &emsp;
+    <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+     <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
+   </a>
+   <?php if ($wo['loggedin'] == true) { ?>
+     <ul class="nav navbar-nav">
+      <li>
+       <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+        <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="20px">
+      </a>
+    </li>
 <!-- 						<?php if ($wo['config']['user_ads'] == 1 || Wo_CanBlog() == true || $wo['config']['events'] == 1 || $wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) {  ?>
 							<li class="dropdown head_name_links">
 								<a href="#" class="dropdown-toggle sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">

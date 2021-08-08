@@ -34,7 +34,7 @@ if ($followers_alert == 0) {
 			<?php echo $followers_alert?>
 		</span>
 		<a href="#" class="dropdown-toggle <?php echo $unread_update_followers;?> sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-			<img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px">
+			<img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="20px">
 		</a>
 		<ul class="dropdown-menu request-list clearfix notifications-dropdown" role="menu" id="requests-list">
 			<li>
@@ -47,7 +47,7 @@ if ($followers_alert == 0) {
 			<?php echo $messages_alert?>
 		</span>
 		<a href="#" class="dropdown-toggle <?php echo $unread_update_messages;?> sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-			<img src="<?=$wo['config']['site_url']?>/icons/chat.png" width="25px">
+			<img src="<?=$wo['config']['site_url']?>/icons/messenger.png" width="25px">
 		</a>
 		<ul class="dropdown-menu clearfix notifications-dropdown messages-dropdown" role="menu" id="messages-list">
 			<li>
@@ -60,7 +60,7 @@ if ($followers_alert == 0) {
 			<?php echo $notification_alert?>
 		</span>
 		<a href="#" class="dropdown-toggle <?php echo $unread_update_notification;?> sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-			<img src="<?=$wo['config']['site_url']?>/icons/notification.png" width="50px">
+			<img src="<?=$wo['config']['site_url']?>/icons/notification.png" width="20px">
 		</a>
 		<ul class="dropdown-menu clearfix notifications-dropdown" role="menu">
 			<li onclick="Wo_TurnOffSound();" class="turn-off-sound <?php echo Wo_RightToLeft('text-left');?>">
@@ -90,7 +90,7 @@ if ($followers_alert == 0) {
 					<img src="<?php echo $wo['user']['avatar'];?>" alt="<?php echo $wo['user']['name'];?> Profile Picture">
 				</a>
 			</li>
-			<?php if ($wo['config']['point_level_system'] == 1) { ?>
+			<?php if ($wo['config']['point_level_system'] == 0) { ?>
 				<li class="dropdown-hidden-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=setting&page=my_points'); ?>" data-ajax="?link1=setting&page=my_points">
 						<?php echo $wo['lang']['points']; ?>: <?php echo $wo['user']['points'];?>
@@ -98,7 +98,7 @@ if ($followers_alert == 0) {
 				</li>
 			<?php } ?>
 			<?php 
-			// if ($wo['config']['pro'] == 1) {
+			// if ($wo['config']['pro'] == 0) {
 			// if (Wo_IsUserPro() === false) { 
 
 				?>
@@ -119,7 +119,7 @@ if ($followers_alert == 0) {
 			</li> -->
 			
 			
-			<?php if ($wo['config']['pro'] == 1) { 
+			<?php if ($wo['config']['pro'] == 0) { 
 				// print_r($wo['pro_packages'][$wo['pro_packages_types'][$wo['user']['pro_type']]]['posts_promotion']);
 				// exit();
 				?>
@@ -129,41 +129,41 @@ if ($followers_alert == 0) {
 					<a href="<?php echo Wo_SeoLink('index.php?link1=boosted-posts');?>" data-ajax="?link1=boosted-posts"><?php echo $wo['lang']['boosted_posts']; ?></a>
 				</li>
 				<?php } ?>
-				<?php if ($wo['user']['is_pro'] == 1 && in_array($wo['user']['pro_type'], array_keys($wo['pro_packages_types'])) && $wo['pro_packages'][$wo['pro_packages_types'][$wo['user']['pro_type']]]['pages_promotion'] > 0 && $wo['config']['pages'] == 1) { ?>
+				<?php if ($wo['user']['is_pro'] == 1 && in_array($wo['user']['pro_type'], array_keys($wo['pro_packages_types'])) && $wo['pro_packages'][$wo['pro_packages_types'][$wo['user']['pro_type']]]['pages_promotion'] > 0 && $wo['config']['pages'] == 0) { ?>
 				<li>
 					<a href="<?php echo Wo_SeoLink('index.php?link1=boosted-pages');?>" data-ajax="?link1=boosted-pages"><?php echo $wo['lang']['boosted_pages']; ?></a>
 				</li>
 				<li><hr></li>
 			<?php } ?>
 			<?php } ?>
-			<!--<?php if ($wo['config']['pages'] == 1) { ?>
+			<!--<?php if ($wo['config']['pages'] == 0) { ?>
 				<li class="dropdown-hidden-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=create-page'); ?>" data-ajax="?link1=create-page"><?php echo $wo['lang']['create_new_page']; ?></a>
 				</li>
 			<?php } ?>
-			<?php if ($wo['config']['groups'] == 1) { ?>
+			<?php if ($wo['config']['groups'] == 0) { ?>
 				<li class="dropdown-hidden-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=create-group'); ?>" data-ajax="?link1=create-group"><?php echo $wo['lang']['create_new_group']; ?></a>
 				</li>
 			<?php } ?>-->
         
-			<?php if ($wo['config']['pages'] == 1) { ?>
+			<?php if ($wo['config']['pages'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages"><?php echo $wo['lang']['pages']; ?></a>
 				</li>
 			<?php } ?>
 
-			<?php if ($wo['config']['classified'] == 1) { ?>
+			<?php if ($wo['config']['classified'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=my-products'); ?>" data-ajax="?link1=my-products"><?php echo $wo['lang']['my_products']; ?></a>
 				</li>
 			<?php } ?>
-			<?php if ($wo['config']['classified'] == 1) { ?>
+			<?php if ($wo['config']['classified'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=products'); ?>"><?php echo $wo['lang']['market']; ?></a>
 				</li>
 			<?php } ?>
-			<?php if ($wo['config']['blogs'] == 1) { ?>
+			<?php if ($wo['config']['blogs'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>" data-ajax="?link1=blogs"><?php echo $wo['lang']['blog']; ?></a>
 				</li>
@@ -173,96 +173,96 @@ if ($followers_alert == 0) {
 				</li>
 				<?php } ?>
 			<?php } ?>
-			<?php if ($wo['config']['movies'] == 1) { ?>
+			<?php if ($wo['config']['movies'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>"><?php echo $wo['lang']['movies']; ?></a>
 				</li>
 			<?php } ?>
-			<?php if ($wo['config']['events'] == 1) { ?>
+			<?php if ($wo['config']['events'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=events'); ?>" data-ajax="?link1=events"><?php echo $wo['lang']['events']; ?></a>
 				</li>
 			<?php } ?>
 
-			<?php if ($wo['config']['groups'] == 1) { ?>
+			<?php if ($wo['config']['groups'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=groups'); ?>" data-ajax="?link1=groups"><?php echo $wo['lang']['groups']; ?></a>
 				</li>
 			<?php } ?>
          
-			<?php if ($wo['config']['forum'] == 1) { ?>
+			<?php if ($wo['config']['forum'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=forum'); ?>" ><?php echo $wo['lang']['forum']; ?></a>
 				</li>
 			<?php } ?>
 
-			<?php if ($wo['config']['user_ads'] == 1) { ?>
+			<?php if ($wo['config']['user_ads'] == 0) { ?>
 				<li>
 					<a href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">My Articles</a>
 				</li>
 			<?php } ?>
 
-			<li class="dropdown-search-link">
-					<a href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums"><?php echo $wo['lang']['albums']; ?></a>
-			</li>
+			<li>
+					<a href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">My Articles</a>
+				</li>
 
-			<li class="dropdown-search-link">
+			<!-- <li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=saved-posts');?>" data-ajax="?link1=saved-posts"><?php echo $wo['lang']['saved_posts'];?>
 				</a>
-			</li>
-			<?php if ($wo['config']['poke_system'] == 1) { ?>
+			</li> -->
+			<?php if ($wo['config']['poke_system'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke"><span><?php echo $wo['lang']['pokes'];?></span>
 				</a>
 			</li>
 			<?php } ?>
-			<li class="dropdown-search-link">
+			<!-- <li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=search?query=');?>"><?php echo $wo['lang']['explore'];?>
 				</a>
-			</li>
-			<?php if ($wo['config']['popular_posts'] == 1) { ?>
+			</li> -->
+			<?php if ($wo['config']['popular_posts'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked"><?php echo $wo['lang']['popular_posts'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['games'] == 1) { ?>
+			<?php if ($wo['config']['games'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=new-game'); ?>" data-ajax="?link1=new-game"><?php echo $wo['lang']['games'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['find_friends'] == 1) { ?>
+			<?php if ($wo['config']['find_friends'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby'); ?>"><?php echo $wo['lang']['find_friends'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['job_system'] == 1) { ?>
+			<?php if ($wo['config']['job_system'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=jobs'); ?>" data-ajax="?link1=jobs"><?php echo $wo['lang']['jobs'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['common_things'] == 1) { ?>
+			<?php if ($wo['config']['common_things'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=common_things'); ?>" data-ajax="?link1=common_things"><?php echo $wo['lang']['common_things'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['funding_system'] == 1) { ?>
+			<?php if ($wo['config']['funding_system'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=funding'); ?>" data-ajax="?link1=funding"><?php echo $wo['lang']['funding'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['memories_system'] == 1) { ?>
+			<?php if ($wo['config']['memories_system'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=memories'); ?>" data-ajax="?link1=memories"><?php echo $wo['lang']['memories'];?>
 				</a>
 			</li>
 			<?php } ?>
-			<?php if ($wo['config']['offer_system'] == 1) { ?>
+			<?php if ($wo['config']['offer_system'] == 0) { ?>
 			<li class="dropdown-search-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=offers'); ?>" data-ajax="?link1=offers"><?php echo $wo['lang']['offers'];?>
 				</a>
@@ -270,7 +270,7 @@ if ($followers_alert == 0) {
 			<?php } ?>
 
 			
-			<?php if ($wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) { ?><li><hr></li><?php } ?>
+			<?php if ($wo['config']['groups'] == 1 || $wo['config']['pages'] == 0) { ?><li><hr></li><?php } ?>
 			<!-- <li class="dropdown-hidden-link">
 				<a href="<?php echo Wo_SeoLink('index.php?link1=setting&page=profile-setting'); ?>" data-ajax="?link1=setting&page=profile-setting"><?php echo $wo['lang']['edit']; ?></a>
 			</li> -->

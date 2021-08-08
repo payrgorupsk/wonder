@@ -1,3 +1,10 @@
+<style type="text/css">
+	
+
+
+</style>
+
+
 <?php 
 $wo['have_stories'] = false;
 $user_stories = $db->where('user_id', $wo['user']['user_id'])->get(T_USER_STORY,null,array('id'));
@@ -17,12 +24,12 @@ if (!empty($user_stories)) {
 
  <?php
 
- if(Wo_IsMobile() == false) {
+ if(Wo_IsMobile() == false ) {
 ?>
 
 <div class="sidebar-conatnier">
     <div class="col-md-3 sidebar rightcol">
-		<div class="wow_content wow_side_loggd_usr">
+		<!-- <div class="wow_content wow_side_loggd_usr">
 			<div class="wow_side_loggd_usr_cvr">
 				<img src="<?php echo $wo['user']['cover']?>" alt="<?php echo $wo['user']['name']?> Cover Image">
 			</div>
@@ -84,7 +91,7 @@ if (!empty($user_stories)) {
                     ?>
             </div>
 			<?php } ?>
-		</div>
+		</div> -->
         <?php $hashtags = Wa_GetTrendingHashs('popular');
                 if (count($hashtags) > 0) {
                  ?>
