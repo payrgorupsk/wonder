@@ -109,9 +109,8 @@ if (!in_array($f, $non_login_array)) {
 $files = scandir('xhr');
 unset($files[0]);
 unset($files[1]);
-echo 'xhr/' . $f . '.php';
 if (file_exists('xhr/' . $f . '.php') && in_array($f . '.php', $files)) {
-    include 'xhr/' . $f . '.php';
+    include ('xhr/' . $f . '.php');
 }
 mysqli_close($sqlConnect);
 unset($wo);
