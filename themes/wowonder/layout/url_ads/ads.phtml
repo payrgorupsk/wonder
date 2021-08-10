@@ -33,53 +33,184 @@
 	</div>
 </li> -->
 
-<?php if(Wo_GetAd('banner_one', true)!=''){?>
+
+
+
+<?php if(Wo_GetAd('banner_one', true)!='' && (ro_hasAdsTime('banner_one')|| !ro_hasAds('banner_one'))){?>
 <li>
-    <div class="row bg-danger" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_one', true);?></div>
-        <div class="col-md-4 text-center" ><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_one', true);?> Seconds</h4></div></div>      
-		<div class="col-md-4 text-center" ><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_one', true);?> </h4></div></div>
-    </div> 
+	
+		<div class="row bg-danger" style="width: 100%; height:150px;" >        	
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_one" class="btn btn-info">Click Here</a>
+    				  </div>
+    				</div>
+  				</div>
+				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_one" class="btn btn-info">Click Here</a> -->
+			</div>
+        	<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_one', true);?> Seconds</h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_one', true);?> </h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>			
+    	</div> 
+	
+    
 	  
 </li>
 <?php }?> 
-<?php if(Wo_GetAd('banner_two', true)!=''){?>
+<?php if(Wo_GetAd('banner_two', true)!='' && (ro_hasAdsTime('banner_two')|| !ro_hasAds('banner_two'))){?>
 <li class="bg-success">
-    <div class="row bg-success" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_two', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_two', true);?> Seconds</h4></div></div>      
-		<div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_two', true);?></h4></div></div>
-    </div>
+		<div class="row bg-warning" style="width: 100%; height:150px;" >        	
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Click Here</a>
+    				  </div>
+    				</div>
+  				</div>
+				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Click Here</a> -->
+			</div>
+        	<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_two', true);?> Seconds</h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_two', true);?> </h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>			
+    	</div>
     
 </li>
 <?php }?>
-<?php if(Wo_GetAd('banner_three', true)!=''){?>
+<?php if(Wo_GetAd('banner_three', true)!='' && (ro_hasAdsTime('banner_three')|| !ro_hasAds('banner_three'))){?>
 <li>
-    <div class="row bg-info" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_three', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_three', true);?> Seconds</h4></div></div>        
-		<div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_three', true);?></h4></div></div>
-    </div>
+		<div class="row bg-info" style="width: 100%; height:150px;" >        	
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Click Here</a>
+    				  </div>
+    				</div>
+  				</div>
+				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Click Here</a> -->
+			</div>
+        	<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_three', true);?> Seconds</h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_three', true);?> </h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>			
+    	</div>
     
 </li>
 <?php } ?>
-<?php if(Wo_GetAd('banner_four', true)!=''){?>
+<?php if(Wo_GetAd('banner_four', true)!='' && (ro_hasAdsTime('banner_four')|| !ro_hasAds('banner_four'))){?>
 <li>
-    <div class="row bg-warning" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_four', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_four', true);?> Seconds</h4></div></div>       
-		 <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_four', true);?></h4></div></div>
-    </div>
+		<div class="row bg-success" style="width: 100%; height:150px;" >        	
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Click Here</a>
+    				  </div>
+    				</div>
+  				</div>
+				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Click Here</a> -->
+			</div>
+        	<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_four', true);?> Seconds</h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_four', true);?> </h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>			
+    	</div>
     
 </li>
 <?php }?>
-<?php if(Wo_GetAd('banner_five', true)!=''){?>
+<?php if(Wo_GetAd('banner_five', true)!='' && (ro_hasAdsTime('banner_five')|| !ro_hasAds('banner_five'))){?>
 <li>
-    <div class="row bg-secondery" style="width: 100%;">
-        <div class="col-md-4 text-center"><?php echo Wo_GetAd('banner_five', true);?></div>
-        <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_five', true);?> Seconds</h4></div></div>       
-		 <div class="col-md-4 text-center"><div style="padding-top: 60px; color:purple;"><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_five', true);?></h4></div></div>
-    </div>
+		<div class="row bg-danger" style="width: 100%; height:150px;" >        	
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Click Here</a>
+    				  </div>
+    				</div>
+  				</div>
+				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Click Here</a> -->
+			</div>
+        	<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_five', true);?> Seconds</h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>
+			<div class="col-md-4 text-center" style="height: 100%;">
+				<div class="" style="position: relative; height:100%;">
+    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
+    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
+					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_five', true);?> </h4></div>
+    				  </div>
+    				</div>
+  				</div>			
+			</div>			
+    	</div>
     
 </li>
 <?php }?>

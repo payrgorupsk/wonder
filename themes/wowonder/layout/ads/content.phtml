@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-4 ads_col_4">
-		<?php //echo Wo_LoadPage('ads/includes/header'); ?>
+		<?php echo Wo_LoadPage('ads/includes/header'); ?>
 	</div>
 	<div class="col-md-8 ads_col_8">
 		<div class="page-margin wowonder-well">
@@ -11,8 +11,8 @@
 			</div>
 		</div>
 		<div class="ads-cont-wrapper ads-cont-wrapper-home">
-			<?php //if (count($wo['ads']) > 0): ?>
-				<!-- <ul class="list-unstyled wow_ads_list_head">
+			<?php if (count($wo['ads']) > 0): ?>
+				<ul class="list-unstyled wow_ads_list_head">
 					<li class="aid"><?php echo $wo['lang']['id']; ?></li>
 					<li class="acomp"><?php echo $wo['lang']['company']; ?></li>
 					<li class="abid"><?php echo $wo['lang']['bidding']; ?></li>
@@ -20,17 +20,17 @@
 					<li class="avew"><?php echo $wo['lang']['views']; ?></li>
 					<li class="asts"><?php echo $wo['lang']['status']; ?></li>
 					<li class="aemp"></li>
-				</ul> -->
+				</ul>
 				<ul class="list-unstyled wow_ads_lists" id="user-ads">
 					<?php //foreach ($wo['ads'] as $wo['ad']): ?>
 						<?php echo Wo_LoadPage('ads/includes/ads-list');?>
 					<?php //endforeach; ?>
 				</ul>
-			<?php //else: ?>
-				<!-- <div class="empty_state">
+			<?php else: ?>
+				<div class="empty_state">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z"></path></svg> <?php echo $wo['lang']['no_ads_found']; ?>
-				</div> -->
-			<?php //endif; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div class="col-md-12 col-lg-12 col-sm-12 col-sx-12">
 			<div class="posts_load">

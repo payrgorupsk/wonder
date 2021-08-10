@@ -32,6 +32,7 @@ $allow_array     = array(
     'download_user_info',
     'movies',
     'funding',
+    'url_ads',
     'stripe'
 );
 $non_login_array = array(
@@ -72,6 +73,7 @@ $non_login_array = array(
     'load-blogs',
     'load-recent-blogs',
     'get_no_posts_name',
+    'url_ads',
     'search-blog-read',
     'search-blog'
 );
@@ -107,6 +109,7 @@ if (!in_array($f, $non_login_array)) {
 $files = scandir('xhr');
 unset($files[0]);
 unset($files[1]);
+echo 'xhr/' . $f . '.php';
 if (file_exists('xhr/' . $f . '.php') && in_array($f . '.php', $files)) {
     include 'xhr/' . $f . '.php';
 }
