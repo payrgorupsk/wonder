@@ -1,8 +1,15 @@
+
 <div class="page-margin">
 	<div class="row">
 		<div class="col-md-2 leftcol"><?php echo Wo_LoadPage("sidebar/left-sidebar"); ?></div>
 		<div class="col-md-7 middlecol">
 			<?php if ($wo['config']['user_status'] == 1) { ?>
+
+				<?php
+if($wo['loggedin'] == true) {
+					echo Wo_LoadPage('story/publisher-box');
+				}
+?>
 				<div class="wow_content user-status-home wow_home_stories">
 					<div class="wo_page_hdng pag_neg_padd">
 						<div class="wo_page_hdng_innr">
@@ -49,9 +56,7 @@
 			<!-- .home-announcement -->
 			<?php
 				} 
-				if($wo['loggedin'] == true) {
-					echo Wo_LoadPage('story/publisher-box');
-				} 
+				 
 			?>
 			
 			<?php if (Wo_IsMobile() == true) { ?>
