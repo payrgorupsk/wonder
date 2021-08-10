@@ -10,17 +10,17 @@ body {
   z-index: 99999;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .main_menu{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 18px;
-  color: #fff;
+  font-size: 14px;
+  color: #000;
   display: block;
   transition: 0.3s;
 }
@@ -68,9 +68,9 @@ body {
   <a class="main_menu pull-right" style="font-size:30px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <br><br>
 
-  <form class="navbar-form navbar-left col-lg-12 form-group" data-toggle="dropdown" role="button" id="" role="search">
+  <form style="width:95%; margin: 0px 5px 0px 5px;" data-toggle="dropdown" role="button" id="" role="search">
     <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      
       <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
     </div>
   </form>

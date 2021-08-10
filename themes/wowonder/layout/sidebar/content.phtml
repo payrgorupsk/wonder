@@ -1,10 +1,3 @@
-<style type="text/css">
-	
-
-
-</style>
-
-
 <?php 
 $wo['have_stories'] = false;
 $user_stories = $db->where('user_id', $wo['user']['user_id'])->get(T_USER_STORY,null,array('id'));
@@ -321,7 +314,7 @@ if (!empty($user_stories)) {
             ?>
             <div class="clear"></div>
         <?php endif; ?>
-        <?php echo Wo_LoadPage('footer/sidebar-footer')?>
+        <!-- <?php echo Wo_LoadPage('footer/sidebar-footer')?> -->
     </div>
 </div>
 
