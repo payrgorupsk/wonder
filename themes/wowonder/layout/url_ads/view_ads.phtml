@@ -1,0 +1,46 @@
+<div class="container text-center">    
+    <div class="card card-info text-ceter" style="width:100%; font-size: 28px; background-color:seashell; border-bottom:2px solid #bbb;">Please Wait <strong id="countdown"><?php echo Wo_GetAdTimer($_GET['id'], true);?></strong> Seconds</div>
+    <div class="text-center" style="margin-top:20px;">
+        <div><?php echo Wo_GetAd($_GET['id'], true);?></div>
+    </div>
+</div>
+<form id="adViewForm" action="<?=$wo['config']['site_url']?>" method="post" hidden>
+<input type="text" id="ad_id" name="ad_id" value="<?=$_GET['id']?>">
+<input type="submit">
+</form>
+
+
+
+<script>
+    var seconds = document.getElementById("countdown").textContent;
+    var countdown = setInterval(function() {
+    seconds--;
+    document.getElementById("countdown").textContent = seconds;
+    if (seconds <= 0){
+
+       
+        clearInterval(countdown); 
+//         $(function() {
+//     var adViewForm = $('#adViewForm');
+//     adViewForm.ajaxForm({
+//         url: Wo_Ajax_Requests_File() + '?f=url_ads',        
+        
+//         success: function(data) {
+//             if (data.status == 200) {
+//                 console.log(data);
+//                 // setTimeout(function () {
+//                 //    // $('.manage-banner-ads-alert').empty();
+//                 // }, 2000);
+//             }
+//         }
+//     });
+// });
+        window.location.replace('<?=$wo['config']['site_url']?>/confirm-view-ads/<?=$_GET['id']?>');
+    } 
+
+    }, 1000);
+</script>
+
+<script>
+
+</script>

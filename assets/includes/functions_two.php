@@ -1103,6 +1103,21 @@ function Wo_GetAdTimer($type, $admin = true) {
     return false;
         
 }
+function Wo_GetAdId($type, $admin = true) {
+    global $sqlConnect;
+    $type      = Wo_Secure($type);
+    $query_one = "SELECT `id` FROM " . T_ADS . " WHERE `type` = '{$type}'";
+    if ($admin === false) {
+        $query_one .= " AND `active` = '1'";
+    }
+    $sql_query_one = mysqli_query($sqlConnect, $query_one);
+    if (mysqli_num_rows($sql_query_one)) {
+        $fetched_data  = mysqli_fetch_assoc($sql_query_one);
+        return $fetched_data['id'];
+    }
+    return false;
+        
+}
 // added by rojoni
 function Wo_IsAdActive($type) {
     global $sqlConnect;

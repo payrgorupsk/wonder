@@ -1264,5 +1264,26 @@
     <!-- HTML NOTIFICATION POPUP -->
     <div id="notification-popup"></div>
     <!-- HTML NOTIFICATION POPUP -->
+
+    <?php 
+    $ads_notify = $_SESSION['ads_notify'];
+    if($ads_notify !='')
+    { ?>
+    <script>
+      $("#url_ads_notify").show();
+      var seconds = 5;
+    var countdown = setInterval(function() {
+    seconds--;   
+    if (seconds <= 0){       
+        clearInterval(countdown); 
+        $("#url_ads_notify").hide();
+    } 
+    }, 1000);
+    </script>
+
+   <?php } $_SESSION['ads_notify'] = ""; ?>
+    
+    
+    
    </body>
 </html>

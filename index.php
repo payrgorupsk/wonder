@@ -225,6 +225,12 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'url-ads':
                     include('sources/url_ads.php');
                     break;
+                case 'confirm-view-ads':
+                    include('sources/url_ads.php');
+                    break;
+                case 'videos':
+                    include('sources/videos.php');
+                    break;
                 case 'album':
                     include('sources/album.php');
                     break;
@@ -464,6 +470,9 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'offers':
                     include('sources/offers.php');
+                    break;
+                case 'view-ads':
+                    include('sources/url_ads.php');
                     break;
                 case 'nearby_shops':
                     include('sources/nearby_shops.php');
@@ -764,10 +773,15 @@ else{
         case 'albums':
             include('sources/my_albums.php');
             break;
-            case 'url-ads':
-                include('sources/url_ads.php');
-                break;
-            
+        case 'url-ads':
+            include('sources/url_ads.php');
+            break;
+        case 'confirm-view-ads':
+            include('sources/url_ads.php');
+            break;
+        case 'videos':
+            include('sources/videos.php');
+            break;
         case 'album':
             include('sources/album.php');
             break;
@@ -1008,6 +1022,9 @@ else{
         case 'offers':
             include('sources/offers.php');
             break;
+        case 'view-ads':
+            include('sources/url_ads.php');
+            break;
         case 'nearby_shops':
             include('sources/nearby_shops.php');
             break;
@@ -1029,7 +1046,15 @@ if (empty($wo['content'])) {
     }
 }
 
-echo Wo_Loadpage('container');
+
+if ((!isset($_GET['link1']) && $wo['loggedin'] == false) || (isset($_GET['link1']) && $wo['loggedin'] == false && $page == 'home')||($wo['loggedin'] == false && $page == 'welcome')) {
+echo Wo_LoadPage('welcome/content');
+}
+else{
+    echo Wo_Loadpage('container');
+}
+
+
 
 mysqli_close($sqlConnect);
 unset($wo);

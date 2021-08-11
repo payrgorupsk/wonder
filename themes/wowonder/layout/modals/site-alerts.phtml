@@ -304,6 +304,20 @@
     </div>
 </div>
 
+<?php if(isset(($_SESSION['ads_notify']))!=''){ ?>
+
+<div class="modal fade in" id="url_ads_notify" role="dialog">
+    <div class="modal-dialog">    
+      <div class="modal-content">
+        <p style="text-align: center;padding: 30px 20px;font-family: Hind,Arial;font-size: 16px;" id="url_ads_notify_text">
+        <?=($_SESSION['ads_notify'])?>
+        </p>
+      </div>
+      
+    </div>
+</div>
+<?php } ?>
+
 <div class="modal fade in" id="pro_upload_file" role="dialog">
     <div class="modal-dialog">
     
