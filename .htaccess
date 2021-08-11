@@ -100,6 +100,7 @@ RewriteRule ^advertise$ index.php?link1=advertise [NC,QSA]
 RewriteRule ^url-ads$ index.php?link1=url-ads [NC,QSA]
 RewriteRule ^view-ads/(.*)$ index.php?link1=view-ads&id=$1 [NC,QSA]
 RewriteRule ^confirm-view-ads/(.*)$ index.php?link1=confirm-view-ads&adid=$1&stat=viewed [NC,QSA]
+RewriteRule ^videos$ index.php?link1=videos[NC,QSA]
 
 RewriteRule ^wonderful$ index.php?theme=wonderful [NC,QSA]
 RewriteRule ^wowonder$ index.php?theme=wowonder [NC,QSA]

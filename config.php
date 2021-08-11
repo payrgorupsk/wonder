@@ -18,7 +18,7 @@ $sql_db_pass = "";
 $sql_db_name = "wonder";
 
 // Site URL
-$site_url = "http://localhost:8080/wonder"; // e.g (http://example.com)
+$site_url = "http://192.168.0.100/wonder"; // e.g (http://example.com)
 
 
 // Purchase code

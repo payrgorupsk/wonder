@@ -228,6 +228,9 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'confirm-view-ads':
                     include('sources/url_ads.php');
                     break;
+                case 'videos':
+                    include('sources/videos.php');
+                    break;
                 case 'album':
                     include('sources/album.php');
                     break;
@@ -776,6 +779,9 @@ else{
         case 'confirm-view-ads':
             include('sources/url_ads.php');
             break;
+        case 'videos':
+            include('sources/videos.php');
+            break;
         case 'album':
             include('sources/album.php');
             break;
@@ -1040,7 +1046,15 @@ if (empty($wo['content'])) {
     }
 }
 
-echo Wo_Loadpage('container');
+
+if ((!isset($_GET['link1']) && $wo['loggedin'] == false) || (isset($_GET['link1']) && $wo['loggedin'] == false && $page == 'home')||($wo['loggedin'] == false && $page == 'welcome')) {
+echo Wo_LoadPage('welcome/content');
+}
+else{
+    echo Wo_Loadpage('container');
+}
+
+
 
 mysqli_close($sqlConnect);
 unset($wo);

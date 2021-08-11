@@ -588,6 +588,9 @@ function Wo_SeoLink($query = '') {
             '/^index\.php\?link1=friends-nearby$/i',
             '/^index\.php\?link1=([^\/]+)$/i',
             '/^index\.php\?link1=welcome$/i',
+            '/^index\.php\?link1=url-ads$/i',
+            '/^index\.php\?link1=view-ads&id=(\d+)$/i',
+            '/^index\.php\?link1=confirm-view-ads&adid=(\d+)&stat=viewed$/i',
         ), array(
             $config['site_url'] . '/edit_fund/$1',
             $config['site_url'] . '/show_fund/$1',
@@ -669,6 +672,9 @@ function Wo_SeoLink($query = '') {
             $config['site_url'] . '/friends-nearby/',
             $config['site_url'] . '/$1',
             $config['site_url'],
+            $config['site_url'].'/url-ads/',
+            $config['site_url'].'/view-ads/$1/',
+            $config['site_url'].'/confirm-view-ads/$1/$2/$3',
         ), $query);
     } else {
         $query = $config['site_url'] . '/' . $query;
