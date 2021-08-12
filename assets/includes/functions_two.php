@@ -1060,7 +1060,7 @@ function Wo_UpdateAdsCode($update_data = array()) {
 function Wo_GetAd($type, $admin = true) {
     global $sqlConnect;
     $type      = Wo_Secure($type);
-    $query_one = "SELECT `code` FROM " . T_ADS . " WHERE `type` = '{$type}'";
+    $query_one = "SELECT `code` FROM `wo_ads` WHERE `type` = '{$type}'";
     if ($admin === false) {
         $query_one .= " AND `active` = '1'";
     }
