@@ -3521,7 +3521,7 @@ svg {vertical-align: middle;}
 .wow_weather_forecast .fivedays {text-align: center;float: left;width: 25%;padding: 0 5px;}
 
 /*Mat Modal*/
-.wow_pops_head {position: relative;background: #8b6060;color: #fff;text-align: center;padding: 25px 0 115px;border-radius: 3px 3px 0 0;margin-bottom: -50px;}
+.wow_pops_head {position: relative;background: #199ce8;color: #fff;text-align: center;padding: 25px 0 115px;border-radius: 3px 3px 0 0;margin-bottom: -50px;}
 .wow_pops_head > svg {position: absolute;bottom: 0;left: 0;width: 100%;height: 120px;color: #fff;}
 .wow_pops_head .close {position: absolute;top: 7px;right: 7px;padding: 0;opacity: 0.4;text-shadow: none;color: white;}
 .wow_pops_head .close:hover {opacity: 1;}
