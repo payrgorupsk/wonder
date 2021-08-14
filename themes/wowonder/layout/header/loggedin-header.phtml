@@ -55,6 +55,12 @@ if ($followers_alert == 0) {
 			</li>
 		</ul>
 	</li>
+	<li class="dropdown messages-notification-container">
+
+		<a href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>" class="dropdown-toggle  sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+			<img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px">
+		</a>
+
 	<li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
 		<span class="new-update-alert<?php echo $hidden_class;?>">
 			<?php echo $notification_alert?>
@@ -108,7 +114,10 @@ if ($followers_alert == 0) {
 				</li>
 
 				<li>
+
 					<a href="#" data-ajax="?link1=url-ads">Free Earn</a>
+
+				
 				</li>
 
 			<?php 
@@ -193,12 +202,6 @@ if ($followers_alert == 0) {
 			<?php if ($wo['config']['forum'] == 0) { ?>
 				<li class="dropdown-search-link">
 					<a href="<?php echo Wo_SeoLink('index.php?link1=forum'); ?>" ><?php echo $wo['lang']['forum']; ?></a>
-				</li>
-			<?php } ?>
-
-			<?php if ($wo['config']['user_ads'] == 0) { ?>
-				<li>
-					<a href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">My Articles</a>
 				</li>
 			<?php } ?>
 
