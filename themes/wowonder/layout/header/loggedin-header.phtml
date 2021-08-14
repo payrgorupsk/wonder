@@ -55,6 +55,12 @@ if ($followers_alert == 0) {
 			</li>
 		</ul>
 	</li>
+	<li class="dropdown messages-notification-container">
+
+		<a href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>" class="dropdown-toggle  sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+			<img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px">
+		</a>
+
 	<li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
 		<span class="new-update-alert<?php echo $hidden_class;?>">
 			<?php echo $notification_alert?>
