@@ -16,5 +16,6 @@ $wo['page']        = 'ads';
 $wo['ap']          = 'wallet';
 $wo['title']       = $wo['lang']['wallet'];
 $wo['ads']         = Wo_GetMyAds();
-$wo['content']     = Wo_LoadPage('ads/wallet');
+// $wo['content']     = Wo_LoadPage('ads/wallet');
+$wo['content']     = Wo_LoadPage('ads/wallet-content');
  ?>

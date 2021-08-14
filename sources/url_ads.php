@@ -16,7 +16,7 @@ $wo['ap']          = 'url-ads';
 $wo['title']       = $wo['lang']['ads'];
 // $wo['ads']         = Wo_GetMyAds();
 if($_GET['link1']=='url-ads'){
-  $wo['content']     = Wo_LoadPage('url_ads/ads');
+  $wo['content']     = Wo_LoadPage('url_ads/content');
 }
 elseif($_GET['link1']=='view-ads'){  
   $wo['content']     = Wo_LoadPage('url_ads/view_ads');

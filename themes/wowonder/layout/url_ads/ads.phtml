@@ -34,9 +34,9 @@
 </li> -->
 
 
+<ul class="list-unstyled wow_ads_lists" id="user-ads">
 
-
-<?php if(Wo_GetAd('banner_one', true)!='' && (ro_hasAdsTime('banner_one')|| !ro_hasAds('banner_one'))){?>
+<?php if(Wo_GetAd('banner_one', true)!='' && (!ro_hasAds('banner_one') || ro_hasAdsTime('banner_one'))){?>
 <li>
 	
 		<div class="row bg-danger" style="width: 100%; height:150px;" >        	
@@ -214,3 +214,5 @@
     
 </li>
 <?php }?>
+
+</ul>

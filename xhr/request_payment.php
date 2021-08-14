@@ -7,7 +7,7 @@ if ($f == 'request_payment') {
                     $errors[] = $error_icon . $wo['lang']['please_check_details'];
                 }
             }
-            else{
+            elseif (!empty($_POST['withdraw_method']) && $_POST['withdraw_method'] == 'paypal'){
                 if (empty($_POST['paypal_email'])) {
                     $errors[] = $error_icon . $wo['lang']['please_check_details'];
                 }
@@ -15,14 +15,33 @@ if ($f == 'request_payment') {
                     $errors[] = $error_icon . $wo['lang']['email_invalid_characters'];
                 }
             }
+            else{
+                if (empty($_POST['paypal_email'])) {
+                    $errors[] = $error_icon . $wo['lang']['please_check_details'];
+                }
+                elseif (!empty($_POST['paypal_email'])) {
+                    $errors[] = $error_icon . $_POST['withdraw_method'] ;
+                }
+            }
         }
         else{
+            if (!empty($_POST['withdraw_method']) && $_POST['withdraw_method'] == 'paypal'){
             if (empty($_POST['paypal_email'])) {
                 $errors[] = $error_icon . $wo['lang']['please_check_details'];
             }
             elseif (!filter_var($_POST['paypal_email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = $error_icon . $wo['lang']['email_invalid_characters'];
             }
+        }
+        else{
+            if (empty($_POST['paypal_email'])) {
+                $errors[] = $error_icon . $wo['lang']['please_check_details'];
+            }
+            // elseif (!empty($_POST['paypal_email'])) {
+            //     $errors[] = $error_icon . "Wrong Mobile Number";
+            // }
+        }
+
         }
         if (empty($errors)) {
 
