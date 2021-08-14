@@ -1,90 +1,102 @@
 <?php if ($wo['loggedin'] == true && Wo_IsMobile() == false) { ?>
-<div class="left-sidebar">
-	<ul>
-		<li class="wow_side_post_fltr">
-			
-			<a class="main_menu" onclick="closeNav()" href="<?php echo $wo['user']['url']; ?>" data-ajax="?link1=timeline&u=<?php echo $wo['user']['username'];?>">
-      <img src="<?=$wo['config']['site_url']?>/icons/tag-friend.png" width="25px"> <?php echo $wo['lang']['my_profile'];?>
-    </a>
+	<div class="left-sidebar">
+		<ul>
+			<li class="wow_side_post_fltr">
 
-		</li>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo $wo['user']['url']; ?>" data-ajax="?link1=timeline&u=<?php echo $wo['user']['username'];?>">
+					<img src="<?=$wo['config']['site_url']?>/icons/tag-friend.png" width="25px"> <?php echo $wo['lang']['my_profile'];?>
+				</a>
 
-		<li class="wow_side_post_fltr">
+			</li>
 
-			<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=messages');?>" data-ajax="?link1=messages">
-      <img src="<?=$wo['config']['site_url']?>/icons/chat.png" width="25px"> Chat
-    </a>
+			<li class="wow_side_post_fltr">
 
-		</li>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=messages');?>" data-ajax="?link1=messages">
+					<img src="<?=$wo['config']['site_url']?>/icons/messenger.png" width="25px"> Chat
+				</a>
 
-		<li class="wow_side_post_fltr">
+			</li>
+			<li class="wow_side_post_fltr">
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
+					<img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
+				</a>
+			</li>
 
-			<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
-      <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
-    </a>
-    
+			<li class="wow_side_post_fltr">
 
-		</li>
+				<a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=groups'); ?>" data-ajax="?link1=groups">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></svg> <?php echo $wo['lang']['my_groups'];?>
+      </a>
 
-		<li class="wow_side_post_fltr">
+			</li>
 
-			<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
-      <img src="<?=$wo['config']['site_url']?>/icons/blog.png" width="25px"> <?php echo $wo['lang']['blog'] ?>
-    </a>
-    
+			<li class="wow_side_post_fltr">
 
-		</li>
+      <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
+      </a>
 
-		<li class="wow_side_post_fltr">
+			</li>
 
-			<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
-      <img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
-    </a>
-    
+			<li class="wow_side_post_fltr">
 
-		</li>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
+					<img src="<?=$wo['config']['site_url']?>/icons/blog.png" width="25px"> <?php echo $wo['lang']['blog'] ?>
+				</a>
 
-		<li class="wow_side_post_fltr">
 
-			<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>">
-      <img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
-    </a>
+			</li>
 
-		</li>
+			<li class="wow_side_post_fltr">
 
-		<br>
-		<p style="color: black;">
-      <b><?php 
-      $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
-      echo $copy = str_replace('{date}', date('Y'), $copy);
-    ?></b>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
+					<img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
+				</a>
 
-    All Rights Reserved
-  </p>
+
+			</li>
+
+			<li class="wow_side_post_fltr">
+
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>">
+					<img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
+				</a>
+
+			</li>
+
+			<br>
+			<p style="color: black;">
+				<b><?php 
+				$copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+				echo $copy = str_replace('{date}', date('Y'), $copy);
+			?></b>
+
+			All Rights Reserved
+		</p>
 	</ul>
 </div>
 <?php } ?>
 
 
 <?php if ($wo['config']['order_posts_by'] == 0) { ?>
-<script>
-function Wo_StorePosts(type) {
-  if (type > 1) {
-     return false;
-  }
-  if (type == 0) {
-	$('.order_all').addClass('active');
-	$('.order_people').removeClass('active');
-  } else {
-	$('.order_all').removeClass('active');
-	$('.order_people').addClass('active');
-  }
-  $('#posts-laoded').html('<div class="wo_loading_post"><div class="lightui1-shimmer"> <div class="_2iwr"></div> <div class="_2iws"></div> <div class="_2iwt"></div> <div class="_2iwu"></div> <div class="_2iwv"></div> <div class="_2iww"></div> <div class="_2iwx"></div> <div class="_2iwy"></div> <div class="_2iwz"></div> <div class="_2iw-"></div> <div class="_2iw_"></div> <div class="_2ix0"></div> </div></div><div class="wo_loading_post"><div class="lightui1-shimmer"> <div class="_2iwr"></div> <div class="_2iws"></div> <div class="_2iwt"></div> <div class="_2iwu"></div> <div class="_2iwv"></div> <div class="_2iww"></div> <div class="_2iwx"></div> <div class="_2iwy"></div> <div class="_2iwz"></div> <div class="_2iw-"></div> <div class="_2iw_"></div> <div class="_2ix0"></div> </div></div>');
-  $.get(Wo_Ajax_Requests_File() + '?f=update_order_by', {type:type}, function (data) {
-    if (data.status == 200) {
-      loadposts();
-    }
-  });
-}
-</script>
-<?php } ?>
+	<script>
+		function Wo_StorePosts(type) {
+			if (type > 1) {
+				return false;
+			}
+			if (type == 0) {
+				$('.order_all').addClass('active');
+				$('.order_people').removeClass('active');
+			} else {
+				$('.order_all').removeClass('active');
+				$('.order_people').addClass('active');
+			}
+			$('#posts-laoded').html('<div class="wo_loading_post"><div class="lightui1-shimmer"> <div class="_2iwr"></div> <div class="_2iws"></div> <div class="_2iwt"></div> <div class="_2iwu"></div> <div class="_2iwv"></div> <div class="_2iww"></div> <div class="_2iwx"></div> <div class="_2iwy"></div> <div class="_2iwz"></div> <div class="_2iw-"></div> <div class="_2iw_"></div> <div class="_2ix0"></div> </div></div><div class="wo_loading_post"><div class="lightui1-shimmer"> <div class="_2iwr"></div> <div class="_2iws"></div> <div class="_2iwt"></div> <div class="_2iwu"></div> <div class="_2iwv"></div> <div class="_2iww"></div> <div class="_2iwx"></div> <div class="_2iwy"></div> <div class="_2iwz"></div> <div class="_2iw-"></div> <div class="_2iw_"></div> <div class="_2ix0"></div> </div></div>');
+			$.get(Wo_Ajax_Requests_File() + '?f=update_order_by', {type:type}, function (data) {
+				if (data.status == 200) {
+					loadposts();
+				}
+			});
+		}
+	</script>
+	<?php } ?>
