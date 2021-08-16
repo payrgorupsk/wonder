@@ -288,21 +288,6 @@ if ($wo['loggedin'] && $IsOwnerUser) {
             <?php } ?>
         <?php } ?>
 
-                        
-        <!-- Profile Percentage System -->
-        <?php if ($IsOwnerUser === true && array_sum($wo['pr_complition']) < 100): ?>
-            <?php echo Wo_LoadPage('timeline/profile-completion'); ?>
-        <?php endif; ?>
-        
-		<?php if($wo['loggedin'] == true) {  ?>
-			<div class="wow_content">
-				<div class="wow_form_fields mt-0">
-					<label class="mt-0" for="invite_your_frineds"><?php echo $wo['lang']['search_for_posts']; ?></label>
-					<input type="text" class="search-for-posts" onkeyup="Wo_SearchForPosts(this.value);" />
-				</div>
-			</div>
-        <?php } ?>
-		
         <ul class="page-margin wow_content negg_padd list-unstyled event-options-list right_user_info">
             <div class="wo_page_hdng">
 				<div class="wo_page_hdng_innr">
@@ -436,9 +421,21 @@ if ($wo['loggedin'] && $IsOwnerUser) {
 				</li>
 			<?php } ?>
         </ul>
-		
-		
-            
+                        
+        <!-- Profile Percentage System -->
+        <?php if ($IsOwnerUser === true && array_sum($wo['pr_complition']) < 100): ?>
+            <?php echo Wo_LoadPage('timeline/profile-completion'); ?>
+        <?php endif; ?>
+        
+		<?php if($wo['loggedin'] == true) {  ?>
+			<div class="wow_content" style="display: none">
+				<div class="wow_form_fields mt-0">
+					<label class="mt-0" for="invite_your_frineds"><?php echo $wo['lang']['search_for_posts']; ?></label>
+					<input type="text" class="search-for-posts" onkeyup="Wo_SearchForPosts(this.value);" />
+				</div>
+			</div>
+        <?php } ?>
+		  
         <?php if(!empty($wo['user_profile']['about'])) {  ?>
 			<div class="page-margin wow_content">
 				<div class="wo_page_hdng pag_neg_padd">
@@ -470,7 +467,7 @@ if ($wo['loggedin'] && $IsOwnerUser) {
         </ul>
         <?php } ?>
 		
-        <?php 
+        <!-- <?php 
 			echo Wo_LoadPage('timeline/albums-sidebar');
             if ($wo['config']['connectivitySystem'] == 1) {
               echo Wo_LoadPage('timeline/friends-sidebar');
@@ -492,7 +489,7 @@ if ($wo['loggedin'] && $IsOwnerUser) {
             <?php echo $sidebar_ad; ?>
         </ul>
         <?php } ?>
-        <?php echo Wo_LoadPage('footer/sidebar-footer')?>
+        <?php echo Wo_LoadPage('footer/sidebar-footer')?> -->
     </div>
     <div class="col-md-8">
 		<?php
