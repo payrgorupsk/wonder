@@ -237,9 +237,8 @@ $(function() {
         	window.location.href = data.location;
         }, 1000);
       } else {
-        var errors = data.errors.join("<br>");
-		$this.find('#loginbtn').attr("disabled", false);		
-        $state.html(errors);
+        
+        alert('Username Password doesnt match');
       } 
       working = false;
     }
