@@ -455,7 +455,7 @@ function Wo_RegisterPageLike(id) {
   element_like = $('[id=like-' + id + ']');
   html_like = '<button type="button" onclick="Wo_RegisterPageLike(' + id + ')" class="btn-active btn btn-default btn-sm wo_following_btn" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg><span class="button-text"> <?php echo $wo["lang"]["liked"];?></span></button>';
   if (element_like.find('button').hasClass('btn-active')) {
-  	html_like = '<button type="button" onclick="Wo_RegisterPageLike(' + id + ')" class="btn btn-default btn-sm wo_follow_btn" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg><span class="button-text"> <?php echo $wo["lang"]["like"];?></span></button>';
+  	html_like = '<button type="button" onclick="Wo_RegisterPageLike(' + id + ')" class="btn btn-default btn-sm wo_follow_btn" id="wo_useract_btn"><i class="fa fa-heart-o" style="font-size: 20px"></i></button>';
   }
   element_like.html(html_like);
   $.get(Wo_Ajax_Requests_File(), {f: 'like_page', page_id: id}, function (data) {
@@ -481,12 +481,12 @@ function Wo_RegisterPageLike(id) {
 
 function Wo_RegisterLike(post_id) {
   var post = $('[id=post-' + post_id + ']');
-  html_like = '<span class="active-like"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg><span class="like-btn-mobile"> <?php echo $wo["lang"]["liked"];?></span></span>';
+  html_like = '<span class="active-like"><i class="fa fa-heart" style="font-size: 20px; color: green"></i></span>';
   if (post.find("[id^=like-button]").parent().find('.active-like').length > 0) {
-  	html_like = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> <span class="like-btn-mobile"> <?php echo $wo["lang"]["like"];?></span>';
+  	html_like = '<i class="fa fa-heart-o" style="font-size: 20px"></i>';
   } 
   <?php if ($wo['config']['second_post_button'] == 'dislike') { ?>
-   post.find("[id^=wonder-button]").html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg> <span class="like-btn-mobile"> <?php echo $wo["lang"]["dislike"];?></span>');
+   post.find("[id^=wonder-button]").html('<i class="fa fa-heartbeat" style="font-size: 20px"></i></span>');
   <?php } ?>
   post.find("[id^=like-button]").html(html_like);
   $.get(Wo_Ajax_Requests_File(), {f: 'posts', s: 'register_like', post_id: post_id}, function (data) {
@@ -517,13 +517,13 @@ function Wo_RegisterWonder(post_id) {
   wonder_lang = "<?php echo $wo['lang']['dislike']; ?>";
   wonder_lang_2 = "<?php echo $wo['lang']['disliked']; ?>";
   <?php } ?>
-  html_wonder = '<span class="active-wonder">' + wonder_icon + '<span class="like-btn-mobile">' + wonder_lang_2 + '</span></span>';
+  html_wonder = '<span class="active-wonder"><i class="fa fa-heartbeat" style="font-size: 20px; color: red"></i></span>';
   if (post.find("[id^=wonder-button]").parent().find('.active-wonder').length > 0) {
-  	html_wonder = '' + wonder_icon + '<span class="like-btn-mobile">' + wonder_lang + '</span>';
+  	html_wonder = '<span class="like-btn-mobile"><i class="fa fa-heartbeat" style="font-size: 20px"></i></span>';
   }
   post.find("[id^=wonder-button]").html(html_wonder);
   <?php if ($wo['config']['second_post_button'] == 'dislike') { ?>
-   post.find("[id^=like-button]").html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> <span class="like-btn-mobile"> <?php echo $wo["lang"]["like"];?></span>');
+   post.find("[id^=like-button]").html('<i class="fa fa-heart-o" style="font-size: 20px"></i></span>');
   <?php } ?>
   $.get(Wo_Ajax_Requests_File(), {f: 'posts', s: 'register_wonder', post_id: post_id}, function (data) {
     if (post.find("[id^=wonder-button]").parent().find('.active-wonder').length > 0) {
