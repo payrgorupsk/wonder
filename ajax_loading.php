@@ -113,6 +113,9 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'joined_groups':
                     include('sources/joined_groups.php');
                     break;
+                case 'videos':
+                    include('sources/videos.php');
+                    break;
                 case 'go-pro':
                     include('sources/go_pro.php');
                     break;
@@ -187,6 +190,12 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'create-album':
                     include('sources/create_album.php');
+                    break;
+                case 'url-ads':
+                    include('sources/url_ads.php');
+                    break;
+                case 'confirm-view-ads':
+                    include('sources/url_ads.php');
                     break;
                 case 'contact-us':
                     include('sources/contact.php');
@@ -627,7 +636,10 @@ else{
             break;    
         case 'reset-password':
             include('sources/reset_password.php');
-            break;    
+            break;  
+        case 'videos':
+            include('sources/videos.php');
+            break;
         case 'start-up':
             include('sources/start_up.php');
             break;
@@ -727,6 +739,12 @@ else{
         case 'create-album':
             include('sources/create_album.php');
             break;
+        case 'url-ads':
+            include('sources/url_ads.php');
+            break;
+        case 'confirm-view-ads':
+            include('sources/url_ads.php');
+            break;
         case 'contact-us':
             include('sources/contact.php');
             break;
@@ -798,6 +816,9 @@ else{
             break;
         case 'forum-help':
             include('sources/forum/forum_help.php');
+            break;
+        case 'videos':
+            include('sources/videos.php');
             break;
         case 'forums':
             include('sources/forum/forumdisplay.php');
@@ -1081,6 +1102,7 @@ else{
 //     case 'create-album':
 //         include('sources/create_album.php');
 //         break;
+
 //     case 'contact-us':
 //         include('sources/contact.php');
 //         break;
