@@ -1,21 +1,34 @@
 <div class="page-margin products">
-	<div class="wow_main_float_head">
+	<div class="wow_main_float_head" style="background: linear-gradient(30deg, rgba(227,241,48,1) 0%, rgba(89,75,255,1) 49%, rgba(255,71,71,1) 100%);">
 		<div class="container">
-			<h1><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path></svg> <?php echo $wo['lang']['most_recent_art']; ?></h1>
+			<h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path></svg> <?php echo $wo['lang']['most_recent_art']; ?></h3>
 			<div class="search-blog">
 				<div class="main-blog-sidebar wow_form_fields">
 					<input type="text" placeholder="<?php echo $wo['lang']['search_for_article']?>" id="search-blog-input">
 				</div>
 			</div>
-			<ul class="list-unstyled wow_blog_cats">
-				<?php 
+			<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="max-height:250px; overflow-y:scroll;">
+      <?php 
 					$category_id = (!empty($_GET['id'])) ? (int) $_GET['id'] : 0;
 					foreach ($wo['blog_categories'] as $key => $category) {
 						$active = ($category_id == $key) ? 'active' : '';
 				?>
-					<li class="<?php echo $active?>"><a href="<?php echo Wo_SeoLink('index.php?link1=blog-category&id=' . $key) ?>" data-ajax="?link1=blog-category&id=<?php echo $key?>"><?php echo $category;?></a></li>
+					<li class="<?php echo $active?>"><a style="border-radius: 2em 0em 2em 0em;" href="<?php echo Wo_SeoLink('index.php?link1=blog-category&id=' . $key) ?>" data-ajax="?link1=blog-category&id=<?php echo $key?>"><?php echo $category;?></a></li>
 				<?php } ?>
-			</ul>
+    </ul>
+    </div>
+			<!--<ul class="list-unstyled wow_blog_cats">-->
+				<?php 
+				// 	$category_id = (!empty($_GET['id'])) ? (int) $_GET['id'] : 0;
+				// 	foreach ($wo['blog_categories'] as $key => $category) {
+				// 		$active = ($category_id == $key) ? 'active' : '';
+				?>
+					<!--<li class="<?php //echo $active?>"><a href="<?php //echo Wo_SeoLink('index.php?link1=blog-category&id=' . $key) ?>" data-ajax="?link1=blog-category&id=<?php //echo $key?>"><?php //echo $category;?></a></li>-->
+				<?php //} ?>
+			<!--</ul>-->
 		</div>
 	</div>
 	

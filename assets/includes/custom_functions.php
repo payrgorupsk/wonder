@@ -93,7 +93,7 @@ function ro_hasAdsTime($adid){
         }
     }
     else{
-        $_SESSION['ads_notify'] = "failed";
+        $_SESSION['ads_notify'] = $query_one;
         return false;
     }
 }
@@ -125,8 +125,9 @@ function ro_assignUserAds($adid){
     }
 }
 function ro_addPointsToProfile($adid){
-    global $wo, $sqlConnect;  
-    $query_one = "UPDATE `wo_users` SET `points` = `points`+".Wo_GetAdPoint($adid,true)." WHERE `user_id` =".$wo['user']['user_id'];  
+    global $wo, $sqlConnect;
+    $p_to_b = Wo_GetAdPoint($adid,true)/$wo['config']['dollar_to_point_cost'];
+    $query_one = "UPDATE " . T_USERS . " SET `points` = `points`+".Wo_GetAdPoint($adid,true).",`balance` = `balance`+".$p_to_b." WHERE `user_id` =".$wo['user']['user_id'];  
     // $query_one = "INSERT INTO `ro_user_ads`(`user_id`, `ads_id`, `seen_count`, `view_points`, `last_view_time`, `status`) VALUES (".$wo['user']['user_id'].",".Wo_GetAdId($adid,true).",1,".Wo_GetAdPoint($adid,true).",NOW(),1);";
     $sql       = mysqli_query($sqlConnect, $query_one);
     if ($sql) {
