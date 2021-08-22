@@ -70,7 +70,7 @@ body {
 
   <form style="width:95%; margin: 0px 5px 0px 5px;" data-toggle="dropdown" role="button" id="" role="search">
     <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
-      
+
       <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
     </div>
   </form>
@@ -101,12 +101,12 @@ body {
       <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
     </a>
 
-      <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=groups'); ?>" data-ajax="?link1=groups">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></svg> <?php echo $wo['lang']['my_groups'];?>
-      </a>
-      <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
-      </a>
+    <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=groups'); ?>" data-ajax="?link1=groups">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></svg> <?php echo $wo['lang']['my_groups'];?>
+    </a>
+    <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
+    </a>
 
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
@@ -118,6 +118,19 @@ body {
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>">
       <img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
     </a>
+
+    <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> Trending Posts
+    </a>
+
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></svg> <?php echo $wo['lang']['pokes'];?>
+    </a>
+
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=new-game'); ?>" data-ajax="?link1=new-game">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></svg> <?php echo $wo['lang']['games'];?>
+    </a>
+
 
     <hr>
 
