@@ -2,6 +2,22 @@
 	<div class="left-sidebar">
 		<ul>
 			<li class="wow_side_post_fltr">
+				<a class="main_menu" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#047cac" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg> <?php echo $wo['lang']['news_feed'];?>
+				</a>
+				<?php if ($wo['page'] == 'home') { ?>
+					<?php if ($wo['config']['order_posts_by'] == 0) { ?>
+						<div class="dropdown order_by">
+							<svg class="dropdown-toggle" data-toggle="dropdown" role="button" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7,10L12,15L17,10H7Z" opacity="0.7"/></svg>
+							<ul class="dropdown-menu dropdown-menu-right" role="button">
+								<li class="order_all <?php echo ($wo['user']['order_posts_by'] == 0) ? 'active' : ''; ?>"><a href="javascript:void(0);" onclick="Wo_StorePosts(0);"><?php echo $wo['lang']['all'] ?></a></li>
+								<li class="order_people <?php echo ($wo['user']['order_posts_by'] == 1) ? 'active' : ''; ?>"><a href="javascript:void(0);" onclick="Wo_StorePosts(1);"><?php echo $wo['lang']['people_i_follow'] ?></a></li>
+							</ul>
+						</div>
+					<?php } ?>
+				<?php } ?>
+			</li>
+			<li class="wow_side_post_fltr">
 
 				<a class="main_menu" onclick="closeNav()" href="<?php echo $wo['user']['url']; ?>" data-ajax="?link1=timeline&u=<?php echo $wo['user']['username'];?>">
 					<img src="<?=$wo['config']['site_url']?>/icons/tag-friend.png" width="25px"> <?php echo $wo['lang']['my_profile'];?>
@@ -16,10 +32,13 @@
 				</a>
 
 			</li>
+
 			<li class="wow_side_post_fltr">
-				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
-					<img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
+
+				<a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
 				</a>
+
 			</li>
 
 			<li class="wow_side_post_fltr">
@@ -31,11 +50,9 @@
 			</li>
 
 			<li class="wow_side_post_fltr">
-
-				<a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
+					<img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
 				</a>
-
 			</li>
 
 			<li class="wow_side_post_fltr">
@@ -49,6 +66,14 @@
 
 			<li class="wow_side_post_fltr">
 
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>">
+					<img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
+				</a>
+
+			</li>
+
+			<li class="wow_side_post_fltr">
+
 				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
 					<img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
 				</a>
@@ -56,17 +81,9 @@
 
 			</li>
 
-			<li class="wow_side_post_fltr">
-
-				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>">
-					<img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
-				</a>
-
-			</li>
-
 			<li>
-				<a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> Trending Posts
+				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=new-game'); ?>" data-ajax="?link1=new-game">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></svg> <?php echo $wo['lang']['games'];?>
 				</a>
 			</li>
 
@@ -77,22 +94,22 @@
 			</li>
 
 			<li>
-				<a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=new-game'); ?>" data-ajax="?link1=new-game">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></svg> <?php echo $wo['lang']['games'];?>
-				</a>
-			</li>
+				<a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> Trending Posts
+					</a>
+				</li>
 
-			<br>
-			<p style="color: black;">
-				<b><?php 
-				$copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
-				echo $copy = str_replace('{date}', date('Y'), $copy);
-			?></b>
+				<br>
+				<p style="color: black;">
+					<b><?php 
+					$copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+					echo $copy = str_replace('{date}', date('Y'), $copy);
+				?></b>
 
-			All Rights Reserved
-		</p>
-	</ul>
-</div>
+				All Rights Reserved
+			</p>
+		</ul>
+	</div>
 <?php } ?>
 
 

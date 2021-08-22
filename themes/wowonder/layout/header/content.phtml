@@ -97,77 +97,78 @@ body {
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=messages');?>" data-ajax="?link1=messages">
       <img src="<?=$wo['config']['site_url']?>/icons/messenger.png" width="25px"> Chat
     </a>
-    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
-      <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
+
+    <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
     </a>
 
     <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=groups'); ?>" data-ajax="?link1=groups">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></svg> <?php echo $wo['lang']['my_groups'];?>
     </a>
-    <a class="main_menu" href="<?php echo Wo_SeoLink('index.php?link1=pages'); ?>" data-ajax="?link1=pages">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></svg> <?php echo $wo['lang']['my_pages'];?>
+    
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=friends-nearby');?>"  data-ajax="?link1=friends-nearby">
+      <img src="<?=$wo['config']['site_url']?>/icons/friends.png" width="25px"> People You May Know
     </a>
-
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=blogs'); ?>">
       <img src="<?=$wo['config']['site_url']?>/icons/blog.png" width="25px"> <?php echo $wo['lang']['blog'] ?>
     </a>
-    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
-      <img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
-    </a>
-    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=movies'); ?>">
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>">
       <img src="<?=$wo['config']['site_url']?>/icons/movies.png" width="25px"> Videos
     </a>
-
-    <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> Trending Posts
-    </a>
-
-    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></svg> <?php echo $wo['lang']['pokes'];?>
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=albums'); ?>" data-ajax="?link1=albums">
+      <img src="<?=$wo['config']['site_url']?>/icons/gallery.png" width="25px"> <?php echo $wo['lang']['albums'];?>
     </a>
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=new-game'); ?>" data-ajax="?link1=new-game">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></svg> <?php echo $wo['lang']['games'];?>
     </a>
 
+    <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></svg> <?php echo $wo['lang']['pokes'];?>
+    </a>
 
-    <hr>
-
-    <div style="padding: 10px;">
-      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
-      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
-      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
-      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
-      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="<?php echo Wo_SeoLink('index.php?link1=developers');?>">Developers</a>
-
-    </div>
-    <p style="color: black;">
-      <b><?php 
-      $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
-      echo $copy = str_replace('{date}', date('Y'), $copy);
-    ?></b>
-
-    All Rights Reserved
-  </p>
-
-</div>
-
-<div class="navbar navbar-default navbar-fixed-top">
- <nav class="header-fixed1000">
-  <div class="container-fluid">
-   <div class="wow_hdr_innr_left">
-    <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">&#9776; </span> &emsp;
-    <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
-     <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
-   </a>
-   <?php if ($wo['loggedin'] == true) { ?>
-     <ul class="nav navbar-nav">
-      <li>
-       <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
-        <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="20px">
+    <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> Trending Posts
       </a>
-    </li>
+
+
+      <hr>
+
+      <div style="padding: 10px;">
+        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
+        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
+        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
+        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
+        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="<?php echo Wo_SeoLink('index.php?link1=developers');?>">Developers</a>
+
+      </div>
+      <p style="color: black;">
+        <b><?php 
+        $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+        echo $copy = str_replace('{date}', date('Y'), $copy);
+      ?></b>
+
+      All Rights Reserved
+    </p>
+
+  </div>
+
+  <div class="navbar navbar-default navbar-fixed-top">
+   <nav class="header-fixed1000">
+    <div class="container-fluid">
+     <div class="wow_hdr_innr_left">
+      <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">&#9776; </span> &emsp;
+      <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+       <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
+     </a>
+     <?php if ($wo['loggedin'] == true) { ?>
+       <ul class="nav navbar-nav">
+        <li>
+         <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+          <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="20px">
+        </a>
+      </li>
 <!-- 						<?php if ($wo['config']['user_ads'] == 1 || Wo_CanBlog() == true || $wo['config']['events'] == 1 || $wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) {  ?>
 							<li class="dropdown head_name_links">
 								<a href="#" class="dropdown-toggle sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">
