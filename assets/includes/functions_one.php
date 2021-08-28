@@ -2892,9 +2892,9 @@ function Wo_RegisterNotification($data = array()) {
                     $send = Wo_SendMessage($send_message_data);
                 }
             }
-            if ($wo['config']['android_push_native'] == 1 || $wo['config']['ios_push_native'] == 1 || $wo['config']['web_push'] == 1) {
-                Wo_NotificationWebPushNotifier();
-            }
+            // if ($wo['config']['android_push_native'] == 1 || $wo['config']['ios_push_native'] == 1 || $wo['config']['web_push'] == 1) {
+            //     Wo_NotificationWebPushNotifier();
+            // }
             return true;
         }
     }
@@ -7540,10 +7540,8 @@ function Wo_AddLikes($post_id) {
         $delete_activity  = Wo_DeleteActivity($post_id, $logged_user_id, 'liked_post');
         $sql_query_one    = mysqli_query($sqlConnect, $query_one);
         if ($sql_query_one) {
-
             //Register point level system for unlikes 
             Wo_RegisterPoint($post_id, "likes", "-");
-
             return 'unliked';
         }
     } else {
@@ -7552,7 +7550,10 @@ function Wo_AddLikes($post_id) {
         }
         $query_two     = "INSERT INTO " . T_LIKES . " (`user_id`, `post_id`) VALUES ({$logged_user_id}, {$post_id})";
         $sql_query_two = mysqli_query($sqlConnect, $query_two);
+        
+            
         if ($sql_query_two) {
+            
             if ($type2 != 'post_avatar') {
                 $activity_data = array(
                     'post_id' => $post_id,
@@ -7561,6 +7562,7 @@ function Wo_AddLikes($post_id) {
                     'activity_type' => 'liked_post'
                 );
                 $add_activity  = Wo_RegisterActivity($activity_data);
+                
             }
             $notification_data_array = array(
                 'recipient_id' => $user_id,
@@ -7570,10 +7572,10 @@ function Wo_AddLikes($post_id) {
                 'type2' => $type2,
                 'url' => 'index.php?link1=post&id=' . $post_id
             );
-            Wo_RegisterNotification($notification_data_array);
-
+            // Wo_RegisterNotification($notification_data_array);
+            
             //Register point level system for likes
-            Wo_RegisterPoint($post_id, "likes");
+            Wo_RegisterPoint($post_id, "likes","+");
 
             return 'liked';
         }
@@ -8208,7 +8210,7 @@ function Wo_RegisterPostComment($data = array()) {
             'type2' => $type2,
             'url' => 'index.php?link1=post&id=' . $data['post_id'] . '&ref=' . $inserted_comment_id
         );
-        Wo_RegisterNotification($notification_data_array);
+        // Wo_RegisterNotification($notification_data_array);
         if (isset($mentions) && is_array($mentions)) {
             foreach ($mentions as $mention) {
                 $notification_data_array = array(
@@ -8218,7 +8220,7 @@ function Wo_RegisterPostComment($data = array()) {
                     'page_id' => $page_id,
                     'url' => 'index.php?link1=post&id=' . $data['post_id']
                 );
-                Wo_RegisterNotification($notification_data_array);
+                // Wo_RegisterNotification($notification_data_array);
             }
         }
 

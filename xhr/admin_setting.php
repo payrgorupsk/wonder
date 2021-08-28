@@ -3641,7 +3641,7 @@ if ($f == 'admin_setting' AND (Wo_IsAdmin() || Wo_IsModerator())) {
         exit();
     }
     if ($s == 'update_ads') {
-        $updated = false;
+        $updated = false;        
         foreach ($_POST as $key => $ads) {
             if ($key != 'hash_id') {
                 $ad_data = array(
@@ -3664,6 +3664,71 @@ if ($f == 'admin_setting' AND (Wo_IsAdmin() || Wo_IsModerator())) {
         echo json_encode($data);
         exit();
     }
+    // added by rojoni
+    if ($s == 'update_banner_ads') {
+        $updated = false;        
+                $ad_data = array(
+                    'type'      => 'banner_one',
+                    'code'      => $_POST['banner_one'],
+                    'points'    => $_POST['banner_one_point'],
+                    'timer'     => $_POST['banner_one_timer'],
+                    'active'    => (empty($_POST['banner_one'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);                
+                $ad_data = array(
+                    'type'      => 'banner_two',
+                    'code'      => $_POST['banner_two'],
+                    'points'    => $_POST['banner_two_point'],
+                    'timer'     => $_POST['banner_two_timer'],
+                    'active'    => (empty($_POST['banner_two'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);
+                $ad_data = array(
+                    'type'      => 'banner_three',
+                    'code'      => $_POST['banner_three'],
+                    'points'    => $_POST['banner_three_point'],
+                    'timer'     => $_POST['banner_three_timer'],
+                    'active'    => (empty($_POST['banner_three'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);
+                $ad_data = array(
+                    'type'      => 'banner_four',
+                    'code'      => $_POST['banner_four'],
+                    'points'    => $_POST['banner_four_point'],
+                    'timer'     => $_POST['banner_four_timer'],
+                    'active'    => (empty($_POST['banner_four'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);
+                $ad_data = array(
+                    'type'      => 'banner_five',
+                    'code'      => $_POST['banner_five'],
+                    'points'    => $_POST['banner_five_point'],
+                    'timer'     => $_POST['banner_five_timer'],
+                    'active'    => (empty($_POST['banner_five'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);
+                $ad_data = array(
+                    'type'      => 'video_one',
+                    'code'      => $_POST['video_one'],
+                    'points'    => $_POST['video_one_point'],
+                    'timer'     => $_POST['video_one_timer'],
+                    'active'    => (empty($_POST['video_one'])) ? 0 : 1
+                );
+                $update  = Wo_UpdateAdsCode($ad_data);
+                if ($update) {
+                    $updated = true;
+                }            
+        
+        if ($updated == true) {
+            $data = array(
+                'status' => 200
+            );
+        }
+        header("Content-type: application/json");
+        echo json_encode($data);
+        exit();
+    }
+    // added by rojoni
     if ($s == 'update_ads_status') {
         if (!empty($_GET['type'])) {
             if (Wo_UpdateAdActivation($_GET['type']) == 'active') {

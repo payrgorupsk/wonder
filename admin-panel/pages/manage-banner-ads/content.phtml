@@ -95,7 +95,25 @@
                                 <label class="form-label">Timer 5 </label>
                                 <input type="number" name="banner_five_timer" id="banner_five_timer" class="form-control" value="<?php echo Wo_GetAdTimer('banner_five', true);?>">                                
                             </div>
-                        </div>                        
+                        </div>
+                        
+                        <div class="form-group form-float row card" style="padding: 10px; background-color:#ccc;">
+                            <div class="form-line col-md-12">
+                                <label class="form-label">Video 1</label>
+                                <textarea name="video_one" id="video_one" class="form-control" cols="30" rows="5"><?php echo Wo_GetAd('video_one', true);?></textarea>
+                                <small class="admin-info">This is 1st video ad</small>
+                            </div>
+                            <div class="form-line col-md-6">
+                                <label class="form-label">Video Points 1 </label>
+                                <input type="number" name="video_one_point" id="video_one_point" class="form-control" value="<?php echo Wo_GetAdPoint('video_one', true);?>">                                
+                            </div>
+                            <div class="form-line col-md-6">
+                                <label class="form-label">Video Timer 1 </label>
+                                <input type="number" name="video_one_timer" id="video_one_timer" class="form-control" value="<?php echo Wo_GetAdTimer('video_one', true);?>">                                
+                            </div>
+                        </div>
+                        
+                        
                         <div class="manage-banner-ads-alert"></div>
                         <input type="hidden" name="hash_id" value="<?php echo Wo_CreateSession();?>">
                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>

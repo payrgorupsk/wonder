@@ -64,8 +64,8 @@
       <meta property="og:title" content="<?php echo $wo['title'];?>" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="<?php echo $wo['config']['site_url'];?>" />
-      <meta property="og:image" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
-      <meta property="og:image:secure_url" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
+      <meta property="og:image" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
+      <meta property="og:image:secure_url" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
       <meta property="og:description" content="<?php echo $wo['description'];?>" />
       <meta name="twitter:card" content="summary">
       <meta name="twitter:title" content="<?php echo $wo['title'];?>" />
@@ -434,7 +434,7 @@
     <?php echo Wo_LoadPage('style') ?>
     
     <?php if ($wo['page'] == 'welcome') { ?>
-      <style>.login_left_combo{color:<?php echo $wo['config']['btn_color'];?>}body{background: <?php echo $wo['config']['btn_background_color'];?> !important;}   .wo_regi_features:before{content: '';display: block;background-image: url(<?php echo $wo['config']['theme_url'];?>/img/backgrounds/login.<?php echo $wo['config']['background_extension'];?>);background-repeat: no-repeat;background-size: cover;background-position:center;position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0.35;}
+      <style>.login_left_combo{color:<?php echo $wo['config']['btn_color'];?>}body{background: white;<?php //echo $wo['config']['btn_background_color'];?> !important;}   .wo_regi_features:before{content: '';display: block;background-image: url(<?php echo $wo['config']['theme_url'];?>/img/backgrounds/login.<?php echo $wo['config']['background_extension'];?>);background-repeat: no-repeat;background-size: cover;background-position:center;position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0.35;}
     </style>
       <?php }?>
 
@@ -1264,5 +1264,26 @@
     <!-- HTML NOTIFICATION POPUP -->
     <div id="notification-popup"></div>
     <!-- HTML NOTIFICATION POPUP -->
+
+    <?php 
+    $ads_notify = $_SESSION['ads_notify'];
+    if($ads_notify !='')
+    { ?>
+    <script>
+      $("#url_ads_notify").show();
+      var seconds = 5;
+    var countdown = setInterval(function() {
+    seconds--;   
+    if (seconds <= 0){       
+        clearInterval(countdown); 
+        $("#url_ads_notify").hide();
+    } 
+    }, 1000);
+    </script>
+
+   <?php } $_SESSION['ads_notify'] = ""; ?>
+    
+    
+    
    </body>
 </html>
