@@ -1724,8 +1724,8 @@ if ($f == 'admin_setting' AND (Wo_IsAdmin() || Wo_IsModerator())) {
     if ($s == 'verfiy_apps') {
         $arrContextOptions             = array(
             "ssl" => array(
-                "verify_peer" => false,
-                "verify_peer_name" => false
+                "verify_peer" => true,
+                "verify_peer_name" => true
             )
         );
         $data['android_status']        = 0;
@@ -1749,6 +1749,7 @@ if ($f == 'admin_setting' AND (Wo_IsAdmin() || Wo_IsModerator())) {
             $android_code = Wo_Secure($_POST['android_native_purchase_code']);
             $file         = file_get_contents("http://www.wowonder.com/access_token.php?code={$android_code}&type=android", false, stream_context_create($arrContextOptions));
             $check        = json_decode($file, true);
+            $_SESSION['ads_notify']= $file;
             if (!empty($check['status'])) {
                 if ($check['status'] == 'SUCCESS') {
                     $update                        = Wo_SaveConfig('footer_background_n', '#aaa');
@@ -4468,6 +4469,27 @@ if ($f == 'admin_setting' AND (Wo_IsAdmin() || Wo_IsModerator())) {
             setcookie("mode", 'night', time() + (10 * 365 * 24 * 60 * 60), '/');
             $_COOKIE['mode'] = 'night';
         }
+    }
+    
+    
+    if($s='gift_post_points'){
+       $result = ro_giftPost($_POST['post_id'], $_POST['author'], $_POST['points']);
+       if($result){
+           $data = array(
+                    'status' => 200
+                );
+                header("Content-type: application/json");
+                echo json_encode($data);
+                exit();
+       }
+       else{
+           $data = array(
+                    'status' => 400
+                );
+                header("Content-type: application/json");
+                echo json_encode($data);
+                exit();
+       }
     }
 
 

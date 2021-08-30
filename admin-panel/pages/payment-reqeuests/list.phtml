@@ -11,6 +11,7 @@
       </span>
    </td>
    <td><?php echo $wo['userlist']['user']['paypal_email'];?></td>
+   <td><?php echo ucwords($wo['userlist']['user']['withdraw_method']);?></td>
    <td>$<?php echo $wo['userlist']['amount'];?></td>
    <td><a href="<?php echo Wo_LoadAdminLinkSettings('referrals-list?id=' . $wo['userlist']['user_id']); ?>">Show</a></td>
    <td>

@@ -570,6 +570,7 @@ if (!empty($wo['story']['parent_id'])) {
       <img src="<?php echo $wo['story']['publisher']['avatar']; ?>" id="updateImage-<?php echo $wo['story']['publisher']['user_id']?>" alt="<?php echo $wo['story']['publisher']['name']; ?> profile picture" class="avatar ">
       <?php } ?>
    </div>
+  
    <!-- Hide dropdown -->
    <?php //if (empty($current_post['parent_id'])) { ?>
    <!-- Hide dropdown -->
@@ -722,6 +723,13 @@ if (!empty($wo['story']['parent_id'])) {
                <?php echo $wo['lang']['hide_post'];?>
                </a>    
             </li>
+            <?php if(Wo_IsAdmin() && !ro_isPostGifted($wo['story']['id'])): ?>
+            <li>
+               <a class="pointer" onclick="Ro_GiftPoints(<?php echo $wo['story']['id'];?>);">
+               <i class="fa fa-gift"></i> Gift Points
+               </a>    
+            </li>
+     <?php endif; ?>
          </ul>
       </span>
       <?php } ?>
@@ -738,6 +746,11 @@ if (!empty($wo['story']['parent_id'])) {
       <?php }else{ ?>
          <b><?php echo $wo['story']['publisher']['name']; ?></b>
          <?php } ?>
+         
+         <?php if(ro_isPostGifted($wo['story']['id'])):?>
+         <i class="fa fa-gift" style="color: orange;"></i>
+         <?php endif; ?>
+      
          <?php 
          if ($wo['config']['shout_box_system'] != 1 || $wo['story']['postPrivacy'] != 4) {
          if (isset($wo['story']['publisher']['is_pro'])) { 

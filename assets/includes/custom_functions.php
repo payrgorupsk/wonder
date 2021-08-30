@@ -85,7 +85,7 @@ function ro_hasAdsTime($adid){
     $sql       = mysqli_query($sqlConnect, $query_one);
     if ($sql) {
         $timediff = mysqli_fetch_array($sql);
-        if($timediff['cdown']>="01:00:01"){            
+        if($timediff['cdown']>="00:20:01"){            
             return true;
         }
         else{            
@@ -138,4 +138,124 @@ function ro_addPointsToProfile($adid){
         return false;
     }
 }
+
+function ro_giftPost($post_id, $author_id, $points){
+    global $wo, $sqlConnect;
+    $p_to_b = $points/$wo['config']['dollar_to_point_cost'];
+    $query_one = "UPDATE " . T_USERS . " SET `points` = `points`+".$points.",`balance` = `balance`+".$p_to_b." WHERE `user_id` =".$author_id;  
+    // $query_one = "INSERT INTO `ro_user_ads`(`user_id`, `ads_id`, `seen_count`, `view_points`, `last_view_time`, `status`) VALUES (".$wo['user']['user_id'].",".Wo_GetAdId($adid,true).",1,".Wo_GetAdPoint($adid,true).",NOW(),1);";
+    $sql       = mysqli_query($sqlConnect, $query_one);
+    if ($sql) {
+        
+        ro_pointsToPost($post_id,$points,$author_id);
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function ro_pointsToPost($post_id,$points,$author_id){
+    global $wo, $sqlConnect;
+    $query_one = "INSERT INTO `ro_gift_points_to_post`(`post_id`, `author_id`, `points`,  `gifted_by`) VALUES (".$post_id.", ".$author_id.", ".$points.",".$wo['user']['user_id'].")";
+    $sql       = mysqli_query($sqlConnect, $query_one);
+    if ($sql) {
+        
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function ro_isPostGifted($post_id){
+    global $wo, $sqlConnect;
+    $query_one = "SELECT * FROM `ro_gift_points_to_post` WHERE post_id = ".$post_id;
+     $sql       = mysqli_query($sqlConnect, $query_one);
+    if ($sql) {
+        $result = mysqli_num_rows($sql);
+        if($result>0){
+            return true;
+        }
+        else{
+        return false;
+        }
+        
+    }
+    else{
+        return false;
+    }
+}
+
+function ro_giftedPosts(){
+    global $wo, $sqlConnect;
+    $query_one = "SELECT * FROM `ro_gift_points_to_post` WHERE author_id = ".$wo['user']['id'];
+     $sql       = mysqli_query($sqlConnect, $query_one);
+    if ($sql) {
+        $result = mysqli_fetch_all($sql,MYSQLI_ASSOC);
+        if($result>0){
+            
+            return $result ;
+        }
+        else{
+        return 0;
+        }
+        
+    }
+    else{
+        return false;
+    }
+}
+
+function ro_totalGiftedPostsPoints($user_id){
+    global $wo, $sqlConnect;
+    $result[0][0] = 0;
+    $query_one = "SELECT SUM(`points`) FROM `ro_gift_points_to_post` WHERE author_id = ".$user_id;
+     $sql       = mysqli_query($sqlConnect, $query_one);
+    if ($sql) {
+        $result = mysqli_fetch_all($sql);
+        if($result>0){
+            return $result[0][0] ;
+        }
+        else{
+        return $result[0];
+        }
+        
+    }
+    else{
+        return $result[0];
+    }
+}
+
+
+function ro_totalGiftedPoints($user_id){
+    global $wo, $sqlConnect;
+    $total = 0;
+    $posts_points = ro_totalGiftedPostsPoints($user_id);
+    $total += $posts_points;
+    return $total;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
