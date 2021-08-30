@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
+
 @ini_set('session.cookie_httponly',1);
 @ini_set('session.use_only_cookies',1);
 @header("X-FRAME-OPTIONS: SAMEORIGIN");
