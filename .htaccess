@@ -158,6 +158,10 @@ RewriteRule ^wallet/transaction_log(/?|)$ index.php?link1=wallet&page=transactio
 RewriteRule ^status/create(/?|)$ index.php?link1=create-status [NC,QSA]
 RewriteRule ^more-status(/?|)$ index.php?link1=more-status [NC,QSA]
 
+# *** STORE ***
+RewriteRule ^store(/?|)$ index.php?link1=store [NC,QSA]
+
+
 
 # *** FIND  NEARBY ***
 RewriteRule ^friends-nearby(/?|)$ index.php?link1=friends-nearby [NC,QSA]
