@@ -125,8 +125,8 @@ body {
     </a>
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=jobs'); ?>" data-ajax="?link1=jobs">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4caf50" d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z"></svg> <?php echo $wo['lang']['jobs'];?>
-      </a>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4caf50" d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z"></svg> <?php echo $wo['lang']['jobs'];?>
+    </a>
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo Wo_SeoLink('index.php?link1=poke');?>"  data-ajax="?link1=poke">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></svg> <?php echo $wo['lang']['pokes'];?>
@@ -134,45 +134,61 @@ body {
 
     <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>/most_liked" data-ajax="?link1=most_liked">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></svg> <?php echo $wo['lang']['popular_posts'];?>
-      </a>
+    </a>
 
 
-      <hr>
+    <hr>
 
-      <div style="padding: 10px;">
-        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
-        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
-        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
-        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
-        <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="<?php echo Wo_SeoLink('index.php?link1=developers');?>">Developers</a>
+    <div style="padding: 10px;">
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=about-us');?>"><?php echo $wo['lang']['about'];?></a>
+      <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="<?php echo Wo_SeoLink('index.php?link1=developers');?>">Developers</a>
 
-      </div>
-      <p style="color: black;">
-        <b><?php 
-        $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
-        echo $copy = str_replace('{date}', date('Y'), $copy);
-      ?></b>
+    </div>
+    <p style="color: black;">
+      <b><?php 
+      $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
+      echo $copy = str_replace('{date}', date('Y'), $copy);
+    ?></b>
 
-      All Rights Reserved
-    </p>
+    All Rights Reserved
+  </p>
 
-  </div>
+</div>
 
-  <div class="navbar navbar-default navbar-fixed-top">
-   <nav class="header-fixed1000">
-    <div class="container-fluid">
-     <div class="wow_hdr_innr_left">
+<div class="navbar navbar-default navbar-fixed-top">
+ <nav class="header-fixed1000">
+  <div class="container-fluid">
+   <div class="wow_hdr_innr_left">
+
+    <?php
+    if($wo['loggedin'] == true) {
+      ?>
+
       <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">&#9776; </span> &emsp;
-      <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+
+      <?php
+    }
+    else{
+      ?>
+      <a href="<?php echo $wo['config']['site_url']; ?>">
        <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
      </a>
-     <?php if ($wo['loggedin'] == true) { ?>
-       <ul class="nav navbar-nav">
-        <li>
-         <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
-          <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="20px">
-        </a>
-      </li>
+     <?php
+   }
+   ?>
+   <a class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+     <img width="130" src="<?php echo $wo['config']['theme_url'];?>/img/logo.<?php echo $wo['config']['logo_extension'];?>" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
+   </a>
+   <?php if ($wo['loggedin'] == true) { ?>
+     <ul class="nav navbar-nav">
+      <li>
+       <a class="sixteen-font-size" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
+        <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="20px">
+      </a>
+    </li>
 <!-- 						<?php if ($wo['config']['user_ads'] == 1 || Wo_CanBlog() == true || $wo['config']['events'] == 1 || $wo['config']['groups'] == 1 || $wo['config']['pages'] == 1) {  ?>
 							<li class="dropdown head_name_links">
 								<a href="#" class="dropdown-toggle sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">
