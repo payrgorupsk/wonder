@@ -8501,10 +8501,23 @@ function Wo_CountPostComment($post_id = '') {
     if (empty($post_id) || !is_numeric($post_id) || $post_id < 0) {
         return false;
     }
-    $query        = mysqli_query($sqlConnect, "SELECT COUNT(`id`) AS `comments` FROM " . T_COMMENTS . " WHERE `post_id` = {$post_id} ");
+    $query = mysqli_query($sqlConnect, "SELECT COUNT(`id`) AS `comments` FROM " . T_COMMENTS . " WHERE `post_id` = {$post_id} ");
+
+    $query2 = mysqli_query($sqlConnect, "SELECT * FROM `wo_comments`  WHERE `post_id` = {$post_id} ");
+
+    $reply = 0;
+
+    while ($row = mysqli_fetch_assoc($query2)) {
+        
+        $query3 = mysqli_query($sqlConnect, "SELECT * FROM `wo_comment_replies`  WHERE `comment_id` = ".$row['id']);
+        $reply = $reply + mysqli_num_rows($query3);
+    }
+
+
     if (mysqli_num_rows($query)) {
         $fetched_data = mysqli_fetch_assoc($query);
-        return $fetched_data['comments'];
+        return ($reply + $fetched_data['comments']);
+    
     }
     return false;
         
