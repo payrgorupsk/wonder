@@ -7492,6 +7492,7 @@ function Wo_AddLikes($post_id) {
     if ($wo['loggedin'] == false) {
         return false;
     }
+    //
     if (empty($post_id) || !is_numeric($post_id) || $post_id < 1) {
         return false;
     }

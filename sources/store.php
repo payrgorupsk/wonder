@@ -1,7 +1,7 @@
 <?php
-if (isset($_GET['p'])) {
-    if (Wo_PageExists($_GET['p']) === true && Wo_PageActive($_GET['p'])) {
-        $page_id            = Wo_PageIdFromPagename($_GET['p']);
+if (isset($_GET['store'])) {
+    if (Wo_PageExists($_GET['store']) === true && Wo_PageActive($_GET['store'])) {
+        $page_id            = Wo_PageIdFromPagename($_GET['store']);
         $wo['page_profile'] = Wo_PageData($page_id);
     } else {
         header("Location: " . Wo_SeoLink('index.php?link1=404'));
