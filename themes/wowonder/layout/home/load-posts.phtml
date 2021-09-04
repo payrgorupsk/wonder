@@ -15,8 +15,39 @@
 		if (count($stories) <= 0) {
 			echo Wo_LoadPage('story/no-stories');
 		} else {
+			$i = 0;
 			foreach ($stories as $wo['story']) {
+
+				if($i == 3){
+
+					echo Wo_LoadPage('sidebar/mobile-content');
+
+				// 	$users = Wo_UserSug(4);
+
+				// 	echo '<ul class="list-group" id="sidebar-user-list-container">
+    //         <li class="list-group-item text-muted sidebar-title-back" contenteditable="false">'.$wo['lang']['people_you_may_know'].'
+				// <span onclick="Wo_ReloadSideBarUsers();" class="'.Wo_RightToLeft('pull-right');'. refresh">
+    //             <i class="fa fa-repeat progress-icon" data-icon="repeat"></i>
+    //             </span>
+    //         </li>
+    //         <li>
+    //             <div class="sidebar-users-may-know-container">';
+
+				// 	foreach ($users as $wo['UsersList']) {
+    //                         $wo['UsersList']['user_name'] = mb_substr($wo['UsersList']['name'],0,10, "utf-8");
+    //                         echo Wo_LoadPage('sidebar/sidebar-user-list');
+    //                     }
+
+    //                     echo '</div>
+    //             <div class="clear"></div>
+    //         </li>
+    //     </ul>'; 
+
+				 
+
+				}
 				echo Wo_LoadPage('story/content');
+				$i++;
 			}
 		}
 		?>
