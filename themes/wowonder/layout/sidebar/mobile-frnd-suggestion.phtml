@@ -1,3 +1,14 @@
+<style>
+div.scroll {
+	margin: 4px, 4px;
+	padding: 4px;
+	width: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+</style>
+
 <?php
 
 if(Wo_IsMobile() == true ) {
@@ -16,7 +27,7 @@ if(Wo_IsMobile() == true ) {
 					</span>
 				</li>
 				<li>
-					<div class="sidebar-users-may-know-container">
+					<div class="scroll">
 						<?php 
 						foreach ($users as $wo['UsersList']) {
 							$wo['UsersList']['user_name'] = mb_substr($wo['UsersList']['name'],0,10, "utf-8");
