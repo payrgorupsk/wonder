@@ -1,4 +1,7 @@
 <?php 
+
+if(Wo_IsMobile() == false ) {
+
 $wo['have_stories'] = false;
 $user_stories = $db->where('user_id', $wo['user']['user_id'])->get(T_USER_STORY,null,array('id'));
 if (!empty($user_stories)) {
@@ -657,3 +660,5 @@ $(document).ready(function(){
   });
 });
 </script>
+
+<?php } ?>
