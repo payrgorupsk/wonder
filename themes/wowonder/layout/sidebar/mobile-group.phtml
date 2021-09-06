@@ -1,28 +1,39 @@
-     <?php
+ <style>
+    div.scroll {
+    	margin: 4px, 4px;
+    	padding: 4px;
+    	width: auto;
+    	overflow-x: auto;
+    	overflow-y: hidden;
+    	white-space: nowrap;
+    }
+</style>
+
+<?php
 
 if(Wo_IsMobile() == true ) {
 	
-        if ($wo['config']['groups'] == 1) {
-            $groups = Wo_GroupSug(4);
-            if (count($groups) > 0) {
-                
-            ?>
-        <ul class="list-group" id="sidebar-group-list-container">
-            <li class="list-group-item text-muted sidebar-title-back" contenteditable="false"><?php echo $wo['lang']['suggested_groups'];?>
+	if ($wo['config']['groups'] == 1) {
+		$groups = Wo_GroupSug(4);
+		if (count($groups) > 0) {
+
+			?>
+			<ul class="list-group" id="sidebar-group-list-container">
+				<li class="list-group-item text-muted sidebar-title-back" contenteditable="false"><?php echo $wo['lang']['suggested_groups'];?>
 				<span onclick="Wo_ReloadSideBarGroups();" class="<?php echo Wo_RightToLeft('pull-right');?>  refresh">
-                <i class="fa fa-repeat progress-icon" data-icon="repeat"></i>
-                </span>
-            </li>
-            <li>
-                <div class="row sidebar-group-may-know-container">
-                    <?php 
-                        foreach ($groups as $wo['GroupList']) {
-                            $wo['GroupList']['name'] = mb_substr($wo['GroupList']['name'],0,20, "utf-8");
-                            echo Wo_LoadPage('sidebar/sidebar-group-list');
-                        } 
-                        ?>
-                </div>
-                <div class="clear"></div>
-            </li>
-        </ul>
-        <?php } } }?>
+					<i class="fa fa-repeat progress-icon" data-icon="repeat"></i>
+				</span>
+			</li>
+			<li>
+				<div class="scroll">
+					<?php 
+					foreach ($groups as $wo['GroupList']) {
+						$wo['GroupList']['name'] = mb_substr($wo['GroupList']['name'],0,20, "utf-8");
+						echo Wo_LoadPage('sidebar/sidebar-group-list');
+					} 
+					?>
+				</div>
+				<div class="clear"></div>
+			</li>
+		</ul>
+		<?php } } }?>
