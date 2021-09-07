@@ -1,0 +1,51 @@
+<style>
+div.scroll {
+	margin: 4px, 4px;
+	padding: 4px;
+	width: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+</style>
+
+<?php
+
+if(Wo_IsMobile() == true ) {
+	?>
+
+	<div class="sidebar-conatnier">
+		<div class="col-md-3 sidebar rightcol">
+			<?php 
+			$users = Wo_UserSug(4);
+			if (count($users) != 0 && Wo_IsMobile() == true) {
+				?>
+				<ul class="list-group" id="sidebar-user-list-container">
+					<li class="list-group-item text-muted sidebar-title-back" contenteditable="false"><?php echo $wo['lang']['people_you_may_know'];?>
+					<span onclick="Wo_ReloadSideBarUsers();" class="<?php echo Wo_RightToLeft('pull-right');?> refresh">
+						<i class="fa fa-repeat progress-icon" data-icon="repeat"></i>
+					</span>
+				</li>
+				<li>
+					<div class="scroll">
+						<?php 
+						foreach ($users as $wo['UsersList']) {
+							$wo['UsersList']['user_name'] = mb_substr($wo['UsersList']['name'],0,10, "utf-8");
+							echo Wo_LoadPage('sidebar/sidebar-user-list');
+						} 
+						?>
+					</div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+			<?php
+		}
+		?>
+		
+
+	</div>
+</div>
+
+<?php
+}
+?>

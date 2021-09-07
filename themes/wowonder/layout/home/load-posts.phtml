@@ -15,8 +15,23 @@
 		if (count($stories) <= 0) {
 			echo Wo_LoadPage('story/no-stories');
 		} else {
+			$i = 0;
 			foreach ($stories as $wo['story']) {
+
+				if($i == 2){
+
+					echo Wo_LoadPage('sidebar/mobile-frnd-suggestion');
+				}
+				if($i == 4){
+
+					echo Wo_LoadPage('sidebar/mobile-group');
+				}
+				if($i == 6){
+
+					echo Wo_LoadPage('sidebar/mobile-page');
+				}
 				echo Wo_LoadPage('story/content');
+				$i++;
 			}
 		}
 		?>
