@@ -411,13 +411,14 @@ if ($f == 'chat') {
             }
         }else{
             $data = array(
+                    'going' => "here?",
                         'status' => 400
                     );
 
         }
         header("Content-type: application/json");
         echo json_encode($data);
-        exit();
+        // exit();
     }
     if ($s == 'load_chat_messages') {
         if (!empty($_GET['recipient_id']) && is_numeric($_GET['recipient_id']) && $_GET['recipient_id'] > 0 && Wo_CheckMainSession($hash_id) === true) {

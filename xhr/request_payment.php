@@ -7,7 +7,7 @@ if ($f == 'request_payment') {
                     $errors[] = $error_icon . $wo['lang']['please_check_details'];
                 }
             }
-            else{
+            elseif (!empty($_POST['withdraw_method']) && $_POST['withdraw_method'] == 'paypal'){
                 if (empty($_POST['paypal_email'])) {
                     $errors[] = $error_icon . $wo['lang']['please_check_details'];
                 }
@@ -15,14 +15,42 @@ if ($f == 'request_payment') {
                     $errors[] = $error_icon . $wo['lang']['email_invalid_characters'];
                 }
             }
+            elseif(!empty($_POST['withdraw_method']) && ($_POST['withdraw_method'] == 'bkash' || $_POST['withdraw_method'] == 'rocket' || $_POST['withdraw_method'] == 'nagad' || $_POST['withdraw_method'] == 'paytm')){
+                if (empty($_POST['paypal_email'])) {
+                $errors[] = $error_icon . $wo['lang']['please_check_details'];
+            }
+            }
+            else{
+                if (empty($_POST['paypal_email'])) {
+                    $errors[] = $error_icon . $wo['lang']['please_check_details'];
+                }
+                
+            }
         }
         else{
+            if(!empty($_POST['withdraw_method']) && ($_POST['withdraw_method'] == 'bkash' || $_POST['withdraw_method'] == 'rocket' || $_POST['withdraw_method'] == 'nagad' || $_POST['withdraw_method'] == 'paytm')){
+                if (empty($_POST['paypal_email'])) {
+                $errors[] = $error_icon . $wo['lang']['please_check_details'];
+            }
+            }
+            
+            if (!empty($_POST['withdraw_method']) && $_POST['withdraw_method'] == 'paypal'){
             if (empty($_POST['paypal_email'])) {
                 $errors[] = $error_icon . $wo['lang']['please_check_details'];
             }
             elseif (!filter_var($_POST['paypal_email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = $error_icon . $wo['lang']['email_invalid_characters'];
             }
+        }
+        else{
+            if (empty($_POST['paypal_email'])) {
+                $errors[] = $error_icon . $wo['lang']['please_check_details'];
+            }
+            // elseif (!empty($_POST['paypal_email'])) {
+            //     $errors[] = $error_icon . "Wrong Mobile Number";
+            // }
+        }
+
         }
         if (empty($errors)) {
 
@@ -39,10 +67,11 @@ if ($f == 'request_payment') {
                     $errors[] = $error_icon . $wo['lang']['invalid_amount_value_withdrawal'] . ' '.Wo_GetCurrency($wo['config']['ads_currency']) . $wo['config']['m_withdrawal'];
                 }
                 if (empty($errors)) {
-                    if ($wo['config']['bank_withdrawal_system'] != 1 || empty($_POST['withdraw_method']) || $_POST['withdraw_method'] == 'paypal') {
+                    if ($wo['config']['bank_withdrawal_system'] != 1 || empty($_POST['withdraw_method']) || $_POST['withdraw_method'] == 'paypal' || $_POST['withdraw_method'] == 'bkash' || $_POST['withdraw_method'] == 'rocket' || $_POST['withdraw_method'] == 'nagad' || $_POST['withdraw_method'] == 'paytm') {
                         if (!empty($_POST['paypal_email'])) {
                             $userU          = Wo_UpdateUserData($wo['user']['user_id'], array(
-                                'paypal_email' => $_POST['paypal_email']
+                                'paypal_email' => $_POST['paypal_email'],
+                                'withdraw_method' => $_POST['withdraw_method']
                             ));
                         }
                     }

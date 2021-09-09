@@ -734,6 +734,15 @@ if (!empty($wo['story']['postWatching'])) {
                                  <?php echo $wo['lang']['hide_post'];?>
                               </a>    
                            </li>
+
+                           <?php if(Wo_IsAdmin() && !ro_isPostGifted($wo['story']['id'])): ?>
+            <li>
+               <a class="pointer" onclick="Ro_GiftPoints(<?php echo $wo['story']['id'];?>);">
+               <i class="fa fa-gift"></i> Gift Points
+               </a>    
+            </li>
+     <?php endif; ?>
+
                         </ul>
                      </span>
                   <?php } ?>
@@ -750,6 +759,11 @@ if (!empty($wo['story']['postWatching'])) {
                      <?php }else{ ?>
                         <b><?php echo $wo['story']['publisher']['name']; ?></b>
                      <?php } ?>
+
+                     <?php if(ro_isPostGifted($wo['story']['id'])):?>
+         <i class="fa fa-gift" style="color: orange;"></i>
+         <?php endif; ?>
+
                      <?php 
                      if ($wo['config']['shout_box_system'] != 1 || $wo['story']['postPrivacy'] != 4) {
                         if (isset($wo['story']['publisher']['is_pro'])) { 

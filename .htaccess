@@ -100,7 +100,7 @@ RewriteRule ^advertise$ index.php?link1=advertise [NC,QSA]
 RewriteRule ^url-ads$ index.php?link1=url-ads [NC,QSA]
 RewriteRule ^view-ads/(.*)$ index.php?link1=view-ads&id=$1 [NC,QSA]
 RewriteRule ^confirm-view-ads/(.*)$ index.php?link1=confirm-view-ads&adid=$1&stat=viewed [NC,QSA]
-RewriteRule ^videos$ index.php?link1=videos[NC,QSA]
+RewriteRule ^videos$ index.php?link1=videos [NC,QSA]
 
 RewriteRule ^wonderful$ index.php?theme=wonderful [NC,QSA]
 RewriteRule ^wowonder$ index.php?theme=wowonder [NC,QSA]
@@ -149,10 +149,18 @@ RewriteRule ^ads/create(/?|)$ index.php?link1=create-ads [NC,QSA]
 RewriteRule ^ads/edit/(\d+)(/?|)$ index.php?link1=edit-ads&id=$1 [NC,QSA]
 RewriteRule ^ads/chart/(\d+)(/?|)$ index.php?link1=chart-ads&id=$1 [NC,QSA]
 RewriteRule ^admin/ads/edit/(\d+)(/?|)$ index.php?link1=manage-ads&id=$1 [NC,QSA]
+RewriteRule ^wallet/affiliates(/?|)$ index.php?link1=wallet&page=affiliates [NC,QSA]
+RewriteRule ^wallet/payments(/?|)$ index.php?link1=wallet&page=payments [NC,QSA]
+RewriteRule ^wallet/my_points(/?|)$ index.php?link1=wallet&page=my_points [NC,QSA]
+RewriteRule ^wallet/transaction_log(/?|)$ index.php?link1=wallet&page=transaction_log [NC,QSA]
 
 # *** STATUS ***
 RewriteRule ^status/create(/?|)$ index.php?link1=create-status [NC,QSA]
 RewriteRule ^more-status(/?|)$ index.php?link1=more-status [NC,QSA]
+
+# *** STORE ***
+RewriteRule ^store(/?|)$ index.php?link1=store [NC,QSA]
+
 
 
 # *** FIND  NEARBY ***

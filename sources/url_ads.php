@@ -1,6 +1,6 @@
 <?php
 
-if ($wo['loggedin'] == false || $wo['config']['user_ads'] == 0) {
+if ($wo['loggedin'] == false ) {
   header("Location: " . Wo_SeoLink('index.php?link1=welcome'));
   exit();
 
@@ -12,11 +12,11 @@ if ($wo['user']['wallet'] == 0 || $wo['user']['wallet'] == '0.00') {
 $wo['description'] = $wo['config']['siteDesc'];
 $wo['keywords']    = $wo['config']['siteKeywords'];
 $wo['page']        = 'ads';
-$wo['ap']          = 'ads';
-$wo['title']       = $wo['lang']['manage_ads'];
-$wo['ads']         = Wo_GetMyAds();
+$wo['ap']          = 'url-ads';
+$wo['title']       = $wo['lang']['ads'];
+// $wo['ads']         = Wo_GetMyAds();
 if($_GET['link1']=='url-ads'){
-  $wo['content']     = Wo_LoadPage('url_ads/content');
+  $wo['content']     = Wo_LoadPage('url_ads/ads');
 }
 elseif($_GET['link1']=='view-ads'){  
   $wo['content']     = Wo_LoadPage('url_ads/view_ads');

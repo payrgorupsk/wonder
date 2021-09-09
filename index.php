@@ -483,6 +483,9 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'live':
                     include('sources/live.php');
                     break;
+                case 'store':
+                    include('sources/store.php');
+                    break;
             }
         }
         else{
@@ -564,7 +567,7 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'site-pages':
                     include('sources/site_pages.php');
-                    break;
+                    break;                
             }
         }
     }
@@ -1033,6 +1036,9 @@ else{
             break;
         case 'live':
             include('sources/live.php');
+            break;
+        case 'store':
+            include('sources/store.php');
             break;
     }
 }

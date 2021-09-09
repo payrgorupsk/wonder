@@ -2,7 +2,7 @@
    <td><input type="checkbox" id="check-data-<?php echo $wo['userlist']['user_id']?>" class="delete-checkbox filled-in"><label for="check-data-<?php echo $wo['userlist']['user_id']?>"></label></td>
    <td><?php echo $wo['userlist']['user_id']?></td>
    <td>
-      <a href="<?php echo $wo['userlist']['url']; ?>">
+      <a href="<?php echo str_replace('timeline&u=','timeline?&u=',$wo['userlist']['url']); ?>">
       <img src="<?php echo $wo['userlist']['avatar']; ?>" class="setting-avatar rounded-circle" alt="<?php echo $wo['userlist']['avatar']?> Profile Picture">
       <?php echo $wo['userlist']['name']; ?>
       </a>
@@ -36,7 +36,7 @@
             <?php if ($wo['config']['connectivitySystem'] == 0) { ?>
             <a class="dropdown-item" href="javascript:void(0)" onclick="getUserId(<?php echo $wo['userlist']['user_id']?>);" data-toggle="modal" data-target="#FollowersForm">Add Followers</a>
             <?php } ?>
-            <a class="dropdown-item" target="_blank" href="<?php echo Wo_SeoLink('index.php?link1=setting&user=' . $wo['userlist']['username'] . '&page=general-setting') ?>">Edit</a>
+            <a class="dropdown-item" target="_blank" href="<?php echo Wo_SeoLink('index.php?link1=setting?&user=' . $wo['userlist']['username'] . '&page=general-setting') ?>">Edit</a>
             <a class="dropdown-item" href="javascript:void(0)" onclick="Wo_DeleteUser(<?php echo $wo['userlist']['user_id']?>,'hide');">Delete</a>
             <a class="dropdown-item" href="javascript:void(0)" onclick="Wo_DeleteUserPosts(<?php echo $wo['userlist']['user_id']?>,'hide');">Delete Posts</a>
             <a class="dropdown-item" href="javascript:void(0)" onclick="Wo_DeleteUserArticles(<?php echo $wo['userlist']['user_id']?>,'hide');">Delete Articles</a>

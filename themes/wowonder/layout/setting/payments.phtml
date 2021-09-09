@@ -31,6 +31,10 @@
 						<select id="withdraw_method" name="withdraw_method" class="form-control" onchange="Wo_ShowWithdrawMethod(this)">
 							<option value="paypal"><?php echo $wo['lang']['paypal']; ?></option>
 							<option value="bank"><?php  echo $wo['lang']['bank']; ?></option>
+							<option value="bkash">Bkash</option>
+							<option value="rocket">Rocket</option>
+							<option value="nagad">Nagad</option>
+							<option value="paytm">Paytm</option>
 						</select>
 					</div>
 				</div>
@@ -38,7 +42,7 @@
 			<div class="paypal_withdrawal">
 				<div class="col-md-6">
 					<div class="wow_form_fields">
-						<label for="paypal_email"><?php echo $wo['lang']['paypal_email']; ?></label>  
+						<label for="paypal_email" id="email_number"><?php echo $wo['lang']['paypal_email']; ?></label>
 						<input id="paypal_email" name="paypal_email" type="text" class="form-control input-md" value="<?php echo $wo['setting']['email']?>" autocomplete="off">
 						<span class="help-block checking"></span>
 					</div>
@@ -142,6 +146,25 @@ function Wo_ShowWithdrawMethod(self) {
 	else{
 		$('.bank_withdrawal').slideUp();
 		$('.paypal_withdrawal').slideDown();
+		if($(self).val() == 'paypal'){			
+			$("#email_number").html("Paypal Email");
+		}
+		if($(self).val() == 'bkash'){			
+			$("#email_number").html("Bkash Number");
+		}
+		if($(self).val() == 'rocket'){			
+			$("#email_number").html("Rocket Number");
+		}
+		if($(self).val() == 'nagad'){			
+			$("#email_number").html("Nagad Number");
+		}
+		if($(self).val() == 'paytm'){			
+			$("#email_number").html("Paytm Number");
+		}
+
+
+
+		
 	}
 }
 $(function() {

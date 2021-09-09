@@ -29,8 +29,11 @@ $allow_array     = array(
     'paypro_with_bitcoin',
     'upload-blog-image',
     'wallet',
+    'login',
+    'register',
     'download_user_info',
     'movies',
+    'videos',
     'funding',
     'url_ads',
     'stripe'
@@ -74,6 +77,7 @@ $non_login_array = array(
     'load-recent-blogs',
     'get_no_posts_name',
     'url_ads',
+    'videos',
     'search-blog-read',
     'search-blog'
 );

@@ -26,7 +26,9 @@ if ($f == 'register') {
         }
     }
     $fields = Wo_GetWelcomeFileds();
+
     if (empty($_POST['email']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirm_password']) || empty($_POST['gender'])) {
+
         $errors = $error_icon . $wo['lang']['please_check_details'];
     } else {
         $is_exist = Wo_IsNameExist($_POST['email'], 0);
@@ -39,6 +41,25 @@ if ($f == 'register') {
         }
         if (Wo_CheckIfUserCanRegister($wo['config']['user_limit']) === false) {
             $errors = $error_icon . $wo['lang']['limit_exceeded'];
+        }
+
+        if (in_array($_POST['username'], $wo['site_pages'])) {
+            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        }
+        if (strlen($_POST['username']) < 5 OR strlen($_POST['username']) > 32) {
+            $errors = $error_icon . $wo['lang']['username_characters_length'];
+        }
+        if (!preg_match('/^[\w]+$/', $_POST['username'])) {
+            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        }
+        if (!empty($_POST['phone_num'])) {
+            if (!preg_match('/^\+?\d+$/', $_POST['phone_num'])) {
+                $errors = $error_icon . $wo['lang']['worng_phone_number'];
+            } else {
+                if (Wo_PhoneExists($_POST['phone_num']) === true) {
+                    $errors = $error_icon . $wo['lang']['phone_already_used'];
+                }
+            }
         }
 
         if (Wo_EmailExists($_POST['email']) === true) {

@@ -56,7 +56,7 @@ function Wo_LoadPage($page_url = '') {
 }
 
 // added by rojoni
-function Wo_LoadPage_r($page_url = '') {
+function ro_LoadPage($page_url = '') {
     global $wo,$db;
     $create_file = false;
     if ($page_url == 'sidebar/content' && $wo['loggedin'] == true && $wo['config']['cache_sidebar'] == 1) {

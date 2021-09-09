@@ -777,7 +777,7 @@ if ($f == 'posts') {
                                         'post_id' => $post_id,
                                         'url' => 'index.php?link1=post&id=' . $post_id
                                     );
-                                    Wo_RegisterNotification($notification_data_array);
+                                    // Wo_RegisterNotification($notification_data_array);
                                 }
                             }
                         }
@@ -801,8 +801,9 @@ if ($f == 'posts') {
             ));
             exit();
         }
+        // header("Location: ".$wo['config']['site_url']);
         header("Content-type: application/json");
-        echo json_encode($data);
+        // echo json_encode($data);
         exit();
     }
     if ($s == 'send_notify' && Wo_CheckMainSession($hash_id) === true) {
@@ -1188,8 +1189,10 @@ if ($f == 'posts') {
         echo json_encode($data);
         exit();
     }
+    /**************************************************************************/
     if ($s == 'register_like') {
         if (!empty($_GET['post_id']) && Wo_CheckMainSession($hash_id) === true) {
+            
             if (Wo_AddLikes($_GET['post_id']) == 'unliked') {
                 $data = array(
                     'status' => 300,
@@ -1219,6 +1222,7 @@ if ($f == 'posts') {
         echo json_encode($data);
         exit();
     }
+    /**************************************************************************/
     if ($s == 'delete_reaction') {
         if (!empty($_GET['post_id']) && Wo_CheckMainSession($hash_id) === true) {
             if (Wo_DeleteReactions($_GET['post_id'])) {

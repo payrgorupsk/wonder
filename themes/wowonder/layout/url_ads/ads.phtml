@@ -33,184 +33,135 @@
 	</div>
 </li> -->
 
-
-
-
-<?php if(Wo_GetAd('banner_one', true)!='' && (ro_hasAdsTime('banner_one')|| !ro_hasAds('banner_one'))){?>
-<li>
-	
-		<div class="row bg-danger" style="width: 100%; height:150px;" >        	
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_one" class="btn btn-info">Click Here</a>
-    				  </div>
-    				</div>
-  				</div>
-				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_one" class="btn btn-info">Click Here</a> -->
-			</div>
-        	<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_one', true);?> Seconds</h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_one', true);?> </h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>			
-    	</div> 
-	
+<?php if(Wo_IsMobile() == false ){ ?>
+<div class="container text-center">
     
-	  
-</li>
-<?php }?> 
-<?php if(Wo_GetAd('banner_two', true)!='' && (ro_hasAdsTime('banner_two')|| !ro_hasAds('banner_two'))){?>
-<li class="bg-success">
-		<div class="row bg-warning" style="width: 100%; height:150px;" >        	
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Click Here</a>
-    				  </div>
-    				</div>
-  				</div>
-				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Click Here</a> -->
-			</div>
-        	<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_two', true);?> Seconds</h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_two', true);?> </h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>			
-    	</div>
+    <?php if(Wo_GetAd('banner_one', true)!='' && (ro_hasAdsTime('banner_one')|| !ro_hasAds('banner_one'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><!--<?=Wo_GetAd('banner_one', true)?>--></div><a id="banner_one_url"   href="<?=Wo_GetAd('banner_one', true)?>" onclick="add_ads_point('banner_one')" class="btn btn-info">Signup</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_one', true)?></b> Seconds</div>-->
+            <div class="text-center" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_one', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
     
-</li>
-<?php }?>
-<?php if(Wo_GetAd('banner_three', true)!='' && (ro_hasAdsTime('banner_three')|| !ro_hasAds('banner_three'))){?>
-<li>
-		<div class="row bg-info" style="width: 100%; height:150px;" >        	
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Click Here</a>
-    				  </div>
-    				</div>
-  				</div>
-				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Click Here</a> -->
-			</div>
-        	<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_three', true);?> Seconds</h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_three', true);?> </h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>			
-    	</div>
+    <?php if(Wo_GetAd('banner_two', true)!='' && (ro_hasAdsTime('banner_two')|| !ro_hasAds('banner_two'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_two', true)?></div><a id="banner_two_url" href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_two', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_two', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
     
-</li>
+    <?php if(Wo_GetAd('banner_three', true)!='' && (ro_hasAdsTime('banner_three')|| !ro_hasAds('banner_three'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_three', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_three', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_three', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if(Wo_GetAd('banner_four', true)!='' && (ro_hasAdsTime('banner_four')|| !ro_hasAds('banner_four'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_four', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_four', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_four', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if(Wo_GetAd('banner_five', true)!='' && (ro_hasAdsTime('banner_five')|| !ro_hasAds('banner_five'))){?>
+    <div class="well bg-warning text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_five', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_five', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_five', true)?></b> Points</div> 
+        </div>
+    </div>
+</div>
 <?php } ?>
-<?php if(Wo_GetAd('banner_four', true)!='' && (ro_hasAdsTime('banner_four')|| !ro_hasAds('banner_four'))){?>
-<li>
-		<div class="row bg-success" style="width: 100%; height:150px;" >        	
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Click Here</a>
-    				  </div>
-    				</div>
-  				</div>
-				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Click Here</a> -->
-			</div>
-        	<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_four', true);?> Seconds</h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_four', true);?> </h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>			
-    	</div>
+
+<?php } else{ ?>
+
+<div class="container text-center">
     
-</li>
-<?php }?>
-<?php if(Wo_GetAd('banner_five', true)!='' && (ro_hasAdsTime('banner_five')|| !ro_hasAds('banner_five'))){?>
-<li>
-		<div class="row bg-danger" style="width: 100%; height:150px;" >        	
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-    				    <a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Click Here</a>
-    				  </div>
-    				</div>
-  				</div>
-				<!-- <a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Click Here</a> -->
-			</div>
-        	<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Timer</strong></h3><h4><?php echo Wo_GetAdTimer('banner_five', true);?> Seconds</h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>
-			<div class="col-md-4 text-center" style="height: 100%;">
-				<div class="" style="position: relative; height:100%;">
-    				<div class="vertical-align-wrap" style="position: absolute;  width: 100%;  height: 100%;   display: table;">
-    				  <div class="vertical-align vertical-align--middle" style=" display: table-cell; vertical-align: middle;">
-					  	<div style="color:purple; text-align:center;" ><h3><strong>Points</strong></h3><h4><?php echo Wo_GetAdPoint('banner_five', true);?> </h4></div>
-    				  </div>
-    				</div>
-  				</div>			
-			</div>			
-    	</div>
+    <?php if(Wo_GetAd('banner_one', true)!='' && (ro_hasAdsTime('banner_one')|| !ro_hasAds('banner_one'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><!--<?=Wo_GetAd('banner_one', true)?>--></div><a id="banner_one" onclick="add_ads_point('banner_one')" href="<?=Wo_GetAd('banner_one', true)?>" target="_blank" class="btn btn-info">Signup</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_one', true)?></b> Seconds</div>-->
+            <div class="text-center" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_one', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
     
-</li>
-<?php }?>
+    <?php if(Wo_GetAd('banner_two', true)!='' && (ro_hasAdsTime('banner_two')|| !ro_hasAds('banner_two'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_two', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_two" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_two', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_two', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if(Wo_GetAd('banner_three', true)!='' && (ro_hasAdsTime('banner_three')|| !ro_hasAds('banner_three'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_three', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_three" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_three', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_three', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if(Wo_GetAd('banner_four', true)!='' && (ro_hasAdsTime('banner_four')|| !ro_hasAds('banner_four'))){?>
+    <div class="well well-danger text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_four', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_four" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_four', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_four', true)?></b> Points</div> 
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if(Wo_GetAd('banner_five', true)!='' && (ro_hasAdsTime('banner_five')|| !ro_hasAds('banner_five'))){?>
+    <div class="well bg-warning text-center" style="margin-top:10px;">
+        <div class="text-center"><div><?=Wo_GetAd('banner_five', true)?></div><a href="<?=$wo['config']['site_url']?>/view-ads/banner_five" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('banner_five', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('banner_five', true)?></b> Points</div> 
+        </div>
+    </div>
+</div>
+<?php } ?>
+
+<?php if(Wo_GetAd('video_one', true)!='' && (ro_hasAdsTime('video_one')|| !ro_hasAds('video_one'))){?>
+    <div class="well bg-warning text-center" style="margin-top:10px;">
+        <div class="text-center"><div></div><a href="<?=$wo['config']['site_url']?>/view-ads/video_one" class="btn btn-info">Connect VPN & Click Here</a></div>
+        <div class="row text-center" style="margin-top:5px;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-right" style="color:purple; border-right:1px solid purple;"><b><?=Wo_GetAdTimer('video_one', true)?></b> Seconds</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="color:purple; border-left:1px solid purple;"><b><?=Wo_GetAdPoint('video_one', true)?></b> Points</div> 
+        </div>
+    </div>
+</div>
+<?php } ?>
+
+<?php } ?>
+
+<script>
+ function add_ads_point(id){
+        var href = $("#"+id+"_url").href;
+	    window.open(href,'_blank');
+	    window.location.replace('<?=$wo['config']['site_url']?>/confirm-view-ads/'+id);
+	    
+        
+ }
+    
+</script>

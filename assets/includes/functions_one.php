@@ -7570,7 +7570,7 @@ function Wo_AddLikes($post_id) {
                 'type2' => $type2,
                 'url' => 'index.php?link1=post&id=' . $post_id
             );
-            Wo_RegisterNotification($notification_data_array);
+            //Wo_RegisterNotification($notification_data_array);
 
             //Register point level system for likes
             Wo_RegisterPoint($post_id, "likes");
@@ -8208,7 +8208,7 @@ function Wo_RegisterPostComment($data = array()) {
             'type2' => $type2,
             'url' => 'index.php?link1=post&id=' . $data['post_id'] . '&ref=' . $inserted_comment_id
         );
-        Wo_RegisterNotification($notification_data_array);
+        //Wo_RegisterNotification($notification_data_array);
         if (isset($mentions) && is_array($mentions)) {
             foreach ($mentions as $mention) {
                 $notification_data_array = array(
@@ -8218,7 +8218,7 @@ function Wo_RegisterPostComment($data = array()) {
                     'page_id' => $page_id,
                     'url' => 'index.php?link1=post&id=' . $data['post_id']
                 );
-                Wo_RegisterNotification($notification_data_array);
+                //Wo_RegisterNotification($notification_data_array);
             }
         }
 
@@ -8503,13 +8503,13 @@ function Wo_CountPostComment($post_id = '') {
     }
     $query = mysqli_query($sqlConnect, "SELECT COUNT(`id`) AS `comments` FROM " . T_COMMENTS . " WHERE `post_id` = {$post_id} ");
 
-    $query2 = mysqli_query($sqlConnect, "SELECT * FROM `wo_comments`  WHERE `post_id` = {$post_id} ");
+    $query2 = mysqli_query($sqlConnect, "SELECT * FROM " . T_COMMENTS . "  WHERE `post_id` = {$post_id} ");
 
     $reply = 0;
 
     while ($row = mysqli_fetch_assoc($query2)) {
         
-        $query3 = mysqli_query($sqlConnect, "SELECT * FROM `wo_comment_replies`  WHERE `comment_id` = ".$row['id']);
+        $query3 = mysqli_query($sqlConnect, "SELECT * FROM " . T_COMMENTS_REPLIES . "  WHERE `comment_id` = ".$row['id']);
         $reply = $reply + mysqli_num_rows($query3);
     }
 

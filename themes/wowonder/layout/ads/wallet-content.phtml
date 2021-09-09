@@ -1,0 +1,114 @@
+<?php
+$user_id            = $wo['user']['user_id'];
+$wo['is_admin']     = Wo_IsAdmin();
+$wo['is_moderoter'] = Wo_IsModerator();
+
+$wo['setting']['admin'] = false;
+if (isset($_GET['user']) && !empty($_GET['user']) && ($wo['is_admin'] === true || $wo['is_moderoter'] === true)) {
+    if (Wo_UserExists($_GET['user']) === false) {
+        header("Location: " . $wo['config']['site_url']);
+        exit();
+    }
+    $user_id                = Wo_UserIdFromUsername($_GET['user']);
+    $wo['setting']['admin'] = true;
+}
+$wo['setting'] = Wo_UserData($user_id);
+if ($wo['is_moderoter']) {
+  if ($wo['setting']['admin'] == 1) {
+       header("Location: " . $wo['config']['site_url']);
+       exit();
+  }
+}
+$wo['setting']['fileds'] = Wo_UserFieldsData($user_id);
+$wo['setting_page'] = 'wallet-menu';
+$pages_array = array(
+   'general-setting',
+   'profile-setting',
+   'privacy-setting',
+   'change-password-setting',
+   'social-links',
+   'design-setting',
+   'avatar-setting',
+   'email-setting',
+   'verification',
+   'blocked-users',
+   'transaction_log',
+   'my_points',
+   'manage-sessions',
+   'notifications-settings',
+   'two-factor',
+   'my_info',
+   'invitation_links'
+);
+if ($wo['setting']['user_id'] == $wo['user']['user_id']) {
+  $pages_array = array(
+   'general-setting',
+   'profile-setting',
+   'privacy-setting',
+   'change-password-setting',
+   'social-links',
+   'delete-account',
+   'design-setting',
+   'avatar-setting',
+   'email-setting',
+   'verification',
+   'blocked-users',
+   'transaction_log',
+   'my_points',
+   'manage-sessions',
+   'notifications-settings',
+   'two-factor',
+   'my_info',
+   'invitation_links'
+   );
+}
+if ($wo['config']['affiliate_system'] == 1) {
+  $pages_array[] = 'affiliates';
+}
+if ($wo['config']['affiliate_system'] == 1 || $wo['config']['point_allow_withdrawal'] == 1 || $wo['config']['funding_system'] == 1) {
+	$pages_array[] = 'payments';
+}
+if (!empty($_GET['page'])) {
+   if (in_array($_GET['page'], $pages_array)) {
+      $wo['setting_page'] = $_GET['page'];
+   }
+   if ($wo['config']['deleteAccount'] != 1 && $wo['setting_page'] == 'delete-account') {
+   	$wo['setting_page'] = 'general-setting';
+   }
+}
+$wo['user_setting'] = '';
+if (!empty($_GET['user'])) {
+    $wo['user_setting'] = 'user=' . $_GET['user']. '&';
+}
+if ($wo['setting_page'] == 'invitation_links') {
+	$wo['available_links'] = Wo_GetAvailableLinks($wo['setting']['user_id']);
+	if ($wo['config']['user_links_limit'] > 0) {
+		$wo['generated_links'] = $wo['config']['user_links_limit'] - $wo['available_links'];
+	}
+	else{
+		$wo['generated_links'] = Wo_GetGeneratedLinks($wo['setting']['user_id']);
+	}
+	$wo['used_links'] = Wo_GetUsedLinks($wo['setting']['user_id']);
+}
+?>
+
+<div class="page-margin">
+
+	<div class="row setting-panel" style="position:relative;">
+		<div class="col-md-2 leftcol"><?php echo Wo_LoadPage("sidebar/left-sidebar"); ?></div>
+		<div class="col-md-7 middlecol sett_page" id="wo_main_sett_mid"><div class="page-margin wowonder-well">
+			<div class="wo_page_hdng pag_neg_padd pag_alone">
+				<div class="wo_page_hdng_innr">
+					<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M21,18V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V6H12C10.89,6 10,6.9 10,8V16A2,2 0 0,0 12,18M12,16H22V8H12M16,13.5A1.5,1.5 0 0,1 14.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 16,13.5Z"></path></svg></span> <?php echo $wo['lang']['my_wallet']; ?>
+				</div>
+			</div>
+		</div>
+		<div class="page-margin wowonder-well text-center" style="padding-bottom:10px;">
+			<a href="<?=$wo['config']['site_url']?>/wallet/affiliates" class="btn btn-primary" style="height: 35px; margin:5px">My Affiliates</a>
+            <a href="<?=$wo['config']['site_url']?>/wallet/payments" class="btn btn-success" style="height: 35px; margin:5px">Current Balance</a>
+            <a href="<?=$wo['config']['site_url']?>/wallet/my_points" class="btn btn-danger" style="height: 35px; margin:5px">My Points</a>
+            <a href="<?=$wo['config']['site_url']?>/wallet/transaction_log" class="btn btn-info" style="height: 35px; margin:5px">Transactions</a>
+		</div><?php echo Wo_LoadPage("setting/" . $wo['setting_page']); ?></div>
+		<!-- <div class="col-md-3 sidebar rightcol sett_page" id="wo_main_sett_side"><?php echo Wo_LoadPage('setting/user-setting-sidebar');?></div> -->
+	</div>
+</div>
