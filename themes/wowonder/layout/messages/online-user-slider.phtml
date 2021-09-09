@@ -1,5 +1,25 @@
 <?php $OnlineUsers = Wo_GetChatUsers('online'); ?>
 
+<style>
+    .user-status-home ul.status-list li a:after{
+        content: none;
+    }
+    .online-dot{
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background-color: #63c666;
+        bottom: 39%;
+        position: absolute;
+        right: 19%;
+        border: 2px solid white;
+    }
+    .user-status-home ul.status-list li {
+    width: 75px;
+}
+    
+</style>
+
 <div class="wow_content user-status-home wow_home_stories" style="width: 90%; margin-left:auto; margin-right:auto;">
     <div class="wo_page_hdng pag_neg_padd">
         <div class="wo_page_hdng_innr">
@@ -16,15 +36,22 @@
             <?php
             foreach ($OnlineUsers as $key => $wo['chatList']) { ?>
                 <li>
-                    <a class="" onclick="Wo_GetUserMessages(<?php echo $wo['chatList']['user_id']; ?>,'<?php echo $wo['chatList']['name']; ?>');">
-                    <img src="<?php echo $wo['chatList']['avatar'];?>" alt="<?php echo $wo['chatList']['avatar'];?> Profile Picture" />
-                        <p><?php echo $wo['chatList']['name']; ?></p>
+                    <div>
+                        <a class="text-center" onclick="Wo_GetUserMessages(<?php echo $wo['chatList']['user_id']; ?>,'<?php echo $wo['chatList']['name']; ?>');">
+                        <div class="avatar">
+                            <img style="border-radius: 50%; height:55px; width:55px;" src="<?php echo $wo['chatList']['avatar'];?>" alt="<?php echo $wo['chatList']['avatar'];?> Profile Picture" />
+                    <div class="online_dot" style="height: 12px; width: 12px; border-radius: 50%; background-color: #63c666; bottom: 39%; position: absolute; right: 19%; border: 2px solid white;"><div class="dot"></div></div>                        
+                        </div>
+                        <p style="color: purple; padding:0 !important; text-align:center"><?php echo explode(' ',$wo['chatList']['name'])[0]; ?></p>
+                    
                     </a>
+                    </div>                    
+                    
                 </li>
-        
+        <?php } ?>
     </ul>
-    <?php }
-        }
+    
+       <?php }
         else{ ?>
             <div class="text-center">
                 No one is available now
