@@ -164,24 +164,22 @@ if ($f == 'register') {
                 $register = true;
             }
         
-        
-        
             // if ($activate == 1 || ($wo['config']['sms_or_email'] == 'mail' && $activate != 1)) { 
-            //     if ($wo['config']['auto_username'] == 1) {
-            //         $r_id = Wo_UserIdFromUsername($_POST['email']);
-            //         $_POST['email'] = $_POST['email']."_".$r_id;
-            //         $db->where('user_id',$r_id)->update(T_USERS,array('username' => $_POST['email']));
-            //     }
+                // if ($wo['config']['auto_username'] == 1) {
+                //     $r_id = Wo_UserIdFromUsername($_POST['email']);
+                //     $_POST['email'] = $_POST['email']."_".$r_id;
+                //     $db->where('user_id',$r_id)->update(T_USERS,array('username' => $_POST['email']));
+                // }
                 
-            //     if (!empty($wo['config']['auto_friend_users'])) {
-            //         $autoFollow = Wo_AutoFollow(Wo_UserIdFromUsername($_POST['email']));
-            //     }
-            //     if (!empty($wo['config']['auto_page_like'])) {
-            //         Wo_AutoPageLike(Wo_UserIdFromUsername($_POST['email']));
-            //     }
-            //     if (!empty($wo['config']['auto_group_join'])) {
-            //         Wo_AutoGroupJoin(Wo_UserIdFromUsername($_POST['email']));
-            //     }
+                if (!empty($wo['config']['auto_friend_users'])) {
+                    $autoFollow = Wo_AutoFollow(Wo_UserIdFromUsername($_POST['email']));
+                }
+                if (!empty($wo['config']['auto_page_like'])) {
+                    Wo_AutoPageLike(Wo_UserIdFromUsername($_POST['email']));
+                }
+                if (!empty($wo['config']['auto_group_join'])) {
+                    Wo_AutoGroupJoin(Wo_UserIdFromUsername($_POST['email']));
+                }
             // }
                 
             if ($activate == 1) {
