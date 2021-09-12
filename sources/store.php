@@ -8,8 +8,10 @@ if (isset($_GET['store'])) {
         exit();
     }
 } else {
-    header("Location: " . $wo['config']['site_url']);
-    exit();
+    // header("Location: " . $wo['config']['site_url']);
+    // exit();
+    $page_id            = Wo_PageIdFromPagename("GolpoKotha");
+        $wo['page_profile'] = Wo_PageData($page_id);
 }
 if (isset($_GET['boosted']) && $wo['config']['pro'] == 1 && $wo['loggedin'] == true && $wo['page_profile']['boosted'] == 0) {
 	if ($wo['page_profile']['is_page_onwer'] == true) {
@@ -29,4 +31,4 @@ $wo['description'] = $wo['page_profile']['page_description'];
 $wo['keywords']    = '';
 $wo['page']        = 'page';
 $wo['title']       = $wo['page_profile']['name'];
-$wo['content']     = Wo_LoadPage('page/content');
+$wo['content']     = Wo_LoadPage('store/content');
