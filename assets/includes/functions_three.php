@@ -6486,7 +6486,7 @@ function Wo_AutoFollow($user_id = 0) {
         }
         return true;
     } else {
-        return false;
+        return true;
     }
 }
 

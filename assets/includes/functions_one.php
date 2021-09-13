@@ -2018,7 +2018,7 @@ function Wo_RegisterFollow($following_id = 0, $followers_id = 0) {
                     'follow_id' => $following_id,
                     'activity_type' => 'following'
                 );
-                $add_activity  = Wo_RegisterActivity($activity_data);
+                Wo_RegisterActivity($activity_data);
             }
         }
     }

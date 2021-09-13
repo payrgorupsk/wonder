@@ -43,15 +43,15 @@ if ($f == 'register') {
             $errors = $error_icon . $wo['lang']['limit_exceeded'];
         }
 
-        if (in_array($_POST['username'], $wo['site_pages'])) {
-            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
-        }
-        if (strlen($_POST['username']) < 5 OR strlen($_POST['username']) > 32) {
-            $errors = $error_icon . $wo['lang']['username_characters_length'];
-        }
-        if (!preg_match('/^[\w]+$/', $_POST['username'])) {
-            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
-        }
+        // if (in_array($_POST['username'], $wo['site_pages'])) {
+        //     $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        // }
+        // if (strlen($_POST['username']) < 5 OR strlen($_POST['username']) > 32) {
+        //     $errors = $error_icon . $wo['lang']['username_characters_length'];
+        // }
+        // if (!preg_match('/^[\w]+$/', $_POST['username'])) {
+        //     $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        // }
         if (!empty($_POST['phone_num'])) {
             if (!preg_match('/^\+?\d+$/', $_POST['phone_num'])) {
                 $errors = $error_icon . $wo['lang']['worng_phone_number'];
