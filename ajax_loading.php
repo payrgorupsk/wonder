@@ -113,9 +113,6 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'joined_groups':
                     include('sources/joined_groups.php');
                     break;
-                case 'videos':
-                    include('sources/videos.php');
-                    break;
                 case 'go-pro':
                     include('sources/go_pro.php');
                     break;
@@ -184,18 +181,21 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'albums':
                     include('sources/my_albums.php');
+                break;
+                case 'url-ads':
+                    include('sources/url_ads.php');
+                    break;
+                case 'confirm-view-ads':
+                    include('sources/url_ads.php');
+                    break;
+                case 'videos':
+                    include('sources/videos.php');
                     break;
                 case 'album':
                     include('sources/album.php');
                     break;
                 case 'create-album':
                     include('sources/create_album.php');
-                    break;
-                case 'url-ads':
-                    include('sources/url_ads.php');
-                    break;
-                case 'confirm-view-ads':
-                    include('sources/url_ads.php');
                     break;
                 case 'contact-us':
                     include('sources/contact.php');
@@ -431,6 +431,9 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'offers':
                     include('sources/offers.php');
                     break;
+                case 'view-ads':
+                    include('sources/url_ads.php');
+                    break;
                 case 'nearby_shops':
                     include('sources/nearby_shops.php');
                     break;
@@ -439,6 +442,15 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'live':
                     include('sources/live.php');
+                    break;
+                case 'store':
+                    include('sources/store.php');
+                    break;
+                case 'stores':
+                    include('sources/stores.php');
+                    break;
+                case 'create-store':
+                    include('sources/create_store.php');
                     break;
             }
         }
@@ -636,10 +648,7 @@ else{
             break;    
         case 'reset-password':
             include('sources/reset_password.php');
-            break;  
-        case 'videos':
-            include('sources/videos.php');
-            break;
+            break;    
         case 'start-up':
             include('sources/start_up.php');
             break;
@@ -733,17 +742,20 @@ else{
         case 'albums':
             include('sources/my_albums.php');
             break;
-        case 'album':
-            include('sources/album.php');
-            break;
-        case 'create-album':
-            include('sources/create_album.php');
-            break;
         case 'url-ads':
             include('sources/url_ads.php');
             break;
         case 'confirm-view-ads':
             include('sources/url_ads.php');
+            break;
+        case 'videos':
+            include('sources/videos.php');
+            break;
+        case 'album':
+            include('sources/album.php');
+            break;
+        case 'create-album':
+            include('sources/create_album.php');
             break;
         case 'contact-us':
             include('sources/contact.php');
@@ -816,9 +828,6 @@ else{
             break;
         case 'forum-help':
             include('sources/forum/forum_help.php');
-            break;
-        case 'videos':
-            include('sources/videos.php');
             break;
         case 'forums':
             include('sources/forum/forumdisplay.php');
@@ -982,6 +991,9 @@ else{
         case 'offers':
             include('sources/offers.php');
             break;
+        case 'view-ads':
+            include('sources/url_ads.php');
+            break;
         case 'nearby_shops':
             include('sources/nearby_shops.php');
             break;
@@ -990,6 +1002,15 @@ else{
             break;
         case 'live':
             include('sources/live.php');
+            break;
+        case 'store':
+            include('sources/store.php');
+            break;
+        case 'stores':
+            include('sources/stores.php');
+            break;
+        case 'create-store':
+            include('sources/create_store.php');
             break;
     }
 }

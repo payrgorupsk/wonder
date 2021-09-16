@@ -486,6 +486,12 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'store':
                     include('sources/store.php');
                     break;
+                case 'stores':
+                    include('sources/stores.php');
+                    break;
+                case 'create-store':
+                    include('sources/create_store.php');
+                    break;
             }
         }
         else{
@@ -1039,6 +1045,12 @@ else{
             break;
         case 'store':
             include('sources/store.php');
+            break;
+        case 'stores':
+            include('sources/stores.php');
+            break;
+        case 'create-store':
+            include('sources/create_store.php');
             break;
     }
 }

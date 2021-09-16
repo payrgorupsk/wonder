@@ -5,7 +5,7 @@
 			<div class="page-margin wow_content mt-0">
 				<div class="wo_page_hdng pag_neg_padd pag_alone">
 					<div class="wo_page_hdng_innr">
-						<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12.4,5H18V12C15.78,12 13.84,13.21 12.8,15H11L10.6,13H5V20H3V3H12L12.4,5Z"></path></svg></span> <?php echo $wo['lang']['create_new_page'];?>
+						<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12.4,5H18V12C15.78,12 13.84,13.21 12.8,15H11L10.6,13H5V20H3V3H12L12.4,5Z"></path></svg></span> Create New Store
 					</div>
 				</div>
 			</div>
@@ -13,20 +13,37 @@
             <div class="page-margin wow_content wow_sett_content">
 				<form class="create-page-form form-horizontal" method="post">
 					<div class="wow_form_fields">
-						<label for="page_title"><?php echo $wo['lang']['page_name']; ?></label>
+						<label for="page_title">Store Name</label>
 						<input id="page_title" name="page_title" type="text">
-						<span class="help-block"><?php echo $wo['lang']['your_page_title'];?></span>
+						<span class="help-block">Yore Store Title</span>
 					</div>
 					<div class="wow_form_fields">
-						<label for="page_name"><?php echo $wo['lang']['page'];?> URL</label>
+						<label for="owner_name">Owner's Name</label>
+						<input id="owner_name" name="owner_name" type="text">
+						<span class="help-block">Name of the Owner</span>
+					</div>
+					<div class="wow_form_fields">
+					<label for="country"><?php echo $wo['lang']['country']; ?> </label>
+					<select id="country" name="country">
+						<?php 
+						foreach ($wo['countries_name'] as $country_ids => $country) { 
+							$country_id = $wo['setting']['country_id'];
+							$selected_contry = ($country_ids == $country_id) ? ' selected' : '' ;
+						?>
+							<option value="<?php echo $country_ids;?>" <?php echo $selected_contry;?> ><?php echo $country;?></option>
+						<?php } ?>
+					</select>
+				</div>
+					<div class="wow_form_fields">
+						<label for="page_name">Store URL</label>
 						<div class="input-group">
-							<span class="input-group-addon"><?php echo $wo['config']['site_url'];?>/</span>
+							<span class="input-group-addon"><?php echo $wo['config']['site_url'];?>/store/</span>
 							<input id="page_name" name="page_name" type="text">
 						</div>
 					</div>
 					<div class="wow_form_fields">
-						<label for="page_category"><?php echo $wo['lang']['page_category']; ?></label>
-						<select name="page_category" id="page_category" onchange="GetPageSubCategory(this)">
+						<label for="store_category">Store Category</label>
+						<select name="store_category" id="store_category" onchange="GetStoreSubCategory(this)">
 							<?php foreach ($wo['page_categories'] as $category_id => $category_name) {?>
 								<option value="<?php echo $category_id?>"><?php echo $category_name; ?></option>
 							<?php } ?>
@@ -34,7 +51,7 @@
 					</div>
 					<?php if (!empty($wo['page_sub_categories'])) { ?>
 					<div class="wow_form_fields">
-						<label for="page_sub_category"><?php echo $wo['lang']['sub_category']; ?></label>
+						<label for="page_sub_category">Store Sub Category</label>
 						<select name="page_sub_category" id="page_sub_category">
 							<?php
 							if (!empty($wo['page_sub_categories'][array_keys($wo['page_categories'])[0]])) {
@@ -45,20 +62,20 @@
 					</div>
 				    <?php } ?>
 					<div class="wow_form_fields">
-						<label for="page_description"><?php echo $wo['lang']['page_description']; ?></label>
-						<textarea name="page_description" id="page_description" rows="3"></textarea>
-						<span class="help-block"><?php echo $wo['lang']['page_description_info'];?></span>
+						<label for="store_description">Store Description</label>
+						<textarea name="store_description" id="store_description" rows="3"></textarea>
+						<span class="help-block">Store Description Info</span>
 					</div>
 					<?php $fields = Wo_GetCustomFields('page'); 
 					if (!empty($fields)) {
 						foreach ($fields as $key => $wo['field']) {
-							echo Wo_LoadPage('page/fields');
+							echo Wo_LoadPage('store/fields');
 						}
 					}
 					?>
 				  	<div class="app-general-alert setting-update-alert"></div>
 					<div class="text-center">
-						<a class="btn btn-mat" data-ajax="?link1=pages" href="<?php echo Wo_SeoLink('index.php?link1=pages');?>">
+						<a class="btn btn-mat" data-ajax="?link1=stores" href="<?php echo Wo_SeoLink('index.php?link1=stores');?>">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> <?php echo $wo['lang']['go_back'];?>
 						</a>
 						<button class="btn btn-main btn-mat btn-mat-raised add_wow_loader" type="submit"><?php echo $wo['lang']['create']; ?></button>
@@ -78,7 +95,7 @@
 $js_array = json_encode($wo['page_sub_categories']);
 echo "var sub_categories_array = ". $js_array . ";\n";
 ?>
-	function GetPageSubCategory(self) {
+	function GetStoreSubCategory(self) {
 		id = $(self).val();
 		var text = "";
 		if (typeof(sub_categories_array[id]) == 'undefined') {
@@ -93,7 +110,7 @@ echo "var sub_categories_array = ". $js_array . ";\n";
 	}
    $(function() {
      $('form.create-page-form').ajaxForm({
-       url: Wo_Ajax_Requests_File() + '?f=pages&s=create_page',
+       url: Wo_Ajax_Requests_File() + '?f=stores&s=create_store',
        beforeSend: function() {
          $('.create-page-form').find('.add_wow_loader').addClass('btn-loading');
        },

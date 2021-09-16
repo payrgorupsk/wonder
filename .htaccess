@@ -160,6 +160,8 @@ RewriteRule ^more-status(/?|)$ index.php?link1=more-status [NC,QSA]
 
 # *** STORE ***
 RewriteRule ^store(/?|)$ index.php?link1=store [NC,QSA]
+RewriteRule ^stores(/?|)$ index.php?link1=stores [NC,QSA]
+RewriteRule ^create-store(/?|)$ index.php?link1=create-store [NC,QSA]
 RewriteRule ^store/(.*)(/?|)$ index.php?link1=store&store=$1 [NC,QSA]
 
 
