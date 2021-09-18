@@ -79,8 +79,8 @@ if ((!isset($_GET['link1']) && $wo['loggedin'] == false) || (isset($_GET['link1'
 if ($wo['config']['maintenance_mode'] == 1) {
     if ($wo['loggedin'] == false) {
         if ($page == 'admincp' || $page == 'admin-cp') {
-         $page = 'welcome';
-     } else {
+           $page = 'welcome';
+       } else {
         $page = 'maintenance';
     }
 } else {
@@ -832,6 +832,9 @@ else{
         break;
         case 'my-blogs':
         include('sources/my_blogs.php');
+        break;
+        case 'affiliate':
+        include('sources/affiliate.php');
         break;
         case 'create-blog':
         include('sources/create_blog.php');

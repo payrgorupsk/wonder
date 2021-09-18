@@ -10,6 +10,6 @@ if (Wo_CanBlog() == false) {
 
 $wo['description'] = '';
 $wo['keywords']    = '';
-$wo['page']        = 'My-Blogs';
+$wo['page']        = 'Affiliate';
 $wo['title']       = $wo['lang']['my_articles'];
 $wo['content']     = Wo_LoadPage('affiliate/affiliate');

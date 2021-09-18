@@ -130,4 +130,5 @@ define('T_MUTE_STORY', 'Wo_Mute_Story');
 define('T_CAST', 'broadcast');
 define('T_CAST_USERS', 'broadcast_users');
 define('T_HTML_EMAILS', 'Wo_HTML_Emails');
+define('T_AFFILIATE', 'Wo_Affiliates');
 ?>
