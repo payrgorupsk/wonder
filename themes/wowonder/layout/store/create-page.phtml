@@ -9,12 +9,29 @@
 					</div>
 				</div>
 			</div>
+
+			<style>
+				.category_checkbox_div{
+					background-color: transparent;box-shadow: rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+   					border-radius: 4px;
+   					transition: background-color 240ms, box-shadow 240ms;
+   					color: #393d4a;
+   					font-weight: 400;
+   					font-size: 16px;
+   					line-height: 28px;
+   					padding: 8px;
+   					width: 100%;
+   					border: 0;
+   					outline: 0; padding:5px; min-height: 250px; max-height:250px; overflow:scroll
+				}
+			</style>
 			
             <div class="page-margin wow_content wow_sett_content">
-				<form class="create-page-form form-horizontal" method="post">
+				<form class="create-store-form form-horizontal" method="post" action="<?=$wo['config']['site_url']?>/ro_requests?f=stores&s=create_store">
+				<div id="error"></div>
 					<div class="wow_form_fields">
-						<label for="page_title">Store Name</label>
-						<input id="page_title" name="page_title" type="text">
+						<label for="store_title">Store Name</label>
+						<input id="store_title" name="store_title" type="text">
 						<span class="help-block">Yore Store Title</span>
 					</div>
 					<div class="wow_form_fields">
@@ -35,43 +52,60 @@
 					</select>
 				</div>
 					<div class="wow_form_fields">
-						<label for="page_name">Store URL</label>
+						<label for="store_name">Store URL</label>
 						<div class="input-group">
 							<span class="input-group-addon"><?php echo $wo['config']['site_url'];?>/store/</span>
-							<input id="page_name" name="page_name" type="text">
+							<input id="store_name" name="store_name" type="text">
 						</div>
 					</div>
-					<div class="wow_form_fields">
-						<label for="store_category">Store Category</label>
-						<select name="store_category" id="store_category" onchange="GetStoreSubCategory(this)">
-							<?php foreach ($wo['page_categories'] as $category_id => $category_name) {?>
-								<option value="<?php echo $category_id?>"><?php echo $category_name; ?></option>
+					<div class="row">					
+					<div class="col-md-6" >
+						<label for="store_category" style="font-family: Roboto,sans-serif; font-weight: 500; font-size: 14px; display: block;">Store Category</label>
+						<div class="category_checkbox_div">
+						<?php //var_dump($wo['store_categories']); ?>
+						<?php foreach ($wo['store_categories'] as $key => $category) {?>
+								<span><input type="checkbox" class="s_category" name="store_category[<?=$category['id']?>]" id="store_category[<?=$category['id']?>]" value="<?=$category['id']?>"> <label for="store_category[<?=$category['id']?>]"><?=$category['category_name']?></label></span><br>
 							<?php } ?>
-						</select>
+						</div>
 					</div>
-					<?php if (!empty($wo['page_sub_categories'])) { ?>
+					<div class="col-md-6" >
+						<label for="store_sub_category" style="font-family: Roboto,sans-serif; font-weight: 500; font-size: 14px; display: block;">Store SubCategory</label>
+						<div class="category_checkbox_div" id="store_sub_category">
+						<?php foreach ($wo['store_categories'] as $key => $category) {?>
+								<div id="cat_<?=$category['id']?>">
+
+								</div>
+						<?php } ?>
+						
+						</div>
+					</div>
+					</div>
 					<div class="wow_form_fields">
-						<label for="page_sub_category">Store Sub Category</label>
-						<select name="page_sub_category" id="page_sub_category">
-							<?php
-							if (!empty($wo['page_sub_categories'][array_keys($wo['page_categories'])[0]])) {
-							foreach ($wo['page_sub_categories'][array_keys($wo['page_categories'])[0]] as $id => $sub_category) { ?>
-								<option value="<?php echo $sub_category['id']?>"><?php echo $sub_category['lang']; ?></option>
-							<?php } } ?>
+						<label for="payment_method">Payment Method</label>
+						<select id="payment_method" name="payment_method">						
+								<option value="PayPal" >PayPal</option>
+								<option value="Bkash" >Bkash</option>
+								<option value="Rocket" >Rocket</option>
+								<option value="Nagad" >Nagad</option>
+								<option value="Paytm" >Paytm</option>						
 						</select>
+					</div>					
+					<div class="wow_form_fields">
+						<label for="store_address">Store Address</label>
+						<textarea name="store_address" id="store_address" rows="3"></textarea>
+						<span class="help-block">Store Address</span>
 					</div>
-				    <?php } ?>
 					<div class="wow_form_fields">
 						<label for="store_description">Store Description</label>
 						<textarea name="store_description" id="store_description" rows="3"></textarea>
 						<span class="help-block">Store Description Info</span>
 					</div>
-					<?php $fields = Wo_GetCustomFields('page'); 
-					if (!empty($fields)) {
-						foreach ($fields as $key => $wo['field']) {
-							echo Wo_LoadPage('store/fields');
-						}
-					}
+					<?php //$fields = Wo_GetCustomFields('page'); 
+					//if (!empty($fields)) {
+						//foreach ($fields as $key => $wo['field']) {
+						//	echo Wo_LoadPage('store/fields');
+						//}
+					//}
 					?>
 				  	<div class="app-general-alert setting-update-alert"></div>
 					<div class="text-center">
@@ -91,40 +125,65 @@
 </div>
 <!-- .page-margin -->
 <script type="text/javascript">
-	<?php 
-$js_array = json_encode($wo['page_sub_categories']);
-echo "var sub_categories_array = ". $js_array . ";\n";
-?>
-	function GetStoreSubCategory(self) {
-		id = $(self).val();
-		var text = "";
-		if (typeof(sub_categories_array[id]) == 'undefined') {
-		    $('#page_sub_category').html('');
-		}
-		else{
-		   	sub_categories_array[id].forEach(function(entry) {
-				text = text + "<option value='"+entry.id+"'>"+entry.lang+"</option>";
-			});
-		    $('#page_sub_category').html(text);
-		}
-	}
+
    $(function() {
-     $('form.create-page-form').ajaxForm({
-       url: Wo_Ajax_Requests_File() + '?f=stores&s=create_store',
+     $('form.create-store-form').ajaxForm({
+       url: <?=$wo['config']['site_url']?> + '/ro_files/ro_requests?f=stores&s=create_store',
        beforeSend: function() {
-         $('.create-page-form').find('.add_wow_loader').addClass('btn-loading');
+         $('.create-store-form').find('.add_wow_loader').addClass('btn-loading');
        },
        success: function(data) {
          scrollToTop();
          if (data.status == 200) {
            window.location.href = data.location;
          } else {
-             var errors = data.errors.join("<br>");
+             var errors = data.errors+"<br>";
              $('.app-general-alert').html('<div class="alert alert-danger">' + errors + '</div>');
              $('.alert-danger').fadeIn(300);
          }
-         $('.create-page-form').find('.add_wow_loader').removeClass('btn-loading');
+         $('.create-store-form').find('.add_wow_loader').removeClass('btn-loading');
        }
      });
    });
+</script>
+<script>
+$(".s_category").change(function(){
+	var par_id = $(this).attr("id");
+	var sub_id = $(this).val();
+	if(this.checked) 
+    {
+		$(this).prop( "disabled", true );
+		$.get(Wo_Ajax_Requests_File() + '?f=stores&s=get_subcategory&cat_id='+sub_id, function(data,status){
+			if(status=="success"){				
+				$.each($.parseJSON(data),function(index,value){
+					$("#cat_"+sub_id).append('<input type="checkbox" class="s_subcategory" name="store_subcategory['+value['id']+']" id="store_subcategory['+value['id']+']" value="'+value['id']+'"> <label for="store_subcategory['+value['id']+']">'+value['subcategory_name']+'</label><br>');
+				});
+				document.getElementById(par_id).disabled=false;
+			}				
+			
+		});		
+		
+    }
+	else{
+		$("#cat_"+sub_id).empty();
+	}
+	
+	
+});
+</script>
+<script>
+	$("form").submit(function(){
+		$.post("<?=$wo['config']['site_url']?>/ro_files/ro_requests.php?f=stores&s=create_store",function(data,status){
+			$('.create-store-form').find('.add_wow_loader').addClass('btn-loading');
+			scrollToTop();
+         if (data.status == 200) {
+           window.location.href = data.location;
+         } else {
+             var errors = data.errors+"<br>";
+             $('.app-general-alert').html('<div class="alert alert-danger">' + errors + '</div>');
+             $('.alert-danger').fadeIn(300);
+         }
+         $('.create-store-form').find('.add_wow_loader').removeClass('btn-loading');
+		});
+	});
 </script>

@@ -36,6 +36,7 @@ $allow_array     = array(
     'videos',
     'funding',
     'url_ads',
+    'stores',
     'stripe'
 );
 $non_login_array = array(

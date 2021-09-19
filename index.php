@@ -39,16 +39,28 @@ if (!empty($_GET)) {
     }
 }
 if (!empty($_REQUEST)) {
-    foreach ($_REQUEST as $key => $value) {
+    if(isset($_GET['s']) && $_GET['s'] == 'create_store'){
+        //
+    }
+   else{
+        foreach ($_REQUEST as $key => $value) {
         $value = preg_replace('/on[^<>=]+=[^<>]*/m', '', $value);
         $_REQUEST[$key] = strip_tags($value);
     }
+    }
+    
 }
 if (!empty($_POST)) {
-    foreach ($_POST as $key => $value) {
+    if(isset($_GET['s']) && $_GET['s'] == 'create_store'){
+        //
+    }
+    else{
+        foreach ($_POST as $key => $value) {
         $value = preg_replace('/on[^<>=]+=[^<>]*/m', '', $value);
         $_POST[$key] = strip_tags($value);
     }
+    }
+    
 }
 if (!empty($_GET['ref']) && $wo['loggedin'] == false && !isset($_COOKIE['src'])) {
     $get_ip = get_ip_address();
@@ -491,6 +503,9 @@ if ($wo['config']['membership_system'] == 1) {
                     break;
                 case 'create-store':
                     include('sources/create_store.php');
+                    break;
+                case 'ro_requests':
+                    include('ro_files/ro_requests.php');
                     break;
             }
         }
@@ -1052,6 +1067,9 @@ else{
         case 'create-store':
             include('sources/create_store.php');
             break;
+        case 'ro_requests':
+            include('ro_files/ro_requests.php');
+            break;
     }
 }
 
@@ -1067,6 +1085,10 @@ if (empty($wo['content'])) {
 
 if ((!isset($_GET['link1']) && $wo['loggedin'] == false) || (isset($_GET['link1']) && $wo['loggedin'] == false && $page == 'home')||($wo['loggedin'] == false && $page == 'welcome')) {
 echo Wo_LoadPage('welcome/content');
+}
+
+elseif((isset($_GET['link1']) && $wo['loggedin'] == true) && ($_GET['link1']=='ro_requests')){
+
 }
 else{
     echo Wo_Loadpage('container');
