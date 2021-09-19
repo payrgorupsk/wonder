@@ -80,7 +80,8 @@ $non_login_array = array(
     'url_ads',
     'videos',
     'search-blog-read',
-    'search-blog'
+    'search-blog',
+    'stores'
 );
 if ($wo['config']['membership_system'] == 1) {
     $non_login_array[] = 'pro_register';

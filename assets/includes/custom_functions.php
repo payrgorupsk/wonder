@@ -316,7 +316,7 @@ function ro_StoreIdFromStorename($store_name = '') {
     if (empty($store_name)) {
         return false;
     }
-    $store_name = ro_Secure($store_name);
+    $store_name = Wo_Secure($store_name);
     $query     = mysqli_query($sqlConnect, "SELECT `store_id` FROM `ro_stores` WHERE `store_name` = '{$store_name}'");
     return Wo_Sql_Result($query, 0, 'store_id');
 }
@@ -358,7 +358,7 @@ function ro_StoreData($store_id = 0) {
     $fetched_data['type']     = 'store';
     $fetched_data['url']      = Wo_SeoLink('index.php?link1=timeline&u=' . $fetched_data['store_name']);
     $fetched_data['name']     = $fetched_data['store_title'];
-    $fetched_data['rating']   = Wo_StoreRating($fetched_data['store_id']);
+    $fetched_data['rating']   = ro_StoreRating($fetched_data['store_id']);
     $fetched_data['category'] = '';
     $fetched_data['store_sub_category'] = '';
     $fetched_data['is_reported'] = Wo_IsReportExists($fetched_data['store_id'], 'store');
@@ -422,7 +422,73 @@ function Wo_IsStoreAdminExists($user_id = false, $store_id = false) {
     return mysqli_num_rows($data_rows) > 0;
 }
 
+function ro_StoreRating($store_id = false, $user_id = 0) {
+    global $sqlConnect, $wo;
+    if ($wo['loggedin'] == false || !$store_id || !is_numeric($store_id)) {
+        return false;
+    }
+    $sql   = " SELECT `valuation` FROM `ro_stores_rating` WHERE `store_id` = {$store_id}";
+    if (!empty($user_id) && is_numeric($user_id)) {
+        $sql .= " AND user_id = '{$user_id}'";
+    }
+    $query = mysqli_query($sqlConnect, $sql);
+    $one   = 0;
+    $two   = 0;
+    $three = 0;
+    $four  = 0;
+    $five  = 0;
+    if ($query) {
+        while ($fetched_data = mysqli_fetch_assoc($query)) {
+            if ($fetched_data['valuation'] == 1) {
+                $one += $fetched_data['valuation'];
+            } else if ($fetched_data['valuation'] == 2) {
+                $two += $fetched_data['valuation'];
+            } else if ($fetched_data['valuation'] == 3) {
+                $three += $fetched_data['valuation'];
+            } else if ($fetched_data['valuation'] == 4) {
+                $four += $fetched_data['valuation'];
+            } else {
+                $five += $fetched_data['valuation'];
+            }
+        }
+    }
+    if (($five + $four + $three + $two + $one) > 0) {
+        return ($five * 5 + $four * 4 + $three * 3 + $two * 2 + $one * 1) / ($five + $four + $three + $two + $one);
+    } else {
+        return 0;
+    }
+}
 
+function ro_IsStoreLiked($store_id = 0, $user_id = 0) {
+    global $wo, $sqlConnect;
+    if ($wo['loggedin'] == false) {
+        return false;
+    }
+    if (empty($store_id) || !is_numeric($store_id) || $store_id < 0) {
+        return false;
+    }
+    if (empty($store_id) || !is_numeric($user_id) || $user_id < 0) {
+        $user_id = Wo_Secure($wo['user']['user_id']);
+    }
+    $query_one = mysqli_query($sqlConnect, "SELECT COUNT(`id`) FROM `ro_stores` WHERE `user_id` = '{$user_id}' AND `store_id` = {$store_id} AND `active` = '1'");
+    return (Wo_Sql_Result($query_one, 0) == 1) ? true : false;
+}
+
+function ro_CountStoreLikes($store_id = 0) {
+    global $wo, $sqlConnect;
+    $data = array();
+    if (empty($store_id) or !is_numeric($store_id) or $store_id < 1) {
+        return false;
+    }
+    $store_id      = Wo_Secure($store_id);
+    $query        = mysqli_query($sqlConnect, "SELECT COUNT(`store_id`) AS count FROM `ro_store_likes` WHERE `store_id` = {$store_id} AND `active` = '1' ");
+    if (mysqli_num_rows($query)) {
+        $fetched_data = mysqli_fetch_assoc($query);
+        return $fetched_data['count'];
+    }
+    return false;
+        
+}
 
 
 

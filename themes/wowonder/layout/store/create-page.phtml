@@ -27,7 +27,7 @@
 			</style>
 			
             <div class="page-margin wow_content wow_sett_content">
-				<form class="create-store-form form-horizontal" method="post" action="<?=$wo['config']['site_url']?>/ro_requests?f=stores&s=create_store">
+				<form class="create-store-form form-horizontal" method="post" >
 				<div id="error"></div>
 					<div class="wow_form_fields">
 						<label for="store_title">Store Name</label>
@@ -128,7 +128,7 @@
 
    $(function() {
      $('form.create-store-form').ajaxForm({
-       url: <?=$wo['config']['site_url']?> + '/ro_files/ro_requests?f=stores&s=create_store',
+       url: Wo_Ajax_Requests_File()+"?f=stores&s=create_store",
        beforeSend: function() {
          $('.create-store-form').find('.add_wow_loader').addClass('btn-loading');
        },
@@ -172,18 +172,18 @@ $(".s_category").change(function(){
 });
 </script>
 <script>
-	$("form").submit(function(){
-		$.post("<?=$wo['config']['site_url']?>/ro_files/ro_requests.php?f=stores&s=create_store",function(data,status){
-			$('.create-store-form').find('.add_wow_loader').addClass('btn-loading');
-			scrollToTop();
-         if (data.status == 200) {
-           window.location.href = data.location;
-         } else {
-             var errors = data.errors+"<br>";
-             $('.app-general-alert').html('<div class="alert alert-danger">' + errors + '</div>');
-             $('.alert-danger').fadeIn(300);
-         }
-         $('.create-store-form').find('.add_wow_loader').removeClass('btn-loading');
-		});
-	});
+	// $("form").submit(function(){
+	// 	$.post(Wo_Ajax_Requests_File()+"?f=stores&s=create_store",function(data,status){
+	// 		$('.create-store-form').find('.add_wow_loader').addClass('btn-loading');
+	// 		scrollToTop();
+    //      if (data.status == 200) {
+    //        window.location.href = data.location;
+    //      } else {
+    //          var errors = data.errors+"<br>";
+    //          $('.app-general-alert').html('<div class="alert alert-danger">' + errors + '</div>');
+    //          $('.alert-danger').fadeIn(300);
+    //      }
+    //      $('.create-store-form').find('.add_wow_loader').removeClass('btn-loading');
+	// 	});
+	// });
 </script>
