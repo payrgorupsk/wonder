@@ -131,17 +131,17 @@ if ($wo['loggedin'] && $IsOwnerUser) {
                         <?php } ?>
 						<?php if($IsOwnerUser === true) { ?>
 						<span class="btn-glossy">
-							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=setting&user=' . $wo['user_profile']['username'] . '&page=avatar-setting') ?>" data-ajax="?link1=setting&user=<?php echo $wo['user_profile']['username'].'&page=avatar-setting'; ?>">
+							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=setting&user=' . $wo['user_profile']['username'] . '&page=avatar-setting') ?>" >
 								<i class="fa fa-photo"></i>
 								Edit Cover & Profile Photo
 							</a>
-							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=setting&user=' . $wo['user_profile']['username'] . '&page=general-setting') ?>" data-ajax="?link1=setting&user=<?php echo $wo['user_profile']['username'] . '&page=general-setting'; ?>">
+							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=setting&user=' . $wo['user_profile']['username'] . '&page=general-setting') ?>" >
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>
 								<?php echo $wo['lang']['edit'];?>
 							</a>
 						</span>
 						<span class="btn-glossy">
-							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=timeline&u=' . $wo['user_profile']['username'] . '&type=activities');?>" data-ajax="?link1=timeline&u=<?php echo $wo['user_profile']['username'] . '&type=activities'; ?>">
+							<a class="btn btn-default" href="<?php echo Wo_SeoLink('index.php?link1=timeline&u=' . $wo['user_profile']['username'] . '&type=activities');?>" >
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg>
 								<?php echo $wo['lang']['activities'];?>
 							</a>
