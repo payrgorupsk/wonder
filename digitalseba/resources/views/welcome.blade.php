@@ -1,22 +1,15 @@
-@extends('layouts.app')
+@extends('partials.header')
 @section('main')
 <div class="col-md-7" >
 
-      <!-- Favicon Icon -->
-      {{-- <link rel="icon" type="image/png" href="{{asset('images/fav.svg')}}"> --}}
-      <!-- Bootstrap core CSS -->
-      {{-- <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
       <!-- Font Awesome-->
       <link href="{{asset('vendor/fontawesome/css/font-awesome.min.css')}}" rel="stylesheet">
       <!-- Material Design Icons -->
-      {{-- <link href="{{asset('vendor/icons/css/materialdesignicons.min.css')}}" media="all" rel="stylesheet" type="text/css"> --}}
       <!-- Slick -->
       <link href="{{asset('vendor/slick-master/slick/slick.css')}}" rel="stylesheet" type="text/css">
       <!-- Lightgallery -->
       <link href="{{asset('vendor/lightgallery-master/dist/css/lightgallery.min.css')}}" rel="stylesheet">
       <!-- Select2 CSS -->
-      {{-- <link href="{{asset('vendor/select2/css/select2-bootstrap.css')}}" /> --}}
-      {{-- <link href="{{asset('vendor/select2/css/select2.min.css')}}" rel="stylesheet"> --}}
       <!-- Custom styles for this template -->
       <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
@@ -575,22 +568,7 @@
       <!-- get started -->
 
 
-      <!-- Bootstrap core JavaScript -->
-      {{-- <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script> --}}
-      {{-- <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
-      <!-- Contact form JavaScript -->
-      <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-      <script src="{{asset('js/jqBootstrapValidation.js')}}"></script>
-      <script src="{{asset('js/contact_me.js')}}"></script>
-      <!-- Slick -->
-      <script src="{{asset('vendor/slick-master/slick/slick.js')}}" type="text/javascript" charset="utf-8"></script>
-      <!-- lightgallery -->
-      <script src="{{asset('vendor/lightgallery-master/dist/js/lightgallery-all.min.js')}}"></script>
-      <!-- select2 Js -->
-      <script src="{{asset('vendor/select2/js/select2.min.js')}}"></script>
-      <!-- Custom -->
-      <script src="{{asset('js/custom.js')}}"></script>
-
+      @include('partials.footer')
 </div>
 
 

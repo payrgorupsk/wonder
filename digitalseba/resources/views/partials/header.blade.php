@@ -10,23 +10,15 @@
     <link rel="shortcut icon" type="image/png" href="https://www.payrchat.com/themes/wowonder/img/icon.png">
     <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1">
 
-
-
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=48a9e5b6c7600d29b7c636051fedb3bd" async="" crossorigin="anonymous"></script><script src="//media.twiliocdn.com/sdk/js/video/releases/2.8.0/twilio-video.min.js"></script>
     <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/style.css?version=3.2.1">
     <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/font-awesome-4.7.0/css/font-awesome.min.css?version=3.2.1">
-
-
 
     <script src="https://www.payrchat.com/themes/wowonder/javascript/jquery-3.1.1.min.js?version=3.2.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js?version=3.2.1"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css?version=3.2.1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js?version=3.2.1"></script>
-
-
-
-
 
     <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.css?version=3.2.1" type="text/css">
     <script src="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.js?version=3.2.1"></script>
