@@ -356,7 +356,7 @@ function ro_StoreData($store_id = 0) {
     $fetched_data['about']    = $fetched_data['store_description'];
     $fetched_data['id']       = $fetched_data['store_id'];
     $fetched_data['type']     = 'store';
-    $fetched_data['url']      = Wo_SeoLink('index.php?link1=timeline&u=' . $fetched_data['store_name']);
+    $fetched_data['url']      = Wo_SeoLink('index.php?link1=store?&store=' . $fetched_data['store_name']);
     $fetched_data['name']     = $fetched_data['store_title'];
     $fetched_data['rating']   = ro_StoreRating($fetched_data['store_id']);
     $fetched_data['category'] = '';
