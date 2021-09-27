@@ -898,6 +898,19 @@ if (!empty($_COOKIE['mode']) && $_COOKIE['mode'] == 'night') {
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-link-icon">
+                                <i class="material-icons">attach_money</i>
+                            </span>
+                            <span>Shop</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="<?php echo Wo_LoadAdminLinkSettings('affiliate_approve'); ?>" data-ajax="?path=affiliate_approve">Affiliate Approve</a>
+                            </li>
+                        </ul>
+                    </li>
                     <?php } ?>
                     <li  <?php echo ($page == 'manage-users' || $page == 'manage-stories' || $page == 'manage-profile-fields' || $page == 'add-new-profile-field' || $page == 'edit-profile-field' || $page == 'manage-verification-reqeusts' || $page == 'affiliates-settings' || $page == 'payment-reqeuests' || $page == 'referrals-list' || $page == 'online-users' || $page == 'manage-genders') ? 'class="open"' : ''; ?>>
                         <a href="#">

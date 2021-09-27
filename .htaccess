@@ -77,6 +77,7 @@ RewriteRule ^blog-category/(\d+)(/?|)$ index.php?link1=blog-category&id=$1 [NC,Q
 RewriteRule ^create-blog(/?|)$ index.php?link1=create-blog [NC,QSA]
 RewriteRule ^edit-blog/(\d+)(/?|)$ index.php?link1=edit-blog&id=$1 [NC,QSA]
 RewriteRule ^my-blogs(/?|)$ index.php?link1=my-blogs [NC,QSA]
+RewriteRule ^affiliate(/?|)$ index.php?link1=affiliate [NC,QSA]
 RewriteRule ^read-blog/(.*)$ index.php?link1=read-blog&id=$1 [NC,QSA]
 RewriteRule ^app_api$ index.php?link1=app_api [NC,QSA]
 RewriteRule ^api_request$ index.php?link1=app_api [NC,QSA]
