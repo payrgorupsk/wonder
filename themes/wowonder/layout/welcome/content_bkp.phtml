@@ -81,12 +81,12 @@
 					<label for="email"><?php echo $wo['lang']['email_address']?></label>
 					<input id="email" name="email" type="email" />
 				</div>				
-				<?php //if($wo['config']['sms_or_email'] == 'sms') {?>
+				<?php if($wo['config']['sms_or_email'] == 'sms') {?>
 					<div class="wow_form_fields">
 						<label for="phone_num_ex"><?php echo $wo['lang']['phone_num_ex']?></label>
 						<input id="phone_num_ex" name="phone_num" type="text" />
 					</div>
-				<?php //} ?>
+				<?php } ?>
 				<div class="wow_form_fields">
 					<label for="password"><?php echo $wo['lang']['password']?></label>
 					<input id="password" name="password" type="password" />

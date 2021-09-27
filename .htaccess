@@ -161,8 +161,12 @@ RewriteRule ^more-status(/?|)$ index.php?link1=more-status [NC,QSA]
 
 # *** STORE ***
 RewriteRule ^store(/?|)$ index.php?link1=store [NC,QSA]
+RewriteRule ^stores(/?|)$ index.php?link1=stores [NC,QSA]
+RewriteRule ^create-store(/?|)$ index.php?link1=create-store [NC,QSA]
+RewriteRule ^store/(.*)(/?|)$ index.php?link1=store&store=$1 [NC,QSA]
 
-
+# *** Ro_Requests ***
+RewriteRule ^ro_requests(/?|)$ index.php?link1=ro_requests [NC,QSA]
 
 # *** FIND  NEARBY ***
 RewriteRule ^friends-nearby(/?|)$ index.php?link1=friends-nearby [NC,QSA]

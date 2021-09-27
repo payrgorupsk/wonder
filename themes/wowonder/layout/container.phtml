@@ -192,6 +192,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css?version=<?php echo $wo['config']['version']; ?>">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js?version=<?php echo $wo['config']['version']; ?>"></script>
       <?php //endif; ?>
+      <?php if($wo['page']=='store'): ?> <link rel="stylesheet" href="<?=$wo['config']['theme_url']?>/layout/store/assets/slick.css"> <?php endif; ?>      
 	  
 	  <?php if ($wo['page'] == 'friends_nearby'): ?>
       <link rel="stylesheet" href="<?php echo $wo['config']['theme_url'];?>/stylesheet/leaflet.css?version=<?php echo $wo['config']['version']; ?>">
@@ -1266,7 +1267,7 @@
     <!-- HTML NOTIFICATION POPUP -->
 
     <?php 
-    $ads_notify = $_SESSION['ads_notify'];
+    $ads_notify = $_SESSION['ads_notify'];    
     if($ads_notify !='')
     { ?>
     <script>
@@ -1280,10 +1281,10 @@
     } 
     }, 1000);
     </script>
-
    <?php } $_SESSION['ads_notify'] = ""; ?>
     
-    
+   <?=Wo_LoadPage('store/storejs')?>
+   
     
    </body>
 </html>
