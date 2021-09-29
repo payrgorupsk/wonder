@@ -1,14 +1,25 @@
+      <footer class="bg-white">
+      <!--       footer-->
       <!-- Bootstrap core JavaScript -->
-      <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-      <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-      <script src="{{asset('js/jqBootstrapValidation.js')}}"></script>
-      <script src="{{asset('js/contact_me.js')}}"></script>
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Contact form JavaScript -->
+      <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+      <script src="js/jqBootstrapValidation.js"></script>
+      <script src="js/contact_me.js"></script>
       <!-- Slick -->
-      <script src="{{asset('vendor/slick-master/slick/slick.js')}}" type="text/javascript" charset="utf-8"></script>
+      <script src="vendor/slick-master/slick/slick.js" type="text/javascript" charset="utf-8"></script>
       <!-- lightgallery -->
-      <script src="{{asset('vendor/lightgallery-master/dist/js/lightgallery-all.min.js')}}"></script>
+      <script src="vendor/lightgallery-master/dist/js/lightgallery-all.min.js"></script>
       <!-- select2 Js -->
-      <script src="{{asset('vendor/select2/js/select2.min.js')}}"></script>
+      <script src="vendor/select2/js/select2.min.js"></script>
       <!-- Custom -->
-      <script src="{{asset('js/custom.js')}}"></script>
+      <script src="js/custom.js"></script>
+      </footer>
+
+      </div>
+
+
+
+  </body>
+  </html>
