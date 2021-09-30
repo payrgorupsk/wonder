@@ -8,29 +8,35 @@
     <meta name="pinterest-rich-pin" content="false">
     <link rel="canonical" href="https://www.payrchat.com/stores">
     <link rel="shortcut icon" type="image/png" href="https://www.payrchat.com/themes/wowonder/img/icon.png">
-    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1">
-
-
+    {{-- <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1"> --}}
+<link rel="stylesheet" href="{{asset('css/general-style-plugins.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('css/kpeshopstyle.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=48a9e5b6c7600d29b7c636051fedb3bd" async="" crossorigin="anonymous"></script><script src="//media.twiliocdn.com/sdk/js/video/releases/2.8.0/twilio-video.min.js"></script>
-    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/style.css?version=3.2.1">
-    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/font-awesome-4.7.0/css/font-awesome.min.css?version=3.2.1">
+    {{-- <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/style.css?version=3.2.1"> --}}
+
+    <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
+    <script src="{{asset('fontawesome/js/all.js')}}"></script>
 
 
 
-    <script src="https://www.payrchat.com/themes/wowonder/javascript/jquery-3.1.1.min.js?version=3.2.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js?version=3.2.1"></script>
+    <script src="https://www.payrchat.com/themes/wowonder/javascript/jquery-3.1.1.min.js"></scrip>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css?version=3.2.1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js?version=3.2.1"></script>
-
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 
-    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.css?version=3.2.1" type="text/css">
-    <script src="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.js?version=3.2.1"></script>
+
+
+
+    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.css" type="text/css">
+    <script src="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.js"></script>
     <style>
+    @stack('css')
       /*
 
   Add here your custom css styles Example: p { text-align: center; color: red; }
@@ -96,7 +102,7 @@
             loadposts();
             window.history.pushState({state:'new'},'', websiteUrl);
             $("html, body").animate({ scrollTop: 0 }, 100);
-            $('.user-details, .pac-container, .lightbox-container').remove();
+            $('.prc-user-details, .prc-pac-container, .lightbox-container').remove();
             Wo_clearPRecording();
             Wo_CleanRecordNodes();
             Wo_stopRecording();
@@ -107,7 +113,7 @@
         }
       }
       $.post(Wo_Ajax_Requests_Filee() + url, {url:url}, function (data) {
-       $('.user-details').remove();
+       $('.prc-user-details').remove();
        json_data = JSON.parse($(data).filter('#json-data').val());
        if (json_data.welcome_page == 1 || json_data.redirect == 1) {
          window.location.href = websiteUrl;
@@ -138,11 +144,11 @@
                      if (json_data.page == 'home') {
                        $('.filterby li.filter-by-li').on('click', function (e) {
                          $('.filterby li.filter-by-li').each(function(){
-                           $(this).removeClass('avtive');
+                           $(this).removeClass('prc-active');
                            $(this).find('i').addClass('hidden');
                          });
                          $(this).find('i').removeClass('hidden');
-                         $(this).addClass('avtive');
+                         $(this).addClass('prc-active');
                        });
                        window.history.pushState({state:'new'},'', websiteUrl);
                        //window.history.pushState({}, "https://www.payrchat.com", websiteUrl);
@@ -157,11 +163,11 @@
                     };
 
                     if (json_data.page == 'timeline' || json_data.page == 'page' || json_data.page == 'group') {
-                     $('.content-container').css('margin-top', '25px');
-                     $('.ad-placement-header-footer').find('.contnet').css('margin-top', '20px');
+                     $('.prc-content-container').css('margin-top', '25px');
+                     $('.prc-ad-placement-header-footer').find('.contnet').css('margin-top', '20px');
                    } else {
-                     $('.content-container').css('margin-top', '45px');
-                     $('.ad-placement-header-footer').find('.contnet').css('margin-top', '0');
+                     $('.prc-content-container').css('margin-top', '45px');
+                     $('.prc-ad-placement-header-footer').find('.contnet').css('margin-top', '0');
                    }
                    if (json_data.is_footer == 1 && $('.second-footer').css('display') == 'none') {
                     $('footer .footer-wrapper').show();
@@ -180,10 +186,10 @@
                   $("html, body").animate({ scrollTop: 0 }, 150);
                   Wo_FinishBar();
                   $('#hidden-content').empty();
-                  $(document).ready(function() {$('div.leftcol').theiaStickySidebar({additionalMarginTop: 65});});
+                  $(document).ready(function() {$('div.prc-leftcol').theiaStickySidebar({additionalMarginTop: 65});});
                   $('#users-reacted-modal').modal("hide");
                 });
-      $('.user-details, .pac-container, .lightbox-container').remove();
+      $('.prc-user-details, .prc-pac-container, .lightbox-container').remove();
     }
   });
   });
@@ -252,7 +258,7 @@
     src: url("https://www.payrchat.com/themes/wowonder/fonts/OpenSansBold/OpenSansBold.woff") format("woff");
     font-weight: normal;
   }
-  .navbar-default {
+  .prc-navbar-default {
     background: #ffffff; border: none;
     height: 46px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -276,32 +282,32 @@
     color: #444 !important;
   }
 
-  .avtive {
+  .prc-active {
     border-color: #0000ff !important;
   }
-  .barloading {
+  .prc-barloading {
     background-color: transparent !important;
   }
-  .barloading:before {
+  .prc-barloading:before {
     background-color: #8dd9ff;
   }
-  .left-sidebar ul li a i {
+  .prc-left-sidebar ul li a i {
     color: #0000ff !important;
   }
   .cs-loader-inner, .main  {
     color: #0000ff;
   }
-  .login input:focus, ul.profile-completion-bar li.completion-bar div.completion-bar-wrapper, .edit_grp_info_modal input.form-control:not(textarea):focus, .verfy_sett_email_phone input.form-control:not(textarea):focus {
+  .login input:focus, ul.profile-completion-bar li.completion-bar div.completion-bar-wrapper, .edit_grp_info_modal input.prc-form-control:not(textarea):focus, .verfy_sett_email_phone input.prc-form-control:not(textarea):focus {
     border-color: #0000ff !important;
   }
   .login:not(.loading) button:hover {
     background: #000000 !important;
     color: #ffffff;
   }
-  .wo_setting_sidebar ul .list-group-item{
+  .wo_setting_sidebar ul .prc-list-group-item{
     background: #0000ff !important;
   }
-  .wo_setting_sidebar ul .list-group-item a{
+  .wo_setting_sidebar ul .prc-list-group-item a{
     color: #ffffff;
   }
   .wo_settings_page .setting-panel input[type=text]:focus, .wo_settings_page .setting-panel input[type=email]:focus, .wo_settings_page .setting-panel input[type=password]:focus, .wo_settings_page .setting-panel select:focus, .wo_settings_page .setting-panel textarea:focus {
@@ -326,18 +332,18 @@
     background: #0000ff !important;
     background-image: #0000ff !important;
   }
-  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  .prc-navbar-default .prc-navbar-nav>.open>a, .prc-navbar-default .prc-navbar-nav>.open>a:focus, .prc-navbar-default .prc-navbar-nav>.open>a:hover {
     color: #ffffff !important;
     background-color: #333333 !important;
   }
-  .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .nav-names li:hover {
+  .prc-navbar-default .prc-navbar-nav>.active>a, .prc-navbar-default .prc-navbar-nav>.active>a:focus, .prc-navbar-default .prc-navbar-nav>.active>a:hover, .nav-names li:hover {
     color: #ffffff !important;
     background-color: #333333 !important;
   }
   body {
     background-color: #f9f9f9;
   }
-  .navbar-default .navbar-nav>li>a {
+  .prc-navbar-default .prc-navbar-nav>li>a {
     color: #ffffff;
     font-size: 13px;
   }
@@ -360,20 +366,20 @@
   .active-wonder {
     color: #0000ff;
   }
-  .admin-panel .col-md-9 .list-group-item:first-child, .setting-panel .col-md-8 .list-group-item:first-child, .profile-lists .list-group-item:first-child, .col-md-8 .list-group-item:first-child, .col-md-3.custom .list-group-item:first-child, .col-sm-4 .list-group-item:first-child, .col-md-7 .list-group-item:first-child, .col-md-9 .list-group-item:first-child, .red-list .list-group-item:first-child, .active.list-group-item:first-child {
+  .admin-panel .prc-col-md-9 .prc-list-group-item:first-child, .setting-panel .prc-col-md-8 .prc-list-group-item:first-child, .profile-lists .prc-list-group-item:first-child, .prc-col-md-8 .prc-list-group-item:first-child, .prc-col-md-3.custom .prc-list-group-item:first-child, .prc-col-sm-4 .prc-list-group-item:first-child, .prc-col-md-7 .prc-list-group-item:first-child, .prc-col-md-9 .prc-list-group-item:first-child, .red-list .prc-list-group-item:first-child, .active.prc-list-group-item:first-child {
    color: #444;
    background-color: #fcfcfc;
    border-bottom: 1px solid #f1f1f1;
    padding: 18px;
   }
-  .admin-panel .col-md-9 .list-group-item:first-child a, .setting-panel .col-md-8 .list-group-item:first-child a, .profile-lists .list-group-item:first-child a, .col-md-8 .list-group-item:first-child a, .col-md-7 .list-group-item:first-child a, .active.list-group-item:first-child a {
+  .admin-panel .prc-col-md-9 .prc-list-group-item:first-child a, .setting-panel .prc-col-md-8 .prc-list-group-item:first-child a, .profile-lists .prc-list-group-item:first-child a, .prc-col-md-8 .prc-list-group-item:first-child a, .prc-col-md-7 .prc-list-group-item:first-child a, .active.prc-list-group-item:first-child a {
     color: #444 !important;
   }
-  .list-group-item.black-list.active-list, .red-list.active-list {
+  .prc-list-group-item.black-list.active-list, .red-list.active-list {
     color: #ffffff;
     background-color: #0000ff;
   }
-  .list-group-item.black-list {
+  .prc-list-group-item.black-list {
     background: #0000ff;
   }
   .profile-top-line {
@@ -382,10 +388,10 @@
   #bar {
     background-color: #0000ff;
   }
-  .list-group-item.black-list a{
+  .prc-list-group-item.black-list a{
     color: #ffffff;
   }
-  .list-group-item.black-list.active-list a{
+  .prc-list-group-item.black-list.active-list a{
     color: #0000ff;
   }
   .main-color, .small-text a {
@@ -436,7 +442,7 @@
     .message-text .hash {
       color: #fff !important;
     }
-    .search-container .search-input {
+    .prc-search-container .prc-search-input {
       color: #ffffff !important;
       background: #0f1110 !important;
     }
@@ -496,7 +502,7 @@
     .order_by ul li.active a {background: #0000ff !important;color: #ffffff !important;}
 
 
-    body, .navbar-default, .wo_about_wrapper_parent{padding-right: 250px;}
+    body, .prc-navbar-default, .wo_about_wrapper_parent{padding-right: 250px;}
     .wow_main_float_head {right: 250px;}
     @media (max-width:1140px){
       .wo_about_wrapper_parent{padding-right: 0px;}
@@ -550,7 +556,7 @@
     content: "Angry";
     }*/
 
-    .navbar-default .dropdown-menu.ani-acc-menu >li>a:hover {
+    .prc-navbar-default .dropdown-menu.prc-ani-acc-menu >li>a:hover {
       color: #ffffff;background-color: #0000ff;
     }
     #wo_nw_msg_page .msg_under_hood .mobilerightpane .messages-search-users-form .wo_msg_tabs li.active a, .text-sender-container .msg_usr_info_top_list .msg_usr_cht_opts_btns > span:hover, .text-sender-container .msg_usr_info_top_list .msg_usr_cht_usr_data a:hover, .wo_chat_tabs li.active a {
@@ -613,7 +619,7 @@
     <div id="focus-overlay"></div>
     <input type="hidden" class="seen_stories_users_ids" value="">
     <input type="hidden" class="main_session" value="83c3e5925aed194ee24c">
-    <header class="header-container">
+    <header class="prc-header-container">
       <style>
       body {
         font-family: "Lato", sans-serif;
@@ -661,12 +667,12 @@
       }
 
       @media    screen and (min-width: 991px) {
-        .burger_menu{display: none;}
+        .prc-burger_menu{display: none;}
       }
 
 
       @media    screen and (max-width: 990px) {
-        .burger_menu{display: block;}
+        .prc-burger_menu{display: block;}
       }
     </style>
 
@@ -685,9 +691,9 @@
       <br><br>
 
       <form style="width:95%; margin: 0px 5px 0px 5px;" data-toggle="dropdown" role="button" id="">
-        <div class="form-group inner-addon left-addon ">
+        <div class="prc-form-group prc-inner-addon prc-left-addon ">
 
-          <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="Search for people, pages, Friends Clubs and #hashtags" dir="auto" onfocus="Wo_GetRecentSearchs()">
+          <input type="text" class="prc-form-control prc-search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="Search for people, pages, Friends Clubs and #hashtags" dir="auto" onfocus="Wo_GetRecentSearchs()">
         </div>
       </form>
 
@@ -755,25 +761,25 @@
 
                       </div>
 
-                      <div class="navbar navbar-default navbar-fixed-top">
-                        <nav class="header-fixed1000">
-                          <div class="container-fluid">
-                           <div class="wow_hdr_innr_left">
+                      <div class="prc-navbar prc-navbar-default prc-navbar-fixed-top">
+                        <nav class="prc-header-fixed1000">
+                          <div class="prc-container-fluid">
+                           <div class="prc-wow_hdr_innr_left">
 
 
-                            <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">☰ </span>  
+                            <span class="prc-burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">☰ </span>  
 
-                            <a class="brand header-brand" href="https://www.payrchat.com">
+                            <a class="prc-brand prc-header-brand" href="https://www.payrchat.com">
                              <img width="130" src="https://www.payrchat.com/themes/wowonder/img/logo.png" alt="Payrchat Logo">
                            </a>
-                           <ul class="nav navbar-nav">
+                           <ul class="prc-nav prc-navbar-nav">
                             <li>
-                             <a class="sixteen-font-size" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
+                             <a class="prc-sixteen-font-size" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
                               <img src="https://www.payrchat.com/icons/home.png" width="20px">
                             </a>
                           </li>
   <!-- 													<li class="dropdown head_name_links">
-                                <a href="#" class="dropdown-toggle sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle prc-sixteen-font-size btn-main" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" fill="currentColor"/></svg>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="hide_fill_svg"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11H7v2h4v4h2v-4h4v-2h-4V7h-2v4z" fill="currentColor"/></svg>
                                 </a>
@@ -798,71 +804,71 @@
                           -->
                         </ul>
                       </div>
-                      <ul class="nav navbar-nav">
-                        <li class="dropdown search-container">
-                          <form class="navbar-form navbar-left col-lg-12 form-group" data-toggle="dropdown" role="button" id="navbar-searchbox">
-                            <div class="form-group inner-addon left-addon ">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                              <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="Search for people, pages, Friends Clubs and #hashtags" dir="auto" onfocus="Wo_GetRecentSearchs()">
+                      <ul class="nav prc-navbar-nav">
+                        <li class="dropdown prc-search-container">
+                          <form class="prc-navbar-form prc-navbar-left prc-col-lg-12 prc-form-group" data-toggle="dropdown" role="button" id="navbar-searchbox">
+                            <div class="prc-form-group prc-inner-addon prc-left-addon ">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather main-color prc-feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                              <input type="text" class="prc-form-control prc-search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="Search for people, pages, Friends Clubs and #hashtags" dir="auto" onfocus="Wo_GetRecentSearchs()">
                             </div>
                           </form>
-                          <ul class="dropdown-menu search-dropdown-container" style="margin-left:7px;" role="menu">
-                            <div class="search-dropdown-result">
+                          <ul class="dropdown-menu prc-search-dropdown-container" style="margin-left:7px;" role="menu">
+                            <div class="prc-search-dropdown-result">
                               <li>
                                 <a href="https://www.payrchat.com/Testdemo?ref=se" data-ajax="?link1=timeline&amp;u=Testdemo&amp;ref=se">
-                                  <span class="user-popover" data-id="4" data-type="user">
-                                    <div class="search-user-avatar pull-left">
+                                  <span class="prc-user-popover" data-id="4" data-type="user">
+                                    <div class="prc-search-user-avatar pull-left">
                                       <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="test user1 Profile Picture">
                                     </div>
-                                    <span class="search-user-name">
+                                    <span class="prc-search-user-name">
                                       test user1
 
                                       <span class="verified-color"><i class="fa fa-check-circle" title="Verified User"></i></span>
                                     </span>
                                   </span>
-                                  <div class="user-lastseen">
-                                    <span class="small-last-seen">6 w</span>		</div>
+                                  <div class="prc-user-lastseen">
+                                    <span class="prc-small-last-seen">6 w</span>		</div>
                                   </a>
                                   <div class="clear"></div>
                                 </li>
                                 <li>
                                   <a href="https://www.payrchat.com/mdrohim034?ref=se" data-ajax="?link1=timeline&amp;u=mdrohim034&amp;ref=se">
-                                    <span class="user-popover" data-id="8915" data-type="user">
-                                      <div class="search-user-avatar pull-left">
+                                    <span class="prc-user-popover" data-id="8915" data-type="user">
+                                      <div class="prc-search-user-avatar pull-left">
                                         <img src="https://www.payrchat.com/upload/photos/2021/08/dpeHQcCRS3lBoSsub2N3_20_7ff7fbd8de6db02692aea42abe1ec0a6_avatar.jpeg?cache=0" alt="Payrchat Simu Profile Picture">
                                       </div>
-                                      <span class="search-user-name">
+                                      <span class="prc-search-user-name">
                                         Payrchat Simu
 
-                                        <span class="verified-color"><i class="fa fa-check-circle" title="Verified User"></i></span>
+                                        <span class="prc-verified-color"><i class="fa fa-check-circle" title="Verified User"></i></span>
                                       </span>
                                     </span>
-                                    <div class="user-lastseen">
-                                      <span class="small-last-seen">4 w</span>		</div>
+                                    <div class="prc-user-lastseen">
+                                      <span class="prc-small-last-seen">4 w</span>		</div>
                                     </a>
                                     <div class="clear"></div>
                                   </li>
                                   <li>
                                     <a href="https://www.payrchat.com/timeline&amp;u=test18@user.com_8957?ref=se" data-ajax="?link1=timeline&amp;u=test18@user.com_8957&amp;ref=se">
-                                      <span class="user-popover" data-id="8957" data-type="user">
-                                        <div class="search-user-avatar pull-left">
+                                      <span class="prc-user-popover" data-id="8957" data-type="user">
+                                        <div class="prc-search-user-avatar pull-left">
                                           <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Test User18 Profile Picture">
                                         </div>
-                                        <span class="search-user-name">
+                                        <span class="prc-search-user-name">
                                           Test User18
                                         </span>
                                       </span>
-                                      <div class="user-lastseen">
-                                        <span class="small-last-seen">2 w</span>		</div>
+                                      <div class="prc-user-lastseen">
+                                        <span class="prc-small-last-seen">2 w</span>		</div>
                                       </a>
                                       <div class="clear"></div>
                                     </li>
                                   </div>
                                   <li>
-                                    <span class="search-advanced-container">
-                                      <a href="https://www.payrchat.com/search" class="search-advanced-link" data-ajax="?link1=search">
-                                        <div class="feather-svg-parent">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                    <span class="prc-search-advanced-container">
+                                      <a href="https://www.payrchat.com/search" class="prc-search-advanced-link" data-ajax="?link1=search">
+                                        <div class="prc-feather-svg-parent">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                         </div>
                                         <span style="vertical-align: middle;display: table-cell;padding-left: 10px;">
                                           Advanced Search
@@ -876,23 +882,23 @@
                             </ul>
 
 
-                            <ul class="nav navbar-nav navbar-right pull-right" id="head_menu_rght">
-                              <li class="dropdown requests-container" onclick="Wo_OpenRequestsMenu();">
-                                <span class="new-update-alert" style="">7</span>
-                                <a href="#" class="dropdown-toggle unread-update sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <ul class="prc-nav prc-navbar-nav prc-navbar-right pull-right" id="head_menu_rght">
+                              <li class="dropdown prc-requests-container" onclick="Wo_OpenRequestsMenu();">
+                                <span class="prc-new-update-alert" style="">7</span>
+                                <a href="#" class="dropdown-toggle unread-update prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
                                   <img src="https://www.payrchat.com/icons/friends.png" width="20px">
                                 </a>
-                                <ul class="dropdown-menu request-list clearfix notifications-dropdown" role="menu" id="requests-list"><li class="wow_hdr_requests">
-                                  <div class="user-request-list user-follow-request-9413">
-                                    <div class="user-info">
-                                      <div class="avatar">
+                                <ul class="dropdown-menu prc-request-list clearfix prc-notifications-dropdown" role="menu" id="requests-list"><li class="prc-wow_hdr_requests">
+                                  <div class="prc-user-request-list user-follow-request-9413">
+                                    <div class="prc-user-info">
+                                      <div class="prc-avatar">
                                         <a href="https://www.payrchat.com/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">
                                           <img src="https://www.payrchat.com/upload/photos/2021/09/24VOLyNrd8XqdZLnYQN7_06_e9693a588a4f404ac5197822e26fe313_avatar.jpg?cache=0" alt="Mr sahidul islam Islam Profile Picture">
                                         </a>
                                       </div>
                                       <a href="https://www.payrchat.com/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">Mr sahidul islam Islam</a>
-                                      <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                        <span class="small-last-seen">2 w</span>			</div>
+                                      <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                        <span class="prc-small-last-seen">2 w</span>			</div>
                                       </div>
                                       <div class="accept-btns user-follow-button">
                                         <button type="button" id="accept-9413" onclick="Wo_AcceptFollowRequest(9413)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -903,17 +909,17 @@
                                         </button>
                                       </div>
                                     </div>
-                                  </li><li class="wow_hdr_requests">
-                                    <div class="user-request-list user-follow-request-9347">
-                                      <div class="user-info">
-                                        <div class="avatar">
+                                  </li><li class="prc-wow_hdr_requests">
+                                    <div class="prc-user-request-list user-follow-request-9347">
+                                      <div class="prc-user-info">
+                                        <div class="prc-avatar">
                                           <a href="https://www.payrchat.com/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">
                                             <img src="https://www.payrchat.com/upload/photos/2021/09/ab5JTSVRwMwT9Ku28p8c_08_0865ee87d69b096c3ff0e62868fb7d63_avatar.jpg?cache=0" alt="Sabuj Rayhan Profile Picture">
                                           </a>
                                         </div>
                                         <a href="https://www.payrchat.com/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">Sabuj Rayhan</a>
-                                        <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                          <span class="small-last-seen">2 w</span>			</div>
+                                        <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                          <span class="prc-small-last-seen">2 w</span>			</div>
                                         </div>
                                         <div class="accept-btns user-follow-button">
                                           <button type="button" id="accept-9347" onclick="Wo_AcceptFollowRequest(9347)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -924,17 +930,17 @@
                                           </button>
                                         </div>
                                       </div>
-                                    </li><li class="wow_hdr_requests">
-                                      <div class="user-request-list user-follow-request-9344">
-                                        <div class="user-info">
-                                          <div class="avatar">
+                                    </li><li class="prc-wow_hdr_requests">
+                                      <div class="prc-user-request-list user-follow-request-9344">
+                                        <div class="prc-user-info">
+                                          <div class="prc-avatar">
                                             <a href="https://www.payrchat.com/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">
                                               <img src="https://www.payrchat.com/upload/photos/2021/09/o7LtxoZLHPBAdueEoksz_05_b79512bfa3bb3d0b315e7f122785827b_avatar.jpg?cache=0" alt="Milon Baidya Profile Picture">
                                             </a>
                                           </div>
                                           <a href="https://www.payrchat.com/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">Milon Baidya</a>
-                                          <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                            <span class="small-last-seen">2 w</span>			</div>
+                                          <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                            <span class="prc-small-last-seen">2 w</span>			</div>
                                           </div>
                                           <div class="accept-btns user-follow-button">
                                             <button type="button" id="accept-9344" onclick="Wo_AcceptFollowRequest(9344)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -945,17 +951,17 @@
                                             </button>
                                           </div>
                                         </div>
-                                      </li><li class="wow_hdr_requests">
-                                        <div class="user-request-list user-follow-request-9297">
-                                          <div class="user-info">
-                                            <div class="avatar">
+                                      </li><li class="prc-wow_hdr_requests">
+                                        <div class="prc-user-request-list user-follow-request-9297">
+                                          <div class="prc-user-info">
+                                            <div class="prc-avatar">
                                               <a href="https://www.payrchat.com/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">
                                                 <img src="https://www.payrchat.com/upload/photos/2021/09/ezeYHJg9eN2ycQt7Az13_04_0b53b4acc973db68f6036a4e057458b3_avatar.jpg?cache=0" alt="Md Sumon Profile Picture">
                                               </a>
                                             </div>
                                             <a href="https://www.payrchat.com/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">Md Sumon</a>
-                                            <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                              <span class="small-last-seen">2 w</span>			</div>
+                                            <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                              <span class="prc-small-last-seen">2 w</span>			</div>
                                             </div>
                                             <div class="accept-btns user-follow-button">
                                               <button type="button" id="accept-9297" onclick="Wo_AcceptFollowRequest(9297)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -966,17 +972,17 @@
                                               </button>
                                             </div>
                                           </div>
-                                        </li><li class="wow_hdr_requests">
-                                          <div class="user-request-list user-follow-request-9262">
-                                            <div class="user-info">
-                                              <div class="avatar">
+                                        </li><li class="prc-wow_hdr_requests">
+                                          <div class="prc-user-request-list user-follow-request-9262">
+                                            <div class="prc-user-info">
+                                              <div class="prc-avatar">
                                                 <a href="https://www.payrchat.com/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">
                                                   <img src="https://www.payrchat.com/upload/photos/2021/09/WNLVteNHGEBUnmNIUjd8_04_0a75b1e0b999860a8ab40b625691e8a9_avatar.jpg?cache=0" alt="mazarul rana Profile Picture">
                                                 </a>
                                               </div>
                                               <a href="https://www.payrchat.com/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">mazarul rana</a>
-                                              <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                                <span class="small-last-seen">2 w</span>			</div>
+                                              <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                                <span class="prc-small-last-seen">2 w</span>			</div>
                                               </div>
                                               <div class="accept-btns user-follow-button">
                                                 <button type="button" id="accept-9262" onclick="Wo_AcceptFollowRequest(9262)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -987,10 +993,10 @@
                                                 </button>
                                               </div>
                                             </div>
-                                          </li><li class="wow_hdr_requests">
-                                            <div class="user-request-list user-follow-request-9080">
-                                              <div class="user-info">
-                                                <div class="avatar">
+                                          </li><li class="prc-wow_hdr_requests">
+                                            <div class="prc-user-request-list user-follow-request-9080">
+                                              <div class="prc-user-info">
+                                                <div class="prc-avatar">
                                                   <a href="https://www.payrchat.com/mdhasan059" data-ajax="?link1=timeline&amp;u=mdhasan059">
                                                     <img src="https://www.payrchat.com/upload/photos/2021/08/9UmIA22Vfd1T1CyprLyB_27_02a9c851e182a24092ee9a6a2010c77a_avatar.jpg?cache=1630045837" alt="Mohammad Hasan Profile Picture">
                                                   </a>
@@ -1006,17 +1012,17 @@
                                                 </button>
                                               </div>
                                             </div>
-                                          </li><li class="wow_hdr_requests">
-                                            <div class="user-request-list user-follow-request-737">
-                                              <div class="user-info">
-                                                <div class="avatar">
+                                          </li><li class="prc-wow_hdr_requests">
+                                            <div class="prc-user-request-list user-follow-request-737">
+                                              <div class="prc-user-info">
+                                                <div class="prc-avatar">
                                                   <a href="https://www.payrchat.com/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">
                                                     <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="SUMAN MAJUMDER Profile Picture">
                                                   </a>
                                                 </div>
                                                 <a href="https://www.payrchat.com/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">SUMAN MAJUMDER</a>
-                                                <div class="user-lastseen" data-toggle="tooltip" title="Last Seen:">
-                                                  <span class="small-last-seen">3 w</span>			</div>
+                                                <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
+                                                  <span class="prc-small-last-seen">3 w</span>			</div>
                                                 </div>
                                                 <div class="accept-btns user-follow-button">
                                                   <button type="button" id="accept-737" onclick="Wo_AcceptFollowRequest(737)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -1030,12 +1036,12 @@
                                             </li></ul>
                                           </li>
                                           <li class="dropdown messages-notification-container" onclick="Wo_OpenMessagesMenu();">
-                                            <span class="new-update-alert hidden" data_messsages_count="0" style="display: none;">
+                                            <span class="prc-new-update-alert hidden" data_messsages_count="0" style="display: none;">
                                             0		</span>
-                                            <a href="#" class="dropdown-toggle sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            <a href="#" class="dropdown-toggle prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
                                               <img src="https://www.payrchat.com/icons/messenger.png" width="25px">
                                             </a>
-                                            <ul class="dropdown-menu clearfix notifications-dropdown messages-dropdown" role="menu" id="messages-list">
+                                            <ul class="dropdown-menu clearfix prc-notifications-dropdown messages-dropdown" role="menu" id="messages-list">
                                               <li>
                                                 <h5 class="text-center"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></h5>
                                               </li>
@@ -1043,32 +1049,32 @@
                                           </li>
                                           <li class="">
 
-                                            <a href="https://www.payrchat.com/videos" class="sixteen-font-size" aria-expanded="false">
+                                            <a href="https://www.payrchat.com/videos" class="prc-sixteen-font-size" aria-expanded="false">
                                               <img src="https://www.payrchat.com/icons/movies.png" width="25px">
                                             </a>
 
                                           </li><li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
-                                            <span class="new-update-alert hidden" style="display: none;">0</span>
-                                            <a href="#" class="dropdown-toggle sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            <span class="prc-new-update-alert hidden" style="display: none;">0</span>
+                                            <a href="#" class="dropdown-toggle prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
                                               <img src="https://www.payrchat.com/icons/notification.png" width="20px">
                                             </a>
-                                            <ul class="dropdown-menu clearfix notifications-dropdown" role="menu">
+                                            <ul class="dropdown-menu clearfix prc-notifications-dropdown" role="menu">
                                               <li onclick="Wo_TurnOffSound();" class="turn-off-sound text-left">
                                                 <span>
-                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> Turn off notification sound									</span>
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> Turn off notification sound									</span>
                                                 </li>
-                                                <li id="notification-list"><div class="empty_state"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M18.586 20H4a.5.5 0 0 1-.4-.8l.4-.533V10c0-1.33.324-2.584.899-3.687L1.393 2.808l1.415-1.415 19.799 19.8-1.415 1.414L18.586 20zM6.408 7.822A5.985 5.985 0 0 0 6 10v8h10.586L6.408 7.822zM20 15.786l-2-2V10a6 6 0 0 0-8.99-5.203L7.56 3.345A8 8 0 0 1 20 10v5.786zM9.5 21h5a2.5 2.5 0 1 1-5 0z" fill="currentColor"></path></svg>You do not have any notifications</div></li>
+                                                <li id="notification-list"><div class="prc-empty_state"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M18.586 20H4a.5.5 0 0 1-.4-.8l.4-.533V10c0-1.33.324-2.584.899-3.687L1.393 2.808l1.415-1.415 19.799 19.8-1.415 1.414L18.586 20zM6.408 7.822A5.985 5.985 0 0 0 6 10v8h10.586L6.408 7.822zM20 15.786l-2-2V10a6 6 0 0 0-8.99-5.203L7.56 3.345A8 8 0 0 1 20 10v5.786zM9.5 21h5a2.5 2.5 0 1 1-5 0z" fill="currentColor"></path></svg>You do not have any notifications</div></li>
                                               </ul>
                                             </li>
                                             <li class="dropdown">
-                                              <a href="#" class="dropdown-toggle user-menu-combination" data-toggle="dropdown" role="button" aria-expanded="false">
-                                                <div class="user-avatar">
+                                              <a href="#" class="dropdown-toggle prc-user-menu-combination" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                <div class="prc-user-avatar">
                                                   <img id="updateImage-1" src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
                                                 </div>
                                               </a>
-                                              <ul class="dropdown-menu ani-acc-menu" role="menu">
+                                              <ul class="dropdown-menu prc-ani-acc-menu" role="menu">
                                                 <li>
-                                                  <a id="update-username" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" class="wow_hdr_menu_usr_lnk">
+                                                  <a id="update-username" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" class="prc-wow_hdr_menu_usr_lnk">
                                                     <b>Salim Khan</b>
                                                     <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
                                                   </a>
@@ -1131,13 +1137,13 @@
               <li><hr></li>
             <!-- <li>
                 <a href="javascript:void(0);" data-toggle="modal" data-target="#keyboard_shortcuts_box" id="keyboard_shortcut">
-                    Keyboard shortcuts					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                    Keyboard shortcuts					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
                 </a>
               </li> -->
               <li>
                 <a href="javascript:void(0);" id="night_mode_toggle" data-mode="night">
                   <span id="night-mode-text">Night mode</span>
-                  <svg class="feather feather-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                  <svg class="prc-feather prc-feather-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </a>
               </li>
             </ul>
@@ -1146,33 +1152,33 @@
       </nav></div>
 
 
-      <div class="barloading"></div>
+      <div class="prc-barloading"></div>
       <script type="text/javascript">
 
         jQuery(document).ready(function($) {
-          $(".search-input").keydown(function(event) {
+          $(".prc-search-input").keydown(function(event) {
             if (event.keyCode == 13 && event.shiftKey == 0) {
               event.preventDefault();
               window.location = 'https://www.payrchat.com/search?query=' + $(this).val();
             }
           });
         });
-        var Searchcontainer = $('.search-container');
-        var SearchBox = $('.search-container .search-input');
-        var SearchResult = $('.search-dropdown-result');
+        var Searchcontainer = $('.prc-search-container');
+        var SearchBox = $('.prc-search-container .prc-search-input');
+        var SearchResult = $('.prc-search-dropdown-result');
 
         function Wo_ChangeHomeButtonIcon() {
 
-          $('.navbar-home #home-button').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+          $('.prc-navbar-home #home-button').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
         }
 
         function Wo_DetectSearchType(query) {
           var Hash = smokeTheHash(query);
           if (Hash) {
-            $('.search-advanced-container').hide(200);
+            $('.prc-search-advanced-container').hide(200);
             Wo_SearchhashResult(query);
           } else {
-            $('.search-advanced-container').fadeIn(200);
+            $('.prc-search-advanced-container').fadeIn(200);
             Wo_SearchResult(query);
           }
         }
@@ -1197,19 +1203,19 @@
         }
         function Wo_SearchResult(query) {
           if (SearchBox.val() != '') {
-            Wo_progressIconLoader(Searchcontainer.find('.navbar-form'));
+            Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             Searchcontainer.addClass('open');
-            Searchcontainer.find('.search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
-            Searchcontainer.find('.search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
             $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'normal', query: query}, function(data) {
               if (data.status == 200) {
                 if (data.html.length == 0) {
-                  SearchResult.html('<span class="center-text">' + " No result to show" + '<span>');
+                  SearchResult.html('<span class="prc-center-text">' + " No result to show" + '<span>');
                 } else {
                   SearchResult.html(data.html);
                 }
               }
-              Wo_progressIconLoader(Searchcontainer.find('.navbar-form'));
+              Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             });
             $(document).click(function() {
               Searchcontainer.removeClass('open');
@@ -1221,23 +1227,23 @@
 
 
         function Wo_SearchhashResult(query) {
-          var Searchcontainer = $('.search-container');
-          var SearchBox = $('.search-container .search-input');
-          var SearchResult = $('.search-dropdown-result');
+          var Searchcontainer = $('.prc-search-container');
+          var SearchBox = $('.prc-search-container .prc-search-input');
+          var SearchResult = $('.prc-search-dropdown-result');
           if (SearchBox.val() != '') {
-            Wo_progressIconLoader(Searchcontainer.find('.navbar-form'));
+            Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             Searchcontainer.addClass('open');
-            Searchcontainer.find('.search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
-            Searchcontainer.find('.search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
             $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'hash', query: query}, function(data) {
               if (data.status == 200) {
                 if (data.html.length == 0) {
-                  SearchResult.html('<span class="center-text">' + " No result to show" + '<span>');
+                  SearchResult.html('<span class="prc-center-text">' + " No result to show" + '<span>');
                 } else {
                   SearchResult.html(data.html);
                 }
               }
-              Wo_progressIconLoader(Searchcontainer.find('.navbar-form'));
+              Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             });
 
             $(document).click(function() {
@@ -1257,29 +1263,29 @@
           }
         }
       </script>         </header>
-      <div class="content-container container" style="transform: none;">
-       <div class="ad-placement-header-footer">
+      <div class="prc-content-container prc-container" style="transform: none;">
+       <div class="prc-ad-placement-header-footer">
        </div>
-       <div id="contnet" style="transform: none;"><div class="page-margin" style="transform: none;">
-        <div class="row" style="transform: none;">
-          <div class="col-md-2 leftcol" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 508.766px;">
+       <div id="contnet" style="transform: none;"><div class="prc-page-margin" style="transform: none;">
+        <div class="prc-row" style="transform: none;">
+          <div class="prc-col-md-2 prc-leftcol" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 508.766px;">
 
 
 
-            <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: fixed; transform: translateY(65px); width: 181px; left: 131px; top: 0px;"><div class="left-sidebar">
+            <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: fixed; transform: translateY(65px); width: 181px; left: 131px; top: 0px;"><div class="prc-left-sidebar">
               <ul>
-                <li class="wow_side_post_fltr">
+                <li class="prc-wow_side_post_fltr">
                   <a class="main_menu" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#047cac" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path></svg> News Feed				</a>
                   </li>
-                  <li class="wow_side_post_fltr">
+                  <li class="prc-wow_side_post_fltr">
 
                     <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin">
                       <img src="https://www.payrchat.com/icons/tag-friend.png" width="25px"> My Profile				</a>
 
                     </li>
 
-                    <li class="wow_side_post_fltr">
+                    <li class="prc-wow_side_post_fltr">
 
                       <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/messages" data-ajax="?link1=messages">
                         <img src="https://www.payrchat.com/icons/messenger.png" width="25px"> Chat
@@ -1287,27 +1293,27 @@
 
                     </li>
 
-                    <li class="wow_side_post_fltr">
+                    <li class="prc-wow_side_post_fltr">
 
                       <a class="main_menu" href="https://www.payrchat.com/pages" data-ajax="?link1=pages">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></path></svg> Pages				</a>
 
                       </li>
 
-                      <li class="wow_side_post_fltr">
+                      <li class="prc-wow_side_post_fltr">
 
                         <a class="main_menu" href="https://www.payrchat.com/groups" data-ajax="?link1=groups">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></path></svg> Friends Clubs				</a>
 
                         </li>
 
-                        <li class="wow_side_post_fltr">
+                        <li class="prc-wow_side_post_fltr">
                           <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/friends-nearby/" data-ajax="?link1=friends-nearby">
                             <img src="https://www.payrchat.com/icons/friends.png" width="25px"> People You May Know
                           </a>
                         </li>
 
-                        <li class="wow_side_post_fltr">
+                        <li class="prc-wow_side_post_fltr">
 
                           <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/blogs">
                             <img src="https://www.payrchat.com/icons/blog.png" width="25px"> Blog				</a>
@@ -1315,7 +1321,7 @@
 
                           </li>
 
-                          <li class="wow_side_post_fltr">
+                          <li class="prc-wow_side_post_fltr">
 
                             <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/videos">
                               <img src="https://www.payrchat.com/icons/movies.png" width="25px"> Videos
@@ -1323,7 +1329,7 @@
 
                           </li>
 
-                          <li class="wow_side_post_fltr">
+                          <li class="prc-wow_side_post_fltr">
 
                             <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/albums" data-ajax="?link1=albums">
                               <img src="https://www.payrchat.com/icons/gallery.png" width="25px"> Albums				</a>
@@ -1547,14 +1553,14 @@
   <div class="second-footer" style="display: none; "></div>
 
   </div>
-        <div class="lb-preloader"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div>
+        <div class="prc-lb-preloader"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div>
 
         <div class="modal fade" id="keyboard_shortcuts_box" role="dialog">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-                <h4 class="modal-title"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg> Keyboard shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                <h4 class="modal-title"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg> Keyboard shortcuts</h4>
               </div>
               <div class="modal-body">
                 <table class="key_shortcts">
@@ -1582,7 +1588,7 @@
         <script src="https://www.payrchat.com/themes/wowonder/javascript/audioRecord/recorder.js?version=3.2.1"></script>
         <script src="https://www.payrchat.com/themes/wowonder/javascript/audioRecord/record.js?version=3.2.1"></script>
         <div class="extra-css"></div>
-        <script>$(document).ready(function() {$('div.leftcol').theiaStickySidebar({additionalMarginTop: 65});});</script>
+        <script>$(document).ready(function() {$('div.prc-leftcol').theiaStickySidebar({additionalMarginTop: 65});});</script>
         <script type="text/javascript">jQuery(document).ready(function() {jQuery('.custom-fixed-element').theiaStickySidebar({additionalMarginTop: 65});});</script>
 
         <!-- End 'JS FILES' -->
@@ -2090,9 +2096,9 @@
     var _follow_con = $('[id=Notify-' + id + ']');
     data_next = $('[id=Notify-' + id + ']').attr('title');
     title = $('[id=Notify-' + id + ']').attr('data_next');
-    html_ = '<span id="Notify-' + id + '" title="'+title+'" data_next="'+data_next+'" class="btn-glossy"><button type="button" onclick="Wo_RegisterFollowNotify(' + id + ',0)" class="btn-active btn btn-default btn-sm wo_following_btn wo_user_folw_empty_btns" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell-off"><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path><path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path><path d="M18 8a6 6 0 0 0-9.33-5"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg></button></span>';
+    html_ = '<span id="Notify-' + id + '" title="'+title+'" data_next="'+data_next+'" class="btn-glossy"><button type="button" onclick="Wo_RegisterFollowNotify(' + id + ',0)" class="btn-active btn btn-default btn-sm wo_following_btn wo_user_folw_empty_btns" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-bell-off"><path d="M13.73 21a2 2 0 0 1-3.46 0"></path><path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path><path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path><path d="M18 8a6 6 0 0 0-9.33-5"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg></button></span>';
     if (type == 0) {
-      html_ = '<span id="Notify-' + id + '" title="'+title+'" data_next="'+data_next+'" class="btn-glossy"><button type="button" onclick="Wo_RegisterFollowNotify(' + id + ',1)" class="btn btn-default btn-sm wo_user_folw_empty_btns" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></button></span>';
+      html_ = '<span id="Notify-' + id + '" title="'+title+'" data_next="'+data_next+'" class="btn-glossy"><button type="button" onclick="Wo_RegisterFollowNotify(' + id + ',1)" class="btn btn-default btn-sm wo_user_folw_empty_btns" id="wo_useract_btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></button></span>';
     }
 
     _follow_con.replaceWith(html_);
@@ -2291,7 +2297,7 @@
 
   function Wo_RegisterWonder(post_id) {
     var post = $('[id=post-' + post_id + ']');
-    wonder_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-down"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>';
+    wonder_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-thumbs-down"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg>';
     wonder_lang = "Wonder";
     wonder_lang_2 = "Wondered";
     wonder_lang = "Dislike";
@@ -2516,7 +2522,7 @@
   }
 
   function Wo_LoadReactedUsers(type) {
-    $('#reacted_users_box').html('<div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div>');
+    $('#reacted_users_box').html('<div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div>');
     var post_id = $('.reacted_users_load_more').attr('post-id');
     var col = $('.reacted_users_load_more').attr('col-type');
     $.get(Wo_Ajax_Requests_File(), {
@@ -2741,7 +2747,7 @@
       if ($('#live_post_comments_'+post_id+' .live_comments').length >= 4) {
         $('#live_post_comments_'+post_id+' .live_comments').first().remove();
       }
-      $('#live_post_comments_'+post_id).append('<div class="live_comments" live_comment_id=""><a class="pull-left" href="https://www.payrchat.com/admin"><img class="live_avatar pull-left" src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="avatar"></a><div class="comment-body" style="float: left;"><div class="comment-heading"><span><a href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" ><h4 class="live_user_h"> Salim Khan </h4></a></span><span class="verified-color" data-toggle="tooltip" title="Verified User"><i class="fa fa-check-circle"></i></span><div class="comment-text">'+text+'</div></div></div><div class="clear"></div></div>');
+      $('#live_post_comments_'+post_id).append('<div class="live_comments" live_comment_id=""><a class="pull-left" href="https://www.payrchat.com/admin"><img class="prc-live_avatar pull-left" src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="avatar"></a><div class="comment-body" style="float: left;"><div class="comment-heading"><span><a href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" ><h4 class="live_user_h"> Salim Khan </h4></a></span><span class="verified-color" data-toggle="tooltip" title="Verified User"><i class="fa fa-check-circle"></i></span><div class="comment-text">'+text+'</div></div></div><div class="clear"></div></div>');
 
     }
   }
@@ -2835,7 +2841,7 @@
         $('.reactions-box-container-'+post_id).toggle();
         $('.post-reactions-icons-'+post_id).html(data.reactions);
         $('.status-reaction-'+post_id).removeClass("active-like");
-        $('.status-reaction-'+post_id).html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> ' + data.like_lang).css({"color": "inherit"});
+        $('.status-reaction-'+post_id).html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> ' + data.like_lang).css({"color": "inherit"});
       }
       $(self).attr('data_react','0');
     });
@@ -2877,7 +2883,7 @@
        $('.reactions-lightbox-container-'+post_id).toggle();
        $('.post-reactions-icons-'+post_id).html("");
        $('.status-reaction-'+post_id).removeClass("active-like");
-       $('.status-reaction-'+post_id).html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>' + data.like_lang).css({"color": "inherit"});
+       $('.status-reaction-'+post_id).html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>' + data.like_lang).css({"color": "inherit"});
      }
    });
   });
@@ -3038,7 +3044,7 @@
          <script>
           let f = navigator.userAgent.search("Firefox");
           if (f > -1) {
-            $('.header-brand').attr('href', "https://www.payrchat.com/?cache=1632496223");
+            $('.prc-header-brand').attr('href', "https://www.payrchat.com/?cache=1632496223");
           }
           function ShowCommentGif(id,type) {
             $( ".gif_post_comment" ).each(function( index ) {
@@ -3176,7 +3182,7 @@
     });
      $(document).on('click', '.story-image-wrapper', function(event) {
       event.preventDefault();
-      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
+      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
 
       $value = $(this).parents(".story-container").attr('data-status-id');
       $.post(Wo_Ajax_Requests_File() + '?f=story_view', {id: $value}, function(data, textStatus, xhr) {
@@ -3205,7 +3211,7 @@
       $(self).find('span').html('Please wait..');
       $.post(Wo_Ajax_Requests_File() + '?f=story_views_', {last_view:last_view,story_id:story_id}, function(data, textStatus, xhr) {
         if (data.status == 200) {
-          $(self).find('button').html('<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><polyline points="6 9 12 15 18 9"></polyline></svg> Load more');
+          $(self).find('button').html('<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather"><polyline points="6 9 12 15 18 9"></polyline></svg> Load more');
 
           $('.views_container_').append(data.html);
         }
@@ -3217,7 +3223,7 @@
     }
     $(document).on('click', '.see_all_stories', function(event) {
       event.preventDefault();
-      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
+      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
       user_id = $(this).attr('data_story_user_id');
       type = $(this).attr('data_story_type');
       $.post(Wo_Ajax_Requests_File() + '?f=view_all_stories', {user_id: user_id,type:type}, function(data, textStatus, xhr) {
@@ -3255,7 +3261,7 @@
       if ($('.lightbox-container').is(":visible")) {
 
         Wo_CloseLightbox();
-        $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
+        $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
         $.post(Wo_Ajax_Requests_File() + '?f=view_story_by_id', {story_id: story_id,type:'previous',story_type:story_type}, function(data, textStatus, xhr) {
          user_id = $(this).attr('data_story_user_id');
          if (node_socket_flow == "1") {
@@ -3297,7 +3303,7 @@
       if ($('.lightbox-container').is(":visible")) {
 
         Wo_CloseLightbox();
-        $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
+        $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
         $.post(Wo_Ajax_Requests_File() + '?f=view_story_by_id', {story_id: story_id,type:'next',story_type:story_type}, function(data, textStatus, xhr) {
           if (data.status == 200) {
            user_id = $(this).attr('data_story_user_id');
@@ -3345,7 +3351,7 @@
     function Get_CurrentStory(story_id,story_type = '') {
 
       Wo_CloseLightbox();
-      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
+      $('#contnet').append('<div class="lightbox-container"><div class="lightbox-backgrond" onclick="Wo_CloseLightbox();"></div><div class="prc-lb-preloader" style="display:block"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></div></div>');
       $.post(Wo_Ajax_Requests_File() + '?f=view_story_by_id', {story_id: story_id,type:'current',story_type:story_type}, function(data, textStatus, xhr) {
         if (data.status == 200) {
           user_id = $(this).attr('data_story_user_id');
@@ -3535,6 +3541,5 @@
   });
   </script>
 
+@stack('js')
 
-
-  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
