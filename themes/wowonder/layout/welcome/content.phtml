@@ -1,204 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <title><?= $wo['title'];?></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="<?php echo $wo['title'];?>">
-      <meta name="description" content="<?php echo $wo['description'];?>">
-      <meta name="keywords" content="<?php echo $wo['keywords'];?>">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <meta name="pinterest-rich-pin" content="false" />
-      <?php if ($wo['page'] == 'maintenance') { ?>
-      <meta name="robots" content="noindex">
-      <meta name="googlebot" content="noindex">
-      <?php } ?>
-      <link rel="shortcut icon" type="image/png" href="<?php echo $wo['config']['theme_url'];?>/img/icon.png"/>
-      
-      <meta property="og:title" content="<?php echo $wo['title'];?>" />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content="<?php echo $wo['config']['site_url'];?>" />
-      <meta property="og:image" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
-      <meta property="og:image:secure_url" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
-      <meta property="og:description" content="<?php echo $wo['description'];?>" />
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:title" content="<?php echo $wo['title'];?>" />
-      <meta name="twitter:description" content="<?php echo $wo['description'];?>" />
-      <meta name="twitter:image" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
+<head>
+	<title><?= $wo['title'];?></title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="title" content="<?php echo $wo['title'];?>">
+	<meta name="description" content="<?php echo $wo['description'];?>">
+	<meta name="keywords" content="<?php echo $wo['keywords'];?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="pinterest-rich-pin" content="false" />
+	<?php if ($wo['page'] == 'maintenance') { ?>
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+	<?php } ?>
+	<link rel="shortcut icon" type="image/png" href="<?php echo $wo['config']['theme_url'];?>/img/icon.png"/>
+
+	<meta property="og:title" content="<?php echo $wo['title'];?>" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="<?php echo $wo['config']['site_url'];?>" />
+	<meta property="og:image" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
+	<meta property="og:image:secure_url" content="<?php echo $wo['config']['theme_url'];?>/img/payrchat.png" />
+	<meta property="og:description" content="<?php echo $wo['description'];?>" />
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="<?php echo $wo['title'];?>" />
+	<meta name="twitter:description" content="<?php echo $wo['description'];?>" />
+	<meta name="twitter:image" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
+	<script
+	src="https://kit.fontawesome.com/64d58efce2.js"
+	crossorigin="anonymous"
+	></script>
 
 	<script src="<?= $wo['config']['theme_url'];?>/javascript/jquery-3.1.1.min.js?version=<?= $wo['config']['version']; ?>"></script>
-      <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js?version=<?= $wo['config']['version']; ?>"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js?version=<?= $wo['config']['version']; ?>"></script>
 
-<script>
-function Wo_Ajax_Requests_File(){
-            return "<?= $wo['config']['site_url'].'/requests.php';?>"
-         }
-		 </script>
-
-
-  <!-- JS FILES -->
-  <?php if ($wo['config']['reCaptcha'] == 1) { ?>
-      <script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
-      <?php } ?>
-      <?php if ($wo['loggedin'] == false) { ?>
-      
-      <script type="text/javascript" src="<?= $wo['config']['theme_url'];?>/javascript/welcome.js<?= $wo['update_cache']; ?>?version=<?= $wo['config']['version']; ?>"></script>
-      <?php } ?>
-      <?php
-       if ($wo['config']['node_socket_flow'] == "1") 
-       {
-         ?>
-         <script type="text/javascript">
-          const node_socket_flow = "1"
-          </script>
-      <?php
-       }
-       if ($wo['config']['node_socket_flow'] == "0") 
-       {
-         ?>
-         <script type="text/javascript">
-          const node_socket_flow = "0"
-          </script>
-      <?php
-       }
-       ?>
-      <script type="text/javascript" src="<?= $wo['config']['theme_url'];?>/javascript/script.js<?= $wo['update_cache']; ?>?version=<?= $wo['config']['version']; ?>"></script>
-      <?php if ($wo['loggedin'] == true) {?>
-      <?php if ($wo['config']['google_map'] == 1) { ?>
-      <script src="https://maps.googleapis.com/maps/api/js?key=<?= $wo['config']['google_map_api'];?>&libraries=places"></script>
-      <?php } ?>
-      <script src="<?= $wo['config']['theme_url'];?>/javascript/audioRecord/recorder.js?version=<?= $wo['config']['version']; ?>"></script>
-      <script src="<?= $wo['config']['theme_url'];?>/javascript/audioRecord/record.js?version=<?= $wo['config']['version']; ?>"></script>
-      <?php } ?>
-      <?php if ($wo['page'] == 'timeline' && $wo['loggedin'] == true && $wo['config']['css_upload'] == 1) { ?>
-      <?php if (!empty($wo['user_profile']['css_file']) && file_exists($wo['user_profile']['css_file'])) {?>
-      <link class="styled-profile" rel="stylesheet" href="<?= Wo_GetMedia($wo['user_profile']['css_file']);?>">
-      <?= $wo['css_file_header'];?>
-      <?php } } ?>
-      <div class="extra-css"></div>
-      <?php if ($wo['page'] != 'welcome') { ?>
-      <script>$(document).ready(function() {$('div.leftcol').theiaStickySidebar({additionalMarginTop: 65});});</script>
-      <script type="text/javascript">jQuery(document).ready(function() {jQuery('.custom-fixed-element').theiaStickySidebar({additionalMarginTop: 65});});</script>
-      <?php }?>
-    
-      <!-- End 'JS FILES' -->
-	
+	<script>
+		function Wo_Ajax_Requests_File(){
+			return "<?= $wo['config']['site_url'].'/requests.php';?>"
+		}
+	</script>
 
 
-    <link rel="stylesheet" href="<?= $wo['config']['theme_url'];?>/stylesheet/login/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-		<div class="loginerrors"></div>
-          <form id="loginForm" class="sign-in-form" method="post">
-            <h2 class="title"><?= $wo['lang']['login']?></h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input id="username" name="username" type="text" autocomplete="off" autofocus placeholder="Email or Mobile No." />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input id="password" name="password" type="password" autocomplete="off" placeholder="<?= $wo['lang']['password']?>"/>
-            </div>
-            <input id="loginbtn" type="submit" value="Login" class="btn solid add_wow_loader" />
-            <div class="forgot_password">
-					<a style="color: #deb7b7 !important;" href="<?= Wo_SeoLink('index.php?link1=forgot-password');?>"><?= $wo['lang']['forget_password']?></a>
-				</div>
-          </form>
+	<!-- JS FILES -->
+	<?php if ($wo['config']['reCaptcha'] == 1) { ?>
+		<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+	<?php } ?>
+	<?php if ($wo['loggedin'] == false) { ?>
 
-          <form id="registerForm" method="post" class="sign-up-form">
-            <h2 class="title"><?=$wo['lang']['sign_up']?></h2>
-			<div class="registererrors"></div>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input id="first_name" name="first_name" type="text" autocomplete="off" autofocus placeholder="<?=$wo['lang']['first_name']?>" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input id="last_name" name="last_name" type="text" autocomplete="off" autofocus placeholder="<?=$wo['lang']['last_name']?>" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input id="email" name="email" type="email" placeholder="<?=$wo['lang']['email_address']?>" />
-            </div>
+		<script type="text/javascript" src="<?= $wo['config']['theme_url'];?>/javascript/welcome.js<?= $wo['update_cache']; ?>?version=<?= $wo['config']['version']; ?>"></script>
+	<?php } ?>
+	<?php
+	if ($wo['config']['node_socket_flow'] == "1") 
+	{
+		?>
+		<script type="text/javascript">
+			const node_socket_flow = "1"
+		</script>
+		<?php
+	}
+	if ($wo['config']['node_socket_flow'] == "0") 
+	{
+		?>
+		<script type="text/javascript">
+			const node_socket_flow = "0"
+		</script>
+		<?php
+	}
+	?>
+	<script type="text/javascript" src="<?= $wo['config']['theme_url'];?>/javascript/script.js<?= $wo['update_cache']; ?>?version=<?= $wo['config']['version']; ?>"></script>
+	<?php if ($wo['loggedin'] == true) {?>
+		<?php if ($wo['config']['google_map'] == 1) { ?>
+			<script src="https://maps.googleapis.com/maps/api/js?key=<?= $wo['config']['google_map_api'];?>&libraries=places"></script>
+		<?php } ?>
+		<script src="<?= $wo['config']['theme_url'];?>/javascript/audioRecord/recorder.js?version=<?= $wo['config']['version']; ?>"></script>
+		<script src="<?= $wo['config']['theme_url'];?>/javascript/audioRecord/record.js?version=<?= $wo['config']['version']; ?>"></script>
+	<?php } ?>
+	<?php if ($wo['page'] == 'timeline' && $wo['loggedin'] == true && $wo['config']['css_upload'] == 1) { ?>
+		<?php if (!empty($wo['user_profile']['css_file']) && file_exists($wo['user_profile']['css_file'])) {?>
+			<link class="styled-profile" rel="stylesheet" href="<?= Wo_GetMedia($wo['user_profile']['css_file']);?>">
+			<?= $wo['css_file_header'];?>
+		<?php } } ?>
+		<div class="extra-css"></div>
+		<?php if ($wo['page'] != 'welcome') { ?>
+			<script>$(document).ready(function() {$('div.leftcol').theiaStickySidebar({additionalMarginTop: 65});});</script>
+			<script type="text/javascript">jQuery(document).ready(function() {jQuery('.custom-fixed-element').theiaStickySidebar({additionalMarginTop: 65});});</script>
+		<?php }?>
+
+		<!-- End 'JS FILES' -->
+
+
+
+		<link rel="stylesheet" href="<?= $wo['config']['theme_url'];?>/stylesheet/login/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="forms-container">
+				<div class="signin-signup">
+					<div class="loginerrors"></div>
+					<form id="loginForm" class="sign-in-form" method="post">
+						<h2 class="title"><?= $wo['lang']['login']?></h2>
+						<div class="input-field">
+							<i class="fas fa-user"></i>
+							<input id="username" name="username" type="text" autocomplete="off" autofocus placeholder="Email or Mobile No." />
+						</div>
+						<div class="input-field">
+							<i class="fas fa-lock"></i>
+							<input id="password" name="password" type="password" autocomplete="off" placeholder="<?= $wo['lang']['password']?>"/>
+						</div>
+						<input id="loginbtn" type="submit" value="Login" class="btn solid add_wow_loader" />
+						<div class="forgot_password">
+							<a style="color: #deb7b7 !important;" href="<?= Wo_SeoLink('index.php?link1=forgot-password');?>"><?= $wo['lang']['forget_password']?></a>
+							<br><br>
+						</div>
+						<div>
+								<a style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="https://www.payrchat.com/terms/terms">Terms of Use</a> | 
+								<a style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="https://www.payrchat.com/terms/privacy-policy">Privacy Policy</a> | 
+								<a style="color:#1da1f2;" data-ajax="?link1=contact-us" href="https://www.payrchat.com/contact-us">Contact</a> | 
+								<a style="color:#1da1f2;" data-ajax="?link1=terms&type=about-us" href="https://www.payrchat.com/terms/about-us">About</a> | 
+								<a style="color:#1da1f2;" data-ajax="?link1=developers" href="https://www.payrchat.com/developers">Developers</a> | 
+								<a style="color:#1da1f2;" data-ajax="?link1=blogs" href="https://www.payrchat.com/blogs">Blogs</a>
+
+							</div>
+					</form>
+
+
+
+					<form id="registerForm" method="post" class="sign-up-form">
+						<h2 class="title"><?=$wo['lang']['sign_up']?></h2>
+						<div class="registererrors"></div>
+						<div class="input-field">
+							<i class="fas fa-user"></i>
+							<input id="first_name" name="first_name" type="text" autocomplete="off" autofocus placeholder="<?=$wo['lang']['first_name']?>" />
+						</div>
+						<div class="input-field">
+							<i class="fas fa-user"></i>
+							<input id="last_name" name="last_name" type="text" autocomplete="off" autofocus placeholder="<?=$wo['lang']['last_name']?>" />
+						</div>
+						<div class="input-field">
+							<i class="fas fa-envelope"></i>
+							<input id="email" name="email" type="email" placeholder="<?=$wo['lang']['email_address']?>" />
+						</div>
 			<!-- <div class="input-field">
               <i class="fas fa-mobile"></i>
               <input id="phone_num_ex" name="phone_num" type="text" placeholder="<?=$wo['lang']['phone_num_ex']?>" />
             </div> -->
             <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input  id="rpassword" name="password" type="password" placeholder="<?=$wo['lang']['password']?>" />
+            	<i class="fas fa-lock"></i>
+            	<input  id="rpassword" name="password" type="password" placeholder="<?=$wo['lang']['password']?>" />
             </div>
-			<?php if ($wo['config']['password_complexity_system'] == 1) { ?>
-						<ul class="list-unstyled helper-text">
-							<li class="length"><?=$wo['lang']['least_characters']; ?></li>
-							<li class="lowercase"><?= $wo['lang']['contain_lowercase']; ?></li>
-							<li class="uppercase"><?= $wo['lang']['contain_uppercase']; ?></li>
-							<li class="special"><?= $wo['lang']['number_special']; ?></li>
-						</ul>
-					<?php } ?>
-			<div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input  id="confirm_password" name="confirm_password" type="password" placeholder="<?= $wo['lang']['confirm_password']?>" />
+            <?php if ($wo['config']['password_complexity_system'] == 1) { ?>
+            	<ul class="list-unstyled helper-text">
+            		<li class="length"><?=$wo['lang']['least_characters']; ?></li>
+            		<li class="lowercase"><?= $wo['lang']['contain_lowercase']; ?></li>
+            		<li class="uppercase"><?= $wo['lang']['contain_uppercase']; ?></li>
+            		<li class="special"><?= $wo['lang']['number_special']; ?></li>
+            	</ul>
+            <?php } ?>
+            <div class="input-field">
+            	<i class="fas fa-lock"></i>
+            	<input  id="confirm_password" name="confirm_password" type="password" placeholder="<?= $wo['lang']['confirm_password']?>" />
             </div>
-			<div class="input-field">
-			<i class="fas fa-venus-mars"></i>              
-					<select name="gender" id="gender" style="background-color: transparent; border:none;"> 
-						<option value="0"><?= $wo['lang']['gender']?></option>
-						<?php foreach ($wo['genders'] as $key => $gender) { ?>
-							<option value="<?=($key) ?>"><?= $gender; ?></option>
-						<?php } ?>
-					</select>
+            <div class="input-field">
+            	<i class="fas fa-venus-mars"></i>              
+            	<select name="gender" id="gender" style="background-color: transparent; border:none;"> 
+            		<option value="0"><?= $wo['lang']['gender']?></option>
+            		<?php foreach ($wo['genders'] as $key => $gender) { ?>
+            			<option value="<?=($key) ?>"><?= $gender; ?></option>
+            		<?php } ?>
+            	</select>
             </div>
-			<?php if($wo['config']['reCaptcha'] == 1) {?>
-					<div class="form-group" style="margin-top:10px;">
-						<div class="g-recaptcha" data-sitekey="<?= $wo['config']['reCaptchaKey']?>"></div>
-					</div>
-				<?php } ?>
-				<?php if(!empty( $_GET['last_url'])){?>
-					<div class="form-group">
-						<input type="hidden" name="last_url" value="<?= urldecode(Wo_Secure($_GET['last_url']));?>">
-					</div>
-				<?php } ?>
-				<div class="terms" style="max-width: 400px;">
-					<input type="checkbox" name="accept_terms" id="accept_terms" onchange="activateButton(this)">
-					<label for="accept_terms"> 
-						<?= $wo['lang']['terms_agreement'] ?> <a style="color: #deb7b7;" href="<?= Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?= $wo['lang']['terms_of_use'] ?></a> & <a style="color: #deb7b7;" href="<?= Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?= $wo['lang']['privacy_policy'] ?></a>
-					</label>
-					<div class="clear"></div>
-				</div>
+            <?php if($wo['config']['reCaptcha'] == 1) {?>
+            	<div class="form-group" style="margin-top:10px;">
+            		<div class="g-recaptcha" data-sitekey="<?= $wo['config']['reCaptchaKey']?>"></div>
+            	</div>
+            <?php } ?>
+            <?php if(!empty( $_GET['last_url'])){?>
+            	<div class="form-group">
+            		<input type="hidden" name="last_url" value="<?= urldecode(Wo_Secure($_GET['last_url']));?>">
+            	</div>
+            <?php } ?>
+            <div class="terms" style="max-width: 400px;">
+            	<input type="checkbox" name="accept_terms" id="accept_terms" onchange="activateButton(this)">
+            	<label for="accept_terms"> 
+            		<?= $wo['lang']['terms_agreement'] ?> <a style="color: #deb7b7;" href="<?= Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?= $wo['lang']['terms_of_use'] ?></a> & <a style="color: #deb7b7;" href="<?= Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?= $wo['lang']['privacy_policy'] ?></a>
+            	</label>
+            	<div class="clear"></div>
+            </div>
 
             <input id="registerbtn"  type="submit" class="btn registeradd_wow_loader" value="Sign up" />
-			
-           
+
+
           </form>
         </div>
       </div>
 
       <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New here ?</h3>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
-            </button>
-          </div>
-          <img src="<?= $wo['config']['theme_url'];?>/stylesheet/login/img/log.svg" class="image" alt="" />
-        </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <button class="btn transparent" id="sign-in-btn">
-              Sign in
-            </button>
-          </div>
-          <img src="<?= $wo['config']['theme_url'];?>/stylesheet/login/img/register.svg" class="image" alt="" />
-        </div>
+      	<div class="panel left-panel">
+      		<div class="content">
+      			<h3>New here ?</h3>
+      			<button class="btn transparent" id="sign-up-btn">
+      				Sign up
+      			</button>
+      		</div>
+      		<img src="<?= $wo['config']['theme_url'];?>/stylesheet/login/img/log.svg" class="image" alt="" />
+      	</div>
+      	<div class="panel right-panel">
+      		<div class="content">
+      			<button class="btn transparent" id="sign-in-btn">
+      				Sign in
+      			</button>
+      		</div>
+      		<img src="<?= $wo['config']['theme_url'];?>/stylesheet/login/img/register.svg" class="image" alt="" />
+      	</div>
       </div>
     </div>
     
@@ -207,141 +219,139 @@ function Wo_Ajax_Requests_File(){
 
 
   <script>
-var working = false;
-var $this = $('#loginForm');
-var $state = $this.find('.loginerrors');
+  	var working = false;
+  	var $this = $('#loginForm');
+  	var $state = $this.find('.loginerrors');
 
-<?php if($wo['config']['googleLogin'] != 0): ?>
-function signOut() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	auth2.signOut().then(function () {
-	  console.log('User signed out.');
-	});
-}
+  	<?php if($wo['config']['googleLogin'] != 0): ?>
+  		function signOut() {
+  			var auth2 = gapi.auth2.getAuthInstance();
+  			auth2.signOut().then(function () {
+  				console.log('User signed out.');
+  			});
+  		}
 
-function onSignIn(googleUser) {
+  		function onSignIn(googleUser) {
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
     $.post(Wo_Ajax_Requests_File() + '?f=google_login', {id_token: id_token}, function(data, textStatus, xhr) {
     	if (data.status == 200) {
     		signOut();
     		$state.addClass('success');
-	        $state.html('<?= $wo['lang']['welcome_back'] ?>');
-			$this.find('.add_wow_loader').removeClass('btn-loading');
-	        setTimeout(function () {
-	        	window.location.href = data.location;
-	        }, 1000);
+    		$state.html('<?= $wo['lang']['welcome_back'] ?>');
+    		$this.find('.add_wow_loader').removeClass('btn-loading');
+    		setTimeout(function () {
+    			window.location.href = data.location;
+    		}, 1000);
     	}
     	else{
-			$this.find('#loginbtn').attr("disabled", false);
-			$this.find('.add_wow_loader').removeClass('btn-loading');
-	        $state.html(data.message);
+    		$this.find('#loginbtn').attr("disabled", false);
+    		$this.find('.add_wow_loader').removeClass('btn-loading');
+    		$state.html(data.message);
     	}
     });
-}
+  }
 <?php endif; ?>
 
 $(function() {
-  $('#loginForm').ajaxForm({
-    url: Wo_Ajax_Requests_File() + '?f=login',
-    beforeSend: function() {
-		working = true;
-		$this.find('loginbtn').attr("disabled", true);
-		$this.find('.add_wow_loader').addClass('btn-loading');
-    },
-    success: function(data) {
-      if (data.status == 200 || data.status == 600) {
-      	$state.addClass('success');
-        $state.html('<?= $wo['lang']['welcome_back'] ?>');
-		$this.find('.add_wow_loader').removeClass('btn-loading');
-        setTimeout(function () {
-        	window.location.href = data.location;
-        }, 1000);
-      } else {        
-        alert('Username Password Doesnt Match');
+	$('#loginForm').ajaxForm({
+		url: Wo_Ajax_Requests_File() + '?f=login',
+		beforeSend: function() {
+			working = true;
+			$this.find('loginbtn').attr("disabled", true);
+			$this.find('.add_wow_loader').addClass('btn-loading');
+		},
+		success: function(data) {
+			if (data.status == 200 || data.status == 600) {
+				$state.addClass('success');
+				$state.html('<?= $wo['lang']['welcome_back'] ?>');
+				$this.find('.add_wow_loader').removeClass('btn-loading');
+				setTimeout(function () {
+					window.location.href = data.location;
+				}, 1000);
+			} else {        
+				alert('Username Password Doesnt Match');
 
-      } 
-      working = false;
-    }
-  });
+			} 
+			working = false;
+		}
+	});
 });
 </script>
 
 <script>
-var working = false;
-var $this = $('#registerForm');
-var $state = $this.find('.registererrors');
-$(function() {
-  $this.ajaxForm({
-    url: Wo_Ajax_Requests_File() + '?f=register',
-    beforeSend: function() {
-    	<?php if ($wo['config']['password_complexity_system'] == 1) { ?>
-    	if ($('.helper-text .length').hasClass('valid') && $('.helper-text .lowercase').hasClass('valid') && $('.helper-text .uppercase').hasClass('valid') && $('.helper-text .special').hasClass('valid')) {
-    		working = true;
-			$this.find('#registerbtn').attr("disabled", true);
-			$this.find('.registeradd_wow_loader').addClass('btn-loading');
-    	}
-    	else{
-    		$state.html("<?=($wo['lang']['complexity_requirements']) ?>");
-    		return false;
-    	}
-        <?php } else{ ?>
-        	working = true;
-			$this.find('button').attr("disabled", true);
-			$this.find('.registeradd_wow_loader').addClass('btn-loading');
-        <?php } ?>
-
-		
-    },
-    success: function(data) {
-      if (data.status == 200) {
-		$state.addClass('success');
-        $state.html('<?= $wo['lang']['welcome_'] ?>');
-		$this.find('.registeradd_wow_loader').removeClass('btn-loading');
-        setTimeout(function () {
-         window.location.href = data.location;
-        }, 1000);
-      } else if (data.status == 300) {
-        window.location.href = data.location;
-      } else {
-        $this.find('registerbtn').attr("disabled", false);
-		$this.find('.registeradd_wow_loader').removeClass('btn-loading');
-        $state.html(data.errors);
-      } 
-      working = false;
-    }
-  });
-});
-
-function activateButton(element) {
-	if(element.checked) {
-		document.getElementById("registerbtn").disabled = false;
-	}
-	else  {
-		document.getElementById("registerbtn").disabled = true;
-	}
-};
-
-<?php if ($wo['config']['password_complexity_system'] == 1) { ?>
-
-(function(){
-	var helperText = {
-		charLength: document.querySelector('.helper-text .length'),
-		lowercase: document.querySelector('.helper-text .lowercase'),
-		uppercase: document.querySelector('.helper-text .uppercase'),
-		special: document.querySelector('.helper-text .special')
-	};
-	var password = document.querySelector('#rpassword');
-	
-	
-	
-	var pattern = {
-		charLength: function() {
-			if( password.value.length >= 6 ) {
-				return true;
+	var working = false;
+	var $this = $('#registerForm');
+	var $state = $this.find('.registererrors');
+	$(function() {
+		$this.ajaxForm({
+			url: Wo_Ajax_Requests_File() + '?f=register',
+			beforeSend: function() {
+				<?php if ($wo['config']['password_complexity_system'] == 1) { ?>
+					if ($('.helper-text .length').hasClass('valid') && $('.helper-text .lowercase').hasClass('valid') && $('.helper-text .uppercase').hasClass('valid') && $('.helper-text .special').hasClass('valid')) {
+						working = true;
+						$this.find('#registerbtn').attr("disabled", true);
+						$this.find('.registeradd_wow_loader').addClass('btn-loading');
+					}
+					else{
+						$state.html("<?=($wo['lang']['complexity_requirements']) ?>");
+						return false;
+					}
+				<?php } else{ ?>
+					working = true;
+					$this.find('button').attr("disabled", true);
+					$this.find('.registeradd_wow_loader').addClass('btn-loading');
+				<?php } ?>
+			},
+			success: function(data) {
+				if (data.status == 200) {
+					$state.addClass('success');
+					$state.html('<?= $wo['lang']['welcome_'] ?>');
+					$this.find('.registeradd_wow_loader').removeClass('btn-loading');
+					setTimeout(function () {
+						window.location.href = data.location;
+					}, 1000);
+				} else if (data.status == 300) {
+					window.location.href = data.location;
+				} else {
+					$this.find('registerbtn').attr("disabled", false);
+					$this.find('.registeradd_wow_loader').removeClass('btn-loading');
+					$state.html(data.errors);
+				} 
+				working = false;
 			}
-		},
-		lowercase: function() {
+		});
+	});
+
+	function activateButton(element) {
+		if(element.checked) {
+			document.getElementById("registerbtn").disabled = false;
+		}
+		else  {
+			document.getElementById("registerbtn").disabled = true;
+		}
+	};
+
+	<?php if ($wo['config']['password_complexity_system'] == 1) { ?>
+
+		(function(){
+			var helperText = {
+				charLength: document.querySelector('.helper-text .length'),
+				lowercase: document.querySelector('.helper-text .lowercase'),
+				uppercase: document.querySelector('.helper-text .uppercase'),
+				special: document.querySelector('.helper-text .special')
+			};
+			var password = document.querySelector('#rpassword');
+
+
+
+			var pattern = {
+				charLength: function() {
+					if( password.value.length >= 6 ) {
+						return true;
+					}
+				},
+				lowercase: function() {
 			var regex = /^(?=.*[a-z]).+$/; // Lowercase character pattern
 
 			if( regex.test(password.value) ) {
@@ -365,10 +375,10 @@ function activateButton(element) {
 	};
 	
 	// Listen for keyup action on password field
-  password.addEventListener('keyup', function (){
-  	    $('.helper-text').slideDown('slow', function() {
-  	    	
-  	    });
+	password.addEventListener('keyup', function (){
+		$('.helper-text').slideDown('slow', function() {
+
+		});
 		// Check that password is a minimum of 8 characters
 		patternTest( pattern.charLength(), helperText.charLength );
 		
@@ -380,27 +390,27 @@ function activateButton(element) {
 		
 		// Check that password contains a number or special character
 		patternTest( pattern.special(), helperText.special );
-    
+
     // Check that all requirements are fulfilled
     if( hasClass(helperText.charLength, 'valid') &&
-			  hasClass(helperText.lowercase, 'valid') && 
-			 	hasClass(helperText.uppercase, 'valid') && 
-			  hasClass(helperText.special, 'valid')
-		) {
-			addClass(password.parentElement, 'valid');
-    }
-    else {
-      removeClass(password.parentElement, 'valid');
-    }
-	});
+    	hasClass(helperText.lowercase, 'valid') && 
+    	hasClass(helperText.uppercase, 'valid') && 
+    	hasClass(helperText.special, 'valid')
+    	) {
+    	addClass(password.parentElement, 'valid');
+  }
+  else {
+  	removeClass(password.parentElement, 'valid');
+  }
+});
 	
 	function patternTest(pattern, response) {
 		if(pattern) {
-      addClass(response, 'valid');
-    }
-    else {
-      removeClass(response, 'valid');
-    }
+			addClass(response, 'valid');
+		}
+		else {
+			removeClass(response, 'valid');
+		}
 	}
 	
 	function addClass(el, className) {
@@ -414,9 +424,9 @@ function activateButton(element) {
 	
 	function removeClass(el, className) {
 		if (el.classList)
-				el.classList.remove(className);
-			else
-				el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			el.classList.remove(className);
+		else
+			el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 	}
 	
 	function hasClass(el, className) {

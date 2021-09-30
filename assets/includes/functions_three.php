@@ -6477,17 +6477,18 @@ function Wo_AutoFollow($user_id = 0) {
             $getUserID = Wo_UserIdFromUsername($user);
             if (!empty($getUserID)) {
                 if ($wo['config']['connectivitySystem'] == 1) {
-                    $registerFollow = Wo_RegisterFollow($wo['user']['user_id'], $getUserID);
-                    $registerFollow = Wo_AcceptFollowRequest($getUserID, $wo['user']['user_id']);
+                    Wo_RegisterFollow($wo['user']['user_id'], $getUserID);
+                    Wo_AcceptFollowRequest($getUserID, $wo['user']['user_id']);
                 } else {
-                    $registerFollow = Wo_RegisterFollow($getUserID, $wo['user']['user_id']);
+                    Wo_RegisterFollow($getUserID, $wo['user']['user_id']);
                 }
             }
         }
         return true;
     } else {
-        return false;
+        return true;
     }
+    return true;
 }
 
 function Wo_AutoPageLike($user_id = 0) {
@@ -6512,6 +6513,8 @@ function Wo_AutoPageLike($user_id = 0) {
     } else {
         return false;
     }
+
+    return true;
 }
 
 function Wo_AutoGroupJoin($user_id = 0) {
@@ -6536,6 +6539,8 @@ function Wo_AutoGroupJoin($user_id = 0) {
     } else {
         return false;
     }
+
+    return true;
 }
 
 function Wo_MarkAllChatsAsRead($user_id = 0) {

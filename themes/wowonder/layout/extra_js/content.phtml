@@ -481,7 +481,7 @@ function Wo_RegisterPageLike(id) {
 
 function Wo_RegisterLike(post_id) {
   var post = $('[id=post-' + post_id + ']');
-  html_like = '<span class="active-like"><i class="fa fa-heart" style="font-size: 20px; color: green"></i></span>';
+  html_like = '<span class="active-like"><i class="fa fa-heart" style="font-size: 20px; color: red"></i></span>';
   if (post.find("[id^=like-button]").parent().find('.active-like').length > 0) {
   	html_like = '<i class="fa fa-heart-o" style="font-size: 20px"></i>';
   } 
@@ -517,7 +517,7 @@ function Wo_RegisterWonder(post_id) {
   wonder_lang = "<?php echo $wo['lang']['dislike']; ?>";
   wonder_lang_2 = "<?php echo $wo['lang']['disliked']; ?>";
   <?php } ?>
-  html_wonder = '<span class="active-wonder"><i class="fa fa-heartbeat" style="font-size: 20px; color: red"></i></span>';
+  html_wonder = '<span class="active-wonder"><i class="fa fa-heartbeat" style="font-size: 20px; color: #1c41ff"></i></span>';
   if (post.find("[id^=wonder-button]").parent().find('.active-wonder').length > 0) {
   	html_wonder = '<span class="like-btn-mobile"><i class="fa fa-heartbeat" style="font-size: 20px"></i></span>';
   }

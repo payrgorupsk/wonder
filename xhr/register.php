@@ -43,15 +43,15 @@ if ($f == 'register') {
             $errors = $error_icon . $wo['lang']['limit_exceeded'];
         }
 
-        if (in_array($_POST['username'], $wo['site_pages'])) {
-            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
-        }
-        if (strlen($_POST['username']) < 5 OR strlen($_POST['username']) > 32) {
-            $errors = $error_icon . $wo['lang']['username_characters_length'];
-        }
-        if (!preg_match('/^[\w]+$/', $_POST['username'])) {
-            $errors = $error_icon . $wo['lang']['username_invalid_characters'];
-        }
+        // if (in_array($_POST['username'], $wo['site_pages'])) {
+        //     $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        // }
+        // if (strlen($_POST['username']) < 5 OR strlen($_POST['username']) > 32) {
+        //     $errors = $error_icon . $wo['lang']['username_characters_length'];
+        // }
+        // if (!preg_match('/^[\w]+$/', $_POST['username'])) {
+        //     $errors = $error_icon . $wo['lang']['username_invalid_characters'];
+        // }
         if (!empty($_POST['phone_num'])) {
             if (!preg_match('/^\+?\d+$/', $_POST['phone_num'])) {
                 $errors = $error_icon . $wo['lang']['worng_phone_number'];
@@ -136,7 +136,7 @@ if ($f == 'register') {
                 $re_data['last_name'] = Wo_Secure($_POST['last_name']);
             }
         }
-            
+
         if ($gender == 'female') {
             $re_data['avatar'] = "upload/photos/f-avatar.jpg";
         }
@@ -157,89 +157,91 @@ if ($f == 'register') {
         }
         $in_code  = (isset($_POST['invited'])) ? Wo_Secure($_POST['invited']) : false;
 
-            if($activate == 1){
-               $register = Wo_RegisterUser($re_data, $in_code);
-            }
-            else{
-                $register = true;
-            }
-        
-        
-        
+        if($activate == 1){
+         $register = Wo_RegisterUser($re_data, $in_code);
+     }
+     else{
+        $register = true;
+    }
+
             // if ($activate == 1 || ($wo['config']['sms_or_email'] == 'mail' && $activate != 1)) { 
-            //     if ($wo['config']['auto_username'] == 1) {
-            //         $r_id = Wo_UserIdFromUsername($_POST['email']);
-            //         $_POST['email'] = $_POST['email']."_".$r_id;
-            //         $db->where('user_id',$r_id)->update(T_USERS,array('username' => $_POST['email']));
-            //     }
-                
-            //     if (!empty($wo['config']['auto_friend_users'])) {
-            //         $autoFollow = Wo_AutoFollow(Wo_UserIdFromUsername($_POST['email']));
-            //     }
-            //     if (!empty($wo['config']['auto_page_like'])) {
-            //         Wo_AutoPageLike(Wo_UserIdFromUsername($_POST['email']));
-            //     }
-            //     if (!empty($wo['config']['auto_group_join'])) {
-            //         Wo_AutoGroupJoin(Wo_UserIdFromUsername($_POST['email']));
-            //     }
+                // if ($wo['config']['auto_username'] == 1) {
+                //     $r_id = Wo_UserIdFromUsername($_POST['email']);
+                //     $_POST['email'] = $_POST['email']."_".$r_id;
+                //     $db->where('user_id',$r_id)->update(T_USERS,array('username' => $_POST['email']));
+                // }
+
+        // if (!empty($wo['config']['auto_friend_users'])) {
+        //     Wo_AutoFollow(Wo_UserIdFromUsername($_POST['email']));
+        // }
+
+        // if (!empty($wo['config']['auto_page_like'])) {
+        //     Wo_AutoPageLike(Wo_UserIdFromUsername($_POST['email']));
+        // }
+
+        // if (!empty($wo['config']['auto_group_join'])) {
+        //     Wo_AutoGroupJoin(Wo_UserIdFromUsername($_POST['email']));
+        // }
+
+    // }
             // }
-                
-            if ($activate == 1) {
-                
-                $data  = array(
-                    'status' => 200,
-                    'message' => $success_icon . $wo['lang']['successfully_joined_label']
-                );
-                
-                
-                $login = Wo_Login($_POST['email'], $_POST['password']);
-                if ($login === true) {
-                    $session             = Wo_CreateLoginSession(Wo_UserIdFromUsername($_POST['email']));
-                    $_SESSION['user_id'] = $session;
-                    setcookie("user_id", $session, time() + (10 * 365 * 24 * 60 * 60));
-                }
-                
-                $data['location'] = Wo_SeoLink('index.php?link1=start-up');
-                if ($wo['config']['membership_system'] == 1) {
-                    $data['location'] = Wo_SeoLink('index.php?link1=go-pro');
-                }
-            
-                
-            } else if ($wo['config']['sms_or_email'] == 'mail') {
-                $wo['user']        = $_POST;
-                $wo['code']        = $code;
-                $body              = Wo_LoadPage('emails/activate');
-                $send_message_data = array(
-                    'from_email' => $wo['config']['siteEmail'],
-                    'from_name' => $wo['config']['siteName'],
-                    'to_email' => $_POST['email'],
-                    'to_name' => $_POST['email'],
-                    'subject' => $wo['lang']['account_activation'],
-                    'charSet' => 'utf-8',
-                    'message_body' => $body,
-                    'is_html' => true
-                );
-                $send              = Wo_SendMessage($send_message_data);
-                $errors            = $success_icon . $wo['lang']['successfully_joined_verify_label'];
+
+    if ($activate == 1) {
+
+        $data  = array(
+            'status' => 200,
+            'message' => $success_icon . $wo['lang']['successfully_joined_label']
+        );
+
+
+        $login = Wo_Login($_POST['email'], $_POST['password']);
+        if ($login === true) {
+            $session             = Wo_CreateLoginSession(Wo_UserIdFromUsername($_POST['email']));
+            $_SESSION['user_id'] = $session;
+            setcookie("user_id", $session, time() + (10 * 365 * 24 * 60 * 60));
+        }
+
+        $data['location'] = Wo_SeoLink('index.php?link1=start-up');
+        if ($wo['config']['membership_system'] == 1) {
+            $data['location'] = Wo_SeoLink('index.php?link1=go-pro');
+        }
+
+
+    } else if ($wo['config']['sms_or_email'] == 'mail') {
+        $wo['user']        = $_POST;
+        $wo['code']        = $code;
+        $body              = Wo_LoadPage('emails/activate');
+        $send_message_data = array(
+            'from_email' => $wo['config']['siteEmail'],
+            'from_name' => $wo['config']['siteName'],
+            'to_email' => $_POST['email'],
+            'to_name' => $_POST['email'],
+            'subject' => $wo['lang']['account_activation'],
+            'charSet' => 'utf-8',
+            'message_body' => $body,
+            'is_html' => true
+        );
+        $send              = Wo_SendMessage($send_message_data);
+        $errors            = $success_icon . $wo['lang']['successfully_joined_verify_label'];
                 // if ($wo['config']['membership_system'] == 1) {
                 //     $session             = Wo_CreateLoginSession(Wo_UserIdFromUsername($_POST['email']));
                 //     $_SESSION['user_id'] = $session;
                 //     setcookie("user_id", $session, time() + (10 * 365 * 24 * 60 * 60));
                 // }
-            } 
-        
-        if (!empty($field_data)) {
-            $user_id = Wo_UserIdFromUsername($_POST['email']);
-            $insert  = Wo_UpdateUserCustomData($user_id, $field_data, false);
-        }
+    } 
+
+    if (!empty($field_data)) {
+        $user_id = Wo_UserIdFromUsername($_POST['email']);
+        $insert  = Wo_UpdateUserCustomData($user_id, $field_data, false);
     }
-    header("Content-type: application/json");
-    if (isset($errors)) {
-        echo json_encode(array(
-            'errors' => $errors
-        ));
-    } else {
-        echo json_encode($data);
-    }
-    exit();
+}
+header("Content-type: application/json");
+if (isset($errors)) {
+    echo json_encode(array(
+        'errors' => $errors
+    ));
+} else {
+    echo json_encode($data);
+}
+exit();
 }
