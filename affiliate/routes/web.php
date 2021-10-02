@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/lol', [HomeController::class, 'index']);
+Route::get('/affiliate_form', [HomeController::class, 'form'])->name('affiliate_form');
+Route::post('/affiliate_form', [HomeController::class, 'form_save'])->name('affiliate_form_save');
