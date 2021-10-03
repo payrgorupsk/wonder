@@ -1,28 +1,28 @@
 <html style="transform: none;"><head>
-    <title>Eshop</title>
+    <title>Payrshop</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <meta name="title" content="My Stores">
     <meta name="description" content="business social network payrchat is one of the rising new social media sites in bangladesh. payrchat is the top social networking sites with user registration, login and with awesome features">
     <meta name="keywords" content="Social network, Bangladesh social media, online make money">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="pinterest-rich-pin" content="false">
-    <link rel="canonical" href="https://www.payrchat.com/stores">
-    <link rel="shortcut icon" type="image/png" href="https://www.payrchat.com/themes/wowonder/img/icon.png">
-    {{-- <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1"> --}}
+    <link rel="canonical" href="{{env('HOME_URL')}}/payrshop">
+    <link rel="shortcut icon" type="image/png" href="{{env('HOME_URL')}}/themes/wowonder/img/icon.png">
+    {{-- <link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1"> --}}
 <link rel="stylesheet" href="{{asset('css/general-style-plugins.css')}}">
 {{-- <link rel="stylesheet" href="{{asset('css/kpeshopstyle.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=48a9e5b6c7600d29b7c636051fedb3bd" async="" crossorigin="anonymous"></script><script src="//media.twiliocdn.com/sdk/js/video/releases/2.8.0/twilio-video.min.js"></script>
-    {{-- <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/style.css?version=3.2.1"> --}}
+    {{-- <link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/stylesheet/style.css?version=3.2.1"> --}}
 
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
     <script src="{{asset('fontawesome/js/all.js')}}"></script>
 
 
 
-    <script src="https://www.payrchat.com/themes/wowonder/javascript/jquery-3.1.1.min.js"></scrip>
+    <script src="{{env('HOME_URL')}}/themes/wowonder/javascript/jquery-3.1.1.min.js"></scrip>
     <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
@@ -33,16 +33,12 @@
 
 
 
-    <link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.css" type="text/css">
-    <script src="https://www.payrchat.com/themes/wowonder/player/fluidplayer.min.js"></script>
+    <link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/player/fluidplayer.min.css" type="text/css">
+    <script src="{{env('HOME_URL')}}/themes/wowonder/player/fluidplayer.min.js"></script>
     <style>
-    @stack('css')
-      /*
-
-  Add here your custom css styles Example: p { text-align: center; color: red; }
-
-  */      </style>
-
+      /* Add here your custom css styles Example: p { text-align: center; color: red; }  */
+       </style>
+@stack('css')
   <script type="text/javascript">
          /*
   Add here your JavaScript Code.
@@ -56,14 +52,15 @@
     y = 6;
     z = x + y;
 
-    */         function Wo_Ajax_Requests_File(){
-      return "https://www.payrchat.com/requests.php"
+    */
+    function Wo_Ajax_Requests_File(){
+      return "{{env('HOME_URL')}}/requests.php"
     }
     function Wo_Ajax_Requests_Filee(){
-      return "https://www.payrchat.com/ajax_loading.php"
+      return "{{env('HOME_URL')}}/ajax_loading.php"
     }
 
-    var websiteUrl = "https://www.payrchat.com";
+    var websiteUrl = "{{env('HOME_URL')}}";
     $(function() {
       if (navigator.geolocation) {
         var location = navigator.geolocation.getCurrentPosition(Wo_UpdateLocation);
@@ -151,10 +148,10 @@
                          $(this).addClass('prc-active');
                        });
                        window.history.pushState({state:'new'},'', websiteUrl);
-                       //window.history.pushState({}, "https://www.payrchat.com", websiteUrl);
+                       //window.history.pushState({}, "{{env('HOME_URL')}}", websiteUrl);
                      } else {
                        window.history.pushState({state:'new'},'', json_data.url);
-                       //window.history.pushState({}, "https://www.payrchat.com", json_data.url);
+                       //window.history.pushState({}, "{{env('HOME_URL')}}", json_data.url);
                      }
                      $('.postText').autogrow({vertical: true, horizontal: false, height: 200});
                      window.onpopstate = function(event) {
@@ -240,22 +237,22 @@
   <style>
   @font-face {
     font-family: OpenSansLight;
-    src: url("https://www.payrchat.com/themes/wowonder/fonts/OpenSansLight/OpenSansLight.woff") format("woff");
+    src: url("{{env('HOME_URL')}}/themes/wowonder/fonts/OpenSansLight/OpenSansLight.woff") format("woff");
     font-weight: normal;
   }
   @font-face {
     font-family: OpenSansRegular;
-    src: url("https://www.payrchat.com/themes/wowonder/fonts/OpenSansRegular/OpenSansRegular.woff") format("woff");
+    src: url("{{env('HOME_URL')}}/themes/wowonder/fonts/OpenSansRegular/OpenSansRegular.woff") format("woff");
     font-weight: normal;
   }
   @font-face {
     font-family: OpenSansSemiBold;
-    src: url("https://www.payrchat.com/themes/wowonder/fonts/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff");
+    src: url("{{env('HOME_URL')}}/themes/wowonder/fonts/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff");
     font-weight: normal;
   }
   @font-face {
     font-family: OpenSansBold;
-    src: url("https://www.payrchat.com/themes/wowonder/fonts/OpenSansBold/OpenSansBold.woff") format("woff");
+    src: url("{{env('HOME_URL')}}/themes/wowonder/fonts/OpenSansBold/OpenSansBold.woff") format("woff");
     font-weight: normal;
   }
   .prc-navbar-default {
@@ -596,11 +593,11 @@
   }
   </style>
 
-  <script src="https://www.payrchat.com/themes/wowonder/javascript/agora.js"></script>
+  <script src="{{env('HOME_URL')}}/themes/wowonder/javascript/agora.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
-  <script src="https://www.payrchat.com/themes/wowonder/javascript/socket.io.js"></script>
+  <script src="{{env('HOME_URL')}}/themes/wowonder/javascript/socket.io.js"></script>
   <script>
     let nodejs_system = "0";
     let socket = null
@@ -614,7 +611,7 @@
   .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
   .fb_mpn_mobile_landing_page_slide_out{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_out_from_left{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out_from_left;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_up{animation-duration:500ms;animation-name:fb_mpn_landing_page_slide_up;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_in{animation-duration:300ms;animation-name:fb_mpn_bounce_in;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out{animation-duration:300ms;animation-name:fb_mpn_bounce_out;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out_v2{animation-duration:300ms;animation-name:fb_mpn_fade_out;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_from_left{animation-duration:300ms;animation-name:fb_bounce_in_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_from_left{animation-duration:300ms;animation-name:fb_bounce_out_from_left;transition-timing-function:ease-in}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}@keyframes fb_mpn_landing_page_slide_out{0%{margin:0 12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;margin:0 24px;width:60px}}@keyframes fb_mpn_landing_page_slide_out_from_left{0%{left:12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;left:12px;width:60px}}@keyframes fb_mpn_landing_page_slide_up{0%{bottom:0;opacity:0}100%{bottom:24px;opacity:1}}@keyframes fb_mpn_bounce_in{0%{opacity:.5;top:100%}100%{opacity:1;top:0}}@keyframes fb_mpn_fade_out{0%{bottom:30px;opacity:1}100%{bottom:0;opacity:0}}@keyframes fb_mpn_bounce_out{0%{opacity:1;top:0}100%{opacity:.5;top:100%}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_from_left{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}50%{transform:scale(1.03, 1.03);transform-origin:bottom left}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_from_left{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}}@keyframes slideInFromBottom{0%{opacity:.1;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideInFromBottomDelay{0%{opacity:0;transform:translateY(100%)}97%{opacity:0;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}</style><style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style><style></style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/46/6/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/46/6/util.js"></script></head>
 
-  <body style="transform: none;" data-new-gr-c-s-check-loaded="14.1029.0" data-gr-ext-installed=""><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-edgeless cc-bottom cc-color-override--1505123418 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.payrchat.com/terms/privacy-policy" target="_blank">Learn More</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got It!</a></div><!--googleon: all--></div>
+  <body style="transform: none;" data-new-gr-c-s-check-loaded="14.1029.0" data-gr-ext-installed=""><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-edgeless cc-bottom cc-color-override--1505123418 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="{{env('HOME_URL')}}/terms/privacy-policy" target="_blank">Learn More</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got It!</a></div><!--googleon: all--></div>
     <input type="hidden" id="get_no_posts_name" value="No more posts">
     <div id="focus-overlay"></div>
     <input type="hidden" class="seen_stories_users_ids" value="">
@@ -697,48 +694,48 @@
         </div>
       </form>
 
-      <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
-        <img src="https://www.payrchat.com/icons/home.png" width="25px"> News Feed  </a>
+      <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}" data-ajax="?index.php?link1=home">
+        <img src="{{env('HOME_URL')}}/icons/home.png" width="25px"> News Feed  </a>
 
-        <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin">
-          <img src="https://www.payrchat.com/icons/tag-friend.png" width="25px"> My Profile    </a>
+        <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/admin" data-ajax="?link1=timeline&amp;u=admin">
+          <img src="{{env('HOME_URL')}}/icons/tag-friend.png" width="25px"> My Profile    </a>
 
-          <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/messages" data-ajax="?link1=messages">
-            <img src="https://www.payrchat.com/icons/messenger.png" width="25px"> Chat
+          <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/messages" data-ajax="?link1=messages">
+            <img src="{{env('HOME_URL')}}/icons/messenger.png" width="25px"> Chat
           </a>
 
-          <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/pages" data-ajax="?link1=pages">
+          <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/pages" data-ajax="?link1=pages">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></path></svg> Pages    </a>
 
-            <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/groups" data-ajax="?link1=groups">
+            <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/groups" data-ajax="?link1=groups">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></path></svg> Friends Clubs    </a>
 
-              <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/friends-nearby/" data-ajax="?link1=friends-nearby">
-                <img src="https://www.payrchat.com/icons/friends.png" width="25px"> People You May Know
+              <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/friends-nearby/" data-ajax="?link1=friends-nearby">
+                <img src="{{env('HOME_URL')}}/icons/friends.png" width="25px"> People You May Know
               </a>
 
-              <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/blogs">
-                <img src="https://www.payrchat.com/icons/blog.png" width="25px"> Blog    </a>
-                <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/videos">
-                  <img src="https://www.payrchat.com/icons/movies.png" width="25px"> Videos
+              <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/blogs">
+                <img src="{{env('HOME_URL')}}/icons/blog.png" width="25px"> Blog    </a>
+                <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/videos">
+                  <img src="{{env('HOME_URL')}}/icons/movies.png" width="25px"> Videos
                 </a>
-                <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/albums" data-ajax="?link1=albums">
-                  <img src="https://www.payrchat.com/icons/gallery.png" width="25px"> Albums    </a>
+                <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/albums" data-ajax="?link1=albums">
+                  <img src="{{env('HOME_URL')}}/icons/gallery.png" width="25px"> Albums    </a>
 
-                  <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/videos">
-                    <img src="https://www.payrchat.com/icons/movies.png" width="25px"> Videos
+                  <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/videos">
+                    <img src="{{env('HOME_URL')}}/icons/movies.png" width="25px"> Videos
 
 
-                  </a><a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/new-game" data-ajax="?link1=new-game">
+                  </a><a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/new-game" data-ajax="?link1=new-game">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></path></svg> Games    </a>
 
-                    <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/jobs" data-ajax="?link1=jobs">
+                    <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/jobs" data-ajax="?link1=jobs">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4caf50" d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z"></path></svg> Jobs    </a>
 
-                      <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/poke" data-ajax="?link1=poke">
+                      <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/poke" data-ajax="?link1=poke">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></path></svg> Pokes    </a>
 
-                        <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/most_liked" data-ajax="?link1=most_liked">
+                        <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/most_liked" data-ajax="?link1=most_liked">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></path></svg> Popular Posts
                         </a>
 
@@ -746,11 +743,11 @@
                         <hr>
 
                         <div style="padding: 10px;">
-                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=terms" href="https://www.payrchat.com/terms/terms">Terms of Use</a>
-                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=privacy-policy" href="https://www.payrchat.com/terms/privacy-policy">Privacy Policy</a>
-                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="https://www.payrchat.com/contact-us">Contact</a>
-                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=about-us" href="https://www.payrchat.com/terms/about-us">About</a>
-                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="https://www.payrchat.com/developers">Developers</a>
+                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=terms" href="{{env('HOME_URL')}}/terms/terms">Terms of Use</a>
+                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=privacy-policy" href="{{env('HOME_URL')}}/terms/privacy-policy">Privacy Policy</a>
+                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="{{env('HOME_URL')}}/contact-us">Contact</a>
+                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&amp;type=about-us" href="{{env('HOME_URL')}}/terms/about-us">About</a>
+                          <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="{{env('HOME_URL')}}/developers">Developers</a>
 
                         </div>
                         <p style="color: black;">
@@ -769,13 +766,13 @@
 
                             <span class="prc-burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">☰ </span>  
 
-                            <a class="prc-brand prc-header-brand" href="https://www.payrchat.com">
-                             <img width="130" src="https://www.payrchat.com/themes/wowonder/img/logo.png" alt="Payrchat Logo">
+                            <a class="prc-brand prc-header-brand" href="{{env('HOME_URL')}}">
+                             <img width="130" src="{{env('HOME_URL')}}/themes/wowonder/img/logo.png" alt="Payrchat Logo">
                            </a>
                            <ul class="prc-nav prc-navbar-nav">
                             <li>
-                             <a class="prc-sixteen-font-size" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
-                              <img src="https://www.payrchat.com/icons/home.png" width="20px">
+                             <a class="prc-sixteen-font-size" href="{{env('HOME_URL')}}" data-ajax="?index.php?link1=home">
+                              <img src="{{env('HOME_URL')}}/icons/home.png" width="20px">
                             </a>
                           </li>
   <!-- 													<li class="dropdown head_name_links">
@@ -785,19 +782,19 @@
                                 </a>
                                 <ul class="dropdown-menu clearfix create_head_menu toleft" role="menu">
                                                                         <li>
-                                        <a href="https://www.payrchat.com/ads/create/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#9c27b0" d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z" /></svg> Create Ad</a>
+                                        <a href="{{env('HOME_URL')}}/ads/create/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#9c27b0" d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z" /></svg> Create Ad</a>
                                     </li>
                                                                                                             <li>
-                                        <a href="https://www.payrchat.com/create-blog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009da0" d="M18,20H6V18H4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V18H18V20M14,2H6A2,2 0 0,0 4,4V12H6V4H14V8H18V12H20V8L14,2M11,16H8V14H11V16M16,16H13V14H16V16M3,14H6V16H3V14M21,16H18V14H21V16Z" /></svg> Create Blog</a>
+                                        <a href="{{env('HOME_URL')}}/create-blog/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009da0" d="M18,20H6V18H4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V18H18V20M14,2H6A2,2 0 0,0 4,4V12H6V4H14V8H18V12H20V8L14,2M11,16H8V14H11V16M16,16H13V14H16V16M3,14H6V16H3V14M21,16H18V14H21V16Z" /></svg> Create Blog</a>
                                     </li>
                                                                                                             <li>
-                                        <a href="https://www.payrchat.com/events/create-event/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f25e4e" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" /></svg> Create Event</a>
+                                        <a href="{{env('HOME_URL')}}/events/create-event/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f25e4e" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" /></svg> Create Event</a>
                                     </li>
                                                                                                             <li>
-                                        <a href="https://www.payrchat.com/create-group" data-ajax="?link1=create-group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M12,6A3,3 0 0,0 9,9A3,3 0 0,0 12,12A3,3 0 0,0 15,9A3,3 0 0,0 12,6M6,8.17A2.5,2.5 0 0,0 3.5,10.67A2.5,2.5 0 0,0 6,13.17C6.88,13.17 7.65,12.71 8.09,12.03C7.42,11.18 7,10.15 7,9C7,8.8 7,8.6 7.04,8.4C6.72,8.25 6.37,8.17 6,8.17M18,8.17C17.63,8.17 17.28,8.25 16.96,8.4C17,8.6 17,8.8 17,9C17,10.15 16.58,11.18 15.91,12.03C16.35,12.71 17.12,13.17 18,13.17A2.5,2.5 0 0,0 20.5,10.67A2.5,2.5 0 0,0 18,8.17M12,14C10,14 6,15 6,17V19H18V17C18,15 14,14 12,14M4.67,14.97C3,15.26 1,16.04 1,17.33V19H4V17C4,16.22 4.29,15.53 4.67,14.97M19.33,14.97C19.71,15.53 20,16.22 20,17V19H23V17.33C23,16.04 21,15.26 19.33,14.97Z" /></svg> Create Friends Club</a>
+                                        <a href="{{env('HOME_URL')}}/create-group" data-ajax="?link1=create-group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M12,6A3,3 0 0,0 9,9A3,3 0 0,0 12,12A3,3 0 0,0 15,9A3,3 0 0,0 12,6M6,8.17A2.5,2.5 0 0,0 3.5,10.67A2.5,2.5 0 0,0 6,13.17C6.88,13.17 7.65,12.71 8.09,12.03C7.42,11.18 7,10.15 7,9C7,8.8 7,8.6 7.04,8.4C6.72,8.25 6.37,8.17 6,8.17M18,8.17C17.63,8.17 17.28,8.25 16.96,8.4C17,8.6 17,8.8 17,9C17,10.15 16.58,11.18 15.91,12.03C16.35,12.71 17.12,13.17 18,13.17A2.5,2.5 0 0,0 20.5,10.67A2.5,2.5 0 0,0 18,8.17M12,14C10,14 6,15 6,17V19H18V17C18,15 14,14 12,14M4.67,14.97C3,15.26 1,16.04 1,17.33V19H4V17C4,16.22 4.29,15.53 4.67,14.97M19.33,14.97C19.71,15.53 20,16.22 20,17V19H23V17.33C23,16.04 21,15.26 19.33,14.97Z" /></svg> Create Friends Club</a>
                                     </li>
                                                                                                             <li>
-                                        <a href="https://www.payrchat.com/create-page" data-ajax="?link1=create-page"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" /></svg> Create Page</a>
+                                        <a href="{{env('HOME_URL')}}/create-page" data-ajax="?link1=create-page"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z" /></svg> Create Page</a>
                                     </li>
                                                                     </ul>
                             </li>
@@ -815,10 +812,10 @@
                           <ul class="dropdown-menu prc-search-dropdown-container" style="margin-left:7px;" role="menu">
                             <div class="prc-search-dropdown-result">
                               <li>
-                                <a href="https://www.payrchat.com/Testdemo?ref=se" data-ajax="?link1=timeline&amp;u=Testdemo&amp;ref=se">
+                                <a href="{{env('HOME_URL')}}/Testdemo?ref=se" data-ajax="?link1=timeline&amp;u=Testdemo&amp;ref=se">
                                   <span class="prc-user-popover" data-id="4" data-type="user">
                                     <div class="prc-search-user-avatar pull-left">
-                                      <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="test user1 Profile Picture">
+                                      <img src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="test user1 Profile Picture">
                                     </div>
                                     <span class="prc-search-user-name">
                                       test user1
@@ -832,10 +829,10 @@
                                   <div class="clear"></div>
                                 </li>
                                 <li>
-                                  <a href="https://www.payrchat.com/mdrohim034?ref=se" data-ajax="?link1=timeline&amp;u=mdrohim034&amp;ref=se">
+                                  <a href="{{env('HOME_URL')}}/mdrohim034?ref=se" data-ajax="?link1=timeline&amp;u=mdrohim034&amp;ref=se">
                                     <span class="prc-user-popover" data-id="8915" data-type="user">
                                       <div class="prc-search-user-avatar pull-left">
-                                        <img src="https://www.payrchat.com/upload/photos/2021/08/dpeHQcCRS3lBoSsub2N3_20_7ff7fbd8de6db02692aea42abe1ec0a6_avatar.jpeg?cache=0" alt="Payrchat Simu Profile Picture">
+                                        <img src="{{env('HOME_URL')}}/upload/photos/2021/08/dpeHQcCRS3lBoSsub2N3_20_7ff7fbd8de6db02692aea42abe1ec0a6_avatar.jpeg?cache=0" alt="Payrchat Simu Profile Picture">
                                       </div>
                                       <span class="prc-search-user-name">
                                         Payrchat Simu
@@ -849,10 +846,10 @@
                                     <div class="clear"></div>
                                   </li>
                                   <li>
-                                    <a href="https://www.payrchat.com/timeline&amp;u=test18@user.com_8957?ref=se" data-ajax="?link1=timeline&amp;u=test18@user.com_8957&amp;ref=se">
+                                    <a href="{{env('HOME_URL')}}/timeline&amp;u=test18@user.com_8957?ref=se" data-ajax="?link1=timeline&amp;u=test18@user.com_8957&amp;ref=se">
                                       <span class="prc-user-popover" data-id="8957" data-type="user">
                                         <div class="prc-search-user-avatar pull-left">
-                                          <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Test User18 Profile Picture">
+                                          <img src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="Test User18 Profile Picture">
                                         </div>
                                         <span class="prc-search-user-name">
                                           Test User18
@@ -866,7 +863,7 @@
                                   </div>
                                   <li>
                                     <span class="prc-search-advanced-container">
-                                      <a href="https://www.payrchat.com/search" class="prc-search-advanced-link" data-ajax="?link1=search">
+                                      <a href="{{env('HOME_URL')}}/search" class="prc-search-advanced-link" data-ajax="?link1=search">
                                         <div class="prc-feather-svg-parent">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="prc-feather prc-feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                                         </div>
@@ -886,17 +883,17 @@
                               <li class="dropdown prc-requests-container" onclick="Wo_OpenRequestsMenu();">
                                 <span class="prc-new-update-alert" style="">7</span>
                                 <a href="#" class="dropdown-toggle unread-update prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  <img src="https://www.payrchat.com/icons/friends.png" width="20px">
+                                  <img src="{{env('HOME_URL')}}/icons/friends.png" width="20px">
                                 </a>
                                 <ul class="dropdown-menu prc-request-list clearfix prc-notifications-dropdown" role="menu" id="requests-list"><li class="prc-wow_hdr_requests">
                                   <div class="prc-user-request-list user-follow-request-9413">
                                     <div class="prc-user-info">
                                       <div class="prc-avatar">
-                                        <a href="https://www.payrchat.com/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">
-                                          <img src="https://www.payrchat.com/upload/photos/2021/09/24VOLyNrd8XqdZLnYQN7_06_e9693a588a4f404ac5197822e26fe313_avatar.jpg?cache=0" alt="Mr sahidul islam Islam Profile Picture">
+                                        <a href="{{env('HOME_URL')}}/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">
+                                          <img src="{{env('HOME_URL')}}/upload/photos/2021/09/24VOLyNrd8XqdZLnYQN7_06_e9693a588a4f404ac5197822e26fe313_avatar.jpg?cache=0" alt="Mr sahidul islam Islam Profile Picture">
                                         </a>
                                       </div>
-                                      <a href="https://www.payrchat.com/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">Mr sahidul islam Islam</a>
+                                      <a href="{{env('HOME_URL')}}/timeline&amp;u=sahidulshohid1@gmail.com" data-ajax="?link1=timeline&amp;u=sahidulshohid1@gmail.com">Mr sahidul islam Islam</a>
                                       <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                         <span class="prc-small-last-seen">2 w</span>			</div>
                                       </div>
@@ -913,11 +910,11 @@
                                     <div class="prc-user-request-list user-follow-request-9347">
                                       <div class="prc-user-info">
                                         <div class="prc-avatar">
-                                          <a href="https://www.payrchat.com/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">
-                                            <img src="https://www.payrchat.com/upload/photos/2021/09/ab5JTSVRwMwT9Ku28p8c_08_0865ee87d69b096c3ff0e62868fb7d63_avatar.jpg?cache=0" alt="Sabuj Rayhan Profile Picture">
+                                          <a href="{{env('HOME_URL')}}/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">
+                                            <img src="{{env('HOME_URL')}}/upload/photos/2021/09/ab5JTSVRwMwT9Ku28p8c_08_0865ee87d69b096c3ff0e62868fb7d63_avatar.jpg?cache=0" alt="Sabuj Rayhan Profile Picture">
                                           </a>
                                         </div>
-                                        <a href="https://www.payrchat.com/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">Sabuj Rayhan</a>
+                                        <a href="{{env('HOME_URL')}}/Sabujrayhan" data-ajax="?link1=timeline&amp;u=Sabujrayhan">Sabuj Rayhan</a>
                                         <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                           <span class="prc-small-last-seen">2 w</span>			</div>
                                         </div>
@@ -934,11 +931,11 @@
                                       <div class="prc-user-request-list user-follow-request-9344">
                                         <div class="prc-user-info">
                                           <div class="prc-avatar">
-                                            <a href="https://www.payrchat.com/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">
-                                              <img src="https://www.payrchat.com/upload/photos/2021/09/o7LtxoZLHPBAdueEoksz_05_b79512bfa3bb3d0b315e7f122785827b_avatar.jpg?cache=0" alt="Milon Baidya Profile Picture">
+                                            <a href="{{env('HOME_URL')}}/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">
+                                              <img src="{{env('HOME_URL')}}/upload/photos/2021/09/o7LtxoZLHPBAdueEoksz_05_b79512bfa3bb3d0b315e7f122785827b_avatar.jpg?cache=0" alt="Milon Baidya Profile Picture">
                                             </a>
                                           </div>
-                                          <a href="https://www.payrchat.com/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">Milon Baidya</a>
+                                          <a href="{{env('HOME_URL')}}/timeline&amp;u=milonbaidya369@gmail.com" data-ajax="?link1=timeline&amp;u=milonbaidya369@gmail.com">Milon Baidya</a>
                                           <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                             <span class="prc-small-last-seen">2 w</span>			</div>
                                           </div>
@@ -955,11 +952,11 @@
                                         <div class="prc-user-request-list user-follow-request-9297">
                                           <div class="prc-user-info">
                                             <div class="prc-avatar">
-                                              <a href="https://www.payrchat.com/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">
-                                                <img src="https://www.payrchat.com/upload/photos/2021/09/ezeYHJg9eN2ycQt7Az13_04_0b53b4acc973db68f6036a4e057458b3_avatar.jpg?cache=0" alt="Md Sumon Profile Picture">
+                                              <a href="{{env('HOME_URL')}}/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">
+                                                <img src="{{env('HOME_URL')}}/upload/photos/2021/09/ezeYHJg9eN2ycQt7Az13_04_0b53b4acc973db68f6036a4e057458b3_avatar.jpg?cache=0" alt="Md Sumon Profile Picture">
                                               </a>
                                             </div>
-                                            <a href="https://www.payrchat.com/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">Md Sumon</a>
+                                            <a href="{{env('HOME_URL')}}/timeline&amp;u=sumonhn11@gmail.com" data-ajax="?link1=timeline&amp;u=sumonhn11@gmail.com">Md Sumon</a>
                                             <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                               <span class="prc-small-last-seen">2 w</span>			</div>
                                             </div>
@@ -976,11 +973,11 @@
                                           <div class="prc-user-request-list user-follow-request-9262">
                                             <div class="prc-user-info">
                                               <div class="prc-avatar">
-                                                <a href="https://www.payrchat.com/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">
-                                                  <img src="https://www.payrchat.com/upload/photos/2021/09/WNLVteNHGEBUnmNIUjd8_04_0a75b1e0b999860a8ab40b625691e8a9_avatar.jpg?cache=0" alt="mazarul rana Profile Picture">
+                                                <a href="{{env('HOME_URL')}}/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">
+                                                  <img src="{{env('HOME_URL')}}/upload/photos/2021/09/WNLVteNHGEBUnmNIUjd8_04_0a75b1e0b999860a8ab40b625691e8a9_avatar.jpg?cache=0" alt="mazarul rana Profile Picture">
                                                 </a>
                                               </div>
-                                              <a href="https://www.payrchat.com/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">mazarul rana</a>
+                                              <a href="{{env('HOME_URL')}}/timeline&amp;u=mazarulrana8@gmail.com" data-ajax="?link1=timeline&amp;u=mazarulrana8@gmail.com">mazarul rana</a>
                                               <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                                 <span class="prc-small-last-seen">2 w</span>			</div>
                                               </div>
@@ -997,11 +994,11 @@
                                             <div class="prc-user-request-list user-follow-request-9080">
                                               <div class="prc-user-info">
                                                 <div class="prc-avatar">
-                                                  <a href="https://www.payrchat.com/mdhasan059" data-ajax="?link1=timeline&amp;u=mdhasan059">
-                                                    <img src="https://www.payrchat.com/upload/photos/2021/08/9UmIA22Vfd1T1CyprLyB_27_02a9c851e182a24092ee9a6a2010c77a_avatar.jpg?cache=1630045837" alt="Mohammad Hasan Profile Picture">
+                                                  <a href="{{env('HOME_URL')}}/mdhasan059" data-ajax="?link1=timeline&amp;u=mdhasan059">
+                                                    <img src="{{env('HOME_URL')}}/upload/photos/2021/08/9UmIA22Vfd1T1CyprLyB_27_02a9c851e182a24092ee9a6a2010c77a_avatar.jpg?cache=1630045837" alt="Mohammad Hasan Profile Picture">
                                                   </a>
                                                 </div>
-                                                <a href="https://www.payrchat.com/mdhasan059" data-ajax="?link1=timeline&amp;u=mdhasan059">Mohammad Hasan</a>
+                                                <a href="{{env('HOME_URL')}}/mdhasan059" data-ajax="?link1=timeline&amp;u=mdhasan059">Mohammad Hasan</a>
                                               </div>
                                               <div class="accept-btns user-follow-button">
                                                 <button type="button" id="accept-9080" onclick="Wo_AcceptFollowRequest(9080)" class="btn btn-default btn-sm btn-active" title="Accept">
@@ -1016,11 +1013,11 @@
                                             <div class="prc-user-request-list user-follow-request-737">
                                               <div class="prc-user-info">
                                                 <div class="prc-avatar">
-                                                  <a href="https://www.payrchat.com/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">
-                                                    <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="SUMAN MAJUMDER Profile Picture">
+                                                  <a href="{{env('HOME_URL')}}/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">
+                                                    <img src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="SUMAN MAJUMDER Profile Picture">
                                                   </a>
                                                 </div>
-                                                <a href="https://www.payrchat.com/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">SUMAN MAJUMDER</a>
+                                                <a href="{{env('HOME_URL')}}/SumanMajumder" data-ajax="?link1=timeline&amp;u=SumanMajumder">SUMAN MAJUMDER</a>
                                                 <div class="prc-user-lastseen" data-toggle="tooltip" title="Last Seen:">
                                                   <span class="prc-small-last-seen">3 w</span>			</div>
                                                 </div>
@@ -1039,7 +1036,7 @@
                                             <span class="prc-new-update-alert hidden" data_messsages_count="0" style="display: none;">
                                             0		</span>
                                             <a href="#" class="dropdown-toggle prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-                                              <img src="https://www.payrchat.com/icons/messenger.png" width="25px">
+                                              <img src="{{env('HOME_URL')}}/icons/messenger.png" width="25px">
                                             </a>
                                             <ul class="dropdown-menu clearfix prc-notifications-dropdown messages-dropdown" role="menu" id="messages-list">
                                               <li>
@@ -1049,14 +1046,14 @@
                                           </li>
                                           <li class="">
 
-                                            <a href="https://www.payrchat.com/videos" class="prc-sixteen-font-size" aria-expanded="false">
-                                              <img src="https://www.payrchat.com/icons/movies.png" width="25px">
+                                            <a href="{{env('HOME_URL')}}/videos" class="prc-sixteen-font-size" aria-expanded="false">
+                                              <img src="{{env('HOME_URL')}}/icons/movies.png" width="25px">
                                             </a>
 
                                           </li><li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
                                             <span class="prc-new-update-alert hidden" style="display: none;">0</span>
                                             <a href="#" class="dropdown-toggle prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
-                                              <img src="https://www.payrchat.com/icons/notification.png" width="20px">
+                                              <img src="{{env('HOME_URL')}}/icons/notification.png" width="20px">
                                             </a>
                                             <ul class="dropdown-menu clearfix prc-notifications-dropdown" role="menu">
                                               <li onclick="Wo_TurnOffSound();" class="turn-off-sound text-left">
@@ -1069,30 +1066,30 @@
                                             <li class="dropdown">
                                               <a href="#" class="dropdown-toggle prc-user-menu-combination" data-toggle="dropdown" role="button" aria-expanded="false">
                                                 <div class="prc-user-avatar">
-                                                  <img id="updateImage-1" src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
+                                                  <img id="updateImage-1" src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
                                                 </div>
                                               </a>
                                               <ul class="dropdown-menu prc-ani-acc-menu" role="menu">
                                                 <li>
-                                                  <a id="update-username" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" class="prc-wow_hdr_menu_usr_lnk">
+                                                  <a id="update-username" href="{{env('HOME_URL')}}/admin" data-ajax="?link1=timeline&amp;u=admin" class="prc-wow_hdr_menu_usr_lnk">
                                                     <b>Salim Khan</b>
-                                                    <img src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
+                                                    <img src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="Salim Khan Profile Picture">
                                                   </a>
                                                 </li>
                                                 <li><hr></li>
                                                 <li>
-                                                  <a href="https://www.payrchat.com/wallet/" data-ajax="?link1=wallet">Wallet</a>
+                                                  <a href="{{env('HOME_URL')}}/wallet/" data-ajax="?link1=wallet">Wallet</a>
                                                 </li>
 
                                                 <li>
 
-                                                  <a href="https://www.payrchat.com/url-ads" data-ajax="?link1=url-ads">Free Earn</a>
+                                                  <a href="{{env('HOME_URL')}}/url-ads" data-ajax="?link1=url-ads">Free Earn</a>
 
 
                                                 </li>
 
                         <!-- <li class="dropdown-search-link">
-                    <a href="https://www.payrchat.com/search" data-ajax="?link1=search">Free Earn</a>
+                    <a href="{{env('HOME_URL')}}/search" data-ajax="?link1=search">Free Earn</a>
                   </li> -->
 
 
@@ -1106,33 +1103,33 @@
 
 
                     <li>
-                      <a href="https://www.payrchat.com/my-blogs/" data-ajax="?link1=my-blogs">My Articles</a>
+                      <a href="{{env('HOME_URL')}}/my-blogs/" data-ajax="?link1=my-blogs">My Articles</a>
                     </li>
 
             <!-- <li class="dropdown-search-link">
-                <a href="https://www.payrchat.com/saved-posts" data-ajax="?link1=saved-posts">Saved Posts				</a>
+                <a href="{{env('HOME_URL')}}/saved-posts" data-ajax="?link1=saved-posts">Saved Posts				</a>
               </li> -->
                         <!-- <li class="dropdown-search-link">
-                <a href="https://www.payrchat.com/search?query=">Explore				</a>
+                <a href="{{env('HOME_URL')}}/search?query=">Explore				</a>
               </li> -->
 
 
             <li><hr></li>			<!-- <li class="dropdown-hidden-link">
-                <a href="https://www.payrchat.com/setting/profile-setting" data-ajax="?link1=setting&page=profile-setting">Edit</a>
+                <a href="{{env('HOME_URL')}}/setting/profile-setting" data-ajax="?link1=setting&page=profile-setting">Edit</a>
               </li> -->
               <li class="dropdown-hidden-link">
-                <a href="https://www.payrchat.com/setting/general-setting" data-ajax="?link1=setting&amp;page=general-setting">General Setting</a>
+                <a href="{{env('HOME_URL')}}/setting/general-setting" data-ajax="?link1=setting&amp;page=general-setting">General Setting</a>
               </li>
               <li class="dropdown-search-link">
-                <a href="https://www.payrchat.com/setting" data-ajax="?link1=setting">Settings</a>
+                <a href="{{env('HOME_URL')}}/setting" data-ajax="?link1=setting">Settings</a>
               </li>
               <li><hr></li>
               <li>
-                <a href="https://www.payrchat.com/admin-cp">Admin Area</a>
+                <a href="{{env('HOME_URL')}}/admin-cp">Admin Area</a>
               </li>
               <li><hr></li>
               <li>
-                <a href="https://www.payrchat.com/logout/?cache=1632496223">Log Out</a>
+                <a href="{{env('HOME_URL')}}/logout/?cache=1632496223">Log Out</a>
               </li>
               <li><hr></li>
             <!-- <li>
@@ -1159,7 +1156,7 @@
           $(".prc-search-input").keydown(function(event) {
             if (event.keyCode == 13 && event.shiftKey == 0) {
               event.preventDefault();
-              window.location = 'https://www.payrchat.com/search?query=' + $(this).val();
+              window.location = '{{env('HOME_URL')}}/search?query=' + $(this).val();
             }
           });
         });
@@ -1205,7 +1202,7 @@
           if (SearchBox.val() != '') {
             Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             Searchcontainer.addClass('open');
-            Searchcontainer.find('.prc-search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('href','{{env('HOME_URL')}}/search/' + query);
             Searchcontainer.find('.prc-search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
             $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'normal', query: query}, function(data) {
               if (data.status == 200) {
@@ -1233,7 +1230,7 @@
           if (SearchBox.val() != '') {
             Wo_progressIconLoader(Searchcontainer.find('.prc-navbar-form'));
             Searchcontainer.addClass('open');
-            Searchcontainer.find('.prc-search-advanced-link').attr('href','https://www.payrchat.com/search/' + query);
+            Searchcontainer.find('.prc-search-advanced-link').attr('href','{{env('HOME_URL')}}/search/' + query);
             Searchcontainer.find('.prc-search-advanced-link').attr('data-ajax','?link1=search&query=' + query);
             $.get(Wo_Ajax_Requests_File(), {f: 'search', s: 'hash', query: query}, function(data) {
               if (data.status == 200) {
@@ -1275,83 +1272,83 @@
             <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: fixed; transform: translateY(65px); width: 181px; left: 131px; top: 0px;"><div class="prc-left-sidebar">
               <ul>
                 <li class="prc-wow_side_post_fltr">
-                  <a class="main_menu" href="https://www.payrchat.com" data-ajax="?index.php?link1=home">
+                  <a class="main_menu" href="{{env('HOME_URL')}}" data-ajax="?index.php?link1=home">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#047cac" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path></svg> News Feed				</a>
                   </li>
                   <li class="prc-wow_side_post_fltr">
 
-                    <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin">
-                      <img src="https://www.payrchat.com/icons/tag-friend.png" width="25px"> My Profile				</a>
+                    <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/admin" data-ajax="?link1=timeline&amp;u=admin">
+                      <img src="{{env('HOME_URL')}}/icons/tag-friend.png" width="25px"> My Profile				</a>
 
                     </li>
 
                     <li class="prc-wow_side_post_fltr">
 
-                      <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/messages" data-ajax="?link1=messages">
-                        <img src="https://www.payrchat.com/icons/messenger.png" width="25px"> Chat
+                      <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/messages" data-ajax="?link1=messages">
+                        <img src="{{env('HOME_URL')}}/icons/messenger.png" width="25px"> Chat
                       </a>
 
                     </li>
 
                     <li class="prc-wow_side_post_fltr">
 
-                      <a class="main_menu" href="https://www.payrchat.com/pages" data-ajax="?link1=pages">
+                      <a class="main_menu" href="{{env('HOME_URL')}}/pages" data-ajax="?link1=pages">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#f79f58" d="M14.4,6L14,4H5V21H7V14H12.6L13,16H20V6H14.4Z"></path></svg> Pages				</a>
 
                       </li>
 
                       <li class="prc-wow_side_post_fltr">
 
-                        <a class="main_menu" href="https://www.payrchat.com/groups" data-ajax="?link1=groups">
+                        <a class="main_menu" href="{{env('HOME_URL')}}/groups" data-ajax="?link1=groups">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M5 3A2 2 0 0 0 3 5H5M7 3V5H9V3M11 3V5H13V3M15 3V5H17V3M19 3V5H21A2 2 0 0 0 19 3M3 7V9H5V7M7 7V11H11V7M13 7V11H17V7M19 7V9H21V7M3 11V13H5V11M19 11V13H21V11M7 13V17H11V13M13 13V17H17V13M3 15V17H5V15M19 15V17H21V15M3 19A2 2 0 0 0 5 21V19M7 19V21H9V19M11 19V21H13V19M15 19V21H17V19M19 19V21A2 2 0 0 0 21 19Z"></path></svg> Friends Clubs				</a>
 
                         </li>
 
                         <li class="prc-wow_side_post_fltr">
-                          <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/friends-nearby/" data-ajax="?link1=friends-nearby">
-                            <img src="https://www.payrchat.com/icons/friends.png" width="25px"> People You May Know
+                          <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/friends-nearby/" data-ajax="?link1=friends-nearby">
+                            <img src="{{env('HOME_URL')}}/icons/friends.png" width="25px"> People You May Know
                           </a>
                         </li>
 
                         <li class="prc-wow_side_post_fltr">
 
-                          <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/blogs">
-                            <img src="https://www.payrchat.com/icons/blog.png" width="25px"> Blog				</a>
+                          <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/blogs">
+                            <img src="{{env('HOME_URL')}}/icons/blog.png" width="25px"> Blog				</a>
 
 
                           </li>
 
                           <li class="prc-wow_side_post_fltr">
 
-                            <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/videos">
-                              <img src="https://www.payrchat.com/icons/movies.png" width="25px"> Videos
+                            <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/videos">
+                              <img src="{{env('HOME_URL')}}/icons/movies.png" width="25px"> Videos
                             </a>
 
                           </li>
 
                           <li class="prc-wow_side_post_fltr">
 
-                            <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/albums" data-ajax="?link1=albums">
-                              <img src="https://www.payrchat.com/icons/gallery.png" width="25px"> Albums				</a>
+                            <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/albums" data-ajax="?link1=albums">
+                              <img src="{{env('HOME_URL')}}/icons/gallery.png" width="25px"> Albums				</a>
                             </li>
 
                             <li>
-                              <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/new-game" data-ajax="?link1=new-game">
+                              <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/new-game" data-ajax="?link1=new-game">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#03A9F4" d="M16.5,9L13.5,12L16.5,15H22V9M9,16.5V22H15V16.5L12,13.5M7.5,9H2V15H7.5L10.5,12M15,7.5V2H9V7.5L12,10.5L15,7.5Z"></path></svg> Games				</a>
                               </li>
 
                               <li>
-                                <a class="main_menu" href="https://www.payrchat.com/jobs" data-ajax="?link1=jobs">
+                                <a class="main_menu" href="{{env('HOME_URL')}}/jobs" data-ajax="?link1=jobs">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4caf50" d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z"></path></svg> Jobs			</a>
                                 </li>
 
                                 <li>
-                                  <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/poke" data-ajax="?link1=poke">
+                                  <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/poke" data-ajax="?link1=poke">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#009688" d="M21,9A1,1 0 0,1 22,10A1,1 0 0,1 21,11H16.53L16.4,12.21L14.2,17.15C14,17.65 13.47,18 12.86,18H8.5C7.7,18 7,17.27 7,16.5V10C7,9.61 7.16,9.26 7.43,9L11.63,4.1L12.4,4.84C12.6,5.03 12.72,5.29 12.72,5.58L12.69,5.8L11,9H21M2,18V10H5V18H2Z"></path></svg> Pokes				</a>
                                   </li>
 
                                   <li>
-                                    <a class="main_menu" onclick="closeNav()" href="https://www.payrchat.com/most_liked" data-ajax="?link1=most_liked">
+                                    <a class="main_menu" onclick="closeNav()" href="{{env('HOME_URL')}}/most_liked" data-ajax="?link1=most_liked">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#8d73cc" d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM7 6h4v4H7V6zm0 6h10v2H7v-2zm0 4h10v2H7v-2zm6-9h4v2h-4V7z"></path></svg> Popular Posts					</a>
                                     </li>
 
@@ -1583,10 +1580,10 @@
         <script type="text/javascript">
           const node_socket_flow = "0"
         </script>
-        <script type="text/javascript" src="https://www.payrchat.com/themes/wowonder/javascript/script.js?version=3.2.1"></script>
+        <script type="text/javascript" src="{{env('HOME_URL')}}/themes/wowonder/javascript/script.js?version=3.2.1"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOfpaMO_tMMsuvS2T4zx4llbtsFqMuT9Y&amp;libraries=places"></script>
-        <script src="https://www.payrchat.com/themes/wowonder/javascript/audioRecord/recorder.js?version=3.2.1"></script>
-        <script src="https://www.payrchat.com/themes/wowonder/javascript/audioRecord/record.js?version=3.2.1"></script>
+        <script src="{{env('HOME_URL')}}/themes/wowonder/javascript/audioRecord/recorder.js?version=3.2.1"></script>
+        <script src="{{env('HOME_URL')}}/themes/wowonder/javascript/audioRecord/record.js?version=3.2.1"></script>
         <div class="extra-css"></div>
         <script>$(document).ready(function() {$('div.prc-leftcol').theiaStickySidebar({additionalMarginTop: 65});});</script>
         <script type="text/javascript">jQuery(document).ready(function() {jQuery('.custom-fixed-element').theiaStickySidebar({additionalMarginTop: 65});});</script>
@@ -1901,7 +1898,7 @@
       return false;
     }
 
-    var path = "https://www.payrchat.com/themes/wowonder";
+    var path = "{{env('HOME_URL')}}/themes/wowonder";
     var lang = $(element).attr('data-reaction-lang');
     if (!post_id || !reaction) {
       return false;
@@ -1991,7 +1988,7 @@
   function Wo_RegisterStoryReaction(element,reaction_icon,is_html) {
     var reaction = parseInt($(element).attr('data-reaction-id'));
     var post_id = $(element).attr('data-post-id');
-    var path = "https://www.payrchat.com/themes/wowonder";
+    var path = "{{env('HOME_URL')}}/themes/wowonder";
     var lang = $(element).attr('data-reaction-lang');
     if (!post_id || !reaction) {
       return false;
@@ -2012,7 +2009,7 @@
   function Wo_RegisterMessageReaction(element,reaction_icon,is_html) {
     var reaction = parseInt($(element).attr('data-reaction-id'));
     var post_id = $(element).attr('data-post-id');
-    var path = "https://www.payrchat.com/themes/wowonder";
+    var path = "{{env('HOME_URL')}}/themes/wowonder";
     var lang = $(element).attr('data-reaction-lang');
     if (!post_id || !reaction) {
       return false;
@@ -2034,7 +2031,7 @@
   function Wo_RegisterReaction(element,reaction_icon,is_html){
     var reaction = parseInt($(element).attr('data-reaction-id'));
     var post_id = $(element).attr('data-post-id');
-    var path = "https://www.payrchat.com/themes/wowonder";
+    var path = "{{env('HOME_URL')}}/themes/wowonder";
     var lang = $(element).attr('data-reaction-lang');
     if (!post_id || !reaction) {
       return false;
@@ -2375,7 +2372,7 @@
     $(document).on('click', '#night_mode_toggle', function(event) {
       mode = $(this).attr('data-mode');
       if (mode == 'night') {
-        $('head').append('<link rel="stylesheet" href="https://www.payrchat.com/themes/wowonder/stylesheet/dark.css" id="night-mode-css">');
+        $('head').append('<link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/stylesheet/dark.css" id="night-mode-css">');
         $('#night_mode_toggle').attr('data-mode', 'day');
         $('#night-mode-text').text('Day mode');
       } else {
@@ -2747,7 +2744,7 @@
       if ($('#live_post_comments_'+post_id+' .live_comments').length >= 4) {
         $('#live_post_comments_'+post_id+' .live_comments').first().remove();
       }
-      $('#live_post_comments_'+post_id).append('<div class="live_comments" live_comment_id=""><a class="pull-left" href="https://www.payrchat.com/admin"><img class="prc-live_avatar pull-left" src="https://www.payrchat.com/upload/photos/d-avatar.jpg?cache=0" alt="avatar"></a><div class="comment-body" style="float: left;"><div class="comment-heading"><span><a href="https://www.payrchat.com/admin" data-ajax="?link1=timeline&amp;u=admin" ><h4 class="live_user_h"> Salim Khan </h4></a></span><span class="verified-color" data-toggle="tooltip" title="Verified User"><i class="fa fa-check-circle"></i></span><div class="comment-text">'+text+'</div></div></div><div class="clear"></div></div>');
+      $('#live_post_comments_'+post_id).append('<div class="live_comments" live_comment_id=""><a class="pull-left" href="{{env('HOME_URL')}}/admin"><img class="prc-live_avatar pull-left" src="{{env('HOME_URL')}}/upload/photos/d-avatar.jpg?cache=0" alt="avatar"></a><div class="comment-body" style="float: left;"><div class="comment-heading"><span><a href="{{env('HOME_URL')}}/admin" data-ajax="?link1=timeline&amp;u=admin" ><h4 class="live_user_h"> Salim Khan </h4></a></span><span class="verified-color" data-toggle="tooltip" title="Verified User"><i class="fa fa-check-circle"></i></span><div class="comment-text">'+text+'</div></div></div><div class="clear"></div></div>');
 
     }
   }
@@ -3028,23 +3025,23 @@
   }
   </script>      <!-- Audio FILES -->
   <audio id="notification-sound" class="sound-controls" preload="auto">
-   <source src="https://www.payrchat.com/themes/wowonder/mp3/New-notification.mp3" type="audio/mpeg">
+   <source src="{{env('HOME_URL')}}/themes/wowonder/mp3/New-notification.mp3" type="audio/mpeg">
    </audio>
    <audio id="message-sound" class="sound-controls" preload="auto">
-     <source src="https://www.payrchat.com/themes/wowonder/mp3/New-message.mp3" type="audio/mpeg">
+     <source src="{{env('HOME_URL')}}/themes/wowonder/mp3/New-message.mp3" type="audio/mpeg">
      </audio>
      <audio id="calling-sound" class="sound-controls" preload="auto">
-       <source src="https://www.payrchat.com/themes/wowonder/mp3/calling.mp3" type="audio/mpeg">
+       <source src="{{env('HOME_URL')}}/themes/wowonder/mp3/calling.mp3" type="audio/mpeg">
        </audio>
        <audio id="video-calling-sound" class="sound-controls" preload="auto">
-         <source src="https://www.payrchat.com/themes/wowonder/mp3/video_call.mp3" type="audio/mpeg">
+         <source src="{{env('HOME_URL')}}/themes/wowonder/mp3/video_call.mp3" type="audio/mpeg">
          </audio>
 
          <!-- End 'Audio FILES' -->
          <script>
           let f = navigator.userAgent.search("Firefox");
           if (f > -1) {
-            $('.prc-header-brand').attr('href', "https://www.payrchat.com/?cache=1632496223");
+            $('.prc-header-brand').attr('href', "{{env('HOME_URL')}}/?cache=1632496223");
           }
           function ShowCommentGif(id,type) {
             $( ".gif_post_comment" ).each(function( index ) {
@@ -3107,7 +3104,7 @@
               functionName = "Wo_PostCommentSticker_"+id+"(this,"+id+");";
             }
 
-            sticker = '<img alt="gif" src="https://www.payrchat.com/upload/photos/2021/09/D2LTCWb4S7pU5zfBVuHC_05_11aa4f7de0df52c842cf9eb56ffa99ee_image.png" data-gif="https://www.payrchat.com/upload/photos/2021/09/D2LTCWb4S7pU5zfBVuHC_05_11aa4f7de0df52c842cf9eb56ffa99ee_image.png" onclick="'+functionName+'" autoplay loop><img alt="gif" src="https://www.payrchat.com/upload/photos/2021/09/ZpHMJHn5s9ucWoO1fRkk_05_4b5e2f5f3be17b685c8bfbf244f832a4_image.gif" data-gif="https://www.payrchat.com/upload/photos/2021/09/ZpHMJHn5s9ucWoO1fRkk_05_4b5e2f5f3be17b685c8bfbf244f832a4_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="https://www.payrchat.com/upload/photos/2021/09/fnj6uXqEIvznmuXVqghJ_05_587b85c7c87733d25087b864eb7554d4_image.gif" data-gif="https://www.payrchat.com/upload/photos/2021/09/fnj6uXqEIvznmuXVqghJ_05_587b85c7c87733d25087b864eb7554d4_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="https://www.payrchat.com/upload/photos/2021/09/FrkZoPHzRimkgQMvo6tC_05_3ca64cb890c7a87c04c9ca3b856f80a6_image.gif" data-gif="https://www.payrchat.com/upload/photos/2021/09/FrkZoPHzRimkgQMvo6tC_05_3ca64cb890c7a87c04c9ca3b856f80a6_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="https://www.payrchat.com/upload/photos/2021/08/nmIDu5IWCDQRyhOei7c1_17_005ff123cad7756b86af487f00efb48f_image.gif" data-gif="https://www.payrchat.com/upload/photos/2021/08/nmIDu5IWCDQRyhOei7c1_17_005ff123cad7756b86af487f00efb48f_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="https://www.payrchat.com/upload/photos/2021/08/Z8qTD6hX5rfCVXtYhKcH_17_33ebfac69e8c663832c8ff55f9efd5c1_image.gif" data-gif="https://www.payrchat.com/upload/photos/2021/08/Z8qTD6hX5rfCVXtYhKcH_17_33ebfac69e8c663832c8ff55f9efd5c1_image.gif" onclick="'+functionName+'" autoplay loop>';
+            sticker = '<img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/09/D2LTCWb4S7pU5zfBVuHC_05_11aa4f7de0df52c842cf9eb56ffa99ee_image.png" data-gif="{{env('HOME_URL')}}/upload/photos/2021/09/D2LTCWb4S7pU5zfBVuHC_05_11aa4f7de0df52c842cf9eb56ffa99ee_image.png" onclick="'+functionName+'" autoplay loop><img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/09/ZpHMJHn5s9ucWoO1fRkk_05_4b5e2f5f3be17b685c8bfbf244f832a4_image.gif" data-gif="{{env('HOME_URL')}}/upload/photos/2021/09/ZpHMJHn5s9ucWoO1fRkk_05_4b5e2f5f3be17b685c8bfbf244f832a4_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/09/fnj6uXqEIvznmuXVqghJ_05_587b85c7c87733d25087b864eb7554d4_image.gif" data-gif="{{env('HOME_URL')}}/upload/photos/2021/09/fnj6uXqEIvznmuXVqghJ_05_587b85c7c87733d25087b864eb7554d4_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/09/FrkZoPHzRimkgQMvo6tC_05_3ca64cb890c7a87c04c9ca3b856f80a6_image.gif" data-gif="{{env('HOME_URL')}}/upload/photos/2021/09/FrkZoPHzRimkgQMvo6tC_05_3ca64cb890c7a87c04c9ca3b856f80a6_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/08/nmIDu5IWCDQRyhOei7c1_17_005ff123cad7756b86af487f00efb48f_image.gif" data-gif="{{env('HOME_URL')}}/upload/photos/2021/08/nmIDu5IWCDQRyhOei7c1_17_005ff123cad7756b86af487f00efb48f_image.gif" onclick="'+functionName+'" autoplay loop><img alt="gif" src="{{env('HOME_URL')}}/upload/photos/2021/08/Z8qTD6hX5rfCVXtYhKcH_17_33ebfac69e8c663832c8ff55f9efd5c1_image.gif" data-gif="{{env('HOME_URL')}}/upload/photos/2021/08/Z8qTD6hX5rfCVXtYhKcH_17_33ebfac69e8c663832c8ff55f9efd5c1_image.gif" onclick="'+functionName+'" autoplay loop>';
             $('#publisher-box-sticker-cont-'+id).html(sticker);
 
           }
@@ -3116,18 +3113,18 @@
           });
           /*Language Select*/
           $(document).ready(function(){
-            $("#wo_language_modal .language_select .English").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/united-states.svg"/></span> ');
-            $("#wo_language_modal .language_select .Arabic").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/saudi-arabia.svg"/></span> ');
-            $("#wo_language_modal .language_select .Dutch").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/netherlands.svg"/></span> ');
-            $("#wo_language_modal .language_select .French").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/france.svg"/></span> ');
-            $("#wo_language_modal .language_select .German").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/germany.svg"/></span> ');
-            $("#wo_language_modal .language_select .Hungarian, #wo_language_modal .language_select .Magyar").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/hungary.svg"/></span> ');
-            $("#wo_language_modal .language_select .Italian").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/italy.svg"/></span> ');
-            $("#wo_language_modal .language_select .Portuguese").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/portugal.svg"/></span> ');
-            $("#wo_language_modal .language_select .Russian").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/russia.svg"/></span> ');
-            $("#wo_language_modal .language_select .Spanish").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/spain.svg"/></span> ');
-            $("#wo_language_modal .language_select .Serbian").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/serbia.svg"/></span> ');
-            $("#wo_language_modal .language_select .Turkish").append('<span class="language_initial"><img src="https://www.payrchat.com/themes/wowonder/img/flags/turkey.svg"/></span> ');
+            $("#wo_language_modal .language_select .English").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/united-states.svg"/></span> ');
+            $("#wo_language_modal .language_select .Arabic").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/saudi-arabia.svg"/></span> ');
+            $("#wo_language_modal .language_select .Dutch").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/netherlands.svg"/></span> ');
+            $("#wo_language_modal .language_select .French").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/france.svg"/></span> ');
+            $("#wo_language_modal .language_select .German").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/germany.svg"/></span> ');
+            $("#wo_language_modal .language_select .Hungarian, #wo_language_modal .language_select .Magyar").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/hungary.svg"/></span> ');
+            $("#wo_language_modal .language_select .Italian").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/italy.svg"/></span> ');
+            $("#wo_language_modal .language_select .Portuguese").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/portugal.svg"/></span> ');
+            $("#wo_language_modal .language_select .Russian").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/russia.svg"/></span> ');
+            $("#wo_language_modal .language_select .Spanish").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/spain.svg"/></span> ');
+            $("#wo_language_modal .language_select .Serbian").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/serbia.svg"/></span> ');
+            $("#wo_language_modal .language_select .Turkish").append('<span class="language_initial"><img src="{{env('HOME_URL')}}/themes/wowonder/img/flags/turkey.svg"/></span> ');
           });
         /*
 
@@ -3151,7 +3148,7 @@
           "message": "This website uses cookies to ensure you get the best experience on our website.",
           "dismiss": "Got It!",
           "link": "Learn More",
-          "href": "https://www.payrchat.com/terms/privacy-policy"
+          "href": "{{env('HOME_URL')}}/terms/privacy-policy"
         }
       })});
     </script>
@@ -3405,7 +3402,7 @@
   <!-- HTML NOTIFICATION POPUP -->
 
 
-  <script src="https://www.payrchat.com/themes/wowonder/layout/store/assets/slick.js"></script>
+  <script src="{{env('HOME_URL')}}/themes/wowonder/layout/store/assets/slick.js"></script>
   <script>
     $(".cover-slider").slick({
       dots: false,
