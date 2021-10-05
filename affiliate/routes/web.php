@@ -27,6 +27,9 @@ Route::post('/affiliate_form', [HomeController::class, 'form_save'])->name('affi
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/approve', [ApproveController::class, 'index'])->name('approve');
+    Route::get('/', [ApproveController::class, 'index'])->name('admin.dashboard');
+    Route::get('/approve/{id}', [ApproveController::class, 'approve']);
+    Route::get('/delete/{id}', [ApproveController::class, 'delete']);
+
 
 });

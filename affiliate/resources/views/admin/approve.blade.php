@@ -29,7 +29,12 @@
 							<td>{{$row->platform}}</td>
 							<td>{{$row->platform_id}}</td>
 							<td><a href="{{asset($row->nid)}}" target="_blank"><img src="{{asset($row->nid)}}" width="100px"></a></td>
-							<td>@if ($row->status == 0) <a class="btn btn-success" href="#">Approve</a>@endif</td>
+							<td> 
+								@if ($row->status == 0)
+								<a class="btn btn-success" href="{{url('/admin/approve/')}}/{{$row->id}}">Approve</a>
+								<a class="btn btn-danger" href="{{url('/admin/delete/')}}/{{$row->id}}">Delete</a>
+								@endif
+							</td>
 						</tr>
 						@endforeach
 
