@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RoStore extends Model
+class StoreCategory extends Model
 {
     use HasFactory;
-    protected $table = 'ro_store';
+
+    protected $table = "ro_store_category";
+
 }

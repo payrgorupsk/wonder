@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Eshop;
+use App\Models\StoreCategory;
+use App\Models\StoreSubCategory;
 use Illuminate\Http\Request;
 
 class EshopController extends Controller
@@ -16,7 +18,8 @@ class EshopController extends Controller
     public function index()
     {
         //
-        return view('welcome');
+        $data['categories'] = StoreCategory::all();
+        return view('welcome',$data);
     }
 
     /**
@@ -49,6 +52,42 @@ class EshopController extends Controller
     public function show(Eshop $eshop)
     {
         //
+    }
+
+    public function categories()
+    {
+
+    }
+    public function payrmall()
+    {
+        return view('store/payrmall');
+    }
+    public function flashsale()
+    {
+        return view('store/flash_sale');
+    }
+    public function category($category=null)
+    {
+        $cat = StoreCategory::where('category_slug',$category)->get()->first();
+        if($cat!=null){
+          $cat = json_decode($cat);
+        $subCat = StoreSubCategory::where('parent_id',$cat->id)->get();
+        $data = array(
+            'category' => $cat,
+            'sub_categories' => $subCat
+        );
+
+        return view('store/category/index',$data);
+        }
+        else{
+            return view('store/category/404');
+        }
+
+    }
+
+    public function product($product=null)
+    {
+        return view('store/products/product_details');
     }
 
     /**
