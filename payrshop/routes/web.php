@@ -21,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', EshopController::class);
 Route::resource('users', WoUserController::class);
+Route::get('/categories', [EshopController::class,'categories'])->name('categories');
+Route::get('/category/{category}', [EshopController::class,'category'])->name('category');
+Route::get('/product/{product}', [EshopController::class,'product'])->name('product');
+Route::get('/payrmall', [EshopController::class,'payrmall'])->name('payrmall');
+Route::get('/flash-sale', [EshopController::class,'flashsale'])->name('flashsale');

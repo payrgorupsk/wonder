@@ -500,14 +500,14 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'live':
                 include('sources/live.php');
                 break;
-                case 'store':
-                    include('sources/store.php');
+                case 'eshop':
+                    include('sources/eshop.php');
                     break;
-                case 'stores':
-                    include('sources/stores.php');
+                case 'eshops':
+                    include('sources/eshops.php');
                     break;
-                case 'create-store':
-                    include('sources/create_store.php');
+                case 'create-eshop':
+                    include('sources/create_eshop.php');
                     break;
             }
         }
@@ -1060,14 +1060,14 @@ else{
         case 'live':
         include('sources/live.php');
         break;
-        case 'store':
-            include('sources/store.php');
+        case 'eshop':
+            include('sources/eshop.php');
             break;
-        case 'stores':
-            include('sources/stores.php');
+        case 'eshops':
+            include('sources/eshops.php');
             break;
-        case 'create-store':
-            include('sources/create_store.php');
+        case 'create-eshop':
+            include('sources/create_eshop.php');
             break;       
     }
 }
