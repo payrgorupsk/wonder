@@ -160,10 +160,10 @@ RewriteRule ^status/create(/?|)$ index.php?link1=create-status [NC,QSA]
 RewriteRule ^more-status(/?|)$ index.php?link1=more-status [NC,QSA]
 
 # *** STORE ***
-RewriteRule ^store(/?|)$ index.php?link1=store [NC,QSA]
-RewriteRule ^stores(/?|)$ index.php?link1=stores [NC,QSA]
-RewriteRule ^create-store(/?|)$ index.php?link1=create-store [NC,QSA]
-RewriteRule ^store/(.*)(/?|)$ index.php?link1=store&store=$1 [NC,QSA]
+RewriteRule ^eshop(/?|)$ index.php?link1=eshop [NC,QSA]
+RewriteRule ^eshops(/?|)$ index.php?link1=eshops [NC,QSA]
+RewriteRule ^create-eshop(/?|)$ index.php?link1=create-eshop [NC,QSA]
+RewriteRule ^eshop/(.*)(/?|)$ index.php?link1=eshop&store=$1 [NC,QSA]
 
 # *** Ro_Requests ***
 RewriteRule ^ro_requests(/?|)$ index.php?link1=ro_requests [NC,QSA]
