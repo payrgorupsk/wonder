@@ -54,7 +54,7 @@
 .card {
   margin-top: 50px;
   /* background: #eee; */
-  padding: 3em;
+  padding: 5px;
   line-height: 1.5em; }
 
 @media screen and (min-width: 997px) {
@@ -179,20 +179,22 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 8px 8px;
   transition: 0.3s;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
+    padding: 8px 8px;
   background-color: #ddd;
-  border-bottom: 2px solid #00aeff;
+  /* border-bottom: 2px solid #00aeff; */
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
+    padding: 8px 8px;
   background-color: #ccc;
-  border-bottom: 2px solid #0076ad;
+  /* border-bottom: 2px solid #0076ad; */
 }
 
 /* Style the tab content */
@@ -201,6 +203,25 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+.tablinks{
+    font-size: 14px;
+}
+.tabdes{
+    margin-left: 5px;
+    margin-right:5px;
+}
+@media (max-width:600px){
+    .tablinks{
+    font-size: 11px;
+}
+.container{
+    padding:0px;
+}
+.tabdes{
+    margin-left: 10px;
+    margin-right:10px;
+}
 }
     </style>
 @endpush
@@ -230,6 +251,7 @@
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title">men's shoes fashion</h3>
+                        <h4 class="price">current price: <span>$180</span></h4>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -241,8 +263,8 @@
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-						<h4 class="price">current price: <span>$180</span></h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+
+						{{-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> --}}
 						<h5 class="sizes">sizes:
 							<span class="size" data-toggle="tooltip" title="small">s</span>
 							<span class="size" data-toggle="tooltip" title="medium">m</span>
@@ -254,13 +276,15 @@
 							<span class="color green"></span>
 							<span class="color blue"></span>
 						</h5>
-						<div class="action">
+						<div class="action text-center">
 							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
+							<button class="add-to-cart btn btn-primary" type="button">Buy Now</button>
 							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 						</div>
 					</div>
 				</div>
-				<div class="container mt-5">
+                <div class="row">
+                    <div class="container mt-5 tabdes" >
 					<!-- Tab links -->
 					<div class="tab">
 						<button class="tablinks active" id="btntab_description" onclick="toggletab('description')">Description</button>
@@ -294,6 +318,8 @@
 							<p>Tokyo is the capital of Japan.</p>
 						</div>
 				</div>
+                </div>
+
 			</div>
 		</div>
 	</div>
