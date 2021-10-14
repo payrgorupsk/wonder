@@ -248,6 +248,7 @@ function Wo_Login($username, $password) {
     }
     $username            = Wo_Secure($username);
     $query_hash          = mysqli_query($sqlConnect, "SELECT * FROM " . T_USERS . " WHERE (`username` = '{$username}' OR `email` = '{$username}' OR `phone_number` = '{$username}')");
+
     if (mysqli_num_rows($query_hash)) {
         $mysqli_hash_upgrade = mysqli_fetch_assoc($query_hash);
         $login_password = '';

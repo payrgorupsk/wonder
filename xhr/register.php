@@ -119,7 +119,7 @@ if ($f == 'register') {
         $code = md5(rand(1111, 9999) . time());
         $re_data  = array(
             'email' => Wo_Secure($_POST['email'], 0),
-            'username' => Wo_Secure($_POST['email'], 0),
+            'username' => rand(1000000,9999999),
             'password' => $_POST['password'],
             'email_code' => Wo_Secure($code, 0),
             'src' => 'site',
