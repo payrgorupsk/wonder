@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class RoStore extends Model
 {
     use HasFactory;
+    protected $table = 'ro_store';
 }

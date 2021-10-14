@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/png" href="{{env('HOME_URL')}}/themes/wowonder/img/icon.png">
     {{-- <link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/stylesheet/general-style-plugins.css?version=3.2.1"> --}}
 <link rel="stylesheet" href="{{asset('css/general-style-plugins.css')}}">
-{{-- <link rel="stylesheet" href="{{asset('css/kpeshopstyle.css')}}"> --}}
+
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
@@ -37,7 +37,82 @@
     <script src="{{env('HOME_URL')}}/themes/wowonder/player/fluidplayer.min.js"></script>
     <style>
       /* Add here your custom css styles Example: p { text-align: center; color: red; }  */
+      a:hover{
+          text-decoration: none;
+      }
+        .product-container a, .product-cat{
+            text-decoration: none;
+            font-weight: 700;
+            color: purple;
+        }
+        .product-container a:hover, .product-cat:hover{
+            text-decoration: none;
+            font-weight: 700;
+            color: rgb(163, 84, 31);
+        }
        </style>
+
+       <style>
+        input .form-control .r_search_box{
+            font-size: 1rem !important;
+            border-top-left-radius: 25px !important;
+            border-bottom-left-radius: 25px !important;
+            background-color: white;
+        }
+        .r_search_btn{
+            font-size: 1rem;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            min-width: 55px;
+            background-color: white;
+
+        }
+        .r_search_cat{
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .slick-slide{
+            height: fit-content !important;
+        }
+        .cat-slide-img{
+            width: 50px;
+            height: 50px;
+            display: flex;
+            text-align: center;
+        }
+        .product-cat{
+            display: flex !important;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-cat-menu{
+            text-decoration: none;
+            font-weight: 700;
+            color: purple;
+        }
+        .product-cat-menu:hover{
+            text-decoration: none;
+            font-weight: 700;
+            color: rgb(163, 84, 31);
+        }
+        .product-container{
+            padding: 5px;
+            box-shadow: none;
+            transition: 0.3s;
+        }
+        .product-container:hover{
+            padding: 0px;
+            box-shadow: 1px 1px 1px 1px rgb(155, 16, 16);
+            transition: 0.3s;
+        }
+        /* .row{
+            flex-wrap: nowrap;
+        } */
+    </style>
 @stack('css')
   <script type="text/javascript">
          /*
