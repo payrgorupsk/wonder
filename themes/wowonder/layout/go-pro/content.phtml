@@ -5,7 +5,27 @@
 <div class="wow_main_float_head gopro">
 	<div class="container wo_go_pro">
 		<h1 class="head_pro"><?php echo $wo['config']['siteName'];?> <span class="pro-badge">PRO</span></h1>
-		<p class="main_head_pro"><?php echo $wo['lang']['pro_feature_control_profile'];?></p>
+		<p class="main_head_pro"><?php //echo $wo['lang']['pro_feature_control_profile'];?> </p>
+		<ol style="list-style-type: number; text-align:justify;">
+			<li>There must have one or more original picture in your profile</li>
+			<li>Your name and photo must match with your NID/Passport/School Card</li>
+			<li>Payment related posts can not be posted</li>
+			<li>Vulgar posts can not be posted</li>
+			<li>Your comments should be related to the post</li>
+			<li>Vulgar comment can not be done</li>
+			<li>Anti-country posts or comments cannot be made</li>
+			<li>If there is any problem, you have to massage on the support page</li>
+		</ol>	
+		<ol style="list-style-type: bengali; text-align:justify;">
+			<li>প্রোফাইলে যেকনো একটি ছবি সঠিক ভাবে থাকতে হবে</li>
+			<li>আইডি কার্ড বা পাসপোর্ট বা স্কুল কার্ড এর সাথে নাম বয়সের মিল থাকতে হবে</li>
+			<li>পেমেন্ট সংক্রান্ত কোনো প্রকার পোস্ট করা যাবে না</li>
+			<li>কোনো বাজে পোস্ট করা যাবে না</li>
+			<li>পোস্টে মিল করে কমেন্ট করতে হবে </li>
+			<li>কোনো খারাপ কমেন্ট করা যাবে না</li>
+			<li>দেশ বিরোধী পোস্ট বা কমেন্ট করা যাবেনা</li>
+			<li>কোনো সমস্যা হলে সাপোর্ট পেজে ম্যাসেজ করতে হবে</li>
+		</ol>	
 	</div>
 </div>
 	
@@ -38,454 +58,19 @@
 					<?php echo $wo['lang']['star'];?>
 				</th>
 				<?php } ?>
-				<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-				<th class="text-center">
-					<?php if (!empty($wo['pro_packages']['hot']['image']) && $_COOKIE['mode'] == 'day') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['hot']['image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					elseif (!empty($wo['pro_packages']['hot']['night_image']) && $_COOKIE['mode'] == 'night') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['hot']['night_image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					else{ ?>
-						<span style="color: #ff9800;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11.71,19C9.93,19 8.5,17.59 8.5,15.86C8.5,14.24 9.53,13.1 11.3,12.74C13.07,12.38 14.9,11.53 15.92,10.16C16.31,11.45 16.5,12.81 16.5,14.2C16.5,16.84 14.36,19 11.71,19M13.5,0.67C13.5,0.67 14.24,3.32 14.24,5.47C14.24,7.53 12.89,9.2 10.83,9.2C8.76,9.2 7.2,7.53 7.2,5.47L7.23,5.1C5.21,7.5 4,10.61 4,14A8,8 0 0,0 12,22A8,8 0 0,0 20,14C20,8.6 17.41,3.8 13.5,0.67Z" /></svg></span>
-					<?php } ?>
-					 <?php echo $wo['lang']['hot'];?>
-				</th>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<th class="text-center">
-					<?php if (!empty($wo['pro_packages']['ultima']['image']) && $_COOKIE['mode'] == 'day') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['ultima']['image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					elseif (!empty($wo['pro_packages']['ultima']['night_image']) && $_COOKIE['mode'] == 'night') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['hot']['night_image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					else{ ?>
-						<span style="color: #e13c4c;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7,2V13H10V22L17,10H13L17,2H7Z" /></svg></span>
-					<?php } ?>
-					 <?php echo $wo['lang']['ultima'];?>
-				</th>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<th class="text-center">
-					<?php if (!empty($wo['pro_packages']['vip']['image']) && $_COOKIE['mode'] == 'day') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['vip']['image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					elseif (!empty($wo['pro_packages']['vip']['night_image']) && $_COOKIE['mode'] == 'night') { ?>
-						<div>
-							<img src="<?php echo($wo['pro_packages']['vip']['night_image']) ?>" class="pro_packages_icon">
-						</div>
-					<?php }
-					else{ ?>
-						<span style="color: #3f4bb8;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2.81,14.12L5.64,11.29L8.17,10.79C11.39,6.41 17.55,4.22 19.78,4.22C19.78,6.45 17.59,12.61 13.21,15.83L12.71,18.36L9.88,21.19L9.17,17.66C7.76,17.66 7.76,17.66 7.05,16.95C6.34,16.24 6.34,16.24 6.34,14.83L2.81,14.12M5.64,16.95L7.05,18.36L4.39,21.03H2.97V19.61L5.64,16.95M4.22,15.54L5.46,15.71L3,18.16V16.74L4.22,15.54M8.29,18.54L8.46,19.78L7.26,21H5.84L8.29,18.54M13,9.5A1.5,1.5 0 0,0 11.5,11A1.5,1.5 0 0,0 13,12.5A1.5,1.5 0 0,0 14.5,11A1.5,1.5 0 0,0 13,9.5Z" /></svg></span>
-					<?php } ?>
-					 <?php echo $wo['lang']['vip'];?>
-				</th>
-				<?php } ?>
+				
+				
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><?php echo $wo['lang']['price'];?></td>
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-				<td class="text-center"><?php echo Wo_GetCurrency($wo['config']['currency']);?><?php echo $wo['pro_packages']['star']['price'];?>/ <?php 
-				if ($wo['pro_packages']['star']['time'] == 7) {
-					echo $wo['lang']['per_week'];
-				}
-				elseif ($wo['pro_packages']['star']['time'] == 30) {
-					echo $wo['lang']['per_month'];
-				}
-				elseif ($wo['pro_packages']['star']['time'] == 365) {
-					echo $wo['lang']['per_year'];
-				}
-				elseif ($wo['pro_packages']['star']['time'] == 0) {
-					echo $wo['lang']['life_time'];
-				}
-				else{
-					echo $wo['pro_packages']['star']['time'].' '.$wo['lang']['day'];
-				}
-				?></td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-				<td class="text-center"><?php echo Wo_GetCurrency($wo['config']['currency']);?><?php echo $wo['pro_packages']['hot']['price'];?>/ <?php 
-				if ($wo['pro_packages']['hot']['time'] == 7) {
-					echo $wo['lang']['per_week'];
-				}
-				elseif ($wo['pro_packages']['hot']['time'] == 30) {
-					echo $wo['lang']['per_month'];
-				}
-				elseif ($wo['pro_packages']['hot']['time'] == 365) {
-					echo $wo['lang']['per_year'];
-				}
-				elseif ($wo['pro_packages']['hot']['time'] == 0) {
-					echo $wo['lang']['life_time'];
-				}
-				else{
-					echo $wo['pro_packages']['hot']['time'].' '.$wo['lang']['day'];
-				} ?></td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<td class="text-center"><?php echo Wo_GetCurrency($wo['config']['currency']);?><?php echo $wo['pro_packages']['ultima']['price'];?> /<?php 
-				if ($wo['pro_packages']['ultima']['time'] == 7) {
-					echo $wo['lang']['per_week'];
-				}
-				elseif ($wo['pro_packages']['ultima']['time'] == 30) {
-					echo $wo['lang']['per_month'];
-				}
-				elseif ($wo['pro_packages']['ultima']['time'] == 365) {
-					echo $wo['lang']['per_year'];
-				}
-				elseif ($wo['pro_packages']['ultima']['time'] == 0) {
-					echo $wo['lang']['life_time'];
-				}
-				else{
-					echo $wo['pro_packages']['ultima']['time'].' '.$wo['lang']['day'];
-				} ?></td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center"><?php echo Wo_GetCurrency($wo['config']['currency']);?><?php echo $wo['pro_packages']['vip']['price'];?>/ <?php
-				if ($wo['pro_packages']['vip']['time'] == 7) {
-					echo $wo['lang']['per_week'];
-				}
-				elseif ($wo['pro_packages']['vip']['time'] == 30) {
-					echo $wo['lang']['per_month'];
-				}
-				elseif ($wo['pro_packages']['vip']['time'] == 365) {
-					echo $wo['lang']['per_year'];
-				} 
-				elseif ($wo['pro_packages']['vip']['time'] == 0) {
-					echo $wo['lang']['life_time'];
-				}
-				else{
-					echo $wo['pro_packages']['vip']['time'].' '.$wo['lang']['day'];
-				} ?></td>
-			<?php } ?>
-			</tr>
-			<tr>
-				<td><?php echo $wo['lang']['featured_member'];?></td>
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['star']['featured_member']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['hot']['featured_member']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['ultima']['featured_member']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['vip']['featured_member']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
-			<tr>
-				<td><?php echo $wo['lang']['see_profile_visitors'];?></td>
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['star']['profile_visitors']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['hot']['profile_visitors']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-				<?php } ?>
-					<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['ultima']['profile_visitors']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-
-				<?php } ?>
-					<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['vip']['profile_visitors']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
-			<tr>
-				<td><?php echo $wo['lang']['show_hide_lastseen'];?></td>
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['star']['last_seen']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['hot']['last_seen']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['ultima']['last_seen']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['vip']['last_seen']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
-			<tr>
-				<td><?php echo $wo['lang']['verified_badge'];?></td>
-
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['star']['verified_badge']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-
-				<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['hot']['verified_badge']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['ultima']['verified_badge']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if ($wo['pro_packages']['vip']['verified_badge']) { ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4CAF50" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
-			<tr>
-				<td><?php echo $wo['lang']['post_promotion_star'];?></td>
-
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['star']['posts_promotion']) && is_numeric($wo['pro_packages']['star']['posts_promotion']) && $wo['pro_packages']['star']['posts_promotion'] > 0) { ?>
-						<?php echo $wo['pro_packages']['star']['posts_promotion']." ".($wo['pro_packages']['star']['posts_promotion'] == 1 ? $wo['lang']['post'] : $wo['lang']['posts']); ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['hot']['posts_promotion']) && is_numeric($wo['pro_packages']['hot']['posts_promotion']) && $wo['pro_packages']['hot']['posts_promotion'] > 0) { ?>
-						<?php echo $wo['pro_packages']['hot']['posts_promotion']." ".($wo['pro_packages']['hot']['posts_promotion'] == 1 ? $wo['lang']['post'] : $wo['lang']['posts']); ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['ultima']['posts_promotion']) && is_numeric($wo['pro_packages']['ultima']['posts_promotion']) && $wo['pro_packages']['ultima']['posts_promotion'] > 0) { ?>
-						<?php echo $wo['pro_packages']['ultima']['posts_promotion']." ".($wo['pro_packages']['ultima']['posts_promotion'] == 1 ? $wo['lang']['post'] : $wo['lang']['posts']); ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['vip']['posts_promotion']) && is_numeric($wo['pro_packages']['vip']['posts_promotion']) && $wo['pro_packages']['vip']['posts_promotion'] > 0) { ?>
-						<?php echo $wo['pro_packages']['vip']['posts_promotion']." ".($wo['pro_packages']['vip']['posts_promotion'] == 1 ? $wo['lang']['post'] : $wo['lang']['posts']); ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
-			<?php if ($wo['config']['pages'] == 1) { ?>
-				<tr>
-					<td><?php echo $wo['lang']['page_promotion_star'];?></td>
-
-					<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-					<td class="text-center">
-						<?php if (!empty($wo['pro_packages']['star']['pages_promotion']) && is_numeric($wo['pro_packages']['star']['pages_promotion']) && $wo['pro_packages']['star']['pages_promotion'] > 0) { ?>
-							<?php echo $wo['pro_packages']['star']['pages_promotion']." ".($wo['pro_packages']['star']['pages_promotion'] == 1 ? $wo['lang']['page'] : $wo['lang']['pages']); ?>
-						<?php }else{ ?>
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-						<?php } ?>
-					</td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-					<td class="text-center">
-						<?php if (!empty($wo['pro_packages']['hot']['pages_promotion']) && is_numeric($wo['pro_packages']['hot']['pages_promotion']) && $wo['pro_packages']['hot']['pages_promotion'] > 0) { ?>
-							<?php echo $wo['pro_packages']['hot']['pages_promotion']." ".($wo['pro_packages']['hot']['pages_promotion'] == 1 ? $wo['lang']['page'] : $wo['lang']['pages']); ?>
-						<?php }else{ ?>
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-						<?php } ?>
-					</td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-					<td class="text-center">
-						<?php if (!empty($wo['pro_packages']['ultima']['pages_promotion']) && is_numeric($wo['pro_packages']['ultima']['pages_promotion']) && $wo['pro_packages']['ultima']['pages_promotion'] > 0) { ?>
-							<?php echo $wo['pro_packages']['ultima']['pages_promotion']." ".($wo['pro_packages']['ultima']['pages_promotion'] == 1 ? $wo['lang']['page'] : $wo['lang']['pages']); ?>
-						<?php }else{ ?>
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-						<?php } ?>
-					</td>
-				<?php } ?>
-				<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-					<td class="text-center">
-						<?php if (!empty($wo['pro_packages']['vip']['pages_promotion']) && is_numeric($wo['pro_packages']['vip']['pages_promotion']) && $wo['pro_packages']['vip']['pages_promotion'] > 0) { ?>
-							<?php echo $wo['pro_packages']['vip']['pages_promotion']." ".($wo['pro_packages']['vip']['pages_promotion'] == 1 ? $wo['lang']['page'] : $wo['lang']['pages']); ?>
-						<?php }else{ ?>
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-						<?php } ?>
-					</td>
-				<?php } ?>
-				</tr>
-			<?php } ?>
-			<tr>
-				<td><?php echo $wo['lang']['discount'];?></td>
-				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['star']['discount']) && is_numeric($wo['pro_packages']['star']['discount']) && $wo['pro_packages']['star']['discount'] > 0) { ?>
-						<?php echo $wo['pro_packages']['star']['discount']."% ".$wo['lang']['discount']; ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-
-
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['hot']['discount']) && is_numeric($wo['pro_packages']['hot']['discount']) && $wo['pro_packages']['hot']['discount'] > 0) { ?>
-						<?php echo $wo['pro_packages']['hot']['discount']."% ".$wo['lang']['discount']; ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['ultima']['discount']) && is_numeric($wo['pro_packages']['ultima']['discount']) && $wo['pro_packages']['ultima']['discount'] > 0) { ?>
-						<?php echo $wo['pro_packages']['ultima']['discount']."% ".$wo['lang']['discount']; ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center">
-					<?php if (!empty($wo['pro_packages']['vip']['discount']) && is_numeric($wo['pro_packages']['vip']['discount']) && $wo['pro_packages']['vip']['discount'] > 0) { ?>
-						<?php echo $wo['pro_packages']['vip']['discount']."% ".$wo['lang']['discount']; ?>
-					<?php }else{ ?>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#bababa" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
-					<?php } ?>
-				</td>
-			<?php } ?>
-			</tr>
+			
 			<tr>
 				<td class="labels_col"></td>
 				<?php if ($wo['pro_packages']['star']['status'] == 1) { ?>
 				<td class="text-center"><button class="btn btn-mat btn-mat-raised btn_week" onclick="Wo_GetPaymentLink(1);"><?php echo $wo['lang']['upgrade_now'];?></button></td>
 				<?php } ?>
-					<?php if ($wo['pro_packages']['hot']['status'] == 1) { ?>
-				<td class="text-center"><button class="btn btn-mat btn-mat-raised btn_month" onclick="Wo_GetPaymentLink(2);"><?php echo $wo['lang']['upgrade_now'];?></button></td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['ultima']['status'] == 1) { ?>
-				<td class="text-center"><button class="btn btn-mat btn-mat-raised btn_year" onclick="Wo_GetPaymentLink(3);"><?php echo $wo['lang']['upgrade_now'];?></button></td>
-			<?php } ?>
-			<?php if ($wo['pro_packages']['vip']['status'] == 1) { ?>
-				<td class="text-center"><button class="btn btn-mat btn-mat-raised btn_life" onclick="Wo_GetPaymentLink(4);"><?php echo $wo['lang']['upgrade_now'];?></button></td>
-			<?php } ?>
+					
+			
 			</tr>
 		</tbody>
 	</table>
@@ -493,27 +78,7 @@
 </div>
 
 
-<div class="page-margin wow_content text-center wo_pro_features">
-	<h3 class="text-center"><?php echo $wo['lang']['why_choose_pro'];?></h3>
-	<div class="row">
-		<div class="col-sm-6 col-md-3">
-			<img src="<?php echo $wo['config']['theme_url'];?>/img/go-pro/superhero.svg" alt="superhero"/>
-			<p><?php echo $wo['lang']['featured_member'];?></p>
-		</div>
-		<div class="col-sm-6 col-md-3">
-			<img src="<?php echo $wo['config']['theme_url'];?>/img/go-pro/lastseen.svg" alt="lastseen"/>
-			<p><?php echo $wo['lang']['show_hide_lastseen'];?></p>
-		</div>
-		<div class="col-sm-6 col-md-3">
-			<img src="<?php echo $wo['config']['theme_url'];?>/img/go-pro/post.svg" alt="post"/>
-			<p><?php echo $wo['lang']['post_promotion_star'];?></p>
-		</div>
-		<div class="col-sm-6 col-md-3">
-			<img src="<?php echo $wo['config']['theme_url'];?>/img/go-pro/verify.svg" alt="verify"/>
-			<p><?php echo $wo['lang']['verified_badge'];?></p>
-		</div>
-	</div>
-</div>
+
 
 <div id="pay-modal"></div>
 <div class="modal fade" id="paystack_modal" role="dialog" data-keyboard="false" style="overflow-y: auto;">
@@ -835,7 +400,7 @@ function Wo_CheckOutCard(type, description, amount, payment_type) {
 	} else if (type == 4) {
 		img = 'vip';
 	}
-	if (payment_type != 'bank_payment' && payment_type != 'bitcoin') {
+	if (payment_type != 'bank_payment' && payment_type != 'bitcoin'&& payment_type != 'profile_proof')  {
 		var stripe = Stripe('<?php echo $wo['config']['stripe_id'];?>');
 		$.post(Wo_Ajax_Requests_File() + '?f=stripe&s=session', {amount: amount,type:'pro',pro_type:type,payment_type:payment_type}, function(data, textStatus, xhr) {
 			if (data.status == 200) {
@@ -873,7 +438,19 @@ function Wo_CheckOutCard(type, description, amount, payment_type) {
             });
     	
    	  
-	} else if (payment_type == 'checkout') {
+	} else if (payment_type == 'profile_proof') {
+    	$('#configreset').click();
+    	$(".prv-img").html('<div class="thumbnail-rendderer"><div><h4 class="bold"><?php echo $wo['lang']['drop_img_here']; ?></h4><div class="error-text-renderer"></div><div><span><?php echo $wo['lang']['or']; ?></span><p><?php echo $wo['lang']['browse_to_upload']; ?></p></div></div> </div>');
+		$("#blog-alert").html('');
+    	$('#bank_transfer_des').val("Wait for one to two days after submitting your documents");
+    	$('#bank_transfer_type').val(type);
+    	$('#pay-go-pro').modal('hide');
+    	$('#bank_transfer_modal').modal({
+             show: true
+            });    	
+   	  
+	}
+	 else if (payment_type == 'checkout') {
 		$("#2checkout_alert").html('');
 		$('#pay-go-pro').modal('hide');
 		$('#2checkout_type').val(type);
@@ -1112,13 +689,13 @@ $(function() {
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></button>
-				<h4 class="modal-title"><?php echo $wo['lang']['bank_transfer'] ?></h4>
+				<h4 class="modal-title"><?php //echo $wo['lang']['bank_transfer'] ?>Identity Proof</h4>
 			</div>
 			<form class="form form-horizontal" method="post" id="bank_transfer_form" action="#">
 				<div class="modal-body dt_bank_trans_modal">
 					<div id="blog-alert"></div>
 					
-					<?php echo $wo['config']['bank_description'];?>
+					<?php //echo $wo['config']['bank_description'];?>
 					
 					<?php if (!empty($wo['config']['bank_transfer_note'])) { ?>
 						<div class="dt_user_profile hide_alert_info_bank_trans">
@@ -1126,7 +703,7 @@ $(function() {
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path></svg> Note:
 							</span>
 							<ul class="dt_prof_vrfy">
-								<li><?php echo $wo['config']['bank_transfer_note'];?></li>
+								<li><?php //echo $wo['config']['bank_transfer_note'];?></li>
 							</ul>
 						</div>
 					<?php } ?>
