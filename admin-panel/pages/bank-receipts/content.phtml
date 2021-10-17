@@ -87,6 +87,7 @@ $db->where('recipient_id',0)->where('admin',1)->where('seen',0)->where('type','b
 								<th>Type</th>
 								<th>Price</th>
 								<th>Created</th>
+                                <th>User</th>
 								<th>Receipt</th>
 								<th>Action</th>
 							</tr>
@@ -95,7 +96,7 @@ $db->where('recipient_id',0)->where('admin',1)->where('seen',0)->where('type','b
 							<?php
 								if( count($mediafiles) === 0 ){
 									echo '<div class="text-center" style="width:100%"><p style="padding: 200px;text-align: center;">No data available in table</p></div>';
-								}else {
+								}else {                                    
 									foreach ($mediafiles as $mediafilelist) {
 										$wo['mediafilelist'] = $mediafilelist;
 										$wo['mediafilelist']->user = Wo_UserData($mediafilelist->user_id);

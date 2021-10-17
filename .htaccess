@@ -152,6 +152,7 @@ RewriteRule ^ads/chart/(\d+)(/?|)$ index.php?link1=chart-ads&id=$1 [NC,QSA]
 RewriteRule ^admin/ads/edit/(\d+)(/?|)$ index.php?link1=manage-ads&id=$1 [NC,QSA]
 RewriteRule ^wallet/affiliates(/?|)$ index.php?link1=wallet&page=affiliates [NC,QSA]
 RewriteRule ^wallet/payments(/?|)$ index.php?link1=wallet&page=payments [NC,QSA]
+RewriteRule ^wallet/gifted_points(/?|)$ index.php?link1=wallet&page=gifted_points [NC,QSA]
 RewriteRule ^wallet/my_points(/?|)$ index.php?link1=wallet&page=my_points [NC,QSA]
 RewriteRule ^wallet/transaction_log(/?|)$ index.php?link1=wallet&page=transaction_log [NC,QSA]
 

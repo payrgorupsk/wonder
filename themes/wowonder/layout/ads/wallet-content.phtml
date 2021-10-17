@@ -33,6 +33,7 @@ $pages_array = array(
    'verification',
    'blocked-users',
    'transaction_log',
+   'gifted_points',
    'my_points',
    'manage-sessions',
    'notifications-settings',
@@ -54,6 +55,7 @@ if ($wo['setting']['user_id'] == $wo['user']['user_id']) {
    'verification',
    'blocked-users',
    'transaction_log',
+   'gifted_points',
    'my_points',
    'manage-sessions',
    'notifications-settings',
@@ -104,8 +106,9 @@ if ($wo['setting_page'] == 'invitation_links') {
 			</div>
 		</div>
 		<div class="page-margin wowonder-well text-center" style="padding-bottom:10px;">
-			<a href="<?=$wo['config']['site_url']?>/wallet/affiliates" class="btn btn-primary" style="height: 35px; margin:5px">My Refer</a>
+			<a href="<?=$wo['config']['site_url']?>/wallet/affiliates" class="btn btn-primary" style="height: 35px; margin:5px">My Affiliates</a>
             <a href="<?=$wo['config']['site_url']?>/wallet/payments" class="btn btn-success" style="height: 35px; margin:5px">Current Balance</a>
+            <a href="<?=$wo['config']['site_url']?>/wallet/gifted_points" class="btn btn-warning" style="height: 35px; margin:5px">Gifted Points</a>
             <a href="<?=$wo['config']['site_url']?>/wallet/my_points" class="btn btn-danger" style="height: 35px; margin:5px">My Points</a>
             <a href="<?=$wo['config']['site_url']?>/wallet/transaction_log" class="btn btn-info" style="height: 35px; margin:5px">Transactions</a>
             <a href="#" class="btn btn-warning" style="height: 35px; margin:5px">Affiliated balance</a>
