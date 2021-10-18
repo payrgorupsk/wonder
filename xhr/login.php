@@ -29,7 +29,7 @@ if ($f == 'login') {
         if ($result === false) {
             $errors[] = $error_icon . $wo['lang']['incorrect_username_or_password_label'];
             if ($wo['config']['prevent_system'] == 1) {
-                WoAddBadLoginLog();
+                // WoAddBadLoginLog();
             }
         } else if (Wo_UserInactive($_POST['username']) === true) {
             $errors[] = $error_icon . $wo['lang']['account_disbaled_contanct_admin_label'];
