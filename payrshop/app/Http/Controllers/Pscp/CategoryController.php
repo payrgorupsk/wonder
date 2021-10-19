@@ -47,7 +47,33 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thumb = '';
+        $banner = '';
+
+        $image = $request->file('category_thumb');
+        $destinationPath = public_path('images/product_category'); 
+        $thumb = uniqid() . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $thumb);
+
+        $image = $request->file('category_banner');
+        $destinationPath = public_path('images/product_category'); 
+        $banner = uniqid() . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $banner);
+
+        $category = new StoreCategory();
+        $category->category_thumb = "images/product_category/".$thumb;
+        $category->category_banner = "images/product_category/".$banner;
+        $category->category_name = $request->category_name;
+        $category->category_slug = $request->category_slug;
+        $category->category_order = $request->category_order;
+        $category->allowed_in_home = (isset($request->allowed_in_home)) ? 1 : 0;
+        $category->created_by = 1;
+        $category->created_at = date('Y-m-d H:i:s');
+        $category->save();
+
+        return redirect()->to('pscp/categories')->with('alert', 'Category Added Successfully!');;
+
+
     }
 
     /**

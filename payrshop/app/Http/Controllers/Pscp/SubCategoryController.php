@@ -50,7 +50,31 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thumb = '';
+        $banner = '';
+
+        $image = $request->file('sub_category_thumb');
+        $destinationPath = public_path('images/product_subcategory'); 
+        $thumb = uniqid() . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $thumb);
+
+        $image = $request->file('sub_category_banner');
+        $destinationPath = public_path('images/product_subcategory'); 
+        $banner = uniqid() . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $banner);
+
+        $subcategory = new StoreSubCategory();
+        $subcategory->sub_category_thumb = "images/product_subcategory/".$thumb;
+        $subcategory->sub_category_banner = "images/product_subcategory/".$banner;
+        $subcategory->parent_id = $request->parent_id;
+        $subcategory->sub_category_name = $request->sub_category_name;
+        $subcategory->sub_category_slug = $request->sub_category_slug;
+        $subcategory->sub_category_order = $request->sub_category_order;
+        // $subcategory->created_by = 1;
+        $subcategory->created_at = date('Y-m-d H:i:s');
+        $subcategory->save();
+
+        return redirect()->to('pscp/subcategories')->with('alert', 'Category Added Successfully!');
     }
 
     /**

@@ -9,3 +9,7 @@ Route::resource('dashboard',DashboardController::class);
 Route::resource('/',DashboardController::class);
 Route::resource('categories',CategoryController::class);
 Route::resource('subcategories',SubCategoryController::class);
+
+
+Route::post('add_new_category',[CategoryController::class, 'store'])->name('add_new_category');
+Route::post('add_new_subcategory',[SubCategoryController::class, 'store'])->name('add_new_subcategory');
