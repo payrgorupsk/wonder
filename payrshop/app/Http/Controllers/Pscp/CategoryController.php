@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pscp;
 
 use App\Http\Controllers\Controller;
 use App\Models\StoreCategory;
+use App\Models\StoreSubCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -95,7 +96,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['page_name'] = "add category";
+        $data['category_name'] = "categories";
+        $data['has_scrollspy'] = 0;
+        $category = StoreCategory::where('id', $id)->first();
+        return view('pscp/pages/category/edit',$data, compact('category'));
     }
 
     /**
@@ -116,8 +121,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $category = StoreCategory::where('id', $id)->first();
+        $category->delete();
+
+        $subcategory = StoreSubCategory::where('parent_id', $id);
+        $subcategory->delete();
+
+        return redirect()->to('pscp/categories')->with('alert', 'Category Deleted Successfully!');;
+        exit();
     }
 }

@@ -117,8 +117,12 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+        public function delete($id)
     {
-        //
+        $subcategory = StoreSubCategory::where('id', $id)->first();
+        $subcategory->delete();
+
+        return redirect()->to('pscp/categories')->with('alert', 'Sub Category Deleted Successfully!');;
+        exit();
     }
 }

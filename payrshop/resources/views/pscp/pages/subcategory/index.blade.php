@@ -45,7 +45,11 @@
 
                                             <td><img alt="banner" class="img-fluid " style="width:100px; height:100px; object-fit:contain;" src="{{asset($subcategory->sub_category_banner)}}"></td>
                                             <td>{{$subcategory->sub_category_order}}</td>
-                                            <td><button class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</button><button class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</button></td>
+
+                                            <td>
+                                                <a class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</a>
+                                                <a href="{{url('pscp/subcategory/delete')}}/{{$subcategory->id}}" class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</a>
+                                            </td>
                                         </tr>
                                         @endforeach
 

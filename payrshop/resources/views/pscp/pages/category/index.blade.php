@@ -34,7 +34,12 @@
                                             </td>
                                             <td><img alt="banner" class="img-fluid " style="width:100px; height:100px; object-fit:contain;" src="{{asset($category->category_banner)}}"></td>
                                             <td>{{$category->category_order}}</td>
-                                            <td><button class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</button><button class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</button></td>
+
+                                            <td>
+
+                                                <a href="{{url('pscp/category/edit')}}/{{$category->id}}" class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</a>
+
+                                                <a href="{{url('pscp/category/delete')}}/{{$category->id}}" class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</a></td>
                                         </tr>
                                         @endforeach
 
