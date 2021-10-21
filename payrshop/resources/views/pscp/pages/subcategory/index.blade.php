@@ -47,7 +47,7 @@
                                             <td>{{$subcategory->sub_category_order}}</td>
 
                                             <td>
-                                                <a class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</a>
+                                                <a href="{{url('pscp/subcategory/edit')}}/{{$subcategory->id}}" class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</a>
                                                 <a href="{{url('pscp/subcategory/delete')}}/{{$subcategory->id}}" class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</a>
                                             </td>
                                         </tr>

@@ -32,21 +32,29 @@
                     </div>
                 </div>
             </div>
+
+            <input type="hidden" name="id" value="{{$category->id}}">
+
+            <input type="hidden" name="category_thumb_path" value="{{$category->category_thumb}}">
+
+            <input type="hidden" name="category_banner_path" value="{{$category->category_banner}}">
+
+
             <div class="form-row mb-4">
                 <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="category_thumb">
                     <label>Category Thumbnail (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
 
-                    <input type="file" class="form-control" accept="image/*" name="category_thumb">
+                    <input type="file" class="form-control" accept="image/*" name="category_thumb" onchange="readURL(this);">
                     <br>
 
-                    <img src="{{url($category->category_thumb)}}" width="100%">
+                    <img id="category_thumb" src="{{url($category->category_thumb)}}" width="100%">
                 </div>
                 <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="category_banner">
                     <label>Category Banner (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
-                    <input type="file" class="form-control" accept="image/*" name="category_banner">
+                    <input type="file" class="form-control" accept="image/*" name="category_banner" onchange="readURL2(this);">
                     <br>
 
-                    <img src="{{url($category->category_banner)}}" width="100%">
+                    <img id="category_banner" src="{{url($category->category_banner)}}" width="100%">
                 </div>
             </div>
 
@@ -62,11 +70,36 @@
 
 @push('js')
 <script src="{{asset('assets/js/scrollspyNav.js')}}"></script>
-<script src="{{asset('plugins/file-upload/file-upload-with-preview.min.js')}}"></script>
+
 <script>
-          //First upload
-          var firstUpload = new FileUploadWithPreview('category_thumb')
-          //Second upload
-          var secondUpload = new FileUploadWithPreview('category_banner')
-      </script>
-      @endpush
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#category_thumb')
+                .attr('src', e.target.result)
+                .width(auto);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+        function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#category_banner')
+                .attr('src', e.target.result)
+                .width(auto);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
+@endpush

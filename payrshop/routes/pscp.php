@@ -19,3 +19,5 @@ Route::post('category/edit',[CategoryController::class, 'edit_category'])->name(
 
 Route::post('add_new_subcategory',[SubCategoryController::class, 'store'])->name('add_new_subcategory');
 Route::get('subcategory/delete/{id}',[SubCategoryController::class, 'delete']);
+Route::get('subcategory/edit/{id}',[SubCategoryController::class, 'edit']);
+Route::post('subcategory/edit',[SubCategoryController::class, 'edit_subcategory'])->name('edit_subcategory');
