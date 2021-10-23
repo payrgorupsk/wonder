@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class WoAppssession extends Model
 {
     use HasFactory;
+    protected $table = 'Wo_AppsSessions';
 }

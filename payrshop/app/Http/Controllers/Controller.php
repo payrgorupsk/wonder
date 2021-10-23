@@ -30,12 +30,12 @@ class Controller extends BaseController
                return true;
            }
            else{
-            redirect()->to('http://192.168.0.100/wonder')->send();
+            redirect()->to(env('HOME_URL'))->send();
         }
 
         }
         else{
-            redirect()->to('http://192.168.0.100/wonder')->send();
+            redirect()->to(env('HOME_URL'))->send();
         }
     }
     /* end of __construct */

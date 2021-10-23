@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Pscp;
 
 use App\Http\Controllers\Controller;
+use App\Models\RoProduct;
+use App\Models\StoreCategory;
+use App\Models\StoreSubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,6 +19,11 @@ class ProductController extends Controller
     {
         //
         $this->adminAccess($request);
+        $data['page_name'] = "all products";
+        $data['category_name'] = "products";
+        $data['has_scrollspy'] = 0;
+        $data['products'] = RoProduct::all();
+        return view('pscp/pages/products/index',$data);
     }
 
     /**
@@ -23,9 +31,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $this->adminAccess($request);
+        $data['page_name'] = "add product";
+        $data['category_name'] = "products";
+        $data['has_scrollspy'] = 0;
+        $data['categories'] = StoreCategory::all();
+        $data['subcategories'] = StoreSubCategory::all();
+        return view('pscp/pages/products/form',$data);
     }
 
     /**
@@ -82,5 +97,15 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function pending(Request $request)
+    {
+        //
+        $this->adminAccess($request);
+        $data['page_name'] = "pending products";
+        $data['category_name'] = "products";
+        $data['has_scrollspy'] = 0;
+        $data['products'] = RoProduct::where('status',0);
+        return view('pscp/pages/products/pending',$data);
     }
 }

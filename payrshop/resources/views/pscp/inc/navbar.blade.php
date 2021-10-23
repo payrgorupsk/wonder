@@ -8,11 +8,11 @@
             <ul class="navbar-item theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
                     <a href="/analytics">
-                        <img src="{{asset('assets/img/90x90.jpg')}}" class="navbar-logo" alt="logo">
+                        <img src="{{asset('assets/img/icon.png')}}" class="navbar-logo" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="/analytics" class="nav-link"> CORK </a>
+                    <a href="/analytics" class="nav-link"> PAYRSHOP</a>
                 </li>
             </ul>
 

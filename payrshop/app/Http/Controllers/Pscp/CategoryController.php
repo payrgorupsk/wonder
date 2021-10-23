@@ -169,4 +169,8 @@ class CategoryController extends Controller
         return redirect()->to('pscp/categories')->with('alert', 'Category Deleted Successfully!');;
         exit();
     }
+
+    public function subCategory(Request $request){
+        return json_encode(StoreCategory::find($request->id)->subCategory);
+    }
 }
