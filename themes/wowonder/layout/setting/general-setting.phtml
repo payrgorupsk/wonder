@@ -12,14 +12,14 @@
 		<div class="setting-general-alert setting-update-alert"></div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" style="display: none;">
 				<div class="wow_form_fields">
 					<label for="username"><?php echo $wo['lang']['username']; ?></label>
 					<input id="username" name="username" type="text" value="<?php echo $wo['setting']['username']?>" onkeyup="Wo_CheckUsername(this.value);" autocomplete="off">
 					<span class="help-block checking"></span>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="wow_form_fields">
 					<label for="phone_number"><?php echo $wo['lang']['phone_number']; ?> </label>
 					<input name="phone_number" id="phone_number" type="tel" value="<?php echo $wo['setting']['phone_number']?>" autocomplete="off">

@@ -20,33 +20,37 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="widget-content widget-content-area">
-                    <form>
+                <div class="widget-content widget-content-area">
+                    <form action="{{route('add_new_subcategory')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-row mb-4">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 <label for="parent">Category</label>
-                                <select class="form-control basic" id="parent" name="parent">
+                                <select class="form-control basic" name="parent_id" name="parent">
                                     <option>Select</option>
                                     @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="category_name">Sub-Categpry Name</label>
-                                <input type="text" class="form-control" id="subcategory_name" placeholder="Sub-Categpry Name">
+                            <div class="form-group col-md-3">
+                                <label for="category_name">Sub-Category Name</label>
+                                <input type="text" class="form-control" name="sub_category_name" placeholder="Sub-Category Name">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="category_name">Sub-Categpry Order</label>
-                                <input type="number" class="form-control" id="sub_category_order" placeholder="Sub-Categpry Order">
+                            <div class="form-group col-md-3">
+                                <label for="category_name">Slug</label>
+                                <input type="text" class="form-control" name="sub_category_slug" placeholder="Slug">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="category_name">Sub-Category Order</label>
+                                <input type="number" class="form-control" name="sub_category_order" placeholder="Sub-Category Order">
                             </div>
                         </div>
                         <div class="form-row mb-4">
                             <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="sub_category_thumb">
                                 <label>Sub-Category Thumbnail (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                 <label class="custom-file-container__custom-file" >
-                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="sub_category_thumb">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                 </label>
@@ -55,7 +59,7 @@
                             <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="sub_category_banner">
                                 <label>Sub-Category Banner (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                 <label class="custom-file-container__custom-file" >
-                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="sub_category_banner">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                 </label>

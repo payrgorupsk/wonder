@@ -19,22 +19,27 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="widget-content widget-content-area">
-                    <form>
+
+                <div class="widget-content widget-content-area">
+                    <form action="{{route('add_new_category')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-row mb-4">
-                            <div class="form-group col-md-6">
-                                <label for="category_name">Categpry Name</label>
-                                <input type="text" class="form-control" id="category_name" placeholder="Categpry Name">
+                            <div class="form-group col-md-4">
+                                <label for="category_name">Category Name</label>
+                                <input type="text" class="form-control" name="category_name" placeholder="Category Name">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="category_name">Categpry Order</label>
-                                <input type="number" class="form-control" id="category_order" placeholder="Categpry Order">
+                            <div class="form-group col-md-4">
+                                <label for="category_name">Category Slug</label>
+                                <input type="text" class="form-control" name="category_slug" placeholder="Category Slug">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="category_name">Category Order</label>
+                                <input type="number" class="form-control" name="category_order" placeholder="Category Order">
                             </div>
                             <div class="form-group form-check col-md-4">
                                 <div class="custom-control custom-checkbox checkbox-info">
-                                    <input type="checkbox" class="custom-control-input" id="allow_in_home">
-                                    <label class="custom-control-label" for="allow_in_home">Allow to Homepage</label>
+                                    <input type="checkbox" name="allowed_in_home">
+                                    Allow to Homepage
                                 </div>
                             </div>
                         </div>
@@ -42,7 +47,7 @@
                             <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="category_thumb">
                                 <label>Category Thumbnail (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                 <label class="custom-file-container__custom-file" >
-                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="category_thumb">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                 </label>
@@ -51,7 +56,7 @@
                             <div class="custom-file-container col-md-6 px-3" style="border:2px solid #0f0f0f0f;" data-upload-id="category_banner">
                                 <label>Category Banner (Single File) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                 <label class="custom-file-container__custom-file" >
-                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="category_banner">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                 </label>

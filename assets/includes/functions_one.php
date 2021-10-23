@@ -248,6 +248,15 @@ function Wo_Login($username, $password) {
     }
     $username            = Wo_Secure($username);
     $query_hash          = mysqli_query($sqlConnect, "SELECT * FROM " . T_USERS . " WHERE (`username` = '{$username}' OR `email` = '{$username}' OR `phone_number` = '{$username}')");
+
+    // for($i = 1; $i <= 20000; $i++){
+
+    //     $sql = mysqli_query($sqlConnect, "UPDATE " . T_USERS . " set username = '".rand(100000, 999999)."' where user_id = ".$i );
+
+    //     echo 'done';
+    // }
+
+
     if (mysqli_num_rows($query_hash)) {
         $mysqli_hash_upgrade = mysqli_fetch_assoc($query_hash);
         $login_password = '';

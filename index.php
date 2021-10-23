@@ -293,9 +293,6 @@ if ($wo['config']['membership_system'] == 1) {
                 case 'my-blogs':
                 include('sources/my_blogs.php');
                 break;
-                case 'affiliate':
-                include('sources/affiliate.php');
-                break;
                 case 'create-blog':
                 include('sources/create_blog.php');
                 break;
@@ -855,9 +852,6 @@ else{
         break;
         case 'my-blogs':
         include('sources/my_blogs.php');
-        break;
-        case 'affiliate':
-        include('sources/affiliate.php');
         break;
         case 'create-blog':
         include('sources/create_blog.php');
