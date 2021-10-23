@@ -1,27 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Pscp;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\StoreCategory;
+use App\Models\RoProduct;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class RoProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $this->adminAccess($request);
-        $data['page_name'] = "all categories";
-        $data['category_name'] = "categories";
-        $data['has_scrollspy'] = 0;
-        $data['categories'] = StoreCategory::all();
-        return view('pscp/pages/category/index',$data);
     }
 
     /**
@@ -29,14 +22,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         //
-        $this->adminAccess($request);
-        $data['page_name'] = "add category";
-        $data['category_name'] = "categories";
-        $data['has_scrollspy'] = 0;
-        return view('pscp/pages/category/form',$data);
     }
 
     /**
@@ -53,10 +41,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\RoProduct  $roProduct
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(RoProduct $roProduct)
     {
         //
     }
@@ -64,10 +52,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\RoProduct  $roProduct
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(RoProduct $roProduct)
     {
         //
     }
@@ -76,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\RoProduct  $roProduct
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, RoProduct $roProduct)
     {
         //
     }
@@ -87,15 +75,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\RoProduct  $roProduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(RoProduct $roProduct)
     {
         //
-    }
-
-    public function subCategory(Request $request){
-        return json_encode(StoreCategory::find($request->id)->subCategory);
     }
 }

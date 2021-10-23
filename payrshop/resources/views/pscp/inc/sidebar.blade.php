@@ -30,8 +30,8 @@
                         </ul>
                     </li>
 
-                    <li class="menu {{ ($category_name === 'categories') ? 'active' : '' }}">
-                        <a href="#categories" data-active="{{ ($category_name === 'categories') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'category') ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <li class="menu {{ ($category_name === 'categories' ||$category_name === 'subcategories') ? 'active' : '' }}">
+                        <a href="#categories" data-active="{{ ($category_name === 'categories' ||$category_name === 'subcategories') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'category' ||$category_name === 'subcategories') ? 'true' : 'false' }}" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                                 <span>Categories</span>
@@ -40,7 +40,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'categories') ? 'show' : '' }}" id="categories" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'categories' ||$category_name === 'subcategories') ? 'show' : '' }}" id="categories" data-parent="#accordionExample">
                             <li class="{{ ($page_name === 'all categories') ? 'active' : '' }}">
                                 <a href="{{route('categories.index')}}">All Categories</a>
                             </li>
@@ -52,6 +52,29 @@
                             </li>
                             <li class="{{ ($page_name === 'add subcategory') ? 'active' : '' }}">
                                 <a href="{{route('subcategories.create')}}">Add Sub-Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu {{ ($category_name === 'products') ? 'active' : '' }}">
+                        <a href="#products" data-active="{{ ($category_name === 'products') ? 'true' : 'false' }}" data-toggle="collapse" aria-expanded="{{ ($category_name === 'category') ? 'true' : 'false' }}" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                <span>Products</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled {{ ($category_name === 'products') ? 'show' : '' }}" id="products" data-parent="#accordionExample">
+                            <li class="{{ ($page_name === 'all products') ? 'active' : '' }}">
+                                <a href="{{route('products.index')}}">All Products</a>
+                            </li>
+                            <li class="{{ ($page_name === 'add product') ? 'active' : '' }}">
+                                <a href="{{route('products.create')}}">Add Products</a>
+                            </li>
+                            <li class="{{ ($page_name === 'pending products') ? 'active' : '' }}">
+                                <a href="{{route('products.pending')}}">Pending Products</a>
                             </li>
                         </ul>
                     </li>

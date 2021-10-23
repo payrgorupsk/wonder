@@ -10,7 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ setTitle($page_name) }}</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}"/>
+    {{-- <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}"/> --}}
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/icon.png')}}"/>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
