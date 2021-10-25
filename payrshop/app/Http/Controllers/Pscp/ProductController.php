@@ -23,6 +23,8 @@ class ProductController extends Controller
         $data['category_name'] = "products";
         $data['has_scrollspy'] = 0;
         $data['products'] = RoProduct::all();
+        $data['categories'] = StoreCategory::all();
+        $data['subcategories'] = StoreSubCategory::all();
         return view('pscp/pages/products/index',$data);
     }
 
@@ -51,7 +53,47 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=uniqid().'.'.$image->getClientOriginalExtension();
+                $image->move(public_path().'/images/products', $name);  
+                $data[] = $name;  
+            }
+        }
+
+        $product_image = json_encode($data);
+
+        $product = new RoProduct();
+
+        $product->product_name        = $request->product_name;
+        $product->product_sku         = $request->product_sku;
+        $product->category_id         = $request->category_id;
+        $product->subcategory_id      = $request->subcategory_id;
+        $product->product_stock       = $request->product_stock;
+        $product->payrmall            = (isset($request->payrmall)) ? 1 : 0;;
+        $product->flash_sale          = (isset($request->flash_sale)) ? 1 : 0;;
+        $product->all_products        = (isset($request->all_products)) ? 1 : 0;;
+        $product->affiliate           = (isset($request->affiliate)) ? 1 : 0;;
+        $product->country             = $request->country;
+        $product->payment_getway      = $request->payment_getway;
+        $product->cod                 = (isset($request->cod)) ? 1 : 0;;
+        $product->product_delevery    = $request->product_delevery;
+        $product->product_description = $request->product_description;
+        $product->buy_return_policy   = $request->buy_return_policy;
+        $product->product_image       = $request->product_image;
+        $product->status              = 1;
+        $product->added_by            = 1;
+        $product->approved_by         = 1;
+        $product->store_id            = 0;
+        $product->product_image       = $product_image;
+
+        $product->save();
+
+        return redirect()->back()->with('product_added','New Product Added');
     }
 
     /**
@@ -94,9 +136,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $product = RoProduct::where('id', $id)->first();
+        $product->delete();
+
+
+        return redirect()->to('pscp/products')->with('product_delete', 'Product Deleted Successfully!');;
+        exit();
     }
     public function pending(Request $request)
     {
