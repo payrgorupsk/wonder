@@ -167,6 +167,17 @@
       <script src="<?php echo $wo['config']['theme_url'];?>/javascript/tinymce/js/tinymce/tinymce.min.js?version=<?php echo $wo['config']['version']; ?>"></script>
       <?php } ?>
 
+
+      <?php if(Wo_IsMobile()){ ?>
+        <style>
+          .header-fixed-top{
+            position: fixed;
+            top: 0;
+            z-index: 9999;
+          }
+        </style>        
+      <?php } ?>
+
      
     
       <?php if ($wo['page'] == 'welcome') { ?>
@@ -251,7 +262,7 @@
       <?php } ?>
       <style>
       <?php echo $wo['config']['styles_cc']; ?>
-      </style>
+      </styl>
 
       <script type="text/javascript">
          <?php echo $wo['config']['header_cc']; ?>
@@ -726,7 +737,7 @@
       <input type="hidden" class="seen_stories_users_ids" value="">
       <input type="hidden" class="main_session" value="<?php echo Wo_CreateMainSession();?>">
       <?php if($wo['page'] != 'welcome' && $wo['page'] != 'get_news_feed' && $wo['page'] != 'maintenance' && $wo['page'] != 'video-api'): ?>
-         <header class="header-container">
+         <header class="header-container header-fixed-top">
             <?php echo Wo_LoadPage( 'header/content'); ?>
          </header>
       <?php endif; ?>
@@ -740,7 +751,7 @@
         $container = 'wo-msg-container';
       }
       ?>
-      <div class="content-container <?php echo $container?>" style="<?php echo ($wo['page'] == 'timeline' || $wo['page'] == 'page' || $wo['page'] == 'group') ? 'margin-top:25px;' : '';?>">
+      <div class="content-container <?php echo $container?>" style="<?php echo ($wo['page'] == 'timeline' || $wo['page'] == 'page' || $wo['page'] == 'group') ? 'margin-top:25px;' : '';?> <?=(Wo_IsMobile())?'margin-top:90px;':''?>">
          <div class="ad-placement-header-footer">
             <?php 
                $header_ad = Wo_GetAd('header', false);
