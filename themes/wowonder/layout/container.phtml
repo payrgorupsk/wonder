@@ -36,6 +36,7 @@
       <meta name="twitter:description" content="<?php echo $wo['page_profile']['page_description']; ?>" />
       <meta name="twitter:image" content="<?php echo $wo['page_profile']['avatar']; ?>" />
       <?php } ?>
+
       <?php if ($wo['page'] == 'group' && !empty($wo['group_profile'])) { ?>
       <meta property="og:title" content="<?php echo $wo['group_profile']['group_name']; ?>" />
       <meta property="og:type" content="article" />
@@ -71,6 +72,15 @@
       <meta name="twitter:title" content="<?php echo $wo['title'];?>" />
       <meta name="twitter:description" content="<?php echo $wo['description'];?>" />
       <meta name="twitter:image" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
+      <?php } ?>
+      <?php if(Wo_IsMobile()){ ?>
+        <style>
+          .header-fixed-top{
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+          }
+        </style>        
       <?php } ?>
       <?php 
       if (!empty($wo['story']['postFile'])) { 
@@ -168,15 +178,7 @@
       <?php } ?>
 
 
-      <?php if(Wo_IsMobile()){ ?>
-        <style>
-          .header-fixed-top{
-            position: fixed;
-            top: 0;
-            z-index: 9999;
-          }
-        </style>        
-      <?php } ?>
+      
 
      
     
@@ -262,7 +264,7 @@
       <?php } ?>
       <style>
       <?php echo $wo['config']['styles_cc']; ?>
-      </styl>
+      </style>
 
       <script type="text/javascript">
          <?php echo $wo['config']['header_cc']; ?>
@@ -727,6 +729,7 @@
         ?>
       });
       </script>
+
     
    </head>
    
