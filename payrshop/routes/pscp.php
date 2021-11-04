@@ -15,6 +15,12 @@ Route::get('products/pending',[ProductController::class,'pending'])->name('produ
 Route::resource('products',ProductController::class);
 Route::get('categories/{id}/subcategory',[CategoryController::class,'subCategory'])->name('categories.subcategory');
 
+Route::post('add_new_product',[ProductController::class, 'store'])->name('add_new_product');
+Route::get('product/delete/{id}',[ProductController::class, 'delete']);
+Route::get('product/edit/{id}',[ProductController::class, 'edit']);
+Route::post('product/edit',[ProductController::class, 'edit_product'])->name('edit_product');
+
+
 Route::post('add_new_category',[CategoryController::class, 'store'])->name('add_new_category');
 Route::get('category/delete/{id}',[CategoryController::class, 'delete']);
 Route::get('category/edit/{id}',[CategoryController::class, 'edit']);
