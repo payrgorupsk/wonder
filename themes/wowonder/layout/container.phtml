@@ -76,7 +76,7 @@
       <?php if(Wo_IsMobile()){ ?>
         <style>
           .header-fixed-top{
-            position: sticky;
+            position: fixed;
             top: 0;
             z-index: 9999;
           }
@@ -383,7 +383,9 @@
                        $('.content-container').css('margin-top', '25px');
                        $('.ad-placement-header-footer').find('.contnet').css('margin-top', '20px');
                      } else {
-                       $('.content-container').css('margin-top', '45px');
+                        <?php if(!Wo_IsMobile()){ ?>
+                            $('.content-container').css('margin-top', '45px');
+                        <?php } ?>
                        $('.ad-placement-header-footer').find('.contnet').css('margin-top', '0');
                      }
                      if (json_data.is_footer == 1 && $('.second-footer').css('display') == 'none') {
