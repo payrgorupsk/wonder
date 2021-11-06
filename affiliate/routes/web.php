@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\ApproveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +14,9 @@ use App\Http\Controllers\Admin\ApproveController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/affiliate_form', [HomeController::class, 'form'])->name('affiliate_form');
 Route::post('/affiliate_form', [HomeController::class, 'form_save'])->name('affiliate_form_save');
-
-
-//admin
-
-Route::prefix('admin')->group(function () {
-
-    Route::get('/', [ApproveController::class, 'index'])->name('admin.dashboard');
-    Route::get('/approve/{id}', [ApproveController::class, 'approve']);
-    Route::get('/delete/{id}', [ApproveController::class, 'delete']);
-
-
-});
