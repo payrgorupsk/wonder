@@ -135,7 +135,7 @@ iframe, .post-map img {border:none;border-radius:3px;}
 .post .post-heading .meta .title a:hover{text-decoration:underline!important}
 .post .post-heading .meta .time{margin-top:8px;color:#999}
 .post .post-description{padding:15px 15px 8px}
-.post .post-description p{font-size:14px;color:#555;overflow:hidden;word-wrap:break-word}
+.post .post-description p{font-size:14px;color:black;overflow:hidden;word-wrap:break-word; text-shadow: 0 0 black;}
 .post .post-description .stats .stat-item{display:inline-block;padding:3px 7px;font-size:12px;border:0;color:#555}
 .post .post-description .stats .stat-item .icon{margin-right:8px}
 .post .post-file{max-height:400px;background:#f9f9f9;width:100%}

@@ -36,6 +36,7 @@
       <meta name="twitter:description" content="<?php echo $wo['page_profile']['page_description']; ?>" />
       <meta name="twitter:image" content="<?php echo $wo['page_profile']['avatar']; ?>" />
       <?php } ?>
+
       <?php if ($wo['page'] == 'group' && !empty($wo['group_profile'])) { ?>
       <meta property="og:title" content="<?php echo $wo['group_profile']['group_name']; ?>" />
       <meta property="og:type" content="article" />
@@ -71,6 +72,15 @@
       <meta name="twitter:title" content="<?php echo $wo['title'];?>" />
       <meta name="twitter:description" content="<?php echo $wo['description'];?>" />
       <meta name="twitter:image" content="<?php echo $wo['config']['theme_url'];?>/img/og.jpg" />
+      <?php } ?>
+      <?php if(Wo_IsMobile()){ ?>
+        <style>
+          .header-fixed-top{
+            position: fixed;
+            top: 0;
+            z-index: 9999;
+          }
+        </style>        
       <?php } ?>
       <?php 
       if (!empty($wo['story']['postFile'])) { 
@@ -166,6 +176,9 @@
       <?php if ($wo['page'] == 'create_blog' || $wo['page'] == 'edit-blog') { ?>
       <script src="<?php echo $wo['config']['theme_url'];?>/javascript/tinymce/js/tinymce/tinymce.min.js?version=<?php echo $wo['config']['version']; ?>"></script>
       <?php } ?>
+
+
+      
 
      
     
@@ -370,7 +383,9 @@
                        $('.content-container').css('margin-top', '25px');
                        $('.ad-placement-header-footer').find('.contnet').css('margin-top', '20px');
                      } else {
-                       $('.content-container').css('margin-top', '45px');
+                        <?php if(!Wo_IsMobile()){ ?>
+                            $('.content-container').css('margin-top', '45px');
+                        <?php } ?>
                        $('.ad-placement-header-footer').find('.contnet').css('margin-top', '0');
                      }
                      if (json_data.is_footer == 1 && $('.second-footer').css('display') == 'none') {
@@ -716,6 +731,7 @@
         ?>
       });
       </script>
+
     
    </head>
    
@@ -726,7 +742,7 @@
       <input type="hidden" class="seen_stories_users_ids" value="">
       <input type="hidden" class="main_session" value="<?php echo Wo_CreateMainSession();?>">
       <?php if($wo['page'] != 'welcome' && $wo['page'] != 'get_news_feed' && $wo['page'] != 'maintenance' && $wo['page'] != 'video-api'): ?>
-         <header class="header-container">
+         <header class="header-container header-fixed-top">
             <?php echo Wo_LoadPage( 'header/content'); ?>
          </header>
       <?php endif; ?>
@@ -740,7 +756,7 @@
         $container = 'wo-msg-container';
       }
       ?>
-      <div class="content-container <?php echo $container?>" style="<?php echo ($wo['page'] == 'timeline' || $wo['page'] == 'page' || $wo['page'] == 'group') ? 'margin-top:25px;' : '';?>">
+      <div class="content-container <?php echo $container?>" style="<?php echo ($wo['page'] == 'timeline' || $wo['page'] == 'page' || $wo['page'] == 'group') ? 'margin-top:25px;' : '';?> <?=(Wo_IsMobile())?'margin-top:90px;':''?>">
          <div class="ad-placement-header-footer">
             <?php 
                $header_ad = Wo_GetAd('header', false);

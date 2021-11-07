@@ -42,6 +42,7 @@ if ($followers_alert == 0) {
 			</li>
 		</ul>
 	</li>
+	<?php if(!Wo_IsMobile()){ ?>
 	<li class="dropdown messages-notification-container" onclick="Wo_OpenMessagesMenu();">
 		<span class="new-update-alert<?php echo $messages_hidden_class;?>" data_messsages_count="<?php echo $messages_alert?>">
 			<?php echo $messages_alert?>
@@ -55,6 +56,7 @@ if ($followers_alert == 0) {
 			</li>
 		</ul>
 	</li>
+	<?php } ?>
 	<li class="">
 
 		<a href="<?php echo Wo_SeoLink('index.php?link1=videos'); ?>" class="sixteen-font-size" aria-expanded="false">
@@ -114,6 +116,9 @@ if ($followers_alert == 0) {
 				</li>
 				<li>
 					<a href="<?php echo Wo_SeoLink('index.php?link1=wallet');?>" data-ajax="?link1=wallet">Wallet</a>
+				</li>
+				<li>
+					<a href="<?=$wo['config']['site_url']?>/affiliate">My Affiliate</a>
 				</li>
 
 				<li>

@@ -157,7 +157,7 @@ if (!empty($user_stories)) {
                 </span>
             </li>
             <li>
-                <div class="sidebar-users-may-know-container">
+                <div class="<?=(Wo_IsMobile())?'scroll' :'row sidebar-users-may-know-container'?>">
                     <?php 
                         foreach ($users as $wo['UsersList']) {
                             $wo['UsersList']['user_name'] = mb_substr($wo['UsersList']['name'],0,10, "utf-8");
@@ -206,7 +206,7 @@ if (!empty($user_stories)) {
                 </span>
             </li>
             <li>
-                <div class="row sidebar-group-may-know-container">
+                <div class="scroll sidebar-group-may-know-container">
                     <?php 
                         foreach ($groups as $wo['GroupList']) {
                             $wo['GroupList']['name'] = mb_substr($wo['GroupList']['name'],0,20, "utf-8");

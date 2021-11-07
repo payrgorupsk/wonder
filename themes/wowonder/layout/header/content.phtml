@@ -8,7 +8,7 @@ body {
   width: 0;
   position: fixed;
   z-index: 99999;
-  top: 0;
+  top: 102px;
   left: 0;
   background-color: #fff;
   overflow-x: hidden;
@@ -38,6 +38,16 @@ body {
   font-size: 36px;
   margin-left: 50px;
 }
+#topsb{
+width: 100%;
+background-color: white !important;
+}
+
+
+.th-logo{
+  width: 29%;
+  text-align: left;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -60,20 +70,40 @@ body {
   }
 
   function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0px";
   }
+  function toggleNav() {
+    if(document.getElementById("mySidenav").style.width == "0px" || document.getElementById("mySidenav").style.width == 0 || document.getElementById("mySidenav").style.width == "0"){
+      openNav();
+    }else{
+      closeNav();
+    }
+  }
+
 </script>
+<?php
+$messages_alert         = Wo_CountMessages(array(
+  'new' => true
+));
+
+$messages_hidden_class  = '';
+$unread_update_messages = 'unread-update';
+if ($messages_alert == 0) {
+    $messages_hidden_class = ' hidden';
+    $unread_update_messages = '';
+}
+?>
 
 <div id="mySidenav" class="sidenav">
-  <a class="main_menu pull-right" style="font-size:30px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <br><br>
+  <!-- <a class="main_menu pull-right" style="font-size:30px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <br><br> -->
 
-  <form style="width:95%; margin: 0px 5px 0px 5px;" data-toggle="dropdown" role="button" id="" role="search">
+  <!-- <form style="width:95%; margin: 0px 5px 0px 5px;" data-toggle="dropdown" role="button" id="" role="search">
     <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
 
       <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
     </div>
-  </form>
+  </form> -->
 
   <a class="main_menu" onclick="closeNav()" href="<?php echo $wo['config']['site_url']; ?>" data-ajax="?index.php?link1=home">
     <img src="<?=$wo['config']['site_url']?>/icons/home.png" width="25px"> <?php echo $wo['lang']['news_feed'];?>
@@ -144,7 +174,7 @@ body {
 
     <hr>
 
-<!--     <div style="padding: 10px;">
+    <div style="padding: 10px;">
       <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=terms" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=terms');?>"><?php echo $wo['lang']['terms_of_use'];?></a>
       <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=terms&type=privacy-policy" href="<?php echo Wo_SeoLink('index.php?link1=terms&type=privacy-policy');?>"><?php echo $wo['lang']['privacy_policy'];?></a>
       <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=contact-us" href="<?php echo Wo_SeoLink('index.php?link1=contact-us');?>">Contact</a>
@@ -152,7 +182,7 @@ body {
       <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=developers" href="<?php echo Wo_SeoLink('index.php?link1=developers');?>">Developers</a>
       <a onclick="closeNav()" style="color:#1da1f2;" data-ajax="?link1=monetization" href="<?php echo Wo_SeoLink('index.php?link1=monetization');?>">Monetization</a>
 
-    </div> -->
+    </div>
     <p style="color: black;">
       <b><?php 
       $copy = str_replace('{site_name}', $wo['config']['siteName'], $wo['lang']['copyrights']);
@@ -163,8 +193,69 @@ body {
   </p>
 
 </div>
+<?php if(Wo_IsMobile()){?>
+<div class="navbar navbar-defaultnavbar-fixed-top">
+  <nav>
+  <ul class="nav navbar-nav text-center" style="background-color: cornflowerblue;">
+  <li class="pull-left th-logo">
+  <a style="padding-left: 0px;" class="brand header-brand" href="<?php echo $wo['config']['site_url']; ?>">
+     <img style="width: 130px !important;" src="<?php echo $wo['config']['theme_url'];?>/img/wh_logo.png" alt="<?php echo $wo['config']['siteName'];?> Logo"/>
+   </a>
+  </li>
+          <li class="dropdown search-container" style="width: 50%; padding-left:5px;">
+            <form class="navbar-form navbar-left col-lg-12 form-group" data-toggle="dropdown" role="button" id="navbar-searchbox2" role="search">
+              <div class="form-group inner-addon <?php echo Wo_RightToLeft('left-addon');?> ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather main-color feather-search glyphicon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input id="topsb" type="text"  class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
+              </div>
+            </form> 
+            <ul class="dropdown-menu search-dropdown-container" role="menu">
+              <div class="search-dropdown-result">
+                <?php
+                if ($wo['loggedin'] == true) {
+                  foreach (Wo_GetRecentSerachs() as $wo['result']) {
+                    if (!empty($wo['result'])) {
+                      echo Wo_LoadPage('header/search');
+                    }
+                  }
+                }
+                
+                ?>
+              </div>
+              <li>
+                <span class="search-advanced-container">                
+                  <a href="<?php echo Wo_SeoLink('index.php?link1=search');?>" class="search-advanced-link" data-ajax="?link1=search">
+                    <div class="feather-svg-parent">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <span style="vertical-align: middle;display: table-cell;padding-left: 10px;">
+                      <?php echo $wo['lang']['advanced_search']; ?> 
+                      <span id="wo_repeat_search"></span>
+                    </span>
+                  </a>
+                </span>
+              </li>
+            </ul>  
+                    
+          </li>
+          <li class="dropdown messages-notification-container" onclick="Wo_OpenMessagesMenu();">
+		<span class="new-update-alert<?php echo $messages_hidden_class;?>" data_messsages_count="<?php echo $messages_alert?>">
+			<?php echo $messages_alert?>
+		</span>
+		<a href="#" class="dropdown-toggle <?php echo $unread_update_messages;?> sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
+			<img src="<?=$wo['config']['site_url']?>/icons/messenger.png" width="25px">
+		</a>
+		<ul class="dropdown-menu clearfix notifications-dropdown messages-dropdown" role="menu" id="messages-list">
+			<li>
+				<h5 class="text-center"><svg width='50px' height='50px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></h5>
+			</li>
+		</ul>
+	</li>
+        </ul>
+</div>
+<?php }?>
 
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-default">  
  <nav class="header-fixed1000">
   <div class="container-fluid">
    <div class="wow_hdr_innr_left">
@@ -173,7 +264,7 @@ body {
     if($wo['loggedin'] == true) {
       ?>
 
-      <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="openNav()">&#9776; </span> &emsp;
+      <span class="burger_menu" style="font-size:30px;cursor:pointer; color: black" onclick="toggleNav()">&#9776; </span> &emsp;
 
       <?php
     }
@@ -241,6 +332,7 @@ body {
                 <input type="text" class="form-control search-input" onkeyup="Wo_DetectSearchType(this.value), document.getElementById('wo_repeat_search').innerHTML = escapeHtml(this.value)" placeholder="<?php echo $wo['lang']['search_header_label']; ?>" dir="auto" <?php if ($wo['loggedin'] == true) { echo 'onfocus="Wo_GetRecentSearchs()"';}?>>
               </div>
             </form>
+            <?php if(!Wo_IsMobile()){?>
             <ul class="dropdown-menu search-dropdown-container" style="margin-left:7px;" role="menu">
               <div class="search-dropdown-result">
                 <?php
@@ -268,8 +360,10 @@ body {
                 </span>
               </li>
             </ul>
+            <?php } ?>
           </li>
         </ul>
+        
         <?php
         if ($wo['loggedin'] == true) {
           echo Wo_LoadPage('header/loggedin-header');
@@ -391,4 +485,10 @@ body {
       return false;
     }
   }
+</script>
+
+<script>
+  // $("#topsb").click(function(){
+  //   $("#topsb").width("60%");
+  // });
 </script>

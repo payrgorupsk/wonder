@@ -26,7 +26,7 @@
              @if(Session::has('product_updated'))
 
              <div class="col-md-12">
-                 
+
                  <div class="alert alert-success" role="alert">
                         {{Session::get('product_updated')}}
                     </div>
@@ -65,7 +65,7 @@
                                 <select class="form-control basic" name="subcategory_id" name="subcategory_id">
                                     <option>Select</option>
                                     @foreach ($subcategories as $subcategory)
-                                    <option value="{{$subcategory->id}}">{{$subcategory->sub_category_name}}</option>
+                                    <option value="{{$subcategory->id}}">{{$subcategory->subcategory_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -250,7 +250,7 @@
                       $.each(JSON.parse(data), function( k, v ) {
                         $('#subcategory_id').append($("<option></option>")
                             .attr("value",v.id)
-                            .text(v.sub_category_name));
+                            .text(v.subcategory_name));
                     });
                   }
                   else{
