@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Eshop;
 use App\Models\StoreCategory;
+use App\Models\RoProduct;
 use App\Models\StoreSubCategory;
 use Illuminate\Http\Request;
+use DB;
 
 class EshopController extends Controller
 {
@@ -17,8 +19,11 @@ class EshopController extends Controller
 
     public function index()
     {
-        //
+        
         $data['categories'] = StoreCategory::all();
+        $data['flash_sales'] = RoProduct::all()->where('flash_sale', 1);
+        $data['new_products'] = RoProduct::orderBy('id', 'desc')->take(10)->get();
+        $data['all_products'] = RoProduct::all();
         return view('welcome',$data);
     }
 
@@ -87,7 +92,9 @@ class EshopController extends Controller
 
     public function product($product=null)
     {
-        return view('store/products/product_details');
+
+        $data['product'] = RoProduct::find($product);
+        return view('store/products/product_details', $data);
     }
 
     /**
