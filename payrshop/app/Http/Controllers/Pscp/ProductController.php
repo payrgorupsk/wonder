@@ -73,6 +73,9 @@ class ProductController extends Controller
         $product->product_sku         = $request->product_sku;
         $product->category_id         = $request->category_id;
         $product->subcategory_id      = $request->subcategory_id;
+        $product->price               = $request->price;
+        $product->discount            = $request->discount;
+        $product->currency            = $request->currency;
         $product->product_stock       = $request->product_stock;
         $product->payrmall            = (isset($request->payrmall)) ? 1 : 0;;
         $product->flash_sale          = (isset($request->flash_sale)) ? 1 : 0;;
@@ -148,6 +151,9 @@ class ProductController extends Controller
         $product->product_sku         = $request->product_sku;
         $product->category_id         = $request->category_id;
         $product->subcategory_id      = $request->subcategory_id;
+        $product->price               = $request->price;
+        $product->discount            = $request->discount;
+        $product->currency            = $request->currency;
         $product->product_stock       = $request->product_stock;
         $product->payrmall            = (isset($request->payrmall)) ? 1 : 0;;
         $product->flash_sale          = (isset($request->flash_sale)) ? 1 : 0;;

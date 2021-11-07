@@ -74,6 +74,23 @@
                                 <input type="text" class="form-control" name="product_stock" placeholder="Product Stock">
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="product_stock">Price</label>
+                                <input type="text" class="form-control" name="price" placeholder="Price">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="product_stock">Discount</label>
+                                <input type="text" class="form-control" name="discount" placeholder="Discount">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="product_stock">Currency</label>
+                                <select class="form-control basic" name="currency" >
+                                    <option value="TK">Tk</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group row mb-2">
                             <div class="n-chk col-md-3">
                                 <label class="new-control new-checkbox new-checkbox-rounded checkbox-primary">

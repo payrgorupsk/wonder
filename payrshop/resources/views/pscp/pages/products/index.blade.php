@@ -23,8 +23,11 @@
                                 <th>Sl.</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Category</th>
-                                <th>Sub-Category</th>
+                                <th>Cat.</th>
+                                <th>Sub-Cat.</th>
+                                <th>Price</th>
+                                <th>Discount</th>
+                                <th>Currency</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -58,8 +61,11 @@
                             </td>
                             <td>{{$categories->find($product->category_id)->category_name}}</td>
                             <td>{{$subcategories->find($product->subcategory_id)->sub_category_name}}</td>
+                            <td>{{$product->price}}</td>
+                            <td>{{$product->discount}}</td>
+                            <td>{{$product->currency}}</td>
                             <td>
-                                <button class="btn btn-primary mx-2"><i class="fa fa-eye-open"></i> View</button>
+                                <!-- <button class="btn btn-primary mx-2"><i class="fa fa-eye-open"></i> View</button> -->
                                 <a href="{{url('pscp/product/edit')}}/{{$product->id}}" class="btn btn-primary mx-2"><i class="fa fa-pencil"></i> Edit</a>
 
                                 <a href="{{url('pscp/product/delete')}}/{{$product->id}}" class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</a></td>
