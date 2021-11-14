@@ -310,9 +310,23 @@
 							<span class="color blue"></span>
 						</h5>
 						<div class="action text-center">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-							<button class="add-to-cart btn btn-primary" type="button">Buy Now</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+							
+
+							<form action="{{route('order')}}" method="POST">
+
+								@csrf
+
+								<input type="hidden" name="products[]" value="{{$product->id}}" >
+
+								<button class="add-to-cart btn btn-default" type="button">add to cart</button>
+								
+								<button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
+
+								<button class="like btn btn-danger" type="button"><span class="fa fa-heart"></span></button>
+
+							</form>
+							
+							
 						</div>
 					</div>
 				</div>
