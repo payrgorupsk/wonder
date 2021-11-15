@@ -57,10 +57,10 @@
                     $og_price = (int)$flash_sale->price;
 
                     if (strpos($flash_sale->discount, 'tk') !== false) {
-                    $dis_price = $og_price - (int)$flash_sale->discount;
+                        $dis_price = $og_price - (int)$flash_sale->discount;
                     }
                     else{
-                    $dis_price = $og_price - ($og_price * (int)$flash_sale->discount / 100);
+                        $dis_price = $og_price - ($og_price * (int)$flash_sale->discount / 100);
                     }
                     ?>
                     <div class="product-img">
@@ -68,6 +68,15 @@
                     </div>
                     <div class="product-price"><p ><span>{{$dis_price." ".$flash_sale->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$flash_sale->currency}}</span></p></div>
                     <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$flash_sale->product_name}}</div>
+
+                    <form action="{{route('order')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="products[]" value="{{$flash_sale->id}}" >
+                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
+                    </form>
+                    <br>
+
                 </a>
             </div>
         </div>
@@ -92,10 +101,10 @@
                     $og_price = (int)$new_products->price;
 
                     if (strpos($new_products->discount, 'tk') !== false) {
-                    $dis_price = $og_price - (int)$new_products->discount;
+                        $dis_price = $og_price - (int)$new_products->discount;
                     }
                     else{
-                    $dis_price = $og_price - ($og_price * (int)$new_products->discount / 100);
+                        $dis_price = $og_price - ($og_price * (int)$new_products->discount / 100);
                     }
                     ?>
                     <div class="product-img">
@@ -103,6 +112,15 @@
                     </div>
                     <div class="product-price"><p ><span>{{$dis_price." ".$flash_sale->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$new_products->currency}}</span></p></div>
                     <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$new_products->product_name}}</div>
+
+                    <form action="{{route('order')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="products[]" value="{{$new_products->id}}" >
+                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
+                    </form>
+                    <br>
+
                 </a>
             </div>
         </div>
@@ -122,39 +140,48 @@ $cat_products = DB::table('ro_products')->where('category_id', $category->id)->g
 
 if(count($cat_products) > 0){
 
-?>
-<div class="mt-5 mb-3" style="margin-left: -15px; margin-right:-20px;">
-    <h3 style="margin-left:15px;"><a class="product-cat-menu" href="{{route('category','men')}}">{{$category->category_name}}</a></h3>
-    <img style="width:100%; height:100px;" src="{{asset($category->category_banner)}}" alt="Men">
-</div>
-<div >
-    <div class="products-slider">
-        @foreach ($cat_products as $cat_product)
-        <div class="prc-col-md-3 prc-col-sm-4 prc-col-xs-6 text-center">
-            <div class="product-container">
-                <a href="{{url('product')}}/{{$cat_product->id}}">
-                    <?php
-                    $images = json_decode($cat_product->product_image);
-                    $og_price = (int)$cat_product->price;
-
-                    if (strpos($cat_product->discount, 'tk') !== false) {
-                    $dis_price = $og_price - (int)$cat_product->discount;
-                    }
-                    else{
-                    $dis_price = $og_price - ($og_price * (int)$cat_product->discount / 100);
-                    }
-                    ?>
-                    <div class="product-img">
-                        <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
-                    </div>
-                    <div class="product-price"><p ><span>{{$dis_price." ".$cat_product->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$cat_product->currency}}</span></p></div>
-                    <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$cat_product->product_name}}</div>
-                </a>
-            </div>
-        </div>
-        @endforeach
+    ?>
+    <div class="mt-5 mb-3" style="margin-left: -15px; margin-right:-20px;">
+        <h3 style="margin-left:15px;"><a class="product-cat-menu" href="{{route('category','men')}}">{{$category->category_name}}</a></h3>
+        <img style="width:100%; height:100px;" src="{{asset($category->category_banner)}}" alt="Men">
     </div>
-</div>
+    <div >
+        <div class="products-slider">
+            @foreach ($cat_products as $cat_product)
+            <div class="prc-col-md-3 prc-col-sm-4 prc-col-xs-6 text-center">
+                <div class="product-container">
+                    <a href="{{url('product')}}/{{$cat_product->id}}">
+                        <?php
+                        $images = json_decode($cat_product->product_image);
+                        $og_price = (int)$cat_product->price;
+
+                        if (strpos($cat_product->discount, 'tk') !== false) {
+                            $dis_price = $og_price - (int)$cat_product->discount;
+                        }
+                        else{
+                            $dis_price = $og_price - ($og_price * (int)$cat_product->discount / 100);
+                        }
+                        ?>
+                        <div class="product-img">
+                            <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
+                        </div>
+                        <div class="product-price"><p ><span>{{$dis_price." ".$cat_product->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$cat_product->currency}}</span></p></div>
+                        <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$cat_product->product_name}}</div>
+
+                        <form action="{{route('order')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="products[]" value="{{$cat_product->id}}" >
+                            <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                            <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
+                        </form>
+                        <br>
+
+                    </a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
 <?php } ?>
 @endforeach
 
@@ -241,10 +268,10 @@ if(count($cat_products) > 0){
                     $og_price = (int)$all_product->price;
 
                     if (strpos($all_product->discount, 'tk') !== false) {
-                    $dis_price = $og_price - (int)$all_product->discount;
+                        $dis_price = $og_price - (int)$all_product->discount;
                     }
                     else{
-                    $dis_price = $og_price - ($og_price * (int)$all_product->discount / 100);
+                        $dis_price = $og_price - ($og_price * (int)$all_product->discount / 100);
                     }
                     ?>
                     <div class="product-img">
@@ -252,11 +279,20 @@ if(count($cat_products) > 0){
                     </div>
                     <div class="product-price"><p ><span>{{$dis_price." ".$flash_sale->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$all_product->currency}}</span></p></div>
                     <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$all_product->product_name}}</div>
+
+                    <form action="{{route('order')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="products[]" value="{{$all_product->id}}" >
+                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
+                    </form>
+                    <br>
+                    
                 </a>
             </div>
         </div>
         @endforeach
-</div>
+    </div>
 </div>
 </div>
 
