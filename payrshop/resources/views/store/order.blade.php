@@ -53,7 +53,7 @@
 		box-shadow: 0 0 3px silver;
 		border-radius: 6px;
 	}
-	.right-side input
+	.right-side input, .right-side select 
 	{
 		width: 100%;
 		height: 40px;
@@ -201,6 +201,26 @@
 
 @section('main')
 
+<?php
+
+$req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
+$response_json = file_get_contents($req_url);
+
+if(false !== $response_json) {
+    try {
+    // Decoding
+    $response_object = json_decode($response_json);
+    // YOUR APPLICATION CODE HERE, e.g.
+    $base_price = 1; // Your price in USD
+    $BDT = round(($base_price * $response_object->rates->BDT), 2);
+    }
+    catch(Exception $e) {
+        // Handle JSON parse error...
+    }
+}
+
+?>
+
 <form action="{{route('place_order')}}" method="POST">
 	@csrf
 <div class="prc-col-md-10 prc-middlecol">
@@ -276,6 +296,20 @@
 							<i class="fas fa-map-marker-alt"></i>
 							<input type="text" name="address" placeholder="Your Address" required>
 						</div>
+						
+						<div>
+							<i class="fas fa-star"></i>
+							<input type="text" name="city" placeholder="City" required>
+						</div>
+						<div>
+							<i class="fas fa-globe"></i>
+							<select name="country">
+								<option>Select A  Country</option>
+								<option value="Bangladesh">Bangladesh</option>
+								<option value="United Arab Emirates">United Arab Emirates</option>
+							</select>
+							
+						</div>
 						<div>
 							<i class="fas fa-phone"></i>
 							<input type="number" name="phone" placeholder="Phone Number" required>
@@ -302,7 +336,7 @@
 						}
 						else{
 
-							$shipping_fee = (float)100/80;
+							$shipping_fee = (float)100/$BDT;
 						}
 						?>
 
@@ -313,9 +347,9 @@
 						<input type="text" name="Code" placeholder="Voucher Code">
 						<button type="button" class="ms-2 voucher-btn px-2">APPLY</button>
 					</div>
-					<div class="d-flex justify-content-between mb-3">
-						<h6>Total</h6>
-						<p><b>{{$product->currency}} <span id="total-amount"></span></b></p>
+					<div class="d-flex justify-content-between mb-3" style="background: green; color: white; padding: 5px; border-radius: 10px">
+						<h3>Total</h3>
+						<p><b style="font-size: 15px"><span id="total-amount"></span></b></p>
 					</div>
 					<div class="text-end vat">
 						<p>VAT included, where applicable</p>
@@ -440,7 +474,7 @@
 		total_amount = parseFloat(total_net_amount + shipping_fee);
 
 		if(currency == 'TK'){
-			mod_amount = parseFloat(total_amount / 80);
+			mod_amount = parseFloat(total_amount / <?=$BDT?>).toFixed(3);
 			mod_currency = ' USD';
 		}
 		else{
@@ -450,9 +484,8 @@
 
 		}
 
-
 		$('#total-net-amount').html(total_net_amount);
-		$('#total-amount').html(total_amount);
+		$('#total-amount').html('TK '+total_amount+" / USD "+mod_amount);
 		$('#paypal_amount').val(mod_amount + mod_currency);
 		
 	}

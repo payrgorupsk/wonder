@@ -108,7 +108,6 @@ public function order(Request $request)
 
     $data['products'] = RoProduct::whereIn('id', $products)->get();
 
-
     return view('store/order', $data);
 }
 
@@ -126,6 +125,8 @@ public function place_order(Request $request)
     $order->quantity = json_encode($request->quantity);
     $order->name = $request->name;
     $order->address = $request->address;
+    $order->city = $request->city;
+    $order->country = $request->country;
     $order->phone = $request->phone;
     $order->email = $request->email;
     $order->payment_method = $request->payment_method;
