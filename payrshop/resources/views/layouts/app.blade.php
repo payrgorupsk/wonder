@@ -30,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
 
 
     <link rel="stylesheet" href="{{env('HOME_URL')}}/themes/wowonder/player/fluidplayer.min.css" type="text/css">
@@ -1125,7 +1125,19 @@
                                               <img src="{{env('HOME_URL')}}/icons/movies.png" width="25px">
                                             </a>
 
-                                          </li><li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
+                                          </li>
+
+                                          <li class="">
+
+                                            <a href="{{env('HOME_URL')}}/payrshop/cart" class="prc-sixteen-font-size" aria-expanded="false">
+                                              <img src="{{env('HOME_URL')}}/icons/cart.png" width="25px">
+                                            </a>
+
+                                            
+
+                                          </li>
+
+                                          <li class="dropdown notification-container" onclick="Wo_OpenNotificationsMenu();">
                                             <span class="prc-new-update-alert hidden" style="display: none;">0</span>
                                             <a href="#" class="dropdown-toggle prc-sixteen-font-size" data-toggle="dropdown" role="button" aria-expanded="false">
                                               <img src="{{env('HOME_URL')}}/icons/notification.png" width="20px">

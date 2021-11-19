@@ -102,6 +102,17 @@ public function product($product=null)
     return view('store/products/product_details', $data);
 }
 
+public function cart()
+{
+
+    $products = RoCart::where('user_id', Session::get('user_id'))->pluck('product_id')->toArray();
+
+    $data['products'] = RoProduct::whereIn('id', $products)->get();
+
+    return view('store/cart', $data);
+
+}
+
 public function add_to_cart($id)
 {
 
