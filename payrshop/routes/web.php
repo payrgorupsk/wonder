@@ -28,8 +28,13 @@ Route::get('/product/{product}', [EshopController::class,'product'])->name('prod
 Route::get('/payrmall', [EshopController::class,'payrmall'])->name('payrmall');
 Route::get('/flash-sale', [EshopController::class,'flashsale'])->name('flashsale');
 
+Route::get('/cart', [EshopController::class,'cart'])->name('cart');
+Route::get('/add_to_cart/{id}', [EshopController::class,'add_to_cart'])->name('add_to_cart');
+
 Route::post('/order', [EshopController::class,'order'])->name('order');
 Route::post('/place_order', [EshopController::class,'place_order'])->name('place_order');
+
+
 
 //paypal
 Route::get('handle-payment', [PayPalPaymentController::class,'handlePayment'])->name('make.paypal');

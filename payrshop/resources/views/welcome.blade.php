@@ -32,17 +32,17 @@
                         <img style="border-radius:50%; width:100%;" src="{{asset($category->category_thumb)}}" alt="{{$category->category_name}}">
                     </div>
                     <div class="slide-title text-center" style="width: 100%;">
-                       <h5>{{$category->category_name}}</h5>
-                   </div>
-               </div>
-           </a>
-           @endforeach
+                     <h5>{{$category->category_name}}</h5>
+                 </div>
+             </div>
+         </a>
+         @endforeach
 
-       </div>
-   </div>
+     </div>
+ </div>
 
-   <!-- flash sale div -->
-   <div>
+ <!-- flash sale div -->
+ <div>
     <div class="mt-5 mb-3" style="border-bottom: 2px solid violet; margin-left: -15px; margin-right:-20px;">
         <h3 style="margin-left:15px;"><a class="product-cat-menu" href="{{route('flashsale')}}">Flash Sale</a></h3>
     </div>
@@ -62,6 +62,10 @@
                     else{
                         $dis_price = $og_price - ($og_price * (int)$flash_sale->discount / 100);
                     }
+
+                    $cart = DB::table('ro_cart')->where('product_id', $flash_sale->id)->get();
+                    $count = $cart->count();
+
                     ?>
                     <div class="product-img">
                         <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
@@ -72,7 +76,9 @@
                     <form action="{{route('order')}}" method="POST">
                         @csrf
                         <input type="hidden" name="products[]" value="{{$flash_sale->id}}" >
-                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        @if($count == 0)
+                        <a class="add-to-cart btn btn-warning" onclick="add_to_cart({{$flash_sale->id}})" data-id="{{$flash_sale->id}}">Add to Cart</a>
+                        @endif
                         <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
                     </form>
                     <br>
@@ -106,17 +112,23 @@
                     else{
                         $dis_price = $og_price - ($og_price * (int)$new_products->discount / 100);
                     }
+
+                    $cart = DB::table('ro_cart')->where('product_id', $new_products->id)->get();
+                    $count = $cart->count();
+
                     ?>
                     <div class="product-img">
                         <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
                     </div>
-                    <div class="product-price"><p ><span>{{$dis_price." ".$flash_sale->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$new_products->currency}}</span></p></div>
+                    <div class="product-price"><p ><span>{{$dis_price." ".$new_products->currency}}</span> <span style="text-decoration: line-through;">{{$og_price." ".$new_products->currency}}</span></p></div>
                     <div class="product-name" style="font-weight: 700; font-size: 16px;">{{$new_products->product_name}}</div>
 
                     <form action="{{route('order')}}" method="POST">
                         @csrf
                         <input type="hidden" name="products[]" value="{{$new_products->id}}" >
-                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        @if($count == 0)
+                        <a class="add-to-cart btn btn-warning" onclick="add_to_cart()" data-id="{{$new_products->id}}">Add to Cart</a>
+                        @endif
                         <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
                     </form>
                     <br>
@@ -161,6 +173,10 @@ if(count($cat_products) > 0){
                         else{
                             $dis_price = $og_price - ($og_price * (int)$cat_product->discount / 100);
                         }
+
+                        $cart = DB::table('ro_cart')->where('product_id', $cat_product->id)->get();
+                    $count = $cart->count();
+
                         ?>
                         <div class="product-img">
                             <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
@@ -171,7 +187,9 @@ if(count($cat_products) > 0){
                         <form action="{{route('order')}}" method="POST">
                             @csrf
                             <input type="hidden" name="products[]" value="{{$cat_product->id}}" >
-                            <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                            @if($count == 0)
+                            <a class="add-to-cart btn btn-warning" onclick="add_to_cart()" data-id="{{$cat_product->id}}">Add to Cart</a>
+                            @endif
                             <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
                         </form>
                         <br>
@@ -273,6 +291,10 @@ if(count($cat_products) > 0){
                     else{
                         $dis_price = $og_price - ($og_price * (int)$all_product->discount / 100);
                     }
+
+                    $cart = DB::table('ro_cart')->where('product_id', $all_product->id)->get();
+                    $count = $cart->count();
+
                     ?>
                     <div class="product-img">
                         <img width="100%" src="{{asset('images/products')}}/{{$images[0]}}" alt="">
@@ -283,7 +305,9 @@ if(count($cat_products) > 0){
                     <form action="{{route('order')}}" method="POST">
                         @csrf
                         <input type="hidden" name="products[]" value="{{$all_product->id}}" >
-                        <button class="add-to-cart btn btn-warning" type="button">add to cart</button>
+                        @if($count == 0)
+                        <a class="add-to-cart btn btn-warning" onclick="add_to_cart()" data-id="{{$all_product->id}}">Add to Cart</a>
+                        @endif
                         <button class="add-to-cart btn btn-success" type="submit">Buy Now</button>
                     </form>
                     <br>
@@ -426,5 +450,49 @@ if(count($cat_products) > 0){
     // instead of a settings object
     ]
 });
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="text/javascript">
+
+    function add_to_cart(id)
+    {
+        $.ajax({
+            url: "{{url('add_to_cart')}}/"+id,
+            type: 'GET',
+
+            success:function(data) {
+
+                if(data == "success"){
+
+                    Swal.fire({
+                      position: 'center',
+                      icon: 'success',
+                      title: 'Great ! <br>Product Added to cart !',
+                      showConfirmButton: false,
+                      timer: 1500
+                  })
+
+                }
+                else{
+
+                    Swal.fire({
+                      position: 'center',
+                      icon: 'error',
+                      title: 'Oops ! <br>Product Already Added !',
+                      showConfirmButton: false,
+                      timer: 1500
+                  })
+
+
+                }
+
+
+            },
+
+        });
+    }
+    
 </script>
 @endpush

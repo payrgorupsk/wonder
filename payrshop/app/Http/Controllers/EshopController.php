@@ -6,6 +6,7 @@ use App\Models\Eshop;
 use App\Models\StoreCategory;
 use App\Models\RoProduct;
 use App\Models\RoOrders;
+use App\Models\RoCart;
 use App\Models\StoreSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -101,6 +102,42 @@ public function product($product=null)
     return view('store/products/product_details', $data);
 }
 
+public function cart()
+{
+
+    $products = RoCart::where('user_id', Session::get('user_id'))->pluck('product_id')->toArray();
+
+    $data['products'] = RoProduct::whereIn('id', $products)->get();
+
+    return view('store/cart', $data);
+
+}
+
+public function add_to_cart($id)
+{
+
+    $row = RoCart::where('user_id',Session::get('user_id'))->where('product_id', $id)->first();
+
+    if($row == null){
+
+        $cart = new RoCart();
+
+        $cart->user_id = Session::get('user_id');
+        $cart->product_id = $id;
+
+        $cart->save();
+
+        echo 'success';
+    }
+    else{
+
+        echo 'failed';
+    }
+
+    exit();
+
+}
+
 
 public function order(Request $request)
 {
@@ -110,6 +147,7 @@ public function order(Request $request)
 
     return view('store/order', $data);
 }
+
 
 public function place_order(Request $request)
 {
